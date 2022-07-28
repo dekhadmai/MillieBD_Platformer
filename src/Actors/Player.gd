@@ -15,6 +15,14 @@ onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var sound_jump = $Jump
 onready var gun = sprite.get_node(@"Gun")
+onready var dash_timer = $DashTimer
+onready var dash_cooldown = $DashTimer/DashCooldown
+
+var is_dashing = 0
+
+var jump_count = 0
+export var jump_max_count = 2;
+export var dash_speed = 4.0
 
 
 func _ready():
@@ -51,9 +59,6 @@ func _ready():
 # - If you split the character into a state machine or more advanced pattern,
 #   you can easily move individual functions.
 func _physics_process(_delta):
-	# Play jump sound
-	if Input.is_action_just_pressed("jump" + action_suffix) and is_on_floor():
-		sound_jump.play()
 
 	var direction = get_direction()
 
@@ -67,6 +72,9 @@ func _physics_process(_delta):
 	_velocity = move_and_slide_with_snap(
 		_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
 	)
+	
+	if is_on_floor():
+		jump_count = 0
 
 	# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
 	# This will make Robi face left or right depending on the direction you move.
@@ -89,14 +97,49 @@ func _physics_process(_delta):
 		if is_shooting:
 			shoot_timer.start()
 		animation_player.play(animation)
+		
+	if Input.is_action_just_pressed("dash" + action_suffix):
+		do_dash()
+	
+	if dash_timer.is_stopped():
+		is_dashing = 0
 
 
 func get_direction():
 	return Vector2(
 		Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix),
-		-1 if is_on_floor() and Input.is_action_just_pressed("jump" + action_suffix) else 0
+		-1 if do_jump() else 0
 	)
+	
+func do_jump():
+	var result = false
+	result = true if can_jump() and Input.is_action_just_pressed("jump" + action_suffix) else false
+	
+	if result:
+		jump_count += 1
+		# Play jump sound
+		sound_jump.play()
+		
+	return result
 
+func can_jump():
+	return true if is_on_floor() or jump_count < jump_max_count else false
+	
+func do_dash():
+	var result = false
+	result = true if can_dash() else false
+	
+	if result:
+		is_dashing = Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix)
+		dash_timer.start()
+		dash_cooldown.start()
+		# Play jump sound
+		#sound_jump.play()
+		
+	return result
+	
+func can_dash():
+	return dash_cooldown.is_stopped()
 
 # This function calculates a new velocity whenever you need it.
 # It allows you to interrupt jumps.
@@ -108,12 +151,18 @@ func calculate_move_velocity(
 	):
 	var velocity = linear_velocity
 	velocity.x = speed.x * direction.x
+	
 	if direction.y != 0.0:
 		velocity.y = speed.y * direction.y
 	if is_jump_interrupted:
 		# Decrease the Y velocity by multiplying it, but don't set it to 0
 		# as to not be too abrupt.
 		velocity.y *= 0.6
+		
+	if is_dashing != 0:
+		velocity.x = speed.x * (1 if is_dashing > 0 else -1) * dash_speed
+		velocity.y = 0.0
+		
 	return velocity
 
 
