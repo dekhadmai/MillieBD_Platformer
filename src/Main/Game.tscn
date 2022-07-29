@@ -18,3 +18,7 @@ position = Vector2( 90, 546 )
 layer = 100
 
 [node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 1 )]
+margin_left = -164.0
+margin_top = -65.0
+margin_right = -164.0
+margin_bottom = -65.0
