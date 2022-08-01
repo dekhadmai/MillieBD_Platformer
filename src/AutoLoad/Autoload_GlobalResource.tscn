@@ -2,5 +2,5 @@
 
 [ext_resource path="res://src/AutoLoad/Autoload_GlobalResource.gd" type="Script" id=1]
 
-[node name="Node" type="Node"]
+[node name="Autoload_GlobalResource" type="Node"]
 script = ExtResource( 1 )
