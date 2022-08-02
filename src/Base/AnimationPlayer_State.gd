@@ -1,11 +1,13 @@
-class_name BaseGameplayAbility
-extends Node
+extends AnimationPlayer
 
+var BaseAnimState: String
+var CustomAnimState: String
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+func GetCurrentAnimName() -> String:
+	return BaseAnimState + "_" + CustomAnimState
+	
+func PlayCustomAnim(second: float):
+	return
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,12 +17,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-func Activate():
-	pass
-	
-func Deactivate():
-	pass
-	
-func EndAbility():
-	Deactivate()
