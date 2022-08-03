@@ -1,14 +1,16 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/audio/sfx/shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
-[ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
+[ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.gd" type="Script" id=12]
+[ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -189,6 +191,14 @@ extents = Vector2( 10, 14 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
 script = ExtResource( 1 )
+Team_ID = 1
+
+[node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
+script = ExtResource( 12 )
+
+[node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
+AbilityCooldownSecond = 0.3
+ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
 
 [node name="DashTimer" type="Timer" parent="."]
 process_mode = 0
@@ -214,21 +224,12 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 hframes = 16
 vframes = 2
+frame = 22
 
-[node name="Gun" type="Position2D" parent="Sprite"]
+[node name="ShootSocket" type="Position2D" parent="Sprite"]
 position = Vector2( 14, 1 )
-script = ExtResource( 9 )
 
-[node name="Shoot" type="AudioStreamPlayer2D" parent="Sprite/Gun"]
-position = Vector2( -30.6589, -6.13176 )
-stream = ExtResource( 4 )
-
-[node name="Cooldown" type="Timer" parent="Sprite/Gun"]
-process_mode = 0
-wait_time = 0.3
-one_shot = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayerState" parent="." instance=ExtResource( 13 )]
 playback_speed = 2.6
 anims/crouch = SubResource( 1 )
 anims/falling = SubResource( 2 )

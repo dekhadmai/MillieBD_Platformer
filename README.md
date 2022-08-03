@@ -1,12 +1,26 @@
 # Millie 2D Platformer Game Project
 
-A / D = left / right
+Control Scheme 1 : 
 
-T / spacebar = Shoot
+A / D = Left / Right
 
-Y / W = Jump (can double jump)
+J = Shoot
 
-U = Dash (can perform in air). Cooldown 1 second
+K = Jump (can double jump)
+
+L = Dash (can perform in air). Cooldown 1 second
+
+---
+
+Control Scheme 2 : 
+
+Left Arrow / Right Arrow = Left / Right
+
+Z = Shoot
+
+X = Jump (can double jump)
+
+C = Dash (can perform in air). Cooldown 1 second
 
 
 

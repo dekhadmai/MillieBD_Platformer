@@ -10,13 +10,14 @@ const FLOOR_DETECT_DISTANCE = 20.0
 export(String) var action_suffix = ""
 
 onready var platform_detector = $PlatformDetector
-onready var animation_player = $AnimationPlayer
+onready var animation_player = $AnimationPlayerState
 onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var sound_jump = $Jump
-onready var gun = sprite.get_node(@"Gun")
 onready var dash_timer = $DashTimer
 onready var dash_cooldown = $DashTimer/DashCooldown
+
+onready var shoot_abi = $AbilitySystemComponent/ShootAbility
 
 var is_dashing = 0
 
@@ -83,20 +84,20 @@ func _physics_process(_delta):
 			sprite.scale.x = 1
 		else:
 			sprite.scale.x = -1
+			
+	FacingDirection = sprite.scale.x
 
-	# We use the sprite's scale to store Robi’s look direction which allows us to shoot
-	# bullets forward.
-	# There are many situations like these where you can reuse existing properties instead of
-	# creating new variables.
-	var is_shooting = false
 	if Input.is_action_just_pressed("shoot" + action_suffix):
-		is_shooting = gun.shoot(sprite.scale.x)
+		shoot_abi.TryActivate()
 
-	var animation = get_new_animation(is_shooting)
-	if animation != animation_player.current_animation and shoot_timer.is_stopped():
-		if is_shooting:
-			shoot_timer.start()
-		animation_player.play(animation)
+	UpdateAnimState()
+	
+#	var animation = get_new_animation(is_shooting)
+#	if animation != animation_player.current_animation and shoot_timer.is_stopped():
+#		if is_shooting:
+#			shoot_timer.start()
+#		animation_player.play(animation)
+		
 		
 	if Input.is_action_just_pressed("dash" + action_suffix):
 		do_dash()
@@ -165,6 +166,20 @@ func calculate_move_velocity(
 		
 	return velocity
 
+func UpdateAnimState():
+	var animation_new = ""
+	if is_on_floor():
+		if abs(_velocity.x) > 0.1:
+			animation_new = "run"
+		else:
+			animation_new = "idle"
+	else:
+		if _velocity.y > 0:
+			animation_new = "falling"
+		else:
+			animation_new = "jumping"
+			
+	animation_player.BaseAnimState = animation_new
 
 func get_new_animation(is_shooting = false):
 	var animation_new = ""
