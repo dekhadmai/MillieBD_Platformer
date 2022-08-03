@@ -1,4 +1,4 @@
-class_name Bullet
+class_name BaseBullet
 extends RigidBody2D
 
 

@@ -1,7 +1,8 @@
 extends BaseGameplayAbility
 
 const BULLET_VELOCITY = 500.0
-const Bullet = preload("res://src/Objects/Bullet.tscn")
+export(String, FILE) var ActorToSpawnPath
+onready var Bullet = load(ActorToSpawnPath)
 
 onready var sound_shoot = $Shoot
 
@@ -18,7 +19,6 @@ func Activate():
 	.Activate()
 	
 	var bullet = Bullet.instance()
-	AbilityOwner.find_node("")
 	bullet.global_position = SocketNode.global_position
 	bullet.linear_velocity = Vector2(AbilityOwner.FacingDirection * BULLET_VELOCITY, 0)
 	bullet.set_gravity_scale(0.0)
@@ -27,6 +27,7 @@ func Activate():
 	add_child(bullet)
 	sound_shoot.play()
 	
+	PlayCustomAnimation("_weapon", 0.3)
 	
 	EndAbility()
 	

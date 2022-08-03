@@ -3,7 +3,7 @@ extends Node
 
 
 var AbilityOwner: Actor
-var AnimPlayer: AnimationPlayer
+var AnimPlayer: AnimationPlayerState
 var AbilityCooldownTimer: Timer
 export var AbilityCooldownSecond: float = 1.0
 export var bCommitAbilityCooldownWhenDeactivate: bool = true
@@ -19,11 +19,9 @@ func _ready():
 			AbilityOwner = try_owner
 			
 	if AbilityOwner != null:
-		AnimPlayer = AbilityOwner.find_node("AnimationPlayer")
+		AnimPlayer = AbilityOwner.find_node("AnimationPlayerState")
 		AbilityCooldownTimer = get_node("AbilityCooldown")
-		
-		SetAbilityCooldown(AbilityCooldownSecond)
-		AbilityCooldownTimer.one_shot = true
+		AbilityCooldownTimer.set_one_shot(true)
 	
 		if !bAlreadyInit:
 			Init()
@@ -57,11 +55,9 @@ func EndAbility():
 	Deactivate()
 
 ##### Helper functions
-func SetAbilityCooldown(value: float):
-	AbilityCooldownTimer.set_wait_time(value)
 
 func CommitAbilityCooldown():
-	AbilityCooldownTimer.start()
+	AbilityCooldownTimer.start(AbilityCooldownSecond)
 	
 func IsAbilityOnCooldown() -> bool:
 	return !AbilityCooldownTimer.is_stopped()
@@ -69,5 +65,5 @@ func IsAbilityOnCooldown() -> bool:
 func CanUseAbility() -> bool:
 	return !IsAbilityOnCooldown()
 	
-func PlayAnimation():
-	AnimPlayer.play()
+func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0):
+	AnimPlayer.PlayCustomAnim(custom_anim_name, seconds)

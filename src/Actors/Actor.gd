@@ -4,7 +4,8 @@ extends KinematicBody2D
 # Both the Player and Enemy inherit this scene as they have shared behaviours
 # such as speed and are affected by gravity.
 
-
+enum TeamID {None, Player, Enemy}
+export(TeamID) var Team_ID
 export var speed = Vector2(150.0, 350.0)
 onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
 
@@ -21,3 +22,7 @@ var FacingDirection: float = 1.0
 func _physics_process(delta):
 	if bUseGravity :
 		_velocity.y += gravity * delta
+
+
+func GetTeam():
+	return 
