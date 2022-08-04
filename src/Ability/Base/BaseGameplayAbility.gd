@@ -66,4 +66,5 @@ func CanUseAbility() -> bool:
 	return !IsAbilityOnCooldown()
 	
 func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0):
-	AnimPlayer.PlayCustomAnim(custom_anim_name, seconds)
+	if AnimPlayer != null:
+		AnimPlayer.PlayCustomAnim(custom_anim_name, seconds)

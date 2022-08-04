@@ -15,6 +15,8 @@ onready var floor_detector_right = $FloorDetectorRight
 onready var sprite = $Sprite
 onready var animation_player = $AnimationPlayer
 
+onready var shoot_abi = $AbilitySystemComponent/ShootAbility
+
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
 func _ready():
@@ -53,11 +55,16 @@ func _physics_process(_delta):
 		sprite.scale.x = 1
 	else:
 		sprite.scale.x = -1
+		
+	FacingDirection = sprite.scale.x
 
 	var animation = get_new_animation()
 	if animation != animation_player.current_animation:
 		animation_player.play(animation)
 
+func died():
+	.died()
+	destroy()
 
 func destroy():
 	_state = State.DEAD
@@ -74,3 +81,8 @@ func get_new_animation():
 	else:
 		animation_new = "destroy"
 	return animation_new
+
+
+func _on_ShootTimer_timeout():
+	shoot_abi.Activate()
+	pass # Replace with function body.

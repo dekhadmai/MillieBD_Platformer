@@ -115,6 +115,10 @@ func get_direction():
 		-1 if do_jump() else 0
 	)
 	
+func died():
+	.died()
+	#queue_free()
+	
 func do_jump():
 	var result = false
 	result = true if can_jump() and Input.is_action_just_pressed("jump" + action_suffix) else false

@@ -11,11 +11,16 @@ onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
 
 export var bUseGravity: bool = true
 
+var bIsDead:bool = false
+
 const FLOOR_NORMAL = Vector2.UP
 
 var _velocity = Vector2.ZERO
 
 var FacingDirection: float = 1.0
+
+func _ready():
+	GetAbilitySystemComponent().connect("died", self, "died")
 
 # _physics_process is called after the inherited _physics_process function.
 # This allows the Player and Enemy scenes to be affected by gravity.
@@ -29,3 +34,6 @@ func GetTeam():
 
 func GetAbilitySystemComponent() -> BaseAbilitySystemComponent:
 	return get_node("AbilitySystemComponent") as BaseAbilitySystemComponent
+	
+func died():
+	bIsDead = true

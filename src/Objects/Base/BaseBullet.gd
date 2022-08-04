@@ -26,8 +26,8 @@ func OnBulletHit(body:Actor):
 	var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect
 	var body_asc: BaseAbilitySystemComponent = body.GetAbilitySystemComponent()
 	
-	Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToSelf(effect)
+	Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
 	
-	#body_asc.ApplyGameplayEffectToSelf(effect)
+	#body.destroy()
+	queue_free()
 	
-	body.destroy()

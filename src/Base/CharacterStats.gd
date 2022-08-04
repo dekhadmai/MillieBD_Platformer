@@ -1,6 +1,8 @@
 class_name CharacterStats
 extends CharacterStatsInit
 
+signal died
+
 enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed}
 
 var CurrentHP: float = 0.0 setget TakeDamage
@@ -35,6 +37,10 @@ func Calculate() -> void:
 	
 func TakeDamage(value: float):
 	CurrentHP -= value
+	if CurrentHP <= 0.0:
+		CurrentHP = 0.0
+		emit_signal("died")
+	
 	#todo add more stuff about character death here
 
 func SetAttackScale(value: float):

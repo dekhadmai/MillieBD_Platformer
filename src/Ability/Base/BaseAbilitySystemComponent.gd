@@ -3,6 +3,8 @@
 class_name BaseAbilitySystemComponent
 extends Node
 
+signal died
+
 # work around can't export character stats
 export(float) var InitStat_HP = 100.0
 export(float) var InitStat_Attack = 10.0
@@ -21,9 +23,12 @@ func _ready():
 	BaseCharStats.BaseJumpSpeed = InitStat_JumpSpeed
 	
 	CurrentCharStats.InitBaseStat(BaseCharStats)
+	CurrentCharStats.connect("died", self, "died")
 	
 	pass
 
+func died():
+	emit_signal("died")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -36,4 +41,6 @@ func ApplyGameplayEffectToSelf(gameplay_effect):
 	add_child(gameplay_effect)
 	gameplay_effect.Activate(self, self)
 	
-	
+func ApplyGameplayEffectToTarget(target_ability_system_component, gameplay_effect):
+	add_child(gameplay_effect)
+	gameplay_effect.Activate(self, target_ability_system_component)
