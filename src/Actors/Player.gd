@@ -17,6 +17,7 @@ onready var sound_jump = $Jump
 onready var dash_timer = $DashTimer
 onready var dash_cooldown = $DashTimer/DashCooldown
 
+onready var ability_system_component:BaseAbilitySystemComponent = $AbilitySystemComponent
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
 
 var is_dashing = 0
@@ -64,6 +65,8 @@ func _physics_process(_delta):
 	var direction = get_direction()
 
 	var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
+	speed.x = ability_system_component.CurrentCharStats.BaseMovespeed
+	speed.y = ability_system_component.CurrentCharStats.BaseJumpSpeed
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
 
 	var snap_vector = Vector2.ZERO

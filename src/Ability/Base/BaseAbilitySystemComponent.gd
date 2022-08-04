@@ -6,7 +6,8 @@ extends Node
 # work around can't export character stats
 export(float) var InitStat_HP = 100.0
 export(float) var InitStat_Attack = 10.0
-export(float) var InitStat_Movespeed = 250.0
+export(float) var InitStat_Movespeed = 150.0
+export(float) var InitStat_JumpSpeed = 350.0
 # end of work around can't export character stats
 
 var BaseCharStats: CharacterStatsInit = CharacterStatsInit.new()
@@ -17,10 +18,9 @@ func _ready():
 	BaseCharStats.BaseHP = InitStat_HP
 	BaseCharStats.BaseAttack = InitStat_Attack
 	BaseCharStats.BaseMovespeed = InitStat_Movespeed
+	BaseCharStats.BaseJumpSpeed = InitStat_JumpSpeed
 	
 	CurrentCharStats.InitBaseStat(BaseCharStats)
-	
-	ApplyGameplayEffectToSelf( get_node("Effect_Damage") )
 	
 	pass
 

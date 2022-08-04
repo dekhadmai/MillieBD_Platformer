@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.gd" type="Script" id=12]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
@@ -194,7 +193,6 @@ script = ExtResource( 1 )
 Team_ID = 1
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
-script = ExtResource( 12 )
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3
