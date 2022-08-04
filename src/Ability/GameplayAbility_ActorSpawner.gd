@@ -1,8 +1,10 @@
 extends BaseGameplayAbility
 
-const BULLET_VELOCITY = 500.0
 export(String, FILE) var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
+
+export var CustomAnimName: String = "_weapon"
+export var CustomAnimDuration: float = 0.3 
 
 onready var sound_shoot = $Shoot
 
@@ -24,18 +26,27 @@ func Init():
 func Activate():
 	.Activate()
 	
+	SpawnActor()
+	sound_shoot.play()
+	PlayCustomAnimation(CustomAnimName, CustomAnimDuration)
+	
+	EndAbility()
+	pass
+
+func SpawnActor() -> void:
 	var bullet = Bullet.instance()
 	bullet.Init(AbilityOwner, GameplayeEffect_Template)
-	bullet.global_position = SocketNode.global_position
-	bullet.linear_velocity = Vector2(AbilityOwner.FacingDirection * BULLET_VELOCITY, 0)
-	bullet.set_gravity_scale(0.0)
+	bullet.global_position = GetSpawnPosition()
+	var velocity = GetSpawnRotation()
+	velocity *= bullet.BaseSpeed
+	bullet.linear_velocity = velocity
 
 	bullet.set_as_toplevel(true)
 	add_child(bullet)
-	sound_shoot.play()
-	
-	PlayCustomAnimation("_weapon", 0.3)
-	
-	EndAbility()
-	
 	pass
+
+func GetSpawnPosition() -> Vector2:
+	return SocketNode.global_position
+	
+func GetSpawnRotation() -> Vector2:
+	return Vector2(AbilityOwner.FacingDirection, 0)

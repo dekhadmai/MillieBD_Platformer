@@ -1,6 +1,8 @@
 class_name BaseBullet
 extends RigidBody2D
 
+export(float) var BaseSpeed: float = 500.0
+
 onready var animation_player = $AnimationPlayer
 var gameplay_effect_template
 
