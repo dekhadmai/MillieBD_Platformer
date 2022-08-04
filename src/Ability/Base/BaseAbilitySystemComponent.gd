@@ -31,17 +31,9 @@ func _ready():
 
 
 
-##### this whole gameplay effect section have to be here because Godot can't deal with cyclic dependency :(
-func ApplyGameplayEffectToSelf(gameplay_effect: BaseGameplayEffect):
+##### Can't type cast here because cyclic dependency :(
+func ApplyGameplayEffectToSelf(gameplay_effect):
+	add_child(gameplay_effect)
 	gameplay_effect.Activate(self, self)
-	DoEffect(gameplay_effect)
 	
 	
-func DoEffect(gameplay_effect: BaseGameplayEffect) -> void:
-	match gameplay_effect.StatToModify:
-		CharacterStats.CharacterStatType.Damage:
-			var asc: BaseAbilitySystemComponent = gameplay_effect.TargetAbilitySystemComponent
-			asc.CurrentCharStats.TakeDamage(gameplay_effect.ValueToModify)
-		_:
-			pass
-

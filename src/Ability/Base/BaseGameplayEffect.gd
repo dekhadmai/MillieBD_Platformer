@@ -8,8 +8,10 @@ export(float) var EffectDuration
 export(CharacterStats.CharacterStatType) var StatToModify
 export(float) var ValueToModify
 
-var InstigatorAbilitySystemComponent
-var TargetAbilitySystemComponent
+var InstigatorAbilitySystemComponent: BaseAbilitySystemComponent
+var TargetAbilitySystemComponent: BaseAbilitySystemComponent
+
+var EffectDurationTimer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +23,33 @@ func _ready():
 #	pass
 
 
-func Activate(instigator, target) -> void:
-	InstigatorAbilitySystemComponent = instigator
-	TargetAbilitySystemComponent = target
+func Activate(instigator_ability_system_component, target_ability_system_component) -> void:
+	InstigatorAbilitySystemComponent = instigator_ability_system_component
+	TargetAbilitySystemComponent = target_ability_system_component
+	DoEffect()
+	
+	if EffectDurationType == DurationType.Instant:
+		Deactivate()
+	elif EffectDurationType == DurationType.HasDuration:
+		EffectDurationTimer = Timer.new()
+		add_child(EffectDurationTimer)
+		EffectDurationTimer.connect("timeout", self, "on_timeout_effect_duration")
+		EffectDurationTimer.set_one_shot(true)
+		EffectDurationTimer.start(EffectDuration)
+	
 	pass
+
+func on_timeout_effect_duration():
+	Deactivate()
+
+func Deactivate():
+	queue_free()
+	pass
+
+
+func DoEffect() -> void:
+	match StatToModify:
+		CharacterStats.CharacterStatType.Damage:
+			TargetAbilitySystemComponent.CurrentCharStats.TakeDamage(ValueToModify)
+		_:
+			pass
