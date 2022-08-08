@@ -2,5 +2,5 @@
 
 [ext_resource path="res://src/Ability/Base/BaseGameplayEffect.gd" type="Script" id=1]
 
-[node name="GameplayEffect" type="Node"]
+[node name="GameplayEffect" type="Node2D"]
 script = ExtResource( 1 )

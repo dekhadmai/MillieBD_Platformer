@@ -1,5 +1,5 @@
 class_name BaseGameplayEffect
-extends Node
+extends Node2D
 
 enum DurationType {Instant, HasDuration, Infinite}
 

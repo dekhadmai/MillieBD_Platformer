@@ -1,5 +1,5 @@
 class_name BaseGameplayAbility
-extends Node
+extends Node2D
 
 
 var AbilityOwner: Actor

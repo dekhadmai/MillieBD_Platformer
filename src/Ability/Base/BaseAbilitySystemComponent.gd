@@ -1,7 +1,7 @@
 # Attach this to every actor who need to have stats or can interact with ability
 
 class_name BaseAbilitySystemComponent
-extends Node
+extends Node2D
 
 signal died
 
