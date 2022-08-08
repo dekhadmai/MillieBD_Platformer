@@ -43,6 +43,7 @@ func on_timeout_effect_duration():
 	Deactivate()
 
 func Deactivate():
+	UndoEffect()
 	queue_free()
 	pass
 
@@ -53,3 +54,7 @@ func DoEffect() -> void:
 			TargetAbilitySystemComponent.CurrentCharStats.TakeDamage(ValueToModify)
 		_:
 			pass
+
+func UndoEffect() -> void:
+	# todo : add more stuff here when we have other stat we want to buff
+	pass
