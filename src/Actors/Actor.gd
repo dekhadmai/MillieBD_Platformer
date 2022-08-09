@@ -18,6 +18,7 @@ const FLOOR_NORMAL = Vector2.UP
 var _velocity = Vector2.ZERO
 
 var FacingDirection: float = 1.0
+var CurrentTargetActor: Actor
 
 func _ready():
 	GetAbilitySystemComponent().connect("died", self, "died")
@@ -29,11 +30,12 @@ func _physics_process(delta):
 		_velocity.y += gravity * delta
 
 
-func GetTeam():
-	return 
+func GetTeam() -> int :
+	return Team_ID
 
 func GetAbilitySystemComponent() -> BaseAbilitySystemComponent:
 	return get_node("AbilitySystemComponent") as BaseAbilitySystemComponent
 	
 func died():
 	bIsDead = true
+

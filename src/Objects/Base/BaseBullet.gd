@@ -19,7 +19,7 @@ func destroy():
 
 func _on_body_entered(body):
 	if body is Actor:
-		if body.Team_ID != Instigator.Team_ID:
+		if body.GetTeam() != Instigator.GetTeam():
 			OnBulletHit(body)
 
 func OnBulletHit(body:Actor):	

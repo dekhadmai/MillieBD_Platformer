@@ -9,6 +9,8 @@ const FLOOR_DETECT_DISTANCE = 20.0
 
 export(String) var action_suffix = ""
 
+onready var autoload_transientdata = $"/root/AutoLoadTransientData"
+
 onready var platform_detector = $PlatformDetector
 onready var animation_player = $AnimationPlayerState
 onready var shoot_timer = $ShootAnimation
@@ -40,6 +42,10 @@ func _ready():
 		camera.custom_viewport = viewport
 		yield(get_tree(), "idle_frame")
 		camera.make_current()
+		
+	autoload_transientdata.player = self
+	
+	pass
 
 
 # Physics process is a built-in loop in Godot.
