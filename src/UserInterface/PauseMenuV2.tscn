@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
+[ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=2]
+[ext_resource path="res://src/UserInterface/PauseMenuV2.gd" type="Script" id=3]
+[ext_resource path="res://src/UserInterface/SettingsMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/CoinsCounter.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Pause"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -814, 4 ), Vector2( -392, 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.04, 0.05 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.01, 0.05, 0.09, 0.14, 0.19, 0.24, 0.29 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.211765 ), Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0.619608 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0.862745 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -814, 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.211765 ) ]
+}
+
+[node name="PauseMenuV2" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.211765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.560784 )
+
+[node name="Pause" type="ColorRect" parent="."]
+margin_left = -814.0
+margin_top = 4.0
+margin_right = -2.0
+margin_bottom = 714.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="Book" type="Sprite" parent="Pause"]
+position = Vector2( 401, 338 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+hframes = 7
+
+[node name="Label" type="Label" parent="Pause"]
+margin_left = 390.0
+margin_top = 181.0
+margin_right = 694.0
+margin_bottom = 224.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.831373, 0.752941, 0.560784, 1 )
+text = "Pause Menu"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+margin_left = 471.0
+margin_top = 245.0
+margin_right = 619.0
+margin_bottom = 459.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Resume" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 18.0
+margin_right = 148.0
+margin_bottom = 64.0
+focus_mode = 0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
+enabled_focus_mode = 0
+text = "Resume"
+flat = true
+
+[node name="Settings" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 84.0
+margin_right = 148.0
+margin_bottom = 130.0
+focus_mode = 0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
+enabled_focus_mode = 0
+text = "Settings"
+flat = true
+
+[node name="Quit" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 150.0
+margin_right = 148.0
+margin_bottom = 196.0
+focus_mode = 0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
+enabled_focus_mode = 0
+text = "Quit"
+flat = true
+
+[node name="CoinsCounter" parent="." instance=ExtResource( 5 )]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 101.0
+margin_bottom = 46.0
+
+[node name="PauseMenuAnim" type="AnimationPlayer" parent="."]
+anims/Pause = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
+
+[connection signal="pressed" from="Pause/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

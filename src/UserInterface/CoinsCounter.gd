@@ -4,6 +4,8 @@ var coins_collected = 0
 
 onready var coins_label = $Label
 
+export var coins_counter : NodePath
+
 
 func _ready():
 	coins_label.set_text(str(coins_collected))
@@ -16,7 +18,7 @@ func _ready():
 		_level_node.get_node("Player1").connect("collect_coin", self, "_collect_coin")
 		_level_node.get_node("Player2").connect("collect_coin", self, "_collect_coin")
 	else:
-		var _player_path = get_node(@"../../../../Level/Player")
+		var _player_path = get_node(coins_counter)
 		_player_path.connect("collect_coin", self, "_collect_coin")
 
 
