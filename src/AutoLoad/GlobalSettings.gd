@@ -1,0 +1,30 @@
+extends Node
+
+
+var master_volume = AudioServer.get_bus_index("Master")
+
+var settings_menu_up = false
+
+
+func toggle_fullscreen(toggle):
+	OS.window_fullscreen = toggle
+#	OS.window_fullscreen = !OS.window_fullscreen
+	SettingsSave.game_data.fullscreen_on = toggle
+	SettingsSave.save_data()
+
+
+func toggle_vsync(toggle):
+	OS.vsync_enabled = toggle
+	SettingsSave.game_data.vsync_on = toggle
+	SettingsSave.save_data()
+	
+	
+func update_master_vol(vol):
+	AudioServer.set_bus_volume_db(master_volume, vol)
+	SettingsSave.game_data.master_vol = vol
+	SettingsSave.save_data()
+	
+	if vol == -30:
+		AudioServer.set_bus_mute(master_volume, true)
+	else:
+		AudioServer.set_bus_mute(master_volume, false)

@@ -1,0 +1,351 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=5]
+[ext_resource path="res://src/UserInterface/SettingsMenu.gd" type="Script" id=6]
+[ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=7]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../RadlBook:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../RadlBook:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1770, 339 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../Backgroud:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../Backgroud:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.188235 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "SettingsBook"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../RadlBook:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7, 0.85, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../RadlBook:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1770, 339 ), Vector2( 693, 339 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.85, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../Backgroud:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../Backgroud:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.188235 ), Color( 1, 1, 1, 0.352941 ), Color( 1, 1, 1, 0.509804 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0.839216 ), Color( 1, 1, 1, 0.956863 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="SettingsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 6 )
+
+[node name="Backgroud" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.188235 )
+margin_right = 1296.0
+margin_bottom = 731.0
+color = Color( 0, 0, 0, 0.74902 )
+
+[node name="RadlBook" type="Sprite" parent="."]
+position = Vector2( 1770, 339 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+hframes = 7
+
+[node name="Settings" type="ColorRect" parent="."]
+visible = false
+margin_left = 300.0
+margin_top = 149.0
+margin_right = 1036.0
+margin_bottom = 523.0
+mouse_filter = 2
+theme = SubResource( 1 )
+color = Color( 0.0941176, 0.0666667, 0.0666667, 0 )
+
+[node name="Label" type="Label" parent="Settings"]
+margin_left = 150.0
+margin_top = -5.0
+margin_right = 283.0
+margin_bottom = 33.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.670588, 0.337255, 0.486275, 1 )
+text = "SETTINGS"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+anchor_left = 0.116
+anchor_top = 0.113
+anchor_right = 0.88
+anchor_bottom = 0.904
+margin_left = -7.376
+margin_top = 13.738
+margin_right = -0.680054
+margin_bottom = 21.508
+
+[node name="SettingsContainer" type="VBoxContainer" parent="Settings/VBoxContainer"]
+margin_right = 568.0
+margin_bottom = 210.0
+
+[node name="VideoSetings" type="GridContainer" parent="Settings/VBoxContainer/SettingsContainer"]
+margin_right = 568.0
+margin_bottom = 84.0
+columns = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/SettingsContainer/VideoSetings"]
+margin_top = 1.0
+margin_right = 488.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.329412, 0.219608, 0.219608, 1 )
+text = "     Vsync"
+
+[node name="Vsync" type="CheckButton" parent="Settings/VBoxContainer/SettingsContainer/VideoSetings"]
+margin_left = 492.0
+margin_right = 568.0
+margin_bottom = 40.0
+focus_mode = 0
+flat = true
+
+[node name="Label2" type="Label" parent="Settings/VBoxContainer/SettingsContainer/VideoSetings"]
+margin_top = 45.0
+margin_right = 488.0
+margin_bottom = 83.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.329412, 0.219608, 0.219608, 1 )
+text = "     Fullscreen"
+
+[node name="Fullscreen" type="CheckButton" parent="Settings/VBoxContainer/SettingsContainer/VideoSetings"]
+margin_left = 492.0
+margin_top = 44.0
+margin_right = 568.0
+margin_bottom = 84.0
+focus_mode = 0
+flat = true
+
+[node name="MasterVolumebox" type="HBoxContainer" parent="Settings/VBoxContainer/SettingsContainer"]
+margin_top = 88.0
+margin_right = 568.0
+margin_bottom = 126.0
+mouse_filter = 2
+
+[node name="VolumeLabel" type="Label" parent="Settings/VBoxContainer/SettingsContainer/MasterVolumebox"]
+margin_right = 157.0
+margin_bottom = 38.0
+size_flags_horizontal = 2
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.329412, 0.219608, 0.219608, 1 )
+text = "     Volume"
+
+[node name="Spacer" type="Button" parent="Settings/VBoxContainer/SettingsContainer/MasterVolumebox"]
+margin_left = 190.0
+margin_right = 377.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+disabled = true
+enabled_focus_mode = 0
+flat = true
+
+[node name="Volume" type="HSlider" parent="Settings/VBoxContainer/SettingsContainer/MasterVolumebox"]
+margin_left = 381.0
+margin_right = 568.0
+margin_bottom = 38.0
+mouse_filter = 1
+size_flags_horizontal = 7
+size_flags_vertical = 3
+min_value = -30.0
+max_value = 0.0
+
+[node name="Bgmbox" type="HBoxContainer" parent="Settings/VBoxContainer/SettingsContainer"]
+margin_top = 130.0
+margin_right = 568.0
+margin_bottom = 168.0
+
+[node name="BgmLabel" type="Label" parent="Settings/VBoxContainer/SettingsContainer/Bgmbox"]
+margin_right = 100.0
+margin_bottom = 38.0
+size_flags_horizontal = 2
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.329412, 0.219608, 0.219608, 1 )
+text = "     Bgm"
+
+[node name="Spacer" type="Button" parent="Settings/VBoxContainer/SettingsContainer/Bgmbox"]
+margin_left = 190.0
+margin_right = 377.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+disabled = true
+enabled_focus_mode = 0
+flat = true
+
+[node name="BgmSlider" type="HSlider" parent="Settings/VBoxContainer/SettingsContainer/Bgmbox"]
+margin_left = 381.0
+margin_right = 568.0
+margin_bottom = 38.0
+mouse_filter = 1
+size_flags_horizontal = 7
+size_flags_vertical = 3
+min_value = -30.0
+max_value = 0.0
+value = -10.0
+
+[node name="Sfx" type="HBoxContainer" parent="Settings/VBoxContainer/SettingsContainer"]
+margin_top = 172.0
+margin_right = 568.0
+margin_bottom = 210.0
+
+[node name="SfxLabel" type="Label" parent="Settings/VBoxContainer/SettingsContainer/Sfx"]
+margin_right = 97.0
+margin_bottom = 38.0
+size_flags_horizontal = 2
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.329412, 0.219608, 0.219608, 1 )
+text = "     Sfx"
+
+[node name="Spacer" type="Button" parent="Settings/VBoxContainer/SettingsContainer/Sfx"]
+margin_left = 190.0
+margin_right = 377.0
+margin_bottom = 38.0
+focus_mode = 0
+size_flags_horizontal = 3
+disabled = true
+enabled_focus_mode = 0
+flat = true
+
+[node name="SfxSlider" type="HSlider" parent="Settings/VBoxContainer/SettingsContainer/Sfx"]
+margin_left = 381.0
+margin_right = 568.0
+margin_bottom = 38.0
+mouse_filter = 1
+size_flags_horizontal = 7
+size_flags_vertical = 3
+min_value = -30.0
+max_value = 0.0
+value = -10.0
+
+[node name="BackButton" type="Button" parent="Settings"]
+margin_left = 106.0
+margin_top = 288.0
+margin_right = 229.0
+margin_bottom = 358.0
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 8
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.360784, 0.25098, 0.298039, 1 )
+text = "Close"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Settings/BackButton")
+anims/RESET = SubResource( 2 )
+anims/SettingsBook = SubResource( 3 )
+
+[connection signal="toggled" from="Settings/VBoxContainer/SettingsContainer/VideoSetings/Vsync" to="." method="_on_Vsync_toggled"]
+[connection signal="toggled" from="Settings/VBoxContainer/SettingsContainer/VideoSetings/Fullscreen" to="." method="_on_Fullscreen_toggled"]
+[connection signal="value_changed" from="Settings/VBoxContainer/SettingsContainer/MasterVolumebox/Volume" to="." method="_on_Volume_value_changed"]
+[connection signal="pressed" from="Settings/BackButton" to="." method="_on_BackButton_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GodSeesAll+Reimuintro.mp3-66c8e8ed4ea297e23c5cad434c6c9b8f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/GodSeesAll+Reimuintro.mp3"
+dest_files=[ "res://.import/GodSeesAll+Reimuintro.mp3-66c8e8ed4ea297e23c5cad434c6c9b8f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

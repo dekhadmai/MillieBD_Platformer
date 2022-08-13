@@ -1,0 +1,173 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://src/UserInterface/MainMenu/startmenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/theme/fonts/kenney_mini_square.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/art/title-screen/Book.png" type="Texture" id=3]
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=4]
+[ext_resource path="res://src/UserInterface/MainMenu/Buttons/menu_button.tres" type="StyleBox" id=5]
+[ext_resource path="res://src/UserInterface/MainMenu/Buttons/startmenupressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://src/UserInterface/MainMenu/Buttons/startmenuhover.tres" type="StyleBox" id=7]
+[ext_resource path="res://src/UserInterface/MainMenu/Buttons/startmenufocus.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/audio/music/GodSeesAll+Reimuintro.mp3" type="AudioStream" id=9]
+[ext_resource path="res://src/UserInterface/SettingsMenu.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+outline_size = 2
+outline_color = Color( 0.105882, 0.388235, 0.682353, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Shader" id=22]
+
+[sub_resource type="ShaderMaterial" id=23]
+shader = SubResource( 22 )
+
+[sub_resource type="Theme" id=21]
+
+[sub_resource type="InputEventAction" id=2]
+action = "start"
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.160784, 0.113725, 0.0941176, 1 )
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color( 0.270588, 0.164706, 0.109804, 1 )
+border_blend = true
+corner_radius_top_right = 100
+corner_radius_bottom_left = 100
+shadow_color = Color( 0.137255, 0.152941, 0.223529, 0.6 )
+shadow_size = 30
+
+[sub_resource type="InputEventAction" id=4]
+action = "settings"
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.160784, 0.113725, 0.0941176, 1 )
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color( 0.270588, 0.164706, 0.109804, 1 )
+border_blend = true
+corner_radius_top_right = 100
+corner_radius_bottom_left = 100
+shadow_color = Color( 0.137255, 0.152941, 0.223529, 0.6 )
+shadow_size = 30
+
+[sub_resource type="InputEventAction" id=6]
+action = "quit"
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 6.10352e-05
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+
+[node name="Book" type="Sprite" parent="."]
+position = Vector2( 632.5, 365 )
+scale = Vector2( 1.61642, 1.17628 )
+texture = ExtResource( 3 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -129.0
+margin_top = 63.0
+margin_right = 504.0
+margin_bottom = 218.0
+rect_scale = Vector2( 0.486, 0.474 )
+size_flags_stretch_ratio = 0.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
+text = "TITLE"
+align = 1
+valign = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 23 )
+margin_left = 8.0
+margin_top = 347.0
+margin_right = 231.0
+margin_bottom = 582.0
+theme = ExtResource( 4 )
+color = Color( 0, 0, 0, 0.0235294 )
+
+[node name="StartBtn" type="Button" parent="ColorRect"]
+margin_left = 22.0
+margin_top = 21.0
+margin_right = 234.0
+margin_bottom = 91.0
+rect_scale = Vector2( 0.8, 0.8 )
+focus_neighbour_top = NodePath("../QuitBtn")
+focus_neighbour_bottom = NodePath("../SettingsBtn")
+size_flags_vertical = 3
+theme = SubResource( 21 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 5 )
+shortcut = SubResource( 3 )
+text = "Start"
+
+[node name="SettingsBtn" type="Button" parent="ColorRect"]
+margin_left = 22.0
+margin_top = 88.0
+margin_right = 229.0
+margin_bottom = 158.0
+rect_scale = Vector2( 0.8, 0.8 )
+focus_neighbour_top = NodePath("../StartBtn")
+focus_neighbour_bottom = NodePath("../QuitBtn")
+size_flags_vertical = 3
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = SubResource( 19 )
+shortcut = SubResource( 5 )
+text = "Settings"
+
+[node name="QuitBtn" type="Button" parent="ColorRect"]
+margin_left = 26.0
+margin_top = 156.0
+margin_right = 237.0
+margin_bottom = 226.0
+rect_scale = Vector2( 0.8, 0.8 )
+focus_neighbour_top = NodePath("../SettingsBtn")
+focus_neighbour_bottom = NodePath("../StartBtn")
+size_flags_vertical = 3
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = SubResource( 20 )
+shortcut = SubResource( 7 )
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+
+[connection signal="pressed" from="ColorRect/StartBtn" to="." method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="ColorRect/SettingsBtn" to="." method="_on_SettingsBtn_pressed"]
+[connection signal="pressed" from="ColorRect/QuitBtn" to="." method="_on_QuitBtn_pressed"]
