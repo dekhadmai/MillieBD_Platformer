@@ -225,7 +225,6 @@ vframes = 2
 frame = 22
 
 [node name="ShootSocket" type="Position2D" parent="Sprite"]
-position = Vector2( 14, 1 )
 
 [node name="AnimationPlayerState" parent="." instance=ExtResource( 13 )]
 playback_speed = 2.6
