@@ -1,7 +1,7 @@
 class_name BaseBullet
 extends RigidBody2D
 
-export(float) var BaseSpeed: float = 500.0
+export(float) var BaseSpeed: float = 300.0
 
 onready var animation_player = $AnimationPlayer
 var gameplay_effect_template
@@ -21,6 +21,8 @@ func _on_body_entered(body):
 	if body is Actor:
 		if body.GetTeam() != Instigator.GetTeam():
 			OnBulletHit(body)
+	else :
+		queue_free()
 
 func OnBulletHit(body:Actor):	
 	var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect

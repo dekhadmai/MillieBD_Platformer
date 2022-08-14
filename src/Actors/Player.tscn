@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner_Test.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
@@ -193,6 +194,20 @@ script = ExtResource( 1 )
 Team_ID = 1
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
+
+[node name="SpecialAbility" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
+AbilityCooldownSecond = 0.3
+ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
+
+[node name="SpecialAbility_Up" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
+AbilityCooldownSecond = 0.3
+ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
+amount = 50
+
+[node name="SpecialAbility_Down" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
+AbilityCooldownSecond = 0.3
+ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
+amount = 10
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3

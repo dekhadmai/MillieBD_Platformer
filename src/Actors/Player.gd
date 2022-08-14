@@ -21,6 +21,9 @@ onready var dash_cooldown = $DashTimer/DashCooldown
 
 onready var ability_system_component:BaseAbilitySystemComponent = $AbilitySystemComponent
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
+onready var special_abi = $AbilitySystemComponent/SpecialAbility
+onready var special_abi_up = $AbilitySystemComponent/SpecialAbility_Up
+onready var special_abi_down = $AbilitySystemComponent/SpecialAbility_Down
 
 var is_dashing = 0
 
@@ -98,6 +101,14 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("shoot" + action_suffix):
 		shoot_abi.TryActivate()
+	
+	if Input.is_action_just_pressed("use_ability" + action_suffix):	
+		if Input.is_action_pressed("move_up"):
+			special_abi_up.TryActivate()	
+		elif Input.is_action_pressed("move_down"):
+			special_abi_down.TryActivate()	
+		else :
+			special_abi.TryActivate()	
 
 	UpdateAnimState()
 	
