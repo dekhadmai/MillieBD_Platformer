@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=2]
 [ext_resource path="res://src/UserInterface/PauseMenuV2.gd" type="Script" id=3]
 [ext_resource path="res://src/UserInterface/SettingsMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UserInterface/CoinsCounter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/DebugPanel.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pause"
@@ -167,6 +168,14 @@ margin_left = 1.0
 margin_top = 1.0
 margin_right = 101.0
 margin_bottom = 46.0
+
+[node name="DebugPanel" parent="." instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -150.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 45.0
 
 [node name="PauseMenuAnim" type="AnimationPlayer" parent="."]
 anims/Pause = SubResource( 1 )
