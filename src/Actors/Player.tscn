@@ -198,16 +198,16 @@ Team_ID = 1
 [node name="SpecialAbility" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
+amount = 10
 
 [node name="SpecialAbility_Up" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
-amount = 50
 
 [node name="SpecialAbility_Down" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
-amount = 10
+amount = 50
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3

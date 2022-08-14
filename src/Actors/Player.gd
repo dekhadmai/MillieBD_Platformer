@@ -102,13 +102,13 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("shoot" + action_suffix):
 		shoot_abi.TryActivate()
 	
-	if Input.is_action_just_pressed("use_ability" + action_suffix):	
-		if Input.is_action_pressed("move_up"):
-			special_abi_up.TryActivate()	
-		elif Input.is_action_pressed("move_down"):
-			special_abi_down.TryActivate()	
-		else :
-			special_abi.TryActivate()	
+	if GlobalFunctions.IsKeyModifierPressed("use_ability", "move_up"):
+		special_abi_up.TryActivate()
+	elif GlobalFunctions.IsKeyModifierPressed("use_ability", "move_down"):
+		special_abi_down.TryActivate()
+	else:
+		if Input.is_action_just_pressed("use_ability" + action_suffix):
+			special_abi.TryActivate()
 
 	UpdateAnimState()
 	
