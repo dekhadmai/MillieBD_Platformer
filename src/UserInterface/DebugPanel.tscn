@@ -10,32 +10,51 @@ bg_color = Color( 0, 0, 0, 0.5 )
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 155.0
-margin_bottom = 50.0
+margin_bottom = 205.0
 rect_min_size = Vector2( 100, 45 )
 theme = ExtResource( 1 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="FPSContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 34.0
-
-[node name="FPSText" type="Label" parent="FPSContainer"]
-margin_right = 73.0
-margin_bottom = 79.0
+margin_left = 10.0
+margin_right = 5.0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "FPS
-"
-autowrap = true
+size_flags_vertical = 3
 
-[node name="FPSLabel" type="Label" parent="FPSContainer"]
-margin_left = 77.0
-margin_right = 150.0
-margin_bottom = 79.0
+[node name="FPSLabel" type="Label" parent="VBoxContainer"]
+margin_right = 145.0
+margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "100"
-align = 2
+autowrap = true
+
+[node name="HPLabel" type="Label" parent="VBoxContainer"]
+margin_top = 42.0
+margin_right = 145.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100"
+autowrap = true
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer"]
+margin_top = 84.0
+margin_right = 145.0
+margin_bottom = 122.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100"
+autowrap = true
+
+[node name="XPLabel" type="Label" parent="VBoxContainer"]
+margin_top = 126.0
+margin_right = 145.0
+margin_bottom = 164.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100"
 autowrap = true

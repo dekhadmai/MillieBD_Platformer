@@ -52,6 +52,8 @@ func DoEffect() -> void:
 	match StatToModify:
 		CharacterStats.CharacterStatType.Damage:
 			TargetAbilitySystemComponent.CurrentCharStats.TakeDamage(ValueToModify)
+		CharacterStats.CharacterStatType.EXP:
+			TargetAbilitySystemComponent.CurrentCharStats.SetEXP(TargetAbilitySystemComponent.CurrentCharStats.CurrentEXP + ValueToModify)
 		_:
 			pass
 

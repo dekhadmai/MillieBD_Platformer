@@ -6,6 +6,11 @@ export(float) var BaseSpeed: float = 300.0
 onready var animation_player = $AnimationPlayer
 var gameplay_effect_template
 
+onready var graze_effect = $GameplayEffect_GrazeXP
+var graze_timer: Timer
+var graze_actor: Actor
+var graze_period: float = 0.1
+
 var Instigator:Actor
 
 func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
@@ -18,6 +23,9 @@ func destroy():
 
 
 func _on_body_entered(body):
+	OnBodyEnter(body)
+
+func OnBodyEnter(body):
 	if body is Actor:
 		if body.GetTeam() != Instigator.GetTeam():
 			OnBulletHit(body)
@@ -33,3 +41,19 @@ func OnBulletHit(body:Actor):
 	#body.destroy()
 	queue_free()
 	
+func StartGraze(body:Actor):
+	graze_actor = body
+	graze_timer = Timer.new()
+	add_child(graze_timer)
+	graze_timer.connect("timeout", self, "OnBulletGraze")
+	graze_timer.set_one_shot(false)
+	graze_timer.start(graze_period)
+	
+func StopGraze():
+	graze_timer.stop()
+	
+func OnBulletGraze():
+	var effect:BaseGameplayEffect = graze_effect.duplicate() as BaseGameplayEffect
+	var body_asc: BaseAbilitySystemComponent = graze_actor.GetAbilitySystemComponent()
+	
+	Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)

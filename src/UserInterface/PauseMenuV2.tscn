@@ -175,7 +175,8 @@ anchor_right = 1.0
 margin_left = -150.0
 margin_top = 0.0
 margin_right = 0.0
-margin_bottom = 45.0
+margin_bottom = 200.0
+size_flags_vertical = 3
 
 [node name="PauseMenuAnim" type="AnimationPlayer" parent="."]
 anims/Pause = SubResource( 1 )

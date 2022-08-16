@@ -2,13 +2,17 @@ class_name CharacterStats
 extends CharacterStatsInit
 
 signal died
+signal level_up
 
-enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed}
+enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed, EXP, Fever}
 
 var CurrentHP: float = 0.0 setget TakeDamage
 var CurrentAttack: float = 0.0
 var CurrentMovespeed: float = 0.0
 var CurrentJumpSpeed: float = 0.0
+var CurrentLevel: int = 1
+var CurrentEXP: float = 0.0 setget SetEXP
+var MaxEXP: float = 100.0
 var TotalDamageAdjustScale: float = 1.0
 var AttackScale: float = 1.0 setget SetAttackScale
 var AttackScaleMultiplicative: float = 1.0 setget SetAttackScaleMultiplicative
@@ -42,6 +46,13 @@ func TakeDamage(value: float):
 		emit_signal("died")
 	
 	#todo add more stuff about character death here
+
+func SetEXP(value: float):
+	CurrentEXP = value
+	if CurrentEXP >= MaxEXP:
+		CurrentEXP -= MaxEXP
+		CurrentLevel += 1
+		emit_signal("level_up")
 
 func SetAttackScale(value: float):
 	AttackScale = value

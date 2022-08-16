@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
+[ext_resource path="res://src/Ability/GrazeSystem.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
@@ -195,6 +196,9 @@ Team_ID = 1
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
 
+[node name="GrazeSystem" parent="AbilitySystemComponent" instance=ExtResource( 9 )]
+position = Vector2( 0, -14 )
+
 [node name="SpecialAbility" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
@@ -237,7 +241,6 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 hframes = 16
 vframes = 2
-frame = 22
 
 [node name="ShootSocket" type="Position2D" parent="Sprite"]
 
