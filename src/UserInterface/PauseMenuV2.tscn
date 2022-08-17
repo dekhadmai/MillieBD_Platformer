@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://src/UserInterface/SettingsMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UserInterface/CoinsCounter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UserInterface/DebugPanel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UserInterface/StatsUi.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UserInterface/ScreenUI.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pause"
@@ -113,27 +115,26 @@ texture = ExtResource( 2 )
 hframes = 7
 
 [node name="Label" type="Label" parent="Pause"]
-margin_left = 390.0
-margin_top = 181.0
-margin_right = 694.0
-margin_bottom = 224.0
+margin_left = 405.0
+margin_top = 148.0
+margin_right = 709.0
+margin_bottom = 191.0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0.831373, 0.752941, 0.560784, 1 )
 text = "Pause Menu"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
-margin_left = 471.0
-margin_top = 245.0
-margin_right = 619.0
-margin_bottom = 459.0
+margin_left = 462.0
+margin_top = 216.0
+margin_right = 641.0
+margin_bottom = 460.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Resume" type="Button" parent="Pause/VBoxContainer"]
-margin_top = 18.0
-margin_right = 148.0
-margin_bottom = 64.0
+margin_right = 179.0
+margin_bottom = 46.0
 focus_mode = 0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
@@ -141,10 +142,21 @@ enabled_focus_mode = 0
 text = "Resume"
 flat = true
 
+[node name="Characters" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 66.0
+margin_right = 179.0
+margin_bottom = 112.0
+focus_mode = 0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
+enabled_focus_mode = 0
+text = "Character"
+flat = true
+
 [node name="Settings" type="Button" parent="Pause/VBoxContainer"]
-margin_top = 84.0
-margin_right = 148.0
-margin_bottom = 130.0
+margin_top = 132.0
+margin_right = 179.0
+margin_bottom = 178.0
 focus_mode = 0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
@@ -153,9 +165,9 @@ text = "Settings"
 flat = true
 
 [node name="Quit" type="Button" parent="Pause/VBoxContainer"]
-margin_top = 150.0
-margin_right = 148.0
-margin_bottom = 196.0
+margin_top = 198.0
+margin_right = 179.0
+margin_bottom = 244.0
 focus_mode = 0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
@@ -164,9 +176,9 @@ text = "Quit"
 flat = true
 
 [node name="CoinsCounter" parent="." instance=ExtResource( 5 )]
-margin_left = 1.0
+margin_left = 268.0
 margin_top = 1.0
-margin_right = 101.0
+margin_right = 368.0
 margin_bottom = 46.0
 
 [node name="DebugPanel" parent="." instance=ExtResource( 6 )]
@@ -178,6 +190,9 @@ margin_right = 0.0
 margin_bottom = 200.0
 size_flags_vertical = 3
 
+[node name="ScreenUI" parent="." instance=ExtResource( 8 )]
+mouse_filter = 2
+
 [node name="PauseMenuAnim" type="AnimationPlayer" parent="."]
 anims/Pause = SubResource( 1 )
 anims/RESET = SubResource( 2 )
@@ -187,6 +202,9 @@ layer = 101
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
 
+[node name="StatsUI" parent="CanvasLayer" instance=ExtResource( 7 )]
+
 [connection signal="pressed" from="Pause/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/Characters" to="." method="_on_Characters_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

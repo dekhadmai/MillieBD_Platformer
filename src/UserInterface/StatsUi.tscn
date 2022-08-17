@@ -1,0 +1,1184 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/ui/Lore Weakness.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/ui/Lore Resistance.png" type="Texture" id=3]
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=4]
+[ext_resource path="res://assets/art/ui/CharacterPortrait.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/ui/InventorySlots.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/art/ui/Arrow.png" type="Texture" id=7]
+[ext_resource path="res://src/UserInterface/StatsUi.gd" type="Script" id=8]
+[ext_resource path="res://assets/art/ui/Flippage.png" type="Texture" id=9]
+[ext_resource path="res://src/UserInterface/AbilitiesUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=11]
+[ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.160784, 0.113725, 0.0941176, 0.498039 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+anti_aliasing_size = 1.335
+
+[sub_resource type="Animation" id=6]
+resource_name = "NextPage"
+length = 0.5
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("RadlBook:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.09, 0.18, 0.21, 0.3, 0.33, 0.42, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 3, 4, 4, 3, 3, 6, 6, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flippage:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.18, 0.21, 0.3, 0.33 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Statsbox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.33 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AbilitiesUI:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.33 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RadlBook:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 652, -498 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RadlBook:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 31.9793 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RadlBook:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Statsbox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RadlBook:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Statsbox/RighPage/Control/Label:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Statsbox/RighPage/Control/Expand:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 157, -4 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Statsbox/RighPage/Control/Expand:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Expand" ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ColorRect:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ColorRect:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.145098 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Flippage:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AbilitiesUI:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "StatUiAnim"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("RadlBook:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1033, -386 ), Vector2( 1033, 619 ), Vector2( 943, 600 ), Vector2( 943, 619 ), Vector2( 943, 619 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RadlBook:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 31.9793, 31.9793, -7.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RadlBook:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Statsbox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ColorRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ColorRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.145098 ), Color( 1, 1, 1, 0.403922 ), Color( 1, 1, 1, 0.635294 ), Color( 1, 1, 1, 0.85098 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "StatUiAnimOut"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("RadlBook:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RadlBook:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 85.3779, 176.57, 276.57 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RadlBook:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 943, 619 ), Vector2( 943, 619 ), Vector2( 893, 548 ), Vector2( 1026, 123 ), Vector2( 2025, 261 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RadlBook:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Statsbox:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.760784 ), Color( 1, 1, 1, 0.533333 ), Color( 1, 1, 1, 0.329412 ), Color( 1, 1, 1, 0.101961 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "TextAdjustment"
+length = 0.1
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("Statsbox/RighPage/Control/Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 31 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Statsbox/RighPage/Control/Expand:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.03 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 157, -4 ), Vector2( 157, 27 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Statsbox/RighPage/Control/Expand:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.03 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Expand", "Collapse" ]
+}
+
+[node name="StatsUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.145098 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.52549 )
+
+[node name="RadlBook" type="Sprite" parent="."]
+position = Vector2( 652, -498 )
+rotation = 0.558144
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+offset = Vector2( -72.5, -63.5 )
+hframes = 7
+frame = 1
+
+[node name="Statsbox" type="HBoxContainer" parent="."]
+visible = false
+margin_left = 377.0
+margin_top = 168.0
+margin_right = 893.0
+margin_bottom = 554.0
+alignment = 1
+
+[node name="LeftPage" type="VBoxContainer" parent="Statsbox"]
+margin_right = 223.0
+margin_bottom = 386.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Portrait" type="HBoxContainer" parent="Statsbox/LeftPage"]
+margin_right = 223.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Statsbox/LeftPage/Portrait"]
+margin_right = 223.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.75
+custom_styles/panel = SubResource( 1 )
+
+[node name="CharacterPortrait" type="Sprite" parent="Statsbox/LeftPage/Portrait/Panel"]
+position = Vector2( 110, 85 )
+scale = Vector2( 0.312604, 0.259384 )
+texture = ExtResource( 5 )
+
+[node name="GridContainer" type="GridContainer" parent="Statsbox/LeftPage/Portrait"]
+visible = false
+margin_left = 176.0
+margin_right = 223.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Statsbox/LeftPage/Portrait/GridContainer"]
+margin_right = 47.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel2" type="Panel" parent="Statsbox/LeftPage/Portrait/GridContainer"]
+margin_top = 39.0
+margin_right = 47.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel3" type="Panel" parent="Statsbox/LeftPage/Portrait/GridContainer"]
+margin_top = 78.0
+margin_right = 47.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel4" type="Panel" parent="Statsbox/LeftPage/Portrait/GridContainer"]
+margin_top = 117.0
+margin_right = 47.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="HSeparator" type="Control" parent="Statsbox/LeftPage"]
+margin_top = 156.0
+margin_right = 223.0
+margin_bottom = 156.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Statsbox/LeftPage"]
+margin_top = 160.0
+margin_right = 223.0
+margin_bottom = 213.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Panel" type="Panel" parent="Statsbox/LeftPage/HBoxContainer"]
+margin_right = 52.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel2" type="Panel" parent="Statsbox/LeftPage/HBoxContainer"]
+margin_left = 56.0
+margin_right = 109.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel3" type="Panel" parent="Statsbox/LeftPage/HBoxContainer"]
+margin_left = 113.0
+margin_right = 166.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel4" type="Panel" parent="Statsbox/LeftPage/HBoxContainer"]
+margin_left = 170.0
+margin_right = 223.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="HSeparator2" type="Control" parent="Statsbox/LeftPage"]
+margin_top = 217.0
+margin_right = 223.0
+margin_bottom = 217.0
+theme = ExtResource( 4 )
+
+[node name="DescriptionBox" type="GridContainer" parent="Statsbox/LeftPage"]
+margin_top = 221.0
+margin_right = 223.0
+margin_bottom = 343.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="Panel" type="Panel" parent="Statsbox/LeftPage/DescriptionBox"]
+margin_right = 223.0
+margin_bottom = 122.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Statsbox/LeftPage/DescriptionBox/Panel"]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 190.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "Description Box?"
+
+[node name="Close" type="Button" parent="Statsbox/LeftPage"]
+margin_top = 347.0
+margin_right = 67.0
+margin_bottom = 386.0
+focus_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+enabled_focus_mode = 0
+text = "     Close"
+flat = true
+
+[node name="Arrow" type="Sprite" parent="Statsbox/LeftPage/Close"]
+modulate = Color( 1, 1, 1, 0.764706 )
+position = Vector2( 36, 18.25 )
+scale = Vector2( 0.320313, 0.336806 )
+texture = ExtResource( 7 )
+
+[node name="MiddleSpace" type="Control" parent="Statsbox"]
+margin_left = 227.0
+margin_right = 288.0
+margin_bottom = 386.0
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.27
+
+[node name="RighPage" type="VBoxContainer" parent="Statsbox"]
+margin_left = 292.0
+margin_right = 516.0
+margin_bottom = 386.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Space" type="Control" parent="Statsbox/RighPage"]
+visible = false
+margin_right = 224.0
+margin_bottom = 5.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Bars" type="GridContainer" parent="Statsbox/RighPage"]
+margin_right = 224.0
+margin_bottom = 52.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.45
+custom_constants/vseparation = 5
+columns = 2
+
+[node name="Hp" type="Label" parent="Statsbox/RighPage/Bars"]
+margin_right = 51.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "  Hp  "
+
+[node name="HpControl" type="Control" parent="Statsbox/RighPage/Bars"]
+margin_left = 55.0
+margin_right = 55.0
+margin_bottom = 14.0
+
+[node name="HpBar" type="TextureProgress" parent="Statsbox/RighPage/Bars/HpControl"]
+modulate = Color( 1, 1, 1, 0.827451 )
+margin_left = -119.0
+margin_top = 47.0
+margin_right = 9.0
+margin_bottom = 83.0
+rect_scale = Vector2( 1.3, 0.35 )
+rect_pivot_offset = Vector2( -399, -73 )
+size_flags_horizontal = 3
+value = 100.0
+texture_under = ExtResource( 11 )
+texture_over = ExtResource( 12 )
+texture_progress = ExtResource( 11 )
+tint_under = Color( 0.552941, 0.196078, 0.196078, 0 )
+tint_over = Color( 0.341176, 0.2, 0.2, 1 )
+tint_progress = Color( 0.533333, 0.670588, 0.262745, 1 )
+
+[node name="HpValue" type="Label" parent="Statsbox/RighPage/Bars/HpControl"]
+margin_left = 62.0
+margin_right = 105.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="Fevor" type="Label" parent="Statsbox/RighPage/Bars"]
+margin_top = 19.0
+margin_right = 51.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "  Fevor  "
+
+[node name="FevorControl" type="Control" parent="Statsbox/RighPage/Bars"]
+margin_left = 55.0
+margin_top = 19.0
+margin_right = 55.0
+margin_bottom = 33.0
+
+[node name="FevorBar" type="TextureProgress" parent="Statsbox/RighPage/Bars/FevorControl"]
+margin_left = -119.0
+margin_top = 48.0
+margin_right = 9.0
+margin_bottom = 84.0
+rect_scale = Vector2( 1.3, 0.35 )
+rect_pivot_offset = Vector2( -399, -73 )
+size_flags_horizontal = 3
+value = 80.0
+texture_under = ExtResource( 11 )
+texture_over = ExtResource( 12 )
+texture_progress = ExtResource( 11 )
+tint_under = Color( 0.313726, 0.0823529, 0.0823529, 0 )
+tint_over = Color( 0.341176, 0.2, 0.2, 1 )
+tint_progress = Color( 0.831373, 0.807843, 0.188235, 1 )
+
+[node name="FevorValue" type="Label" parent="Statsbox/RighPage/Bars/FevorControl"]
+margin_left = 61.0
+margin_top = 1.0
+margin_right = 105.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "80"
+align = 1
+valign = 1
+
+[node name="Exp" type="Label" parent="Statsbox/RighPage/Bars"]
+margin_top = 38.0
+margin_right = 51.0
+margin_bottom = 52.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "  Exp"
+
+[node name="EpxControl" type="Control" parent="Statsbox/RighPage/Bars"]
+margin_left = 55.0
+margin_top = 38.0
+margin_right = 55.0
+margin_bottom = 52.0
+
+[node name="ExpBar" type="TextureProgress" parent="Statsbox/RighPage/Bars/EpxControl"]
+margin_left = -119.0
+margin_top = 49.0
+margin_right = 9.0
+margin_bottom = 85.0
+rect_scale = Vector2( 1.3, 0.35 )
+rect_pivot_offset = Vector2( -399, -73 )
+size_flags_horizontal = 3
+value = 69.0
+texture_under = ExtResource( 11 )
+texture_over = ExtResource( 12 )
+texture_progress = ExtResource( 11 )
+tint_under = Color( 1, 1, 1, 0 )
+tint_over = Color( 0.341176, 0.2, 0.2, 1 )
+tint_progress = Color( 0.309804, 0.647059, 0.721569, 1 )
+
+[node name="ExpValue" type="Label" parent="Statsbox/RighPage/Bars/EpxControl"]
+margin_left = 63.0
+margin_top = 3.0
+margin_right = 104.0
+margin_bottom = 17.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "69"
+align = 1
+valign = 1
+
+[node name="Stats" type="GridContainer" parent="Statsbox/RighPage"]
+margin_top = 56.0
+margin_right = 224.0
+margin_bottom = 142.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.45
+columns = 2
+
+[node name="Lvl" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_right = 176.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "Level"
+
+[node name="LvlValue" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_left = 180.0
+margin_right = 224.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "1"
+
+[node name="Atk" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_top = 18.0
+margin_right = 176.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "Attack                                  "
+
+[node name="AttackValue" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_left = 180.0
+margin_top = 18.0
+margin_right = 224.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "99"
+
+[node name="Defense" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_top = 36.0
+margin_right = 176.0
+margin_bottom = 50.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "Defense"
+
+[node name="DefenseValue" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_left = 180.0
+margin_top = 36.0
+margin_right = 224.0
+margin_bottom = 50.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "1"
+
+[node name="MoveSpeed" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_top = 54.0
+margin_right = 176.0
+margin_bottom = 68.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "MoveSpeed"
+
+[node name="MoveSpeedValue" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_left = 180.0
+margin_top = 54.0
+margin_right = 224.0
+margin_bottom = 68.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "50"
+
+[node name="Intelligence" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_top = 72.0
+margin_right = 176.0
+margin_bottom = 86.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "Intelligence"
+
+[node name="IntelligenceValue" type="Label" parent="Statsbox/RighPage/Stats"]
+margin_left = 180.0
+margin_top = 72.0
+margin_right = 224.0
+margin_bottom = 86.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "-3"
+
+[node name="ResistanceAndWeakness" type="VBoxContainer" parent="Statsbox/RighPage"]
+margin_top = 146.0
+margin_right = 224.0
+margin_bottom = 214.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.63
+
+[node name="Resistance" type="Label" parent="Statsbox/RighPage/ResistanceAndWeakness"]
+margin_right = 224.0
+margin_bottom = 14.0
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "Resistance"
+align = 1
+
+[node name="Control" type="Control" parent="Statsbox/RighPage/ResistanceAndWeakness"]
+margin_top = 18.0
+margin_right = 224.0
+margin_bottom = 32.0
+size_flags_vertical = 3
+
+[node name="LoreResistance" type="Sprite" parent="Statsbox/RighPage/ResistanceAndWeakness/Control"]
+self_modulate = Color( 0.0784314, 0.290196, 0.298039, 0.65098 )
+position = Vector2( 111, 6.00012 )
+rotation = 0.0349066
+scale = Vector2( 0.231707, 0.174194 )
+texture = ExtResource( 3 )
+
+[node name="Weakness" type="Label" parent="Statsbox/RighPage/ResistanceAndWeakness"]
+margin_top = 36.0
+margin_right = 224.0
+margin_bottom = 50.0
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "Weakness"
+align = 1
+
+[node name="Control2" type="Control" parent="Statsbox/RighPage/ResistanceAndWeakness"]
+margin_top = 54.0
+margin_right = 224.0
+margin_bottom = 68.0
+size_flags_vertical = 3
+
+[node name="LoreWeakness" type="Sprite" parent="Statsbox/RighPage/ResistanceAndWeakness/Control2"]
+self_modulate = Color( 1, 1, 1, 0.643137 )
+position = Vector2( 110, 3.56129 )
+scale = Vector2( 0.15122, 0.122581 )
+texture = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="Statsbox/RighPage"]
+margin_top = 218.0
+margin_right = 224.0
+margin_bottom = 237.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.18
+
+[node name="Label" type="Label" parent="Statsbox/RighPage/Control"]
+margin_right = 67.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+text = "Inventory?"
+
+[node name="Expand" type="Button" parent="Statsbox/RighPage/Control"]
+margin_left = 157.0
+margin_top = -4.0
+margin_right = 223.0
+margin_bottom = 16.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+enabled_focus_mode = 0
+text = "Expand"
+flat = true
+
+[node name="Inventory" type="ScrollContainer" parent="Statsbox/RighPage"]
+margin_top = 241.0
+margin_right = 224.0
+margin_bottom = 349.0
+size_flags_vertical = 3
+
+[node name="GridContainer2" type="GridContainer" parent="Statsbox/RighPage/Inventory"]
+margin_right = 212.0
+margin_bottom = 266.0
+size_flags_vertical = 3
+columns = 4
+
+[node name="Panel" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel2" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel3" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel4" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 162.0
+margin_right = 212.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel5" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_top = 54.0
+margin_right = 50.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel6" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 54.0
+margin_top = 54.0
+margin_right = 104.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel7" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 108.0
+margin_top = 54.0
+margin_right = 158.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel8" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 162.0
+margin_top = 54.0
+margin_right = 212.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel9" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_top = 108.0
+margin_right = 50.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel10" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 54.0
+margin_top = 108.0
+margin_right = 104.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel11" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 108.0
+margin_top = 108.0
+margin_right = 158.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel12" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 162.0
+margin_top = 108.0
+margin_right = 212.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel13" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_top = 162.0
+margin_right = 50.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel14" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 54.0
+margin_top = 162.0
+margin_right = 104.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel15" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 108.0
+margin_top = 162.0
+margin_right = 158.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel16" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 162.0
+margin_top = 162.0
+margin_right = 212.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel17" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_top = 216.0
+margin_right = 50.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel18" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 54.0
+margin_top = 216.0
+margin_right = 104.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel19" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 108.0
+margin_top = 216.0
+margin_right = 158.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Panel20" type="Panel" parent="Statsbox/RighPage/Inventory/GridContainer2"]
+margin_left = 162.0
+margin_top = 216.0
+margin_right = 212.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 6 )
+
+[node name="Space2" type="Control" parent="Statsbox/RighPage"]
+margin_top = 353.0
+margin_right = 224.0
+margin_bottom = 386.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Ability" type="Button" parent="Statsbox/RighPage/Space2"]
+margin_left = 157.0
+margin_top = 6.0
+margin_right = 210.0
+margin_bottom = 26.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+enabled_focus_mode = 0
+text = "Ability"
+flat = true
+
+[node name="Arrow2" type="Sprite" parent="Statsbox/RighPage/Space2/Ability"]
+modulate = Color( 1, 1, 1, 0.764706 )
+position = Vector2( 28, 10 )
+rotation = 3.14159
+scale = Vector2( 0.320313, 0.336806 )
+texture = ExtResource( 7 )
+
+[node name="StatUiAnim" type="AnimationPlayer" parent="."]
+anims/NextPage = SubResource( 6 )
+anims/RESET = SubResource( 2 )
+anims/StatUiAnim = SubResource( 3 )
+anims/StatUiAnimOut = SubResource( 4 )
+anims/TextAdjustment = SubResource( 5 )
+
+[node name="Flippage" type="Sprite" parent="."]
+visible = false
+position = Vector2( 633, 332 )
+texture = ExtResource( 9 )
+
+[node name="AbilitiesUI" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="BacktoStats" type="Button" parent="AbilitiesUI"]
+margin_left = 399.0
+margin_top = 525.0
+margin_right = 442.0
+margin_bottom = 545.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.341176, 0.2, 0.2, 1 )
+enabled_focus_mode = 0
+text = "Stats"
+flat = true
+
+[node name="Arrow3" type="Sprite" parent="AbilitiesUI/BacktoStats"]
+modulate = Color( 1, 1, 1, 0.764706 )
+position = Vector2( 14, 9 )
+scale = Vector2( 0.320313, 0.336806 )
+texture = ExtResource( 7 )
+
+[connection signal="pressed" from="Statsbox/LeftPage/Close" to="." method="_on_Close_pressed"]
+[connection signal="toggled" from="Statsbox/LeftPage/Close" to="." method="_on_Close_toggled"]
+[connection signal="pressed" from="Statsbox/RighPage/Control/Expand" to="." method="_on_Expand_pressed"]
+[connection signal="toggled" from="Statsbox/RighPage/Control/Expand" to="." method="_on_Expand_toggled"]
+[connection signal="pressed" from="Statsbox/RighPage/Space2/Ability" to="." method="_on_Ability_pressed"]
+[connection signal="pressed" from="AbilitiesUI/BacktoStats" to="." method="_on_BacktoStats_pressed"]
