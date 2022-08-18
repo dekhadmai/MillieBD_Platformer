@@ -1,9 +1,5 @@
 extends BaseGameplayAbility
 
-
-
-
-
 func _on_GrazeArea_body_entered(body):
 	body.StartGraze(AbilityOwner)
 	pass # Replace with function body.

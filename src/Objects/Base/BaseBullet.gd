@@ -9,7 +9,7 @@ var gameplay_effect_template
 onready var graze_effect = $GameplayEffect_GrazeXP
 var graze_timer: Timer
 var graze_actor: Actor
-var graze_period: float = 0.1
+var graze_period: float = 0.05
 
 var Instigator:Actor
 
@@ -26,11 +26,12 @@ func _on_body_entered(body):
 	OnBodyEnter(body)
 
 func OnBodyEnter(body):
-	if body is Actor:
-		if body.GetTeam() != Instigator.GetTeam():
-			OnBulletHit(body)
-	else :
-		queue_free()
+		if body is Actor:
+			if !body.GetAbilitySystemComponent().CurrentCharStats.bInvincible:
+				if body.GetTeam() != Instigator.GetTeam():
+					OnBulletHit(body)
+		else :
+			queue_free()
 
 func OnBulletHit(body:Actor):	
 	var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect

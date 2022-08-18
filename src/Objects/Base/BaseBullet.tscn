@@ -69,7 +69,7 @@ script = ExtResource( 1 )
 [node name="GameplayEffect_GrazeXP" type="Node2D" parent="."]
 script = ExtResource( 3 )
 StatToModify = 5
-ValueToModify = 5.0
+ValueToModify = 1.0
 
 [node name="Particles2D" type="CPUParticles2D" parent="."]
 material = SubResource( 2 )

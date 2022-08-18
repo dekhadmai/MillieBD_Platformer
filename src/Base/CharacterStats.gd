@@ -6,6 +6,7 @@ signal level_up
 
 enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed, EXP, Fever}
 
+var bInvincible: bool = false setget SetInvincible
 var CurrentHP: float = 0.0 setget TakeDamage
 var CurrentAttack: float = 0.0
 var CurrentMovespeed: float = 0.0
@@ -39,6 +40,9 @@ func Calculate() -> void:
 	CurrentJumpSpeed = BaseJumpSpeed
 	TotalDamageAdjustScale = DamageAdjustScale * DamageAdjustScaleMultiplicative
 	
+func SetInvincible(value: bool):
+	bInvincible = value
+
 func TakeDamage(value: float):
 	CurrentHP -= value
 	if CurrentHP <= 0.0:
