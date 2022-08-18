@@ -7,6 +7,7 @@ var AnimPlayer: AnimationPlayerState
 var AbilityCooldownTimer: Timer
 export var AbilityCooldownSecond: float = 1.0
 export var bCommitAbilityCooldownWhenDeactivate: bool = true
+var bIsActive: bool
 
 var bAlreadyInit: bool = false
 
@@ -44,11 +45,13 @@ func TryActivate():
 		Activate()
 
 func Activate():
+	bIsActive = true
 	pass
 	
 func Deactivate():
 	if bCommitAbilityCooldownWhenDeactivate:
 		CommitAbilityCooldown()
+	bIsActive = false
 	pass
 	
 func EndAbility():
@@ -61,6 +64,9 @@ func CommitAbilityCooldown():
 	
 func IsAbilityOnCooldown() -> bool:
 	return !AbilityCooldownTimer.is_stopped()
+	
+func IsAbilityActive() -> bool:
+	return bIsActive
 	
 func CanUseAbility() -> bool:
 	return !IsAbilityOnCooldown()

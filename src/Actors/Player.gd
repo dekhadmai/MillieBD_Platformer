@@ -16,20 +16,16 @@ onready var animation_player = $AnimationPlayerState
 onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var sound_jump = $Jump
-onready var dash_timer = $DashTimer
-onready var dash_cooldown = $DashTimer/DashCooldown
 
 onready var ability_system_component:BaseAbilitySystemComponent = $AbilitySystemComponent
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
 onready var special_abi = $AbilitySystemComponent/SpecialAbility
 onready var special_abi_up = $AbilitySystemComponent/SpecialAbility_Up
 onready var special_abi_down = $AbilitySystemComponent/SpecialAbility_Down
-
-var is_dashing = 0
+onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 
 var jump_count = 0
 export var jump_max_count = 2;
-export var dash_speed = 4.0
 
 
 func _ready():
@@ -76,7 +72,9 @@ func _physics_process(_delta):
 	var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
 	speed.x = ability_system_component.CurrentCharStats.BaseMovespeed
 	speed.y = ability_system_component.CurrentCharStats.BaseJumpSpeed
-	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
+	
+	if !dash_abi.IsAbilityActive() : 
+		_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
 
 	var snap_vector = Vector2.ZERO
 	if direction.y == 0.0:
@@ -112,18 +110,9 @@ func _physics_process(_delta):
 
 	UpdateAnimState()
 	
-#	var animation = get_new_animation(is_shooting)
-#	if animation != animation_player.current_animation and shoot_timer.is_stopped():
-#		if is_shooting:
-#			shoot_timer.start()
-#		animation_player.play(animation)
-		
-		
 	if Input.is_action_just_pressed("dash" + action_suffix):
-		do_dash()
+		dash_abi.TryActivate()
 	
-	if dash_timer.is_stopped():
-		is_dashing = 0
 
 
 func get_direction():
@@ -149,22 +138,6 @@ func do_jump():
 
 func can_jump():
 	return true if is_on_floor() or jump_count < jump_max_count else false
-	
-func do_dash():
-	var result = false
-	result = true if can_dash() else false
-	
-	if result:
-		is_dashing = Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix)
-		dash_timer.start()
-		dash_cooldown.start()
-		# Play jump sound
-		#sound_jump.play()
-		
-	return result
-	
-func can_dash():
-	return dash_cooldown.is_stopped()
 
 # This function calculates a new velocity whenever you need it.
 # It allows you to interrupt jumps.
@@ -183,10 +156,6 @@ func calculate_move_velocity(
 		# Decrease the Y velocity by multiplying it, but don't set it to 0
 		# as to not be too abrupt.
 		velocity.y *= 0.6
-		
-	if is_dashing != 0:
-		velocity.x = speed.x * (1 if is_dashing > 0 else -1) * dash_speed
-		velocity.y = 0.0
 		
 	return velocity
 

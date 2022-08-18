@@ -15,7 +15,7 @@ func _ready():
 
 func _process(delta):
 	fps_label.set_text( str("FPS : ", Engine.get_frames_per_second()) )
-	hp_label.set_text( str("HP : ", player_current_stat.CurrentHP) )
-	level_label.set_text( str("LV : ", player_current_stat.CurrentLevel) )
-	xp_label.set_text( str("EXP : ", player_current_stat.CurrentEXP) )
+#	hp_label.set_text( str("HP : ", player_current_stat.CurrentHP) )
+#	level_label.set_text( str("LV : ", player_current_stat.CurrentLevel) )
+#	xp_label.set_text( str("EXP : ", player_current_stat.CurrentEXP) )
 	pass

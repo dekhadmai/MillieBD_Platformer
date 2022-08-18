@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Ability/Base/BaseGameplayAbility.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Ability/Ability_Dash.gd" type="Script" id=2]
+
+[node name="Ability_Dash" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+dash_speed = 4.0
+
+[node name="AbilityCooldown" parent="." index="0"]
+wait_time = 1.0
+
+[node name="DashDuration" type="Timer" parent="." index="1"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="DashDuration" to="." method="_on_DashDuration_timeout"]

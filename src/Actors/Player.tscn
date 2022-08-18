@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/Ability/GrazeSystem.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Ability/Ability_Dash.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
@@ -195,6 +196,8 @@ script = ExtResource( 1 )
 Team_ID = 1
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
+
+[node name="Ability_Dash" parent="AbilitySystemComponent" instance=ExtResource( 12 )]
 
 [node name="GrazeSystem" parent="AbilitySystemComponent" instance=ExtResource( 9 )]
 position = Vector2( 0, -14 )
