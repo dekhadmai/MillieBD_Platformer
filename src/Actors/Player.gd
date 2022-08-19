@@ -17,7 +17,7 @@ onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var sound_jump = $Jump
 
-onready var ability_system_component:BaseAbilitySystemComponent = $AbilitySystemComponent
+#onready var ability_system_component:BaseAbilitySystemComponent = $AbilitySystemComponent
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
 onready var special_abi = $AbilitySystemComponent/SpecialAbility
 onready var special_abi_up = $AbilitySystemComponent/SpecialAbility_Up
@@ -26,7 +26,6 @@ onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 
 var jump_count = 0
 export var jump_max_count = 2;
-
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -46,25 +45,6 @@ func _ready():
 	
 	pass
 
-
-# Physics process is a built-in loop in Godot.
-# If you define _physics_process on a node, Godot will call it every frame.
-
-# We use separate functions to calculate the direction and velocity to make this one easier to read.
-# At a glance, you can see that the physics process loop:
-# 1. Calculates the move direction.
-# 2. Calculates the move velocity.
-# 3. Moves the character.
-# 4. Updates the sprite direction.
-# 5. Shoots bullets.
-# 6. Updates the animation.
-
-# Splitting the physics process logic into functions not only makes it
-# easier to read, it help to change or improve the code later on:
-# - If you need to change a calculation, you can use Go To -> Function
-#   (Ctrl Alt F) to quickly jump to the corresponding function.
-# - If you split the character into a state machine or more advanced pattern,
-#   you can easily move individual functions.
 func _physics_process(_delta):
 
 	var direction = get_direction()

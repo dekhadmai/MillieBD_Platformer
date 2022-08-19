@@ -9,6 +9,9 @@ export(Enum_TeamID) var Team_ID
 export var speed:Vector2 = Vector2(150.0, 350.0)
 onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
 
+onready var ability_system_component
+onready var TargetingSocket: Position2D = find_node("TargetingSocket")
+
 export var bUseGravity: bool = true
 
 var bIsDead:bool = false
@@ -30,12 +33,22 @@ func _physics_process(delta):
 		_velocity.y += gravity * delta
 
 
+# helper functions
+
 func GetTeam() -> int :
 	return Team_ID
 
 func GetAbilitySystemComponent() -> BaseAbilitySystemComponent:
-	return get_node("AbilitySystemComponent") as BaseAbilitySystemComponent
+	if ability_system_component:
+		return ability_system_component
+	else:
+		ability_system_component = get_node("AbilitySystemComponent")
+		return ability_system_component
 	
 func died():
 	bIsDead = true
 
+func GetTargetingPosition() -> Vector2:
+	return TargetingSocket.global_position
+	
+# end of helper functions

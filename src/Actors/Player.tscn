@@ -247,6 +247,8 @@ vframes = 2
 
 [node name="ShootSocket" type="Position2D" parent="Sprite"]
 
+[node name="TargetingSocket" type="Position2D" parent="Sprite"]
+
 [node name="AnimationPlayerState" parent="." instance=ExtResource( 13 )]
 playback_speed = 2.6
 anims/crouch = SubResource( 1 )

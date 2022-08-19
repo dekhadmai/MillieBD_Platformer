@@ -14,6 +14,7 @@ onready var animation_player = $AnimationPlayer
 onready var ai_controller = $AIController
 
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
+onready var autoload_transient = $"/root/AutoLoadTransientData"
 
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
@@ -74,5 +75,6 @@ func get_new_animation():
 
 
 func _on_ShootTimer_timeout():
-	shoot_abi.Activate()
+	shoot_abi.SetTargetActor(autoload_transient.player)
+	shoot_abi.TryActivate()
 	pass # Replace with function body.
