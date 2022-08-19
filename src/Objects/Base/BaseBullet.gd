@@ -4,12 +4,8 @@ extends RigidBody2D
 export(float) var BaseSpeed: float = 300.0
 
 onready var animation_player = $AnimationPlayer
+onready var graze_xp = $GrazeExpGiver
 var gameplay_effect_template
-
-onready var graze_effect = $GameplayEffect_GrazeXP
-var graze_timer: Timer
-var graze_actor: Actor
-var graze_period: float = 0.05
 
 var Instigator:Actor
 
@@ -41,20 +37,10 @@ func OnBulletHit(body:Actor):
 	
 	#body.destroy()
 	queue_free()
+	pass
 	
 func StartGraze(body:Actor):
-	graze_actor = body
-	graze_timer = Timer.new()
-	add_child(graze_timer)
-	graze_timer.connect("timeout", self, "OnBulletGraze")
-	graze_timer.set_one_shot(false)
-	graze_timer.start(graze_period)
+	graze_xp.StartGraze(body, Instigator, self)
 	
 func StopGraze():
-	graze_timer.stop()
-	
-func OnBulletGraze():
-	var effect:BaseGameplayEffect = graze_effect.duplicate() as BaseGameplayEffect
-	var body_asc: BaseAbilitySystemComponent = graze_actor.GetAbilitySystemComponent()
-	
-	Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
+	graze_xp.StopGraze()
