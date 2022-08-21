@@ -75,6 +75,10 @@ func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0):
 	if AnimPlayer != null:
 		AnimPlayer.PlayCustomAnim(custom_anim_name, seconds)
 		
+func PlayFullBodyAnimation(fullbody_anim_name: String, seconds: float = 0.0):
+	if AnimPlayer != null:
+		AnimPlayer.PlayFullBodyAnim(fullbody_anim_name, seconds)
+		
 func getAnim() -> AnimationPlayerState:
 	if AnimPlayer != null:
 		return AnimPlayer
