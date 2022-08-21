@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Ability/Ability_Dash.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
+[ext_resource path="res://src/Ability/GameplayAbility_Melee.gd" type="Script" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -187,6 +189,37 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14, 5 ]
 }
 
+[sub_resource type="Animation" id=12]
+resource_name = "swing"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayerState/Sword:flip_v")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.6, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayerState/Sword:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="RectangleShape2D" id=13]
+
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10, 14 )
 
@@ -212,9 +245,7 @@ AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
 
 [node name="SpecialAbility_Down" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
-AbilityCooldownSecond = 0.3
-ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
-amount = 50
+script = ExtResource( 15 )
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3
@@ -244,6 +275,7 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 hframes = 16
 vframes = 2
+frame = 22
 
 [node name="ShootSocket" type="Position2D" parent="Sprite"]
 
@@ -261,6 +293,22 @@ anims/jumping_weapon = SubResource( 7 )
 anims/run = SubResource( 8 )
 anims/run_weapon = SubResource( 9 )
 anims/standing_weapon_ready = SubResource( 10 )
+anims/swing = SubResource( 12 )
+
+[node name="Sword" type="Sprite" parent="AnimationPlayerState"]
+visible = false
+position = Vector2( 12, -12 )
+scale = Vector2( 0.703125, 0.625 )
+texture = ExtResource( 14 )
+
+[node name="Area2D" type="Area2D" parent="AnimationPlayerState/Sword"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationPlayerState/Sword/Area2D"]
+modulate = Color( 0.890196, 0.0666667, 0.0666667, 1 )
+self_modulate = Color( 0.831373, 0.113725, 0.113725, 1 )
+position = Vector2( -1.42222, -3.2 )
+shape = SubResource( 13 )
+disabled = true
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )

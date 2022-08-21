@@ -74,3 +74,11 @@ func CanUseAbility() -> bool:
 func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0):
 	if AnimPlayer != null:
 		AnimPlayer.PlayCustomAnim(custom_anim_name, seconds)
+		
+func getAnim() -> AnimationPlayerState:
+	if AnimPlayer != null:
+		return AnimPlayer
+	else:
+		print_debug('AnimPlayer not ready yet')
+		return null
+		
