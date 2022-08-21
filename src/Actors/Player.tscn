@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
 [ext_resource path="res://src/Ability/GameplayAbility_Melee.gd" type="Script" id=15]
 
+[sub_resource type="RectangleShape2D" id=13]
+
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
 length = 0.01
@@ -194,7 +196,7 @@ resource_name = "swing"
 length = 2.5
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayerState/Sword:flip_v")
+tracks/0/path = NodePath("Sword:flip_v")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -206,7 +208,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayerState/Sword:visible")
+tracks/1/path = NodePath("Sword:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -217,8 +219,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false ]
 }
-
-[sub_resource type="RectangleShape2D" id=13]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10, 14 )
@@ -270,6 +270,21 @@ enabled = true
 cast_to = Vector2( 0, 6 )
 collision_mask = 8
 
+[node name="Sword" type="Sprite" parent="."]
+visible = false
+position = Vector2( 12, -12 )
+scale = Vector2( 0.703125, 0.625 )
+texture = ExtResource( 14 )
+
+[node name="Area2D" type="Area2D" parent="Sword"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Area2D"]
+modulate = Color( 0.890196, 0.0666667, 0.0666667, 1 )
+self_modulate = Color( 0.831373, 0.113725, 0.113725, 1 )
+position = Vector2( -1.42222, -3.2 )
+shape = SubResource( 13 )
+disabled = true
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
@@ -294,21 +309,6 @@ anims/run = SubResource( 8 )
 anims/run_weapon = SubResource( 9 )
 anims/standing_weapon_ready = SubResource( 10 )
 anims/swing = SubResource( 12 )
-
-[node name="Sword" type="Sprite" parent="AnimationPlayerState"]
-visible = false
-position = Vector2( 12, -12 )
-scale = Vector2( 0.703125, 0.625 )
-texture = ExtResource( 14 )
-
-[node name="Area2D" type="Area2D" parent="AnimationPlayerState/Sword"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationPlayerState/Sword/Area2D"]
-modulate = Color( 0.890196, 0.0666667, 0.0666667, 1 )
-self_modulate = Color( 0.831373, 0.113725, 0.113725, 1 )
-position = Vector2( -1.42222, -3.2 )
-shape = SubResource( 13 )
-disabled = true
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )

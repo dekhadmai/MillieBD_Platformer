@@ -34,7 +34,7 @@ func Activate():
 	
 	print_debug('swing the f sword')
 
-	getAnim().PlayCustomAnim('swing')
+	getAnim().PlayFullBodyAnim('swing', 1.0)
 
 	EndAbility()
 	pass
