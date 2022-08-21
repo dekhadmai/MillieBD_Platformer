@@ -20,6 +20,7 @@ func PlayCustomAnim(custom_anim_name: String, seconds: float = 0.0):
 	
 func PlayFullBodyAnim(fullbody_anim_name: String, seconds: float = 0.0):
 	FullBodyAnimState = fullbody_anim_name
+	FullBodyAnimTimer.start(seconds)
 	bIsPlayingFullBodyAnim = true
 	
 
