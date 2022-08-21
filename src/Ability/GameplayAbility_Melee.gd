@@ -6,7 +6,7 @@ onready var Bullet = load(ActorToSpawnPath)
 export var CustomAnimName: String = "_weapon"
 export var CustomAnimDuration: float = 0.3 
 
-onready var sound_shoot = $Shoot
+
 
 export var SpawnSocketName: String = "ShootSocket"
 onready var SocketNode: Position2D
@@ -33,8 +33,8 @@ func Activate():
 	.Activate()
 	
 	print_debug('swing the f sword')
-	sound_shoot.play()
-	getAnim().play('swing')
+
+	getAnim().PlayCustomAnim('swing')
 
 	EndAbility()
 	pass
