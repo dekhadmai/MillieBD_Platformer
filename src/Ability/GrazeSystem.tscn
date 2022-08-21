@@ -24,6 +24,7 @@ collision_layer = 64
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" index="0"]
+self_modulate = Color( 0.168627, 0.027451, 0.027451, 1 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="GrazeArea" to="." method="_on_GrazeArea_body_entered"]

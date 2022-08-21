@@ -10,6 +10,8 @@ onready var pause_anim = $InterfaceLayer/PauseMenuV2/PauseMenuAnim
 onready var settings_anim = $InterfaceLayer/PauseMenuV2/CanvasLayer/SettingsMenu/AnimationPlayer
 onready var fullscreen_btn = $InterfaceLayer/PauseMenuV2/CanvasLayer/SettingsMenu/Settings/VBoxContainer/SettingsContainer/VideoSetings/Fullscreen
 
+onready var autoload_mapdata = $"/root/AutoLoadMapData"
+
 func _init():
 #	OS.min_window_size = OS.window_size
 #	OS.max_window_size = OS.get_screen_size()
@@ -26,3 +28,6 @@ func _notification(what):
 #------------Deleted lines are Mostly recoded on PauseMenu and Settings Menu-----------------------------
 
 
+func _ready():
+	#autoload_mapdata.InitSpawnRooms()
+	pass

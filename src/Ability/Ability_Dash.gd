@@ -2,6 +2,7 @@ extends BaseGameplayAbility
 
 
 onready var dash_duration_timer: Timer = $DashDuration
+onready var effect_exp: BaseGameplayEffect = $Effect_ExpMultiplier
 var dash_direction: float = 0.0
 
 var player_current_stat: CharacterStats
@@ -24,6 +25,12 @@ func _process(delta):
 func Activate():
 	.Activate()
 	do_dash()
+	
+	var effect:BaseGameplayEffect = effect_exp.duplicate() as BaseGameplayEffect
+	var body_asc: BaseAbilitySystemComponent = AbilityOwner.GetAbilitySystemComponent()
+	
+	body_asc.ApplyGameplayEffectToSelf(effect)
+	
 	pass
 
 func do_dash():

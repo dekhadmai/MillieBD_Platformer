@@ -53,10 +53,16 @@ func DoEffect() -> void:
 		CharacterStats.CharacterStatType.Damage:
 			TargetAbilitySystemComponent.CurrentCharStats.TakeDamage(ValueToModify)
 		CharacterStats.CharacterStatType.EXP:
-			TargetAbilitySystemComponent.CurrentCharStats.SetEXP(TargetAbilitySystemComponent.CurrentCharStats.CurrentEXP + ValueToModify)
+			TargetAbilitySystemComponent.CurrentCharStats.AddEXP(ValueToModify)
+		CharacterStats.CharacterStatType.ExpAdjustScale:
+			TargetAbilitySystemComponent.CurrentCharStats.ExpAdjustScale += ValueToModify
 		_:
 			pass
 
 func UndoEffect() -> void:
-	# todo : add more stuff here when we have other stat we want to buff
+	match StatToModify:
+		CharacterStats.CharacterStatType.ExpAdjustScale:
+			TargetAbilitySystemComponent.CurrentCharStats.ExpAdjustScale -= ValueToModify
+		_:
+			pass
 	pass
