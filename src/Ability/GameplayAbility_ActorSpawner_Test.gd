@@ -18,7 +18,7 @@ func SpawnCircle() -> void:
 	var rot
 	for i in range(amount) : 
 		rot = Vector2.UP.rotated(start_angle + angle)
-		angle += deg2rad(180.0/amount)
+		angle += deg2rad(360.0/amount)
 		
 		var bullet = Bullet.instance()
 		bullet.Init(AbilityOwner, GameplayeEffect_Template)
