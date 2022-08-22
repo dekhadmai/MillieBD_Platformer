@@ -14,7 +14,7 @@
 [ext_resource path="res://src/Ability/Ability_Dash.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
-[ext_resource path="res://src/Ability/GameplayAbility_Melee.gd" type="Script" id=15]
+[ext_resource path="res://src/Ability/GameplayAbility_Melee.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=13]
 
@@ -244,12 +244,11 @@ amount = 10
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
 
-[node name="SpecialAbility_Down" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
-script = ExtResource( 15 )
-
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
+
+[node name="GameplayAbility_Melee" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
 
 [node name="DashTimer" type="Timer" parent="."]
 process_mode = 0

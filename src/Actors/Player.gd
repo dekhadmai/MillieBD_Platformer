@@ -21,7 +21,7 @@ onready var sound_jump = $Jump
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
 onready var special_abi = $AbilitySystemComponent/SpecialAbility
 onready var special_abi_up = $AbilitySystemComponent/SpecialAbility_Up
-onready var special_abi_down = $AbilitySystemComponent/SpecialAbility_Down
+onready var gameplay_ability_melee = $AbilitySystemComponent/GameplayAbility_Melee
 onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 
 var jump_count = 0
@@ -83,7 +83,7 @@ func _physics_process(_delta):
 	if GlobalFunctions.IsKeyModifierPressed("use_ability", "move_up"):
 		special_abi_up.TryActivate()
 	elif GlobalFunctions.IsKeyModifierPressed("use_ability", "move_down"):
-		special_abi_down.TryActivate()
+		gameplay_ability_melee.TryActivate()
 	else:
 		if Input.is_action_just_pressed("use_ability" + action_suffix):
 			special_abi.TryActivate()
