@@ -84,10 +84,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Gun.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "LevelRoom",
 "language": "GDScript",
 "path": "res://src/Level/LevelRoom.gd"
+}, {
+"base": "Node",
+"class": "LevelRoomData",
+"language": "GDScript",
+"path": "res://src/Base/LevelRoomData.gd"
 }, {
 "base": "Actor",
 "class": "Player",
@@ -111,6 +116,7 @@ _global_script_class_icons={
 "GlobalFunctions": "",
 "Gun": "",
 "LevelRoom": "",
+"LevelRoomData": "",
 "Player": ""
 }
 
