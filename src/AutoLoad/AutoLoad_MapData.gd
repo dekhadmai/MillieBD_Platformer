@@ -6,10 +6,22 @@ var LevelRoomMap = []
 var GridWidth = 10
 var GridHeight = 5
 var DoorChance = 15
+var TotalRoomAvailable: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	GenerateRooms()
+	print("\n")
+	print_map()
+	
+	pass # Replace with function body.
+
+func GenerateRooms():
+	LevelRoomMap = []
+	TotalRoomAvailable = 0
+	
 	for i in GridHeight:
 		LevelRoomMap.append([])
 		for j in GridWidth:
@@ -17,20 +29,15 @@ func _ready():
 			
 	randomize()
 	#seed(35)
-	GenerateRooms()
-	print("\n\n")
-	print_map()
-	pass # Replace with function body.
-
-func GenerateRooms():
+	
 	# start in the middle
 	LevelRoomMap[2][0].bStartRoom = true
-	Traverse(2, 0, -1, -1)
+	Traverse(2, 0, -1, -1, 0)
 	pass
 
-func Traverse(row:int, column:int, from_row: int, from_column: int):
+func Traverse(row:int, column:int, from_row: int, from_column: int, distance: int):
 	
-	print("Traverse : (" + str(row) + "," + str(column) + ")")
+	#print("Traverse : (" + str(row) + "," + str(column) + ")")
 	
 	var room_data:LevelRoomData = LevelRoomMap[row][column]
 	
@@ -47,8 +54,13 @@ func Traverse(row:int, column:int, from_row: int, from_column: int):
 	
 	if (room_data.bTraversed):
 		return
-	room_data.bTraversed = true
 	
+	##### mark this room
+	room_data.bTraversed = true
+	room_data.Distance = distance
+	TotalRoomAvailable += 1
+	
+	# setup for new room to traverse
 	var can_traverse = [0,0,0,0] #left, up, right, down | 0 = can't traverse, 1 = can traverse, 2 = force traverse
 	var eligible_options = []
 	
@@ -81,7 +93,7 @@ func Traverse(row:int, column:int, from_row: int, from_column: int):
 	# travel left
 	if can_traverse[0] > 0 and (can_traverse[0] == 2 or randi() % 100 < DoorChance):
 		room_data.bIsDoorOpened[0] = 1
-		Traverse(row, column-1, row, column)
+		Traverse(row, column-1, row, column, distance+1)
 	else:
 		if room_data.bIsDoorOpened[0] == 0:
 			room_data.bIsDoorOpened[0] = 2
@@ -89,7 +101,7 @@ func Traverse(row:int, column:int, from_row: int, from_column: int):
 	# travel up
 	if can_traverse[1] > 0 and (can_traverse[1] == 2 or randi() % 100 < DoorChance):
 		room_data.bIsDoorOpened[1] = 1
-		Traverse(row-1, column, row, column)
+		Traverse(row-1, column, row, column, distance+1)
 	else:
 		if room_data.bIsDoorOpened[1] == 0:
 			room_data.bIsDoorOpened[1] = 2
@@ -97,7 +109,7 @@ func Traverse(row:int, column:int, from_row: int, from_column: int):
 	# travel right
 	if can_traverse[2] > 0 and (can_traverse[2] == 2 or randi() % 100 < DoorChance):
 		room_data.bIsDoorOpened[2] = 1
-		Traverse(row, column+1, row, column)
+		Traverse(row, column+1, row, column, distance+1)
 	else:
 		if room_data.bIsDoorOpened[2] == 0:
 			room_data.bIsDoorOpened[2] = 2
@@ -105,7 +117,7 @@ func Traverse(row:int, column:int, from_row: int, from_column: int):
 	# travel down
 	if can_traverse[3] > 0 and (can_traverse[3] == 2 or randi() % 100 < DoorChance):
 		room_data.bIsDoorOpened[3] = 1
-		Traverse(row+1, column, row, column)
+		Traverse(row+1, column, row, column, distance+1)
 	else:
 		if room_data.bIsDoorOpened[3] == 0:
 			room_data.bIsDoorOpened[3] = 2
@@ -128,14 +140,17 @@ func CanTraverse(row:int, column:int) -> bool :
 	
 func print_map():
 	var result:String = ""
+	result += "TotalRoom = " + str(TotalRoomAvailable) + "\n"
 	for i in GridHeight:
 		for j in GridWidth:
 			var room_data:LevelRoomData = LevelRoomMap[i][j]
 			
 			if !room_data.bStartRoom:
-				result += " "
+				result += str(room_data.Distance)
+				for n in (3 - str(room_data.Distance).length()):
+					result += " "
 			else:
-				result += "S"
+				result += "S  "
 				
 			if room_data.bIsDoorOpened[0] == 1:
 				result += "<"
