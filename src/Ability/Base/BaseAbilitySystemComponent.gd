@@ -17,6 +17,9 @@ var CurrentCharStats: CharacterStats = CharacterStats.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_child(BaseCharStats)
+	add_child(CurrentCharStats)
+	
 	BaseCharStats.BaseHP = InitStat_HP
 	BaseCharStats.BaseAttack = InitStat_Attack
 	BaseCharStats.BaseMovespeed = InitStat_Movespeed

@@ -6,6 +6,8 @@ extends Actor
 signal collect_coin()
 
 const FLOOR_DETECT_DISTANCE = 20.0
+const Min_Zoom = 0.5
+const Max_Zoom = 3.0
 
 export(String) var action_suffix = ""
 
@@ -23,6 +25,8 @@ onready var special_abi = $AbilitySystemComponent/SpecialAbility
 onready var special_abi_up = $AbilitySystemComponent/SpecialAbility_Up
 onready var gameplay_ability_melee = $AbilitySystemComponent/GameplayAbility_Melee
 onready var dash_abi = $AbilitySystemComponent/Ability_Dash
+
+onready var camera = $Camera
 
 var jump_count = 0
 export var jump_max_count = 2;
@@ -93,7 +97,13 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("dash" + action_suffix):
 		dash_abi.TryActivate()
 	
-
+	if Input.is_action_just_released("zoom_in"):
+		camera.zoom.x = clamp(camera.zoom.x - 0.1, Min_Zoom, Max_Zoom)
+		camera.zoom.y = clamp(camera.zoom.y - 0.1, Min_Zoom, Max_Zoom)
+		
+	if Input.is_action_just_released("zoom_out"):
+		camera.zoom.x = clamp(camera.zoom.x + 0.1, Min_Zoom, Max_Zoom)
+		camera.zoom.y = clamp(camera.zoom.y + 0.1, Min_Zoom, Max_Zoom)
 
 func get_direction():
 	return Vector2(
