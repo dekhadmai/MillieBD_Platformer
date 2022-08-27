@@ -32,8 +32,8 @@ func GenerateRooms():
 		for j in GridWidth:
 			LevelRoomMap[i].append(LevelRoomData.new())
 			
-	#randomize()
-	seed(35)
+	randomize()
+	#seed(35)
 	
 	# start in the middle
 	LevelRoomMap[startroom_row][startroom_col].bStartRoom = true
@@ -197,7 +197,11 @@ func CanSpawnRoom(row: int, column: int) -> bool:
 	if room_data.bActive :
 		return false
 		
-	return true
+	for i in 4:
+		if room_data.bIsDoorOpened[i] == 1:
+			return true
+		
+	return false
 
 func CreateRoomInstance(row: int, column: int) -> BaseLevelRoom:
 	var room = null
