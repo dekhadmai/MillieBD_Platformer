@@ -34,6 +34,7 @@ func Activate():
 	pass
 
 func do_dash():
+	PlayFullBodyAnimation("dash", 0.2)
 	dash_direction = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	player_current_stat.SetInvincible(true)
 	dash_duration_timer.start()

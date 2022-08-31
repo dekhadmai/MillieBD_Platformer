@@ -70,7 +70,11 @@ func IsAbilityActive() -> bool:
 	
 func CanUseAbility() -> bool:
 	return !IsAbilityOnCooldown()
-	
+
+func SetLingeringAnimation(lingering_anim_name: String, seconds: float = 0.0):
+	if AnimPlayer != null:
+		AnimPlayer.SetLingeringAnim(lingering_anim_name, seconds)
+
 func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0):
 	if AnimPlayer != null:
 		AnimPlayer.PlayCustomAnim(custom_anim_name, seconds)

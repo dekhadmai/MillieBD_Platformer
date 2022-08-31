@@ -4,7 +4,10 @@ export(String, FILE) var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
 
 export var CustomAnimName: String = "_weapon"
-export var CustomAnimDuration: float = 0.3 
+export var CustomAnimDuration: float = 0.3
+
+export var LingeringAnimName: String = "_active_weapon"
+export var LingeringAnimDuration: float = 2.0
 
 onready var sound_shoot = $Shoot
 
@@ -35,6 +38,7 @@ func Activate():
 	SpawnActor()
 	sound_shoot.play()
 	PlayCustomAnimation(CustomAnimName, CustomAnimDuration)
+	SetLingeringAnimation(LingeringAnimName, LingeringAnimDuration)
 	
 	EndAbility()
 	pass

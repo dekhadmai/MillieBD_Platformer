@@ -13,5 +13,10 @@ one_shot = true
 process_mode = 0
 one_shot = true
 
+[node name="LingeringAnimTimer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
 [connection signal="timeout" from="CustomAnimTimer" to="." method="_on_CustomAnimTimer_timeout"]
 [connection signal="timeout" from="FullBodyAnimTimer" to="." method="_on_FullBodyAnimTimer_timeout"]
+[connection signal="timeout" from="LingeringAnimTimer" to="." method="_on_LingeringAnimTimer_timeout"]

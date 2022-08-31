@@ -5,6 +5,7 @@ extends Actor
 # warning-ignore:unused_signal
 signal collect_coin()
 
+const OriginalScale = 0.2
 const FLOOR_DETECT_DISTANCE = 20.0
 const Min_Zoom = 0.5
 const Max_Zoom = 3.0
@@ -47,6 +48,9 @@ func _ready():
 		
 	autoload_transientdata.player = self
 	
+	sprite.scale.x = OriginalScale
+	sprite.scale.y = OriginalScale
+	
 	pass
 
 func _physics_process(_delta):
@@ -75,11 +79,11 @@ func _physics_process(_delta):
 	# This will make Robi face left or right depending on the direction you move.
 	if direction.x != 0:
 		if direction.x > 0:
-			sprite.scale.x = 1
+			sprite.scale.x = 1 * OriginalScale
 		else:
-			sprite.scale.x = -1
+			sprite.scale.x = -1 * OriginalScale
 			
-	FacingDirection = sprite.scale.x
+	FacingDirection = sprite.scale.x / OriginalScale
 
 	if Input.is_action_just_pressed("shoot" + action_suffix):
 		shoot_abi.TryActivate()
