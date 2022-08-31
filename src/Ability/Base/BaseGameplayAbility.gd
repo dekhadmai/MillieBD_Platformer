@@ -69,7 +69,7 @@ func IsAbilityActive() -> bool:
 	return bIsActive
 	
 func CanUseAbility() -> bool:
-	return !IsAbilityOnCooldown()
+	return !IsAbilityOnCooldown() and !bIsActive
 
 func SetLingeringAnimation(lingering_anim_name: String, seconds: float = 0.0):
 	if AnimPlayer != null:

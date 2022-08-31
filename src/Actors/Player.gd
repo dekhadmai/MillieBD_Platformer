@@ -19,6 +19,7 @@ onready var animation_player = $AnimationPlayerState
 onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var sound_jump = $Jump
+onready var player_collision:CollisionShape2D = $PlayerCollision
 
 #onready var ability_system_component:BaseAbilitySystemComponent = $AbilitySystemComponent
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility

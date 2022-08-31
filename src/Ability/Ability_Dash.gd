@@ -9,6 +9,8 @@ var player_current_stat: CharacterStats
 
 export var dash_speed = 4.0
 
+var original_extends:Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_current_stat = AbilityOwner.GetAbilitySystemComponent().CurrentCharStats
@@ -35,6 +37,11 @@ func Activate():
 
 func do_dash():
 	PlayFullBodyAnimation("dash", 0.2)
+	original_extends = AbilityOwner.player_collision.get_shape().get_extents()
+	var shrink_extends = original_extends
+	shrink_extends.y /= 3.0
+	AbilityOwner.player_collision.get_shape().set_extents(shrink_extends)
+	AbilityOwner.player_collision.position.y = -shrink_extends.y
 	dash_direction = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	player_current_stat.SetInvincible(true)
 	dash_duration_timer.start()
@@ -43,5 +50,7 @@ func do_dash():
 func _on_DashDuration_timeout():
 	dash_direction = 0
 	player_current_stat.SetInvincible(false)
+	AbilityOwner.player_collision.get_shape().set_extents(original_extends)
+	AbilityOwner.player_collision.position.y = -original_extends.y
 	EndAbility()
 	pass
