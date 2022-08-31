@@ -9,7 +9,7 @@ signal died
 export(float) var InitStat_HP = 100.0
 export(float) var InitStat_Attack = 10.0
 export(float) var InitStat_Movespeed = 150.0
-export(float) var InitStat_JumpSpeed = 350.0
+export(float) var InitStat_JumpSpeed = 380.0
 # end of work around can't export character stats
 
 var BaseCharStats: CharacterStatsInit = CharacterStatsInit.new()

@@ -155,16 +155,22 @@ func calculate_move_velocity(
 
 func UpdateAnimState():
 	var animation_new = ""
+	
+	if Input.is_action_pressed("move_up") :
+		animation_new = "up_"
+	elif Input.is_action_pressed("move_down") :
+		animation_new = "down_"
+	
 	if is_on_floor():
 		if abs(_velocity.x) > 0.1:
-			animation_new = "run"
+			animation_new += "run"
 		else:
-			animation_new = "idle"
+			animation_new += "idle"
 	else:
 		if _velocity.y > 0:
-			animation_new = "falling"
+			animation_new += "falling"
 		else:
-			animation_new = "jumping"
+			animation_new += "jumping"
 			
 	animation_player.BaseAnimState = animation_new
 

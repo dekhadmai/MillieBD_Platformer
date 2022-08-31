@@ -4,10 +4,10 @@ export(String, FILE) var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
 
 export var CustomAnimName: String = "_weapon"
-export var CustomAnimDuration: float = 0.3
+export var CustomAnimDuration: float = 0.1
 
 export var LingeringAnimName: String = "_active_weapon"
-export var LingeringAnimDuration: float = 2.0
+export var LingeringAnimDuration: float = 1.0
 
 onready var sound_shoot = $Shoot
 

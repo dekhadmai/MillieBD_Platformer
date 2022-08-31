@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://src/Ability/Ability_Dash.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
+[ext_resource path="res://src/AnimationPlayer/AnimationPlayerState_Player.gd" type="Script" id=15]
 [ext_resource path="res://src/Ability/GameplayAbility_Melee.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=13]
@@ -68,8 +69,105 @@ tracks/0/keys = {
 "values": [ 24, 25, 26 ]
 }
 
+[sub_resource type="Animation" id=23]
+resource_name = "down_falling_active_weapon"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 33 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "down_falling_weapon"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 32 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "down_idle"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "down_idle_weapon"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 11, 7 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "down_jumping_active_weapon"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 33 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "down_jumping_weapon"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 32 ]
+}
+
 [sub_resource type="Animation" id=2]
-resource_name = "falling"
+resource_name = "down_falling"
 length = 0.75
 step = 0.25
 tracks/0/type = "value"
@@ -169,6 +267,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
+resource_name = "down_jumping"
 length = 0.75
 step = 0.25
 tracks/0/type = "value"
@@ -314,6 +413,105 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="Animation" id=27]
+resource_name = "up_falling_active_weapon"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 37 ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "up_falling_weapon"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 36 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "up_idle"
+length = 0.25
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "up_idle_weapon"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 10, 6 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "up_jumping_active_weapon"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 37 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "up_jumping_weapon"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 36 ]
+}
+
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10, 22 )
 
@@ -400,6 +598,12 @@ playback_speed = 2.6
 anims/RESET = SubResource( 14 )
 anims/crouch = SubResource( 1 )
 anims/dash = SubResource( 19 )
+anims/down_falling_active_weapon = SubResource( 23 )
+anims/down_falling_weapon = SubResource( 22 )
+anims/down_idle = SubResource( 21 )
+anims/down_idle_weapon = SubResource( 31 )
+anims/down_jumping_active_weapon = SubResource( 25 )
+anims/down_jumping_weapon = SubResource( 24 )
 anims/falling = SubResource( 2 )
 anims/falling_active_weapon = SubResource( 15 )
 anims/falling_weapon = SubResource( 3 )
@@ -414,6 +618,13 @@ anims/run_active_weapon = SubResource( 18 )
 anims/run_weapon = SubResource( 9 )
 anims/standing_weapon_ready = SubResource( 10 )
 anims/swing = SubResource( 12 )
+anims/up_falling_active_weapon = SubResource( 27 )
+anims/up_falling_weapon = SubResource( 29 )
+anims/up_idle = SubResource( 20 )
+anims/up_idle_weapon = SubResource( 30 )
+anims/up_jumping_active_weapon = SubResource( 26 )
+anims/up_jumping_weapon = SubResource( 28 )
+script = ExtResource( 15 )
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )

@@ -6,7 +6,7 @@ extends KinematicBody2D
 
 enum Enum_TeamID {None, Player, Enemy}
 export(Enum_TeamID) var Team_ID
-export var speed:Vector2 = Vector2(150.0, 350.0)
+var speed:Vector2 = Vector2(150.0, 350.0)
 onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
 
 onready var ability_system_component
