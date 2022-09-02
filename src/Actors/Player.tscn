@@ -538,7 +538,7 @@ ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3
-ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
+ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"
 
 [node name="GameplayAbility_Melee" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
 ActorToSpawnPath = ""
