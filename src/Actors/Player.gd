@@ -30,6 +30,9 @@ onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 
 onready var camera = $Camera
 
+onready var jump_button_timer: Timer = $JumpButtonTimer
+onready var float_timer: Timer = $JumpButtonTimer/FloatTimer
+var jump_direction: float = 0
 var jump_count = 0
 export var jump_max_count = 2;
 
@@ -56,6 +59,23 @@ func _ready():
 
 func _physics_process(_delta):
 
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			try_jump()
+			jump_button_timer.stop()
+		else:	
+			jump_button_timer.start()
+			
+		
+	if Input.is_action_just_released("jump"):
+		if !jump_button_timer.is_stopped():
+			if can_jump():
+				do_jump()
+				
+		do_unfloat()
+		float_timer.stop()
+		jump_button_timer.stop()
+		
 	var direction = get_direction()
 
 	var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
@@ -110,26 +130,39 @@ func _physics_process(_delta):
 		camera.zoom.x = clamp(camera.zoom.x + 0.1, Min_Zoom, Max_Zoom)
 		camera.zoom.y = clamp(camera.zoom.y + 0.1, Min_Zoom, Max_Zoom)
 
-func get_direction():
-	return Vector2(
-		Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix),
-		-1 if do_jump() else 0
-	)
+func get_direction() -> Vector2 :
+	var result:Vector2
+	result.x = Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix)
+	result.y = jump_direction
+	jump_direction = 0
+	
+	return result
+	
+#	return Vector2(
+#		Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix),
+#		-1 if do_jump() else 0
+#	)
 	
 func died():
 	.died()
 	#queue_free()
+
+func can_float():
+	return false if is_on_floor() else true
+
+func do_float():
+	_velocity.y = 10
+	bUseGravity = false
 	
+func do_unfloat():
+	bUseGravity = true
+
 func do_jump():
-	var result = false
-	result = true if can_jump() and Input.is_action_just_pressed("jump" + action_suffix) else false
+	jump_direction = -1
+	jump_count += 1
 	
-	if result:
-		jump_count += 1
-		# Play jump sound
-		sound_jump.play()
-		
-	return result
+	# Play jump sound
+	sound_jump.play()
 
 func can_jump():
 	return true if is_on_floor() or jump_count < jump_max_count else false
@@ -190,3 +223,23 @@ func get_new_animation(is_shooting = false):
 	if is_shooting:
 		animation_new += "_weapon"
 	return animation_new
+
+func try_jump():
+	if Input.is_action_pressed("jump") and !is_on_floor():
+		# float
+		if can_float():
+			do_float()
+			float_timer.start()
+	else:
+		# jump
+		if can_jump():
+			do_jump()
+	
+
+func _on_JumpButtonTimer_timeout():
+	try_jump()
+
+
+func _on_FloatTimer_timeout():
+	do_unfloat()
+	pass # Replace with function body.

@@ -547,24 +547,20 @@ CustomAnimDuration = 0.3
 SpawnSocketName = "ShootSocket"
 GameplayEffectNodeName = "GameplayEffectTemplate"
 
-[node name="DashTimer" type="Timer" parent="."]
-process_mode = 0
-wait_time = 0.2
-one_shot = true
-
-[node name="DashCooldown" type="Timer" parent="DashTimer"]
-process_mode = 0
-one_shot = true
-
-[node name="ShootAnimation" type="Timer" parent="."]
-process_mode = 0
-wait_time = 0.2
-one_shot = true
-
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 6 )
 collision_mask = 8
+
+[node name="JumpButtonTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="FloatTimer" type="Timer" parent="JumpButtonTimer"]
+process_mode = 0
+wait_time = 2.0
+one_shot = true
 
 [node name="Sword" type="Sprite" parent="."]
 visible = false
@@ -671,3 +667,6 @@ scale = Vector2( 1.49157, 1.46265 )
 normal = ExtResource( 8 )
 action = "shoot"
 visibility_mode = 1
+
+[connection signal="timeout" from="JumpButtonTimer" to="." method="_on_JumpButtonTimer_timeout"]
+[connection signal="timeout" from="JumpButtonTimer/FloatTimer" to="." method="_on_FloatTimer_timeout"]
