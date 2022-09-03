@@ -1,6 +1,11 @@
 extends Node
 
-onready var test_room = load("res://src/Level/LevelRooms/LevelRoom_Combat.tscn")
+export var bUseTestRoom: bool = false
+export(String, FILE) var TestRoom
+onready var test_room = load(TestRoom)
+
+export(Array, String, FILE) var RandomLevelPool
+var LevelRoomMapPool = []
 
 var startroom_row = 2
 var startroom_col = 0
@@ -16,6 +21,9 @@ var CurrentPlayerRoom: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for i in RandomLevelPool.size() :
+		if RandomLevelPool[i] != null :
+			LevelRoomMapPool.append(RandomLevelPool[i])
 	
 	GenerateRooms()
 	print("\n")
@@ -30,7 +38,9 @@ func GenerateRooms():
 	for i in GridHeight:
 		LevelRoomMap.append([])
 		for j in GridWidth:
-			LevelRoomMap[i].append(LevelRoomData.new())
+			var level_room_data: LevelRoomData = LevelRoomData.new()
+			level_room_data.LevelRoomTemplate = LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
+			LevelRoomMap[i].append(level_room_data)
 			
 	randomize()
 	#seed(35)
@@ -207,7 +217,12 @@ func CreateRoomInstance(row: int, column: int) -> BaseLevelRoom:
 	var room = null
 	if CanSpawnRoom(row, column):
 		var room_data:LevelRoomData = LevelRoomMap[row][column]
-		room = test_room.instance()
+		
+		if bUseTestRoom and test_room != null:
+			room = test_room.instance()
+		else:
+			var tmp_room = load(room_data.LevelRoomTemplate)
+			room = tmp_room.instance()
 		room_data.bActive = true
 		room_data.RoomInstance = room
 		room.SetRoomPosition(row, column)
