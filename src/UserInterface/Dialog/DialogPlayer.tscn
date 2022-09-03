@@ -142,7 +142,7 @@ layer = 100
 
 [node name="Dialog" type="Node2D" parent="."]
 script = ExtResource( 4 )
-dialog_file = "res://src/UserInterface/Dialog/DialogData/Dialogs.json"
+dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogResource.tres"
 
 [node name="DialogControl" type="Control" parent="."]
 anchor_left = 0.517

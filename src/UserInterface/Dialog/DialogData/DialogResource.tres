@@ -1,0 +1,91 @@
+[
+
+
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Dialog test hello Dialog test."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Hi this is a Dialog test."
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Ok What now."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Dont press esc or unpause the game it will create some pause bug."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Dialog menu pause state is just temporary and might be only use in this test."
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Ok, What things can this dialog system do?"
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Pretty much what an ordinary dialog system do."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Display dialogs, create branching statements, text effects, and portrait change base on expression, though its not coded yet."
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Thats Nice."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["One","Two"],
+			"Text": "Here's a choice dialog test choose a number."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "You Choose number one."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "You Choose number two."
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Ok."
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Show me some text Effects."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Ok. heres a [rainbow freq=0.4 sat=10 val=20] Rainbow [/rainbow] effect."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "And heres a [shake rate=5 level=10] Shake [/shake] effect."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "[wave amp=50 freq=2] Wave [/wave] effect."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "[tornado radius=5 freq=2] Tornado [/tornado] effect."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "And [fade start=4 length=8] Fade [/fade] effect."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Oh it doesn't seem to work."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Anyway Dialog testing is done, I will unpause the game."
+		},
+			
+			
+		
+]
