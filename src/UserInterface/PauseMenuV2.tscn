@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/UserInterface/DebugPanel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UserInterface/StatsUi.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UserInterface/ScreenUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/UserInterface/Dialog/DialogPlayer.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pause"
@@ -176,9 +177,9 @@ text = "Quit"
 flat = true
 
 [node name="CoinsCounter" parent="." instance=ExtResource( 5 )]
-margin_left = 268.0
+margin_left = 308.0
 margin_top = 1.0
-margin_right = 368.0
+margin_right = 408.0
 margin_bottom = 46.0
 
 [node name="DebugPanel" parent="." instance=ExtResource( 6 )]
@@ -203,6 +204,9 @@ layer = 101
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
 
 [node name="StatsUI" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="DialogPlayer" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [connection signal="pressed" from="Pause/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Characters" to="." method="_on_Characters_pressed"]

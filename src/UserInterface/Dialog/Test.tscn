@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UserInterface/Dialog/DialogArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UserInterface/Dialog/DialogPlayer.tscn" type="PackedScene" id=2]
+
+[node name="Node" type="Node"]
+
+[node name="DialogArea" parent="." instance=ExtResource( 1 )]
+text_key = "dialog2"
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 2 )]

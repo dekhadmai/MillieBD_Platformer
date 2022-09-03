@@ -6,6 +6,9 @@ var master_volume = AudioServer.get_bus_index("Master")
 var settings_menu_up = false
 var character_menu_up = false
 var ability_menu_up = false
+var dialog_test_up = false
+var dialog_reset = false
+var pause_on_dialog = false
 
 
 func toggle_fullscreen(toggle):

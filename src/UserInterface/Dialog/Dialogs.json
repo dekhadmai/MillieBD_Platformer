@@ -1,0 +1,38 @@
+[
+	{
+		"Name": "Millie",
+		"Expression": "Neutral",
+		"Position": "1",
+		"Choices": ["",""],
+		"Text": "Dialog test hello Dialog test."
+	},
+	{
+		"Name": "Bot",
+		"Expression": "Neutral",
+		"Position": "2",
+		"Choices": ["",""],
+		"Text": "Hi this is a Dialog test."
+	},
+	{
+		"Name": "Bot",
+		"Expression": "Neutral",
+		"Position": "2",
+		"Choices": ["",""],
+		"Text": "1."
+	},
+		{
+		"Name": "Bot",
+		"Expression": "Neutral",
+		"Position": "2",
+		"Choices": ["",""],
+		"Text": "2."
+	},
+		{
+		"Name": "Bot",
+		"Expression": "Neutral",
+		"Position": "2",
+		"Choices": ["",""],
+		"Text": "3."
+	},
+	
+]
