@@ -6,5 +6,5 @@
 pause_mode = 1
 script = ExtResource( 1 )
 bUseTestRoom = true
-TestRoom = "res://src/Level/LevelRooms/LevelRoom_Combat.tscn"
+TestRoom = "res://src/Level/LevelRooms/tutorial.tscn"
 RandomLevelPool = [ "res://src/Level/LevelRooms/LevelRoom_Combat.tscn", "res://src/Level/LevelRooms/LevelRoom_Template.tscn" ]
