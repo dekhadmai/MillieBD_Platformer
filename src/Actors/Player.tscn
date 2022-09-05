@@ -555,7 +555,7 @@ collision_mask = 8
 
 [node name="JumpButtonTimer" type="Timer" parent="."]
 process_mode = 0
-wait_time = 0.2
+wait_time = 0.125
 one_shot = true
 
 [node name="FloatTimer" type="Timer" parent="JumpButtonTimer"]

@@ -34,7 +34,7 @@ onready var jump_button_timer: Timer = $JumpButtonTimer
 onready var float_timer: Timer = $JumpButtonTimer/FloatTimer
 var jump_direction: float = 0
 var jump_count = 0
-export var jump_max_count = 2;
+export var jump_max_count = 1;
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -60,21 +60,30 @@ func _ready():
 func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			try_jump()
-			jump_button_timer.stop()
-		else:	
-			jump_button_timer.start()
+		if can_jump():
+			do_jump()
 			
+#	if Input.is_action_just_pressed("dash"):
+#		if can_float():
+#			jump_button_timer.start()
+#		else : 
+#			dash_abi.TryActivate()
+#
+#	if Input.is_action_just_released("dash"):
+#		if !jump_button_timer.is_stopped() :
+#			dash_abi.TryActivate()
+#			jump_button_timer.stop()
+#		do_unfloat()
+#		float_timer.stop()
 		
-	if Input.is_action_just_released("jump"):
-		if !jump_button_timer.is_stopped():
-			if can_jump():
-				do_jump()
-				
+	if Input.is_action_just_pressed("float"):
+		if can_float():
+			do_float()
+			float_timer.start()
+
+	if Input.is_action_just_released("float"):
 		do_unfloat()
 		float_timer.stop()
-		jump_button_timer.stop()
 		
 	var direction = get_direction()
 
@@ -120,7 +129,8 @@ func _physics_process(_delta):
 	UpdateAnimState()
 	
 	if Input.is_action_just_pressed("dash" + action_suffix):
-		dash_abi.TryActivate()
+		if Input.get_action_strength("move_right") - Input.get_action_strength("move_left") != 0 : 
+			dash_abi.TryActivate()
 	
 	if Input.is_action_just_released("zoom_in"):
 		camera.zoom.x = clamp(camera.zoom.x - 0.1, Min_Zoom, Max_Zoom)
@@ -159,13 +169,24 @@ func do_unfloat():
 
 func do_jump():
 	jump_direction = -1
-	jump_count += 1
+	
+	if !is_on_floor() : 
+		jump_count += 1
 	
 	# Play jump sound
 	sound_jump.play()
 
 func can_jump():
-	return true if is_on_floor() or jump_count < jump_max_count else false
+	var result: bool = false
+	if is_on_floor(): 
+		return true
+	elif !float_timer.is_stopped():
+		return false
+	elif jump_count < jump_max_count: 
+		return true
+	else:
+		return false
+	#return true if is_on_floor() or jump_count < jump_max_count else false
 
 # This function calculates a new velocity whenever you need it.
 # It allows you to interrupt jumps.
@@ -237,7 +258,8 @@ func try_jump():
 	
 
 func _on_JumpButtonTimer_timeout():
-	try_jump()
+	do_float()
+	float_timer.start()
 
 
 func _on_FloatTimer_timeout():
