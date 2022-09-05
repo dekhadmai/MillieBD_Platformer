@@ -20,7 +20,8 @@ onready var autoload_transient = $"/root/AutoLoadTransientData"
 # We can initialize variables here.
 func _ready():
 	_velocity.x = speed.x
-	ai_controller.Init(self)
+	if ai_controller != null : 
+		ai_controller.Init(self)
 
 # Physics process is a built-in loop in Godot.
 # If you define _physics_process on a node, Godot will call it every frame.
@@ -39,7 +40,8 @@ func _ready():
 #   you can easily move individual functions.
 func _physics_process(_delta):
 
-	ai_controller.Tick(_delta)
+	if ai_controller != null : 
+		ai_controller.Tick(_delta)
 
 	# We flip the Sprite depending on which way the enemy is moving.
 	if _velocity.x > 0:
