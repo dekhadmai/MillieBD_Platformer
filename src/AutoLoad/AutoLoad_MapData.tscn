@@ -5,6 +5,5 @@
 [node name="AutoLoad_MapData" type="Node"]
 pause_mode = 1
 script = ExtResource( 1 )
-bUseTestRoom = true
-TestRoom = "res://src/Level/LevelRooms/tutorial.tscn"
-RandomLevelPool = [ "res://src/Level/LevelRooms/LevelRoom_Combat.tscn", "res://src/Level/LevelRooms/LevelRoom_Template.tscn" ]
+TestRoom = "res://src/Level/LevelRooms/level_D.tscn"
+RandomLevelPool = [ "res://src/Level/LevelRooms/level_A.tscn", "res://src/Level/LevelRooms/level_B.tscn", "res://src/Level/LevelRooms/level_C.tscn", "res://src/Level/LevelRooms/level_D.tscn" ]
