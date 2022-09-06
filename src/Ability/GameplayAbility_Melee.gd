@@ -14,6 +14,7 @@ onready var SocketNode: Position2D
 export var GameplayEffectNodeName: String = "GameplayEffectTemplate"
 onready var GameplayeEffect_Template: BaseGameplayEffect
 
+onready var melee = preload("res://src/Objects/Base/BaseMelee.tscn")
 var TargetActor:Actor = null setget SetTargetActor
 
 
@@ -34,7 +35,8 @@ func Activate():
 	
 	print_debug('swing the f sword')
 
-	getAnim().PlayFullBodyAnim('swing', 1.0)
+	melee.play('swing')
+	#getAnim().PlayFullBodyAnim('swing', 1.0)
 
 	EndAbility()
 	pass
