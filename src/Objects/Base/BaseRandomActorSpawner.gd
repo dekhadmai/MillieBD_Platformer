@@ -35,15 +35,16 @@ func SpawnActor() -> void:
 	var actor_string = GetActorToSpawn()
 	var actor = load(actor_string)
 	var actor_instance = actor.instance()
-	actor_instance.global_position = GetSpawnPosition()
 
 	#actor.set_as_toplevel(true)
 	var parent = get_parent()
 	parent.add_child(actor_instance)
+	
+	actor_instance.global_position = GetSpawnPosition()
 	pass
 
 func GetSpawnPosition() -> Vector2:
-	return global_position
+	return self.global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
