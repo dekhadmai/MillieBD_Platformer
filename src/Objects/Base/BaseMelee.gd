@@ -22,19 +22,19 @@ func _on_body_entered(body):
 func OnBodyEnter(body):
 		if body is Actor:
 			if !body.GetAbilitySystemComponent().CurrentCharStats.bInvincible:
-				if body.GetTeam() != Instigator.GetTeam():
+				#if body.GetTeam() != Instigator.GetTeam():
 					OnBulletHit(body)
 		else :
 			queue_free()
 
 func OnBulletHit(body:Actor):	
-	var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect
-	var body_asc: BaseAbilitySystemComponent = body.GetAbilitySystemComponent()
-	
-	Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
-	
-	#body.destroy()
-	queue_free()
+#	var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect
+#	var body_asc: BaseAbilitySystemComponent = body.GetAbilitySystemComponent()
+#
+#	Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
+#
+#	#body.destroy()
+#	queue_free()
 	pass
 	
 func StartGraze(body:Actor):
@@ -42,3 +42,8 @@ func StartGraze(body:Actor):
 	
 func StopGraze():
 	graze_xp.StopGraze()
+
+func play(anim_name):
+	if animation_player == null:
+		animation_player = find_node("AnimationPlayer")
+	animation_player.play(anim_name)

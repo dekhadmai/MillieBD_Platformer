@@ -5,3 +5,8 @@
 
 [node name="GameplayAbility_Melee" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+ActorToSpawnPath = ""
+CustomAnimName = "_weapon"
+CustomAnimDuration = 0.3
+SpawnSocketName = "ShootSocket"
+GameplayEffectNodeName = "GameplayEffectTemplate"
