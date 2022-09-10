@@ -2,19 +2,16 @@
 
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/sfx/shoot.wav" type="AudioStream" id=2]
-[ext_resource path="res://src/Ability/Base/BaseGameplayEffect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Ability/Base/BaseGameplayAbility.tscn" type="PackedScene" id=4]
 
-[node name="GameplayAbility_ActorSpawner" type="Node2D"]
+[node name="GameplayAbility_ActorSpawner" instance=ExtResource( 4 )]
 script = ExtResource( 1 )
+ActorToSpawnPath = ""
+CustomAnimName = "_weapon"
+CustomAnimDuration = 0.1
+LingeringAnimName = "_active_weapon"
+LingeringAnimDuration = 1.0
+SpawnSocketName = "ShootSocket"
 
-[node name="GameplayEffectTemplate" parent="." instance=ExtResource( 3 )]
-StatToModify = 1
-ValueToModify = 20.0
-
-[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( -30.6589, -6.13176 )
+[node name="AbilitySound" parent="." index="2"]
 stream = ExtResource( 2 )
-
-[node name="AbilityCooldown" type="Timer" parent="."]
-process_mode = 0
-one_shot = true

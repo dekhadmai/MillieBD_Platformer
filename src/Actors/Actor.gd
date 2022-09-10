@@ -23,6 +23,9 @@ var _velocity = Vector2.ZERO
 var FacingDirection: float = 1.0
 var CurrentTargetActor: Actor
 
+func get_class():
+	return "Actor"
+
 func _ready():
 	GetAbilitySystemComponent().connect("died", self, "died")
 

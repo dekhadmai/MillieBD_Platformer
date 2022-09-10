@@ -11,12 +11,19 @@ var bIsActive: bool
 
 var bAlreadyInit: bool = false
 
+onready var ability_sound = $AbilitySound
+onready var GameplayeEffect_Template: BaseGameplayEffect = $GameplayEffectTemplate
 
+var TargetActor:Actor = null setget SetTargetActor
+
+func SetTargetActor(target:Actor):
+	TargetActor = target
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if AbilityOwner == null:
 		var try_owner = get_parent().get_parent()
-		if try_owner is Actor:
+		if try_owner.get_class() == "Actor":
 			AbilityOwner = try_owner
 			
 	if AbilityOwner != null:
@@ -37,6 +44,12 @@ func _ready():
 
 func Init():
 	bAlreadyInit = true
+	
+	if GameplayeEffect_Template == null:
+		GameplayeEffect_Template = get_node("GameplayEffectTemplate")
+		
+	if ability_sound == null:
+		ability_sound = get_node("AbilitySound")
 	pass
 
 # Always Use this one. Don't directly "Activate" ability

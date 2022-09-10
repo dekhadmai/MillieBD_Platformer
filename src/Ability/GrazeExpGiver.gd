@@ -23,7 +23,8 @@ func StartGraze(victim:Actor, instigator:Actor, causer):
 	graze_timer.start(graze_period)
 	
 func StopGraze():
-	graze_timer.stop()
+	if graze_timer != null:
+		graze_timer.stop()
 	
 func OnGraze():
 	var effect:BaseGameplayEffect = graze_effect.duplicate() as BaseGameplayEffect

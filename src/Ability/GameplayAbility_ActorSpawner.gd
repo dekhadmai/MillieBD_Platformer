@@ -9,34 +9,22 @@ export var CustomAnimDuration: float = 0.1
 export var LingeringAnimName: String = "_active_weapon"
 export var LingeringAnimDuration: float = 1.0
 
-onready var sound_shoot = $Shoot
-
 export var SpawnSocketName: String = "ShootSocket"
 onready var SocketNode: Position2D
 
-export var GameplayEffectNodeName: String = "GameplayEffectTemplate"
-onready var GameplayeEffect_Template: BaseGameplayEffect
-
-var TargetActor:Actor = null setget SetTargetActor
 var SpawnRotation:Vector2 = Vector2(0,0)
-
-func SetTargetActor(target:Actor):
-	TargetActor = target
 
 func Init():
 	.Init()
 	if SocketNode == null:
 		SocketNode = AbilityOwner.find_node(SpawnSocketName)
-		
-	if GameplayeEffect_Template == null:
-		GameplayeEffect_Template = get_node(GameplayEffectNodeName)
 	
 
 func Activate():
 	.Activate()
 	
 	SpawnActor()
-	sound_shoot.play()
+	ability_sound.play()
 	PlayCustomAnimation(CustomAnimName, CustomAnimDuration)
 	SetLingeringAnimation(LingeringAnimName, LingeringAnimDuration)
 	

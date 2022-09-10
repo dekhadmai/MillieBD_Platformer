@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Objects/Base/BaseBullet.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/bullet/bullet.png" type="Texture" id=2]
 [ext_resource path="res://src/Ability/GrazeExpGiver.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Base/BaseArea2D.gd" type="Script" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -56,10 +57,13 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="CircleShape2D" id=6]
+radius = 5.0
+
 [node name="BaseBullet" type="RigidBody2D"]
 material = SubResource( 1 )
-collision_layer = 0
-collision_mask = 26
+collision_layer = 32
+collision_mask = 24
 gravity_scale = 0.0
 continuous_cd = 2
 contacts_reported = 1
@@ -95,5 +99,14 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/destroy = SubResource( 5 )
 
+[node name="HurtArea2d" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 128
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea2d"]
+shape = SubResource( 6 )
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="destroy"]
+[connection signal="area_entered" from="HurtArea2d" to="." method="_on_HurtArea2d_area_entered"]
