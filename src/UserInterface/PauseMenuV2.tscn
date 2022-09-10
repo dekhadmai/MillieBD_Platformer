@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/UserInterface/StatsUi.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UserInterface/ScreenUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/UserInterface/Dialog/DialogPlayer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/UserInterface/MiniMap/Map.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pause"
@@ -206,6 +207,9 @@ layer = 101
 [node name="StatsUI" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="DialogPlayer" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Control" parent="." instance=ExtResource( 10 )]
 visible = false
 
 [connection signal="pressed" from="Pause/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
