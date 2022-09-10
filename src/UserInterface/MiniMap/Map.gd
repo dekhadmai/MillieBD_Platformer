@@ -56,14 +56,6 @@ func _add_room_ui():
 				room_pos += Vector2((room_size_x * wall_line.x), 0)
 				col += 1
 			
-				if room_data.CurrentLocation:
-					var location = Sprite.new()
-					get_node("ColorRect/MarginContainer").add_child(location)
-					location.texture = current_pos
-					location.set_position(room_ui.get_position())
-#					print(room_ui.get_position())
-#					print("aaaaaaaaaa")
-			
 				if room_data.bStartRoom:
 					var start = Sprite.new()
 					get_node("ColorRect/MarginContainer").add_child(start)
@@ -72,6 +64,13 @@ func _add_room_ui():
 					#start.rotation_degrees = -room_ui.rotation_degrees
 					print(room_ui.get_position())
 				
+				if room_data.CurrentLocation:
+					var location = Sprite.new()
+					get_node("ColorRect/MarginContainer").add_child(location)
+					location.texture = current_pos
+					location.set_position(room_ui.get_position())
+#					print(room_ui.get_position())
+#					print("aaaaaaaaaa")
 				
 				if !room_data.bIsExplored:
 					room_ui.use_parent_material = true
@@ -156,18 +155,8 @@ func _add_room_ui():
 		col = 0
 		row += 1
 		
-	#print(box_id[0][0].bIsDoorOpened[0])
-	#_border()
-	#print(box_id)
-	
 	pass
 
-func _minimap_show() -> bool :
-	
-	if minimap_visible.show() == true:
-		pass
-	
-	return true
 
 #func _current_location(row:int, col:int):
 #	var room_data:LevelRoomData = Map[row][col]
@@ -187,7 +176,5 @@ func _remove_room_ui():
 		get_node("ColorRect/MarginContainer").remove_child(n)
 		n.queue_free()
 	Map = []	
-		
-#	_current_location(1, 0)
 	
 	pass
