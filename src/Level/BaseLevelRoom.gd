@@ -101,3 +101,18 @@ func _on_Door_Down_PlayerExited(body):
 
 
 
+
+
+func _on_RoomUiMark_PlayerEntered(body):
+	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
+	room_data.bIsExplored = true
+	room_data.CurrentLocation = true
+	print("room entered")
+	pass # Replace with function body.
+
+
+func _on_RoomUiMark_PlayerExited(body):
+	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
+	room_data.CurrentLocation = false
+	print("room exited")
+	pass # Replace with function body.

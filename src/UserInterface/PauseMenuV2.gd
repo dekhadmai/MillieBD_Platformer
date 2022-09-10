@@ -66,6 +66,18 @@ func _unhandled_input(event):
 			
 #------------------------------------------ Dialog Test --------------------------------------------------------#
 
+	elif event.is_action_pressed("Minimap_test"):
+		get_node("Control")._ready()
+		$Control.show()
+		pass
+		
+	elif event.is_action_released("Minimap_test"):
+		get_node("Control")._remove_room_ui()
+		$Control.hide()
+		
+		pass
+
+
 func _on_Resume_pressed():
 	pause_anim.play_backwards("Pause")
 	yield(pause_anim,'animation_finished')
