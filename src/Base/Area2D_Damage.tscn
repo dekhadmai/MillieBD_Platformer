@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Base/Area2D_HurtBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Ability/GrazeExpGiver.tscn" type="PackedScene" id=2]
+
+[node name="Area2D_Damage" instance=ExtResource( 1 )]
+collision_layer = 256
+collision_mask = 128
+
+[node name="GrazeExpGiver" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+[node name="WindDownAnimTimer" type="Timer" parent="." index="3"]
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="WindDownAnimTimer" to="." method="_on_WindDownAnimTimer_timeout"]

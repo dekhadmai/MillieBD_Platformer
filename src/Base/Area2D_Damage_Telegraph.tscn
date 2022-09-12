@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Base/Area2D_Damage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Base/BaseArea2D_Telegraph.gd" type="Script" id=2]
+
+[node name="Area2D_Damage_Telegraph" instance=ExtResource( 1 )]
+monitoring = false
+monitorable = false
+script = ExtResource( 2 )
+TelegraphAnimName = "telegraph_loop"
+TelegraphAnimDuration = 1.0
+
+[node name="TelegraphTimer" type="Timer" parent="." index="4"]
+process_mode = 0
+one_shot = true
+
+[connection signal="timeout" from="TelegraphTimer" to="." method="_on_TelegraphTimer_timeout"]

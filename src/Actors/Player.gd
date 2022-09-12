@@ -25,7 +25,7 @@ onready var player_collision:CollisionShape2D = $PlayerCollision
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
 onready var special_abi = $AbilitySystemComponent/SpecialAbility
 onready var special_abi_up = $AbilitySystemComponent/SpecialAbility_Up
-onready var gameplay_ability_melee = $AbilitySystemComponent/GameplayAbility_AreaDetection
+onready var gameplay_ability_melee = $AbilitySystemComponent/GameplayAbility_AreaDetection_Beam
 onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 
 onready var camera = $Camera

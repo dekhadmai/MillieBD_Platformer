@@ -6,9 +6,9 @@
 [ext_resource path="res://assets/art/enemy/enemy.png" type="Texture" id=4]
 [ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=5]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Ability/Beam/GameplayAbility_AreaDetection_FrontalBeam.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/AI/AIController.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/Base/Area2D_HurtBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Base/BaseArea2D.gd" type="Script" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -210,15 +210,13 @@ cast_to = Vector2( 0, 35 )
 collision_mask = 24
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 6 )]
+InitStat_Movespeed = 20.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 7 )]
-AbilityCooldownSecond = 0.3
-ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Enemy.tscn"
-CustomAnimName = ""
-CustomAnimDuration = 0.0
 
 [node name="ShootTimer" type="Timer" parent="."]
 process_mode = 0
+wait_time = 10.0
 autostart = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -269,9 +267,12 @@ stream = ExtResource( 3 )
 [node name="Explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 
-[node name="Area2D_HurtBox" parent="." instance=ExtResource( 9 )]
+[node name="BaseArea2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource( 9 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseArea2D"]
 rotation = -1.5708
 shape = SubResource( 5 )
 

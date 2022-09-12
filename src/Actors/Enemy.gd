@@ -19,6 +19,8 @@ onready var autoload_transient = $"/root/AutoLoadTransientData"
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
 func _ready():
+	speed.x = GetAbilitySystemComponent().CurrentCharStats.BaseMovespeed
+	speed.y = GetAbilitySystemComponent().CurrentCharStats.BaseJumpSpeed
 	_velocity.x = speed.x
 	if ai_controller != null : 
 		ai_controller.Init(self)

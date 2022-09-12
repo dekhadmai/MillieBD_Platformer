@@ -50,7 +50,7 @@ func _process(delta):
 	if animation != LastAnimation:
 		play(animation)
 		LastAnimation = animation
-		print(animation)
+		#print(animation)
 	
 	pass
 

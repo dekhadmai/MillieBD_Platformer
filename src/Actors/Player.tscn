@@ -15,7 +15,7 @@
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState_Player.gd" type="Script" id=15]
-[ext_resource path="res://src/Ability/GameplayAbility_Melee.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/Ability/Beam/GameplayAbility_AreaDetection_FrontalBeam.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=13]
 
@@ -541,12 +541,7 @@ ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"
 
-[node name="GameplayAbility_Melee" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
-ActorToSpawnPath = ""
-CustomAnimName = "_weapon"
-CustomAnimDuration = 0.3
-SpawnSocketName = "ShootSocket"
-GameplayEffectNodeName = "GameplayEffectTemplate"
+[node name="GameplayAbility_AreaDetection_Beam" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Ability/Base/GameplayAbility_AreaDetection.gd" type="Script" id=1]
+[ext_resource path="res://src/Ability/Base/BaseGameplayAbility.tscn" type="PackedScene" id=2]
+
+[node name="GameplayAbility_AreaDetection" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+ActorToSpawnPath = ""
+SpawnSocketName = "ShootSocket"
+Area2D_Damage_NodeName = "Area2D_Damage"
+AreaLingerDuration = 1.0
+AreaEffectInterval = 0.0
+
+[node name="AreaLingerTimer" type="Timer" parent="." index="3"]
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+
+[node name="EffectIntervalTimer" type="Timer" parent="." index="4"]
+process_mode = 0
+wait_time = 0.3
+
+[connection signal="timeout" from="AreaLingerTimer" to="." method="_on_AreaLingerTimer_timeout"]
+[connection signal="timeout" from="EffectIntervalTimer" to="." method="_on_EffectIntervalTimer_timeout"]

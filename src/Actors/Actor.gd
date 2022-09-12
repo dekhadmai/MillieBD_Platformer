@@ -25,6 +25,9 @@ var CurrentTargetActor: Actor
 
 func get_class():
 	return "Actor"
+	
+func GetInstigator() -> Actor:
+	return self
 
 func _ready():
 	GetAbilitySystemComponent().connect("died", self, "died")

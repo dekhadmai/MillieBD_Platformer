@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 onready var graze_effect = $GameplayEffect_GrazeXP
@@ -6,8 +7,12 @@ var graze_timer: Timer
 var graze_actor: Actor
 var graze_instigator: Actor
 var graze_causer
-export var graze_exp_per_period = 1.0
+export(float) var graze_exp_per_period = 1.0 setget set_graze_exp_per_period
 export var graze_period: float = 0.05
+export var bUseGrazeVfx = false
+
+func set_graze_exp_per_period(val):
+	graze_exp_per_period = val
 
 func _ready():
 	graze_effect.ValueToModify = graze_exp_per_period
@@ -32,4 +37,5 @@ func OnGraze():
 	
 	graze_instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
 	
-	graze_vfx.restart()
+	if bUseGrazeVfx :
+		graze_vfx.restart()
