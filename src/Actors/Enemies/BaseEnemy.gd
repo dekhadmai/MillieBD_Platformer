@@ -57,6 +57,5 @@ func destroy():
 	_state = State.DEAD
 	_velocity = Vector2.ZERO
 
-
 func get_new_animation():
-	pass
+	return ""

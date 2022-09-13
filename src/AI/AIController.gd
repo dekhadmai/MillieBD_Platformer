@@ -20,13 +20,11 @@ func init(kinematic: Actor):
 	kinematic_body = kinematic
 
 func _on_DetectionRange_body_entered(body):
-	print(body.name)
 	if body.name == 'Player':
 		PlayerDetected = true
 
 
 func _on_DetectionRange_body_exited(body):
-	print('body.name')
 	if body.name == 'Player':
 		PlayerDetected = false
 

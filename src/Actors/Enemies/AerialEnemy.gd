@@ -30,7 +30,6 @@ func _ready():
 func _physics_process(_delta):
 	if ai_controller != null : 
 		ai_controller.update_physics(_delta)
-	
 
 
 func get_new_animation():
@@ -43,5 +42,7 @@ func get_new_animation():
 
 
 func _on_ShootTimer_timeout():
-	shoot_abi.SetTargetActor(CurrentTargetActor)
-	shoot_abi.TryActivate()
+	if ai_controller != null:
+		if ai_controller.PlayerDetected:
+			shoot_abi.SetTargetActor(CurrentTargetActor)
+			shoot_abi.TryActivate()

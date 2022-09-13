@@ -44,9 +44,8 @@ func get_new_animation():
 
 
 func _on_ShootTimer_timeout():
-#	if ai_controller != null:
-#		if ai_controller.PlayerDetected:
-#			shoot_abi.SetTargetActor(CurrentTargetActor)
-#			shoot_abi.TryActivate()
-	shoot_abi.SetTargetActor(CurrentTargetActor)
-	shoot_abi.TryActivate()
+	# only shoot if the player is in range
+	if ai_controller != null:
+		if ai_controller.PlayerDetected:
+			shoot_abi.SetTargetActor(CurrentTargetActor)
+			shoot_abi.TryActivate()

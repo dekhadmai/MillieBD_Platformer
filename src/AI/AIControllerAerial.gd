@@ -16,7 +16,6 @@ func _ready():
 
 
 func _on_SafeDistance_body_entered(body):
-	#print(body.name)
 	if body.name == 'Player':
 		TooClose = true
 
@@ -28,7 +27,7 @@ func _on_SafeDistance_body_exited(body):
 func update_physics(delta):
 	.update_physics(delta)
 	
-	update_ray(delta)
+#	update_ray(delta)
 	
 	if PlayerDetected:
 		kinematic_body._velocity = kinematic_body.global_position.direction_to(kinematic_body.CurrentTargetActor.global_position) * kinematic_body.speed.x
@@ -45,7 +44,7 @@ func update_ray(delta):
 	##### and i dont know what to fill in, so i just comment the whole section out. you can uncommented and fix it
 	
 #	for ray in movement_rays.get_children():
-#		var collision_point = ray.get_collision.point() - global_position
+#		var collision_point = ray.get_collision().point() - global_position
 #		if closest_collision == null:
 #			closest_collision = collision_point
 #		if collision_point.length() < closest_collision.length():
