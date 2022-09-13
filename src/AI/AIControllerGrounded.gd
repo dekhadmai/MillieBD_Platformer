@@ -17,6 +17,8 @@ func _ready():
 #	pass
 
 func update_physics(delta):
+	.update_physics(delta)
+	
 	if not floor_detector_left.is_colliding():
 		kinematic_body._velocity.x = kinematic_body.speed.x
 	elif not floor_detector_right.is_colliding():

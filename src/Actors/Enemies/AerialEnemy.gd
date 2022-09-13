@@ -9,8 +9,6 @@ onready var shoot_abi = $AbilitySystemComponent/ShootAbility
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
 func _ready():
-	._ready()
-	
 	if ai_controller != null : 
 		ai_controller.init(self)
 
@@ -32,7 +30,7 @@ func _ready():
 func _physics_process(_delta):
 	if ai_controller != null : 
 		ai_controller.update_physics(_delta)
-	._physics_process(_delta);
+	
 
 
 func get_new_animation():

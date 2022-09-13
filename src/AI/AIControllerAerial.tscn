@@ -1,31 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/AI/AIControllerAerial.gd" type="Script" id=1]
+[ext_resource path="res://src/AI/AIController.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 150.0
 
-[node name="AIControllerAerial" type="Node2D"]
+[node name="AIControllerAerial" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
-[node name="SafeDistance" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 24
+[node name="SafeDistance" type="Area2D" parent="." index="1"]
+collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeDistance"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeDistance" index="0"]
 shape = SubResource( 2 )
 
-[node name="MovementRays" type="Node2D" parent="."]
+[node name="MovementRays" type="Node2D" parent="." index="2"]
 
-[node name="Ray_Up" type="RayCast2D" parent="MovementRays"]
+[node name="Ray_Up" type="RayCast2D" parent="MovementRays" index="0"]
 cast_to = Vector2( 0, -50 )
 
-[node name="Ray_Down" type="RayCast2D" parent="MovementRays"]
+[node name="Ray_Down" type="RayCast2D" parent="MovementRays" index="1"]
 
-[node name="Ray_Left" type="RayCast2D" parent="MovementRays"]
+[node name="Ray_Left" type="RayCast2D" parent="MovementRays" index="2"]
 cast_to = Vector2( -50, 0 )
 
-[node name="Ray_Right" type="RayCast2D" parent="MovementRays"]
+[node name="Ray_Right" type="RayCast2D" parent="MovementRays" index="3"]
 cast_to = Vector2( 50, 0 )
 
 [connection signal="body_entered" from="SafeDistance" to="." method="_on_SafeDistance_body_entered"]

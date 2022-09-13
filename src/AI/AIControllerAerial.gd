@@ -16,7 +16,7 @@ func _ready():
 
 
 func _on_SafeDistance_body_entered(body):
-	print(body.name)
+	#print(body.name)
 	if body.name == 'Player':
 		TooClose = true
 
@@ -26,21 +26,30 @@ func _on_SafeDistance_body_exited(body):
 		
 
 func update_physics(delta):
+	.update_physics(delta)
+	
+	update_ray(delta)
+	
 	if PlayerDetected:
-		kinematic_body.velocity = kinematic_body.position.direction_to(kinematic_body.CurrentTargetActor.position) * kinematic_body.speed.x
+		kinematic_body._velocity = kinematic_body.global_position.direction_to(kinematic_body.CurrentTargetActor.global_position) * kinematic_body.speed.x
 	else:
-		kinematic_body.velocity = Vector2.ZERO;
+		kinematic_body._velocity = Vector2.ZERO;
+		
+	kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
 
 func update_ray(delta):
 	var closest_collision = null
 	movement_rays.rotation += delta * 11 * PI
 	
-	for ray in movement_rays.get_children():
-		var collision_point = ray.get_collision.point() - global_position
-		if closest_collision == null:
-			closest_collision = collision_point
-		if collision_point.length() < closest_collision.length():
-			closest_collision = collision_point
+	##### not sure what madness you try to do here, but "get_collision" function does not exist 
+	##### and i dont know what to fill in, so i just comment the whole section out. you can uncommented and fix it
+	
+#	for ray in movement_rays.get_children():
+#		var collision_point = ray.get_collision.point() - global_position
+#		if closest_collision == null:
+#			closest_collision = collision_point
+#		if collision_point.length() < closest_collision.length():
+#			closest_collision = collision_point
 	
 	#Handle collision detection here
 	if closest_collision:

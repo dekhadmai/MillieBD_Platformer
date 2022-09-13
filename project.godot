@@ -99,7 +99,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Level/Door.gd"
 }, {
-"base": "Reference",
+"base": "Actor",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://src/Actors/Enemies/BaseEnemy.gd"
