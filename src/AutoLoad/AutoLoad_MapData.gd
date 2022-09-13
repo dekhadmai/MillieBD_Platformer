@@ -16,7 +16,7 @@ var GridHeight = 5
 var DoorChance = 15
 var TotalRoomAvailable: int = 0
 
-var CurrentPlayerRoom: Vector2
+var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,6 +30,13 @@ func _ready():
 	print_map()
 	
 	pass # Replace with function body.
+
+func SetCurrentRoom(vec: Vector2):
+	if vec != CurrentPlayerRoom :
+		LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].CurrentLocation = false
+		CurrentPlayerRoom = vec
+		LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].bIsExplored = true
+		LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].CurrentLocation = true
 
 func GenerateRooms():
 	LevelRoomMap = []
@@ -47,7 +54,8 @@ func GenerateRooms():
 	
 	# start in the middle
 	LevelRoomMap[startroom_row][startroom_col].bStartRoom = true
-	CurrentPlayerRoom = Vector2(startroom_row, startroom_col)
+	LevelRoomMap[startroom_row][startroom_col].bIsExplored = true
+	SetCurrentRoom(Vector2(startroom_row, startroom_col))
 	Traverse(startroom_row, startroom_col, -1, -1, 0)
 	pass
 

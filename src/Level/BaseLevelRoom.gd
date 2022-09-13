@@ -70,32 +70,36 @@ func _on_Door_Down_PlayerEntered(body):
 
 func _on_Door_Left_PlayerExited(body):
 	if body.global_position.x < door_left.global_position.x:
-		autoload_mapdata.CurrentPlayerRoom = Room_Position
-		autoload_mapdata.CurrentPlayerRoom.y -= 1
+		var current_room_vect : Vector2 = Room_Position
+		current_room_vect.y -= 1
+		autoload_mapdata.SetCurrentRoom(current_room_vect)
 		autoload_mapdata.DespawnRooms(Room_Position.x, Room_Position.y)
 	pass # Replace with function body.
 
 
 func _on_Door_Right_PlayerExited(body):
 	if body.global_position.x > door_right.global_position.x:
-		autoload_mapdata.CurrentPlayerRoom = Room_Position
-		autoload_mapdata.CurrentPlayerRoom.y += 1
+		var current_room_vect : Vector2 = Room_Position
+		current_room_vect.y += 1
+		autoload_mapdata.SetCurrentRoom(current_room_vect)
 		autoload_mapdata.DespawnRooms(Room_Position.x, Room_Position.y)
 	pass # Replace with function body.
 
 
 func _on_Door_Up_PlayerExited(body):
 	if body.global_position.y < door_up.global_position.y:
-		autoload_mapdata.CurrentPlayerRoom = Room_Position
-		autoload_mapdata.CurrentPlayerRoom.x -= 1
+		var current_room_vect : Vector2 = Room_Position
+		current_room_vect.x -= 1
+		autoload_mapdata.SetCurrentRoom(current_room_vect)
 		autoload_mapdata.DespawnRooms(Room_Position.x, Room_Position.y)
 	pass # Replace with function body.
 
 
 func _on_Door_Down_PlayerExited(body):
 	if body.global_position.y > door_down.global_position.y:
-		autoload_mapdata.CurrentPlayerRoom = Room_Position
-		autoload_mapdata.CurrentPlayerRoom.x += 1
+		var current_room_vect : Vector2 = Room_Position
+		current_room_vect.x += 1
+		autoload_mapdata.SetCurrentRoom(current_room_vect)
 		autoload_mapdata.DespawnRooms(Room_Position.x, Room_Position.y)
 	pass # Replace with function body.
 
