@@ -3,9 +3,9 @@ extends Node2D
 
 
 var kinematic_body: Actor
-onready var platform_detector = $PlatformDetector
-onready var floor_detector_left = $FloorDetectorLeft
-onready var floor_detector_right = $FloorDetectorRight
+var PlayerDetected:= false
+onready var detection_range = $DetectionRange
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,18 +16,20 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func Init(kinematic: Actor):
+func init(kinematic: Actor):
 	kinematic_body = kinematic
 
-func Tick(delta):
-	if not floor_detector_left.is_colliding():
-		kinematic_body._velocity.x = kinematic_body.speed.x
-	elif not floor_detector_right.is_colliding():
-		kinematic_body._velocity.x = -kinematic_body.speed.x
+func _on_DetectionRange_body_entered(body):
+	print(body.name)
+	if body.name == 'Player':
+		PlayerDetected = true
 
-	if kinematic_body.is_on_wall():
-		kinematic_body._velocity.x *= -1
 
-	# We only update the y value of _velocity as we want to handle the horizontal movement ourselves.
-	kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
+func _on_DetectionRange_body_exited(body):
+	print('body.name')
+	if body.name == 'Player':
+		PlayerDetected = false
+
+func update_physics(delta):
+	pass
+	

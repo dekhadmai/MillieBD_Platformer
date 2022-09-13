@@ -1,29 +1,17 @@
-class_name Enemy
-extends Actor
+class_name GroundedEnemy
+extends Enemy
 
-
-enum State {
-	WALKING,
-	DEAD,
-}
-
-var _state = State.WALKING
-
-onready var sprite = $Sprite
-onready var animation_player = $AnimationPlayer
-onready var ai_controller = $AIController
-
+onready var ai_controller = $AIControllerGrounded
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
-onready var autoload_transient = $"/root/AutoLoadTransientData"
+
 
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
 func _ready():
-	speed.x = GetAbilitySystemComponent().CurrentCharStats.BaseMovespeed
-	speed.y = GetAbilitySystemComponent().CurrentCharStats.BaseJumpSpeed
-	_velocity.x = speed.x
+	._ready()
+	
 	if ai_controller != null : 
-		ai_controller.Init(self)
+		ai_controller.init(self)
 
 # Physics process is a built-in loop in Godot.
 # If you define _physics_process on a node, Godot will call it every frame.
@@ -41,34 +29,14 @@ func _ready():
 # - If you split the character into a state machine or more advanced pattern,
 #   you can easily move individual functions.
 func _physics_process(_delta):
-
 	if ai_controller != null : 
-		ai_controller.Tick(_delta)
-
-	# We flip the Sprite depending on which way the enemy is moving.
-	if _velocity.x > 0:
-		sprite.scale.x = 1
-	else:
-		sprite.scale.x = -1
-		
-	FacingDirection = sprite.scale.x
-
-	var animation = get_new_animation()
-	if animation != animation_player.current_animation:
-		animation_player.play(animation)
-
-func died():
-	.died()
-	destroy()
-
-func destroy():
-	_state = State.DEAD
-	_velocity = Vector2.ZERO
+		ai_controller.update_physics(_delta)
+	._physics_process(_delta);
 
 
 func get_new_animation():
 	var animation_new = ""
-	if _state == State.WALKING:
+	if _state == State.MOVING:
 		if _velocity.x == 0:
 			animation_new = "idle"
 		else:
@@ -79,6 +47,9 @@ func get_new_animation():
 
 
 func _on_ShootTimer_timeout():
-	shoot_abi.SetTargetActor(autoload_transient.player)
+#	if ai_controller != null:
+#		if ai_controller.PlayerDetected:
+#			shoot_abi.SetTargetActor(CurrentTargetActor)
+#			shoot_abi.TryActivate()
+	shoot_abi.SetTargetActor(CurrentTargetActor)
 	shoot_abi.TryActivate()
-	pass # Replace with function body.
