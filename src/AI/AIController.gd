@@ -6,6 +6,8 @@ var kinematic_body: Actor
 var PlayerDetected:= false
 onready var detection_range = $DetectionRange
 
+var FollowActorTarget: Actor = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,5 +31,14 @@ func _on_DetectionRange_body_exited(body):
 		PlayerDetected = false
 
 func update_physics(delta):
+	kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
 	pass
 	
+func MoveTo(target_position: Vector2) -> void :
+	# more implementation here
+	pass
+	
+func FollowActor(target_actor: Actor) -> void :
+	FollowActorTarget = target_actor
+	# more implementation here
+	pass

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flyingMONSHEET.png-8084e02bca5f47cce39b820032b10015.stex"
+path="res://.import/tmp_aloupeep.png-2a6c9f0d01aa1c29a563c72a525fee3f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/enemy/flyingMONSHEET.png"
-dest_files=[ "res://.import/flyingMONSHEET.png-8084e02bca5f47cce39b820032b10015.stex" ]
+source_file="res://assets/art/enemy/tmp_aloupeep.png"
+dest_files=[ "res://.import/tmp_aloupeep.png-2a6c9f0d01aa1c29a563c72a525fee3f.stex" ]
 
 [params]
 

@@ -25,8 +25,6 @@ func _on_SafeDistance_body_exited(body):
 		
 
 func update_physics(delta):
-	.update_physics(delta)
-	
 #	update_ray(delta)
 	
 	if PlayerDetected:
@@ -34,7 +32,7 @@ func update_physics(delta):
 	else:
 		kinematic_body._velocity = Vector2.ZERO;
 		
-	kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
+	.update_physics(delta)
 
 func update_ray(delta):
 	var closest_collision = null
