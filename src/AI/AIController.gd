@@ -34,11 +34,16 @@ func update_physics(delta):
 	kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
 	pass
 	
-func MoveTo(target_position: Vector2) -> void :
+func MoveTo(target_position: Vector2) -> bool :
 	# more implementation here
-	pass
+	return true
 	
-func FollowActor(target_actor: Actor) -> void :
+func FollowActor(target_actor: Actor) -> bool :
 	FollowActorTarget = target_actor
 	# more implementation here
-	pass
+	return true
+	
+func StopMove() -> bool : 
+	# more implementation here
+	return true
+	
