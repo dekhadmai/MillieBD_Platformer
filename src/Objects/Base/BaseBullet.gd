@@ -20,7 +20,6 @@ func GetInstigator() -> Actor:
 func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
 	Instigator = instigator
 	gameplay_effect_template = gameplayeffect_template
-	
 
 func destroy():
 	animation_player.play("destroy")

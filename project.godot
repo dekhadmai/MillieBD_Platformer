@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Objects/Base/BaseMelee.gd"
 }, {
+"base": "Position2D",
+"class": "BulletSpawnerComponent",
+"language": "GDScript",
+"path": "res://src/Component/BulletSpawnerComponent.gd"
+}, {
 "base": "CharacterStatsInit",
 "class": "CharacterStats",
 "language": "GDScript",
@@ -102,7 +107,7 @@ _global_script_classes=[ {
 "base": "Actor",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://src/Actors/Enemies/BaseEnemy.gd"
+"path": "res://src/Actors/Enemies/BaseEnemy/BaseEnemy.gd"
 }, {
 "base": "",
 "class": "GitAPI",
@@ -149,6 +154,7 @@ _global_script_class_icons={
 "BaseGameplayEffect": "",
 "BaseLevelRoom": "",
 "BaseMelee": "",
+"BulletSpawnerComponent": "",
 "CharacterStats": "",
 "CharacterStatsInit": "",
 "Coin": "",

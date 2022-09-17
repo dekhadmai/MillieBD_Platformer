@@ -21,12 +21,7 @@ func GetAnimPlayer() -> AnimationPlayer:
 	return anim_player
 
 func GetOwnerObject() : 
-	var parent = get_parent()	
-	while !((parent.get_class() == "Actor") or (parent.get_class() == "BaseBullet")):
-		parent = parent.get_parent()
-	
-	#print(parent.get_class())
-	return parent
+	return GlobalFunctions.GetOwnerObject(self)
 
 func StartGraze(victim_actor):
 	graze_xp.StartGraze(victim_actor, GetOwnerObject().GetInstigator(), GetOwnerObject())

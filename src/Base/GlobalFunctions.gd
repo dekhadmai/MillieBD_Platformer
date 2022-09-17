@@ -7,3 +7,11 @@ static func IsKeyModifierPressed(var just_pressed_key:String, var hold_key:Strin
 			return true
 	
 	return false
+
+static func GetOwnerObject(object) : 
+	var parent = object.get_parent()	
+	while !((parent.get_class() == "Actor") or (parent.get_class() == "BaseBullet")):
+		parent = parent.get_parent()
+	
+	#print(parent.get_class())
+	return parent

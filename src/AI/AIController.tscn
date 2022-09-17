@@ -14,5 +14,9 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 shape = SubResource( 1 )
 
+[node name="AbilityTriggerInterval" type="Timer" parent="."]
+process_mode = 0
+
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_DetectionRange_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_DetectionRange_body_exited"]
+[connection signal="timeout" from="AbilityTriggerInterval" to="." method="_on_AbilityTriggerInterval_timeout"]

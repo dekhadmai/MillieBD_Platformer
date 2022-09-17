@@ -9,9 +9,14 @@ enum State {
 
 var _state = State.MOVING
 
+const OriginalScale = 0.25
+
 onready var sprite = $Sprite
-onready var animation_player = $AnimationPlayer
+onready var animation_player = $AnimationPlayerState
 onready var autoload_transient = $"/root/AutoLoadTransientData"
+
+export var AIcontroller_NodeName = "AIController"
+onready var ai_controller
 
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
@@ -20,6 +25,17 @@ func _ready():
 	speed.y = GetAbilitySystemComponent().CurrentCharStats.BaseJumpSpeed
 	_velocity.x = speed.x
 	CurrentTargetActor = autoload_transient.player
+	
+	sprite.scale.x = OriginalScale
+	sprite.scale.y = OriginalScale
+	
+	if ai_controller == null:
+		ai_controller = get_node(AIcontroller_NodeName)
+		if ai_controller == null:
+			print("Can't Find AIController NodeName=" + AIcontroller_NodeName + ", self=" + str(self))
+	
+	if ai_controller != null : 
+		ai_controller.init(self)
 
 # Physics process is a built-in loop in Godot.
 # If you define _physics_process on a node, Godot will call it every frame.
@@ -37,17 +53,21 @@ func _ready():
 # - If you split the character into a state machine or more advanced pattern,
 #   you can easily move individual functions.
 func _physics_process(_delta):
+	if ai_controller != null : 
+		ai_controller.update_physics(_delta)
+		
 	# We flip the Sprite depending on which way the enemy is moving.
 	if _velocity.x > 0:
-		sprite.scale.x = 1
+		sprite.scale.x = -OriginalScale
 	else:
-		sprite.scale.x = -1
+		sprite.scale.x = OriginalScale
 		
-	FacingDirection = sprite.scale.x
+	FacingDirection = -sprite.scale.x / OriginalScale
 
-	var animation = get_new_animation()
-	if animation != animation_player.current_animation:
-		animation_player.play(animation)
+	UpdateAnimState()
+#	var animation = get_new_animation()
+#	if animation != animation_player.current_animation:
+#		animation_player.play(animation)
 
 func died():
 	.died()
@@ -57,5 +77,25 @@ func destroy():
 	_state = State.DEAD
 	_velocity = Vector2.ZERO
 
+func UpdateAnimState():
+	var animation_new = ""
+	
+	if _state != State.DEAD :
+		if is_on_floor():
+			if abs(_velocity.x) > 0.1:
+				animation_new = "walk"
+			else:
+				animation_new = "idle"
+		else:
+			if abs(_velocity.x) > 0.1 or abs(_velocity.y) > 0:
+				animation_new = "walk"
+			else:
+				animation_new = "idle"
+	else : 
+		animation_new = "death"
+	
+	if animation_player != null : 
+		animation_player.BaseAnimState = animation_new
+	
 func get_new_animation():
 	return ""
