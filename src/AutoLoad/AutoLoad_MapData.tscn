@@ -6,4 +6,4 @@
 pause_mode = 1
 script = ExtResource( 1 )
 TestRoom = "res://src/Level/LevelRooms/level_D.tscn"
-RandomLevelPool = [ "res://src/Level/LevelRooms/level_A.tscn", "res://src/Level/LevelRooms/level_B.tscn", "res://src/Level/LevelRooms/level_C.tscn", "res://src/Level/LevelRooms/level_D.tscn" ]
+RandomLevelPool = [ "res://src/Level/LevelRooms/level_A.tscn", "res://src/Level/LevelRooms/level_B.tscn", "res://src/Level/LevelRooms/level_C.tscn", "res://src/Level/LevelRooms/level_D.tscn", "res://src/Level/LevelRooms/Bitter1.tscn", "res://src/Level/LevelRooms/Bitter2.tscn", "res://src/Level/LevelRooms/Bitter3.tscn", "res://src/Level/LevelRooms/Bitter4.tscn", "res://src/Level/LevelRooms/Bitter5.tscn", "res://src/Level/LevelRooms/Bitter6.tscn" ]
