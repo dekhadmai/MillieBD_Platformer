@@ -15,3 +15,7 @@ static func GetOwnerObject(object) :
 	
 	#print(parent.get_class())
 	return parent
+
+static func RotationToVector(radian) : 
+	return Vector2(cos(radian), sin(radian))
+	#return Vector2.RIGHT.rotated(radian)

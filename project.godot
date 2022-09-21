@@ -134,6 +134,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Base/LevelRoomData.gd"
 }, {
+"base": "Node2D",
+"class": "MovementComponent",
+"language": "GDScript",
+"path": "res://src/Component/MovementComponent.gd"
+}, {
 "base": "Actor",
 "class": "Player",
 "language": "GDScript",
@@ -165,6 +170,7 @@ _global_script_class_icons={
 "GroundedEnemy": "",
 "Gun": "",
 "LevelRoomData": "",
+"MovementComponent": "",
 "Player": ""
 }
 

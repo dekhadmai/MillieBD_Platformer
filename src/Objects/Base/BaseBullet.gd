@@ -2,9 +2,11 @@ class_name BaseBullet
 extends RigidBody2D
 
 export(float) var BaseSpeed: float = 300.0
+export var bRotationMatchVelocity = true
 
 onready var animation_player = $AnimationPlayer
 var gameplay_effect_template
+var movement_component
 
 var Instigator:Actor
 
@@ -17,9 +19,28 @@ func GetTeam():
 func GetInstigator() -> Actor:
 	return Instigator
 
+func GetMovementComponent():
+	if movement_component == null :
+		movement_component = get_node("MovementComponent")
+	
+	return movement_component
+
+func SetHomeTargetActor(target):
+	GetMovementComponent().SetHomeTargetActor(target)
+	
+func SetHomeTargetLocation(location):
+	GetMovementComponent().SetHomeTargetLocation(location)
+
 func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
 	Instigator = instigator
 	gameplay_effect_template = gameplayeffect_template
+		
+	GetMovementComponent().SetSpeed(BaseSpeed, BaseSpeed)
+	GetMovementComponent().Init()
+
+func _physics_process(delta):
+	if bRotationMatchVelocity and get_linear_velocity().length() > 0 : 
+		set_global_rotation(get_linear_velocity().angle())
 
 func destroy():
 	animation_player.play("destroy")
