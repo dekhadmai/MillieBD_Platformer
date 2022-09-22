@@ -64,13 +64,12 @@ Area2D_Damage_NodeName = "Area2D_Damage_Telegraph"
 AreaLingerDuration = 7.0
 AreaEffectInterval = 0.3
 
-[node name="AreaLingerTimer" parent="." index="3"]
-wait_time = 3.0
-
-[node name="Area2D_Damage_Telegraph" parent="." index="5" instance=ExtResource( 3 )]
+[node name="Area2D_Damage_Telegraph" parent="." index="3" instance=ExtResource( 3 )]
 visible = false
 EndDamageAnimDuration = 0.6
 TelegraphAnimDuration = 2.0
+AreaLingerDuration = 10.0
+AreaEffectInterval = 0.3
 
 [node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]
 position = Vector2( 100, 0 )
@@ -97,5 +96,8 @@ shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="AreaLingerTimer" parent="Area2D_Damage_Telegraph" index="6"]
+wait_time = 10.0
 
 [editable path="Area2D_Damage_Telegraph"]

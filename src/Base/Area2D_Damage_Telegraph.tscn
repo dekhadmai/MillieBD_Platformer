@@ -9,9 +9,24 @@ monitorable = false
 script = ExtResource( 2 )
 TelegraphAnimName = "telegraph_loop"
 TelegraphAnimDuration = 1.0
+AreaLingerDuration = 1.0
+AreaEffectInterval = 0.0
 
 [node name="TelegraphTimer" type="Timer" parent="." index="4"]
 process_mode = 0
 one_shot = true
 
+[node name="AreaLingerTimer" type="Timer" parent="." index="5"]
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+
+[node name="EffectIntervalTimer" type="Timer" parent="." index="6"]
+process_mode = 0
+wait_time = 0.3
+
+[connection signal="area_entered" from="." to="." method="_on_Area2D_Damage_Telegraph_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Area2D_Damage_Telegraph_area_exited"]
 [connection signal="timeout" from="TelegraphTimer" to="." method="_on_TelegraphTimer_timeout"]
+[connection signal="timeout" from="AreaLingerTimer" to="." method="_on_AreaLingerTimer_timeout"]
+[connection signal="timeout" from="EffectIntervalTimer" to="." method="_on_EffectIntervalTimer_timeout"]
