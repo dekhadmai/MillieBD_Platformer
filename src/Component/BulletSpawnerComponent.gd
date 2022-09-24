@@ -6,14 +6,26 @@ export(String, FILE) var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
 
 var SpawnRotation:Vector2 = Vector2(0,0)
+var bullet_spawner_data: BulletSpawnerData
 
 var gameplay_effect_template
 var Instigator:Actor
 
+var TargetActor = null
+var TargetLocation = Vector2.ZERO
+
 func GetOwnerObject() : 
 	return GlobalFunctions.GetOwnerObject(self)
+	
+func SetHomeTargetActor(target):
+	TargetActor = target
 
 func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
 	Instigator = instigator
 	gameplay_effect_template = gameplayeffect_template
-	get_rotation()
+
+func Activate():
+	var bullet_spawn_data_array = get_children()
+	
+	for i in bullet_spawn_data_array.size():
+		bullet_spawn_data_array[i].Init()

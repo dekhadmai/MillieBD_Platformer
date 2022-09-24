@@ -4,11 +4,19 @@ extends RigidBody2D
 export(float) var BaseSpeed: float = 300.0
 export var bRotationMatchVelocity = true
 
+var bOverrideRotation = false
+var OverrideRotationAngle = 0.0
+
+var bOverridePosition = false
+var OverridePosition = Vector2.ZERO
+
 onready var animation_player = $AnimationPlayer
 var gameplay_effect_template
 var movement_component
 
 var Instigator:Actor
+
+var bullet_spawner_component: BulletSpawnerComponent
 
 func get_class():
 	return "BaseBullet"
@@ -32,6 +40,8 @@ func SetHomeTargetLocation(location):
 	GetMovementComponent().SetHomeTargetLocation(location)
 
 func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
+	bullet_spawner_component = get_node("BulletSpawnerComponent")
+	
 	Instigator = instigator
 	gameplay_effect_template = gameplayeffect_template
 		
@@ -41,16 +51,27 @@ func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
 func _physics_process(delta):
 	if bRotationMatchVelocity and get_linear_velocity().length() > 0 : 
 		set_global_rotation(get_linear_velocity().angle())
+		
+	if bOverrideRotation:
+		set_global_rotation(OverrideRotationAngle)
+		
+	if bOverridePosition:
+		set_global_position(OverridePosition)
 
 func destroy():
-	animation_player.play("destroy")
+	#animation_player.play("destroy")
+	queue_free()
 
 
 func _on_body_entered(body):
 	OnBodyEnter(body)
 
 func OnBodyEnter(body):
-	queue_free()
+	OnHitSurface(body)
+
+func OnHitSurface(body):
+	destroy()
+	
 
 func OnBulletHit(body:Actor):	
 	var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect

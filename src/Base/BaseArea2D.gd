@@ -1,6 +1,8 @@
 class_name BaseArea2D
 extends Area2D
 
+signal OnEndAreaLinger
+
 onready var graze_xp = $GrazeExpGiver
 onready var anim_player = $AnimationPlayer
 
@@ -43,12 +45,14 @@ func SetActive(val: bool):
 				winddown_anim_timer.start(end_anim.length)
 		else:
 			set_visible(val)
+			emit_signal("OnEndAreaLinger")
 		
 	set_monitorable(val)
 	set_monitoring(val)
 	
 func _on_WindDownAnimTimer_timeout():
 	set_visible(false)
+	emit_signal("OnEndAreaLinger")
 
 func _on_Area2D_HurtBox_area_entered(area):
 	if area.get_collision_layer_bit(6) :

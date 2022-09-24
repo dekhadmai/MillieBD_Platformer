@@ -4,3 +4,5 @@
 
 [node name="BaseBullet" instance=ExtResource( 1 )]
 BaseSpeed = 600.0
+
+[editable path="Area2D_Damage"]

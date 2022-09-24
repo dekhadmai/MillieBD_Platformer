@@ -12,7 +12,6 @@ var affected_actors = []
 export var AreaLingerDuration: float = 1.0
 export var AreaEffectInterval: float = 0.0
 
-signal OnEndAreaLinger
 signal OnHurtDetection(body)
 
 func _on_TelegraphTimer_timeout():
@@ -37,7 +36,6 @@ func SetActive(val: bool):
 	if !val:
 		effect_interval_timer.stop()
 		affected_actors.clear()
-		emit_signal("OnEndAreaLinger")
 	else:
 		area_linger_timer.start(AreaLingerDuration)
 			
