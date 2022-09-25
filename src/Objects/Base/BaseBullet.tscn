@@ -72,7 +72,11 @@ color = Color( 1, 1, 1, 0.705882 )
 position = Vector2( 0, 1 )
 shape = SubResource( 4 )
 
+[node name="DeathLingerTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 autostart = true
 
@@ -92,6 +96,7 @@ position = Vector2( 0, 1 )
 shape = SubResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DeathLingerTimer" to="." method="_on_DeathLingerTimer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="destroy"]
 [connection signal="area_entered" from="Area2D_Damage" to="." method="_on_Area2D_Damage_area_entered"]
 

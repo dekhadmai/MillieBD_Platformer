@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Objects/Base/BaseBullet_Beam.tscn" type="PackedScene" id=1]
+
+[node name="BaseBullet_Bomb" instance=ExtResource( 1 )]
+gravity_scale = 1.0
+BaseSpeed = 500.0
+
+[editable path="Area2D_Damage_Telegraph"]

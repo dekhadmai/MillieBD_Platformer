@@ -2,7 +2,10 @@ extends Node2D
 
 onready var editor_hint = $EditorSpriteHint
 
-export(Array, String, FILE) var RandomActorTemplatePool
+export var bUseTestEnemy = false
+export(String, FILE) var TestEnemy
+
+export(Array, String, FILE, "*.tscn") var RandomActorTemplatePool
 var ValidActorToSpawn = []
 
 # Declare member variables here. Examples:
@@ -28,7 +31,10 @@ func Activate():
 	SpawnActor()
 
 func GetActorToSpawn() -> Actor:
-	return ValidActorToSpawn[randi() % ValidActorToSpawn.size()]
+	if !bUseTestEnemy:
+		return ValidActorToSpawn[randi() % ValidActorToSpawn.size()]
+	else:
+		return TestEnemy
 
 func SpawnActor() -> void:
 	

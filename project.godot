@@ -231,6 +231,7 @@ singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 sceen=false
 resolution=false
+gravity=false
 
 [image_loader]
 

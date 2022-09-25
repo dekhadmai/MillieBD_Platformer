@@ -3,4 +3,5 @@
 [ext_resource path="res://src/Objects/Base/BaseRandomActorSpawner.tscn" type="PackedScene" id=1]
 
 [node name="RandomActorSpawner_GroundEnemies" instance=ExtResource( 1 )]
-RandomActorTemplatePool = [ "res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn", "res://src/Actors/Enemies/GroundedEnemy_Beam.tscn", "res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" ]
+TestEnemy = "res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn"
+RandomActorTemplatePool = [ "res://src/Actors/Enemies/GroundedEnemy_Mortar.tscn", "res://src/Actors/Enemies/GroundedEnemy_Beam.tscn", "res://src/Actors/Enemies/AerialEnemy_Bullet.tscn", "res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn", "res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" ]

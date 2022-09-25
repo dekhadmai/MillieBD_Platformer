@@ -1,7 +1,6 @@
 class_name BaseBullet_Beam
 extends BaseBullet
 
-var bodyState:Physics2DDirectBodyState
 onready var area2d_damage
 onready var bullet_sprite = $BulletSprite
 
@@ -36,9 +35,7 @@ func Activate_Beam(body):
 	
 	area2d_damage.SetActive(true)
 
-func _integrate_forces(state):
-	bodyState = state
-	pass
+
 
 func OnBulletHit(body:Actor):	
 	var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect

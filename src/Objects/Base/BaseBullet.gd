@@ -1,8 +1,13 @@
 class_name BaseBullet
 extends RigidBody2D
 
+export var bDebug = false
 export(float) var BaseSpeed: float = 300.0
 export var bRotationMatchVelocity = true
+
+export(float) var DeathLingerDuration = 0.0
+
+var bodyState:Physics2DDirectBodyState
 
 var bOverrideRotation = false
 var OverrideRotationAngle = 0.0
@@ -11,8 +16,10 @@ var bOverridePosition = false
 var OverridePosition = Vector2.ZERO
 
 onready var animation_player = $AnimationPlayer
+onready var death_linger_timer = $DeathLingerTimer
 var gameplay_effect_template
 var movement_component
+var sprite_node
 
 var Instigator:Actor
 
@@ -26,6 +33,12 @@ func GetTeam():
 	
 func GetInstigator() -> Actor:
 	return Instigator
+	
+func GetBulletSprite() : 
+	if sprite_node == null:
+		sprite_node = find_node("Sprite")
+	
+	return sprite_node
 
 func GetMovementComponent():
 	if movement_component == null :
@@ -40,10 +53,12 @@ func SetHomeTargetLocation(location):
 	GetMovementComponent().SetHomeTargetLocation(location)
 
 func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
-	bullet_spawner_component = get_node("BulletSpawnerComponent")
-	
 	Instigator = instigator
 	gameplay_effect_template = gameplayeffect_template
+	
+	bullet_spawner_component = get_node("BulletSpawnerComponent")
+	if bullet_spawner_component != null:
+		bullet_spawner_component.Init(Instigator, gameplay_effect_template)
 		
 	GetMovementComponent().SetSpeed(BaseSpeed, BaseSpeed)
 	GetMovementComponent().Init()
@@ -58,10 +73,41 @@ func _physics_process(delta):
 	if bOverridePosition:
 		set_global_position(OverridePosition)
 
+func _integrate_forces(state):
+	bodyState = state
+	pass
+	
 func destroy():
 	#animation_player.play("destroy")
-	queue_free()
+	if DeathLingerDuration > 0 :
+		death_linger_timer.start(DeathLingerDuration)
+		
+		var collNorm:Vector2 = bodyState.get_contact_local_normal(0)
+		var collPos:Vector2 = bodyState.get_contact_local_position(0)
+		
+		GetBulletSprite().set_visible(false)
+		
+		if bDebug :
+			GetBulletSprite().set_visible(true)
+			
+		bRotationMatchVelocity = false
+		
+		bOverrideRotation = true
+		OverrideRotationAngle = collNorm.angle()
+		
+		bOverridePosition = true
+		OverridePosition = collPos
+		
+		#set_continuous_collision_detection_mode(RigidBody2D.CCD_MODE_DISABLED)
+		set_collision_layer(0)
+		set_collision_mask(0)
+		set_angular_velocity(0.0)
+		set_linear_velocity(Vector2.ZERO)
+	else:
+		queue_free()
 
+func _on_DeathLingerTimer_timeout():
+	queue_free()
 
 func _on_body_entered(body):
 	OnBodyEnter(body)
@@ -80,7 +126,7 @@ func OnBulletHit(body:Actor):
 	Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
 	
 	#body.destroy()
-	queue_free()
+	destroy()
 	pass
 
 
@@ -92,3 +138,4 @@ func _on_Area2D_Damage_area_entered(area):
 				#print(str(body) + "=" + str(body.GetTeam()) + ", " + str(Instigator) + "=" + str(GetTeam()))
 				OnBulletHit(body)
 	pass # Replace with function body.
+
