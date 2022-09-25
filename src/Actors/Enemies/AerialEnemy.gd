@@ -2,7 +2,7 @@ class_name AerialEnemy
 extends Enemy
 
 
-onready var ai_controller = $AIControllerAerial
+#onready var ai_controller = $AIControllerAerial
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
 
 

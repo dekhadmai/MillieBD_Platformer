@@ -1,6 +1,6 @@
 extends BaseGameplayAbility
 
-export(String, FILE) var ActorToSpawnPath
+export(String, FILE, "*.tscn") var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
 
 export var CustomAnimName: String = "_weapon"
