@@ -1,6 +1,7 @@
 class_name BulletSpawnerComponent
 extends Position2D
 
+signal OnSpawnBullet(bullet)
 
 export(String, FILE) var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
@@ -29,3 +30,9 @@ func Activate():
 	
 	for i in bullet_spawn_data_array.size():
 		bullet_spawn_data_array[i].Init()
+		bullet_spawn_data_array[i].connect("OnSpawnBullet", self, "OnSpawnBullet")
+
+
+func OnSpawnBullet(bullet):
+	emit_signal("OnSpawnBullet", bullet)
+	pass

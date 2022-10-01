@@ -4,7 +4,7 @@
 [ext_resource path="res://src/AI/AIControllerGrounded.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Ability/Beam/GameplayAbility_AreaDetection_FrontalBeam.tscn" type="PackedScene" id=4]
 
-[node name="BaseGroundedEnemy" instance=ExtResource( 1 )]
+[node name="BaseGroundedEnemy_Beam" instance=ExtResource( 1 )]
 AIcontroller_NodeName = "AIControllerGrounded"
 
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 3 )]

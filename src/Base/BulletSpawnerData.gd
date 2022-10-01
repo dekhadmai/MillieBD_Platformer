@@ -8,6 +8,8 @@ export var BulletData_GlobalOffset: Vector2
 export var BulletData_Rotation: float
 export var BulletData_Delay: float = 0.01
 
+signal OnSpawnBullet(bullet)
+
 var Bullet
 var bullet_spawner_data: BulletSpawnerData
 
@@ -39,5 +41,7 @@ func SpawnBullet() -> void:
 
 	bullet.set_as_toplevel(true)
 	spawner_component.Instigator.add_child(bullet)
+	
+	emit_signal("OnSpawnBullet", bullet)
 	pass
 

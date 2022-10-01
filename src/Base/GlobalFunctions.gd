@@ -20,8 +20,15 @@ static func RotationToVector(radian) :
 	return Vector2(cos(radian), sin(radian))
 	#return Vector2.RIGHT.rotated(radian)
 
+static func CreateTimerAndBind(parent_object, bind_object, bind_function_name) -> Timer:
+	var timer: Timer = Timer.new()
+	parent_object.add_child(timer)
+	timer.connect("timeout", bind_object, bind_function_name)
+	timer.set_one_shot(true)
+	return timer
 
 
+##### Physics stuff
 static func optimal_angle(x: float, y: float, v0: float, g: float) -> float :
 	var root = v0 * v0 * v0 * v0 - g * (g * x * x + 2.0 * y * v0 * v0)
 	if root < 0.0 :

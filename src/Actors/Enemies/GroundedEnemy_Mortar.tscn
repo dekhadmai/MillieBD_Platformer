@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner_Mortar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/AI/AIControllerGrounded.tscn" type="PackedScene" id=3]
 
-[node name="BaseGroundedEnemy" instance=ExtResource( 1 )]
+[node name="BaseGroundedEnemy_Mortar" instance=ExtResource( 1 )]
 AIcontroller_NodeName = "AIControllerGrounded"
 
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 3 )]

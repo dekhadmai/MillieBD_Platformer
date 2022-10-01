@@ -25,6 +25,8 @@ var box_id = []
 
 func _ready():
 	Map = autoload_mapdata.LevelRoomMap
+	width = autoload_mapdata.GridWidth
+	height = autoload_mapdata.GridHeight
 	_add_room_ui()
 	print(Map[0][0])
 

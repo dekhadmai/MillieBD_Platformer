@@ -1,5 +1,6 @@
 extends Node
 
+export var bSpawnOneRoom: bool = false
 export var bUseTestRoom: bool = false
 export(String, FILE) var TestRoom
 onready var test_room = load(TestRoom)
@@ -21,12 +22,19 @@ var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if (bSpawnOneRoom and bUseTestRoom) : 
+		GridWidth = 1
+		GridHeight = 1
+		startroom_row = 0
+		startroom_col = 0
+	
 	for i in RandomLevelPool.size() :
 		if RandomLevelPool[i] != null :
 			LevelRoomMapPool.append(RandomLevelPool[i])
 	
 	GenerateRooms()
 	print("\n")
+	
 	print_map()
 	
 	pass # Replace with function body.
@@ -57,6 +65,9 @@ func GenerateRooms():
 	LevelRoomMap[startroom_row][startroom_col].bIsExplored = true
 	SetCurrentRoom(Vector2(startroom_row, startroom_col))
 	Traverse(startroom_row, startroom_col, -1, -1, 0)
+	
+	if bSpawnOneRoom and bUseTestRoom : 
+		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[1] = 1
 	pass
 
 func Traverse(row:int, column:int, from_row: int, from_column: int, distance: int):

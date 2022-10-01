@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Objects/Base/BaseBullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Ability/Enna/Enna_Bullet_Feathers.gd" type="Script" id=2]
+
+[node name="Enna_Feathers" instance=ExtResource( 1 )]
+collision_mask = 0
+continuous_cd = 0
+script = ExtResource( 2 )
+first_stop_seconds = 0.2
+second_move_seconds = 1.5
+second_move_speed = 600.0
+
+[node name="MovementComponent" parent="." index="0"]
+bUseHoming = true
+HomingStrength = 0.0
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( 0, 0 )
+
+[node name="Timer" parent="." index="4"]
+wait_time = 20.0
+
+[editable path="Area2D_Damage"]
