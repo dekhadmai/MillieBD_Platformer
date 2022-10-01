@@ -33,14 +33,15 @@ func Activate():
 
 func SpawnActor() -> void:
 	var bullet = Bullet.instance()
+	bullet.set_as_toplevel(true)
+	add_child(bullet)
+	
 	bullet.global_position = GetSpawnPosition()
 	var velocity = GetSpawnRotation()
 	bullet.set_global_rotation(velocity.angle())
 	bullet.Init(AbilityOwner, GameplayeEffect_Template)
 	bullet.SetHomeTargetActor(TargetActor)
-
-	bullet.set_as_toplevel(true)
-	add_child(bullet)
+	
 	pass
 
 func GetSpawnPosition() -> Vector2:

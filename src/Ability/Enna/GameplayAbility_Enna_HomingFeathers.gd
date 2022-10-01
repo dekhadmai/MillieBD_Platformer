@@ -27,8 +27,8 @@ func _ready():
 	bullet_spawner_component3.connect("OnSpawnBullet", self, "OnSpawnBullet")
 	
 	bullet_spawner_comp_array.append(bullet_spawner_component1)
-	bullet_spawner_comp_array.append(bullet_spawner_component2)
 	bullet_spawner_comp_array.append(bullet_spawner_component3)
+	bullet_spawner_comp_array.append(bullet_spawner_component2)
 
 func SpawnActor() -> void:
 	bullet_spawner_component = bullet_spawner_comp_array[comp_index]
@@ -41,4 +41,8 @@ func OnSpawnBullet(bullet):
 	if bullet_spawner_component == bullet_spawner_component3 :
 		bullet.second_move_seconds = 1.5 + move_offset_sec
 		move_offset_sec += 0.2
+		
+	if bullet_spawner_component == bullet_spawner_component2 :
+		bullet.second_move_speed = 300
+		bullet.GetMovementComponent().HomingStrength = 600
 	pass

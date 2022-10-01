@@ -3,7 +3,7 @@ extends Position2D
 
 signal OnSpawnBullet(bullet)
 
-export(String, FILE) var ActorToSpawnPath
+export(String, FILE, "*.tscn") var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
 
 var SpawnRotation:Vector2 = Vector2(0,0)

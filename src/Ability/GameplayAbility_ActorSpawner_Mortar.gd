@@ -3,6 +3,9 @@ extends "res://src/Ability/GameplayAbility_ActorSpawner.gd"
 
 func SpawnActor() -> void:
 	var bullet = Bullet.instance()
+	bullet.set_as_toplevel(true)
+	add_child(bullet)
+	
 	bullet.global_position = GetSpawnPosition()
 	var velocity = GetSpawnRotation()
 	bullet.set_global_rotation(velocity.angle())
@@ -24,6 +27,5 @@ func SpawnActor() -> void:
 #	var vel2 = Vector2.UP.rotated(angle) * bullet.BaseSpeed
 #	bullet.set_linear_velocity(vel2)
 	
-	bullet.set_as_toplevel(true)
-	add_child(bullet)
+	
 	pass

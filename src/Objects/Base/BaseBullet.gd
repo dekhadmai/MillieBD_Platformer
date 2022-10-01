@@ -16,7 +16,7 @@ var bOverridePosition = false
 var OverridePosition = Vector2.ZERO
 
 onready var animation_player = $AnimationPlayer
-onready var death_linger_timer = $DeathLingerTimer
+var death_linger_timer
 var gameplay_effect_template
 var movement_component
 var sprite_node
@@ -52,11 +52,15 @@ func SetHomeTargetActor(target):
 func SetHomeTargetLocation(location):
 	GetMovementComponent().SetHomeTargetLocation(location)
 
+func _ready():
+	if death_linger_timer == null :
+		death_linger_timer = find_node("DeathLingerTimer")
+
 func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
 	Instigator = instigator
 	gameplay_effect_template = gameplayeffect_template
 	
-	bullet_spawner_component = get_node("BulletSpawnerComponent")
+	bullet_spawner_component = find_node("BulletSpawnerComponent")
 	if bullet_spawner_component != null:
 		bullet_spawner_component.Init(Instigator, gameplay_effect_template)
 		

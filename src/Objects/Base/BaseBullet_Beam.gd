@@ -6,8 +6,6 @@ onready var bullet_sprite = $BulletSprite
 
 func OnHitSurface(body):
 	Activate_Beam(body)
-#	bullet_spawner_component.Init(Instigator, gameplay_effect_template)
-#	bullet_spawner_component.Activate()
 
 func Activate_Beam(body):
 	if area2d_damage == null:

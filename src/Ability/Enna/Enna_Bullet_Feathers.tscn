@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Ability/Enna/Enna_Bullet_Feathers.gd" type="Script" id=2]
 
 [node name="Enna_Feathers" instance=ExtResource( 1 )]
-collision_mask = 0
+collision_mask = 16
 continuous_cd = 0
 script = ExtResource( 2 )
 first_stop_seconds = 0.2

@@ -30,18 +30,20 @@ func SpawnBullet() -> void:
 	bullet_spawner_data = self
 	var spawner_component = get_parent()
 	
-	var bullet = spawner_component.Bullet.instance()
+	var bullet:RigidBody2D = spawner_component.Bullet.instance()
+	bullet.set_as_toplevel(true)
+	spawner_component.Instigator.add_child(bullet)
+	
 	bullet.global_position = get_global_position() + bullet_spawner_data.BulletData_LocalOffset.rotated(get_global_rotation())
 	bullet.global_position += BulletData_InstigatorFacingDirectionOffset.rotated(Vector2(spawner_component.Instigator.FacingDirection, 0).angle())
 	bullet.global_position += BulletData_GlobalOffset
 	bullet.set_global_rotation(get_global_rotation() + deg2rad(bullet_spawner_data.BulletData_Rotation))
+	print("self global rotation = " + str(get_global_rotation()))
+	print("bullet global rotation = " + str(bullet.get_global_rotation()))
 	bullet.Init(spawner_component.Instigator, spawner_component.gameplay_effect_template)
 	if spawner_component.TargetActor != null:
 		bullet.SetHomeTargetActor(spawner_component.TargetActor)
-
-	bullet.set_as_toplevel(true)
-	spawner_component.Instigator.add_child(bullet)
-	
+		
 	emit_signal("OnSpawnBullet", bullet)
+	
 	pass
-
