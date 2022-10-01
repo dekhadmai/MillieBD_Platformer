@@ -522,6 +522,7 @@ script = ExtResource( 1 )
 Team_ID = 1
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
+InitStat_IframeSeconds = 0.5
 
 [node name="Ability_Dash" parent="AbilitySystemComponent" instance=ExtResource( 12 )]
 

@@ -1,11 +1,16 @@
 class_name CharacterStats
 extends CharacterStatsInit
 
+signal take_damage(damage)
 signal died
 signal level_up
 
 # Add to the back only, DO NOT ADD TO THE FRONT, It will shift everything that is already in the game by +1
 enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed, EXP, Fever, ExpAdjustScale}
+
+var HurtIframeTimer:Timer
+var HurtIframeDuration = 0.5
+var bHurtIframe: bool = false
 
 var bInvincible: bool = false setget SetInvincible
 var CurrentHP: float = 0.0
@@ -25,7 +30,13 @@ var DamageAdjustScaleMultiplicative: float = 1.0 setget SetDamageAdjustScaleMult
 var ExpAdjustScale: float = 1.0
 var CooldownReductionScale: float = 1.0 setget SetCooldownReductionScale
 
-func InitBaseStat(init_stat: CharacterStatsInit) -> void:
+func InitBaseStat(init_stat: CharacterStatsInit, IframeSeconds: float) -> void:
+	HurtIframeDuration = IframeSeconds
+	HurtIframeTimer = Timer.new()
+	add_child(HurtIframeTimer)
+	HurtIframeTimer.set_one_shot(true)
+	HurtIframeTimer.connect("timeout", self, "HurtIframeTimer_timeout")
+	
 	BaseHP = init_stat.BaseHP
 	BaseAttack = init_stat.BaseAttack
 	BaseMovespeed = init_stat.BaseMovespeed
@@ -42,11 +53,21 @@ func Calculate() -> void:
 	CurrentJumpSpeed = BaseJumpSpeed
 	TotalDamageAdjustScale = DamageAdjustScale * DamageAdjustScaleMultiplicative
 	
+func HurtIframeTimer_timeout():
+	bHurtIframe = false
+	 
 func SetInvincible(value: bool):
 	bInvincible = value
 
 func TakeDamage(value: float):
+	if bHurtIframe or bInvincible : 
+		return
+	
 	CurrentHP -= value
+	emit_signal("take_damage", value)
+	bHurtIframe = true
+	HurtIframeTimer.start(HurtIframeDuration)
+	
 	if CurrentHP <= 0.0:
 		CurrentHP = 0.0
 		emit_signal("died")
