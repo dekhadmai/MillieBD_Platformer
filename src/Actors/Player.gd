@@ -125,6 +125,11 @@ func _physics_process(_delta):
 	else:
 		if Input.is_action_just_pressed("use_ability" + action_suffix):
 			special_abi.TryActivate()
+			
+	if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
+		set_collision_mask_bit(3, false)
+	else : 
+		set_collision_mask_bit(3, true)
 
 	UpdateAnimState()
 	
@@ -178,6 +183,9 @@ func do_jump():
 
 func can_jump():
 	var result: bool = false
+	if Input.is_action_pressed("move_down"):
+		return false
+	
 	if is_on_floor(): 
 		return true
 	elif !float_timer.is_stopped():
