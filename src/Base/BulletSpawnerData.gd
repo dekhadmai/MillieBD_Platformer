@@ -31,7 +31,7 @@ func SpawnBullet() -> void:
 	var spawner_component = get_parent()
 	
 	var bullet:RigidBody2D = spawner_component.Bullet.instance()
-	#bullet.set_as_toplevel(true)
+	bullet.set_as_toplevel(true)
 	spawner_component.Instigator.add_child(bullet)
 	
 	bullet.global_position = get_global_position() + bullet_spawner_data.BulletData_LocalOffset.rotated(get_global_rotation())

@@ -42,7 +42,7 @@ func SpawnActor() -> void:
 	var actor = load(actor_string)
 	var actor_instance = actor.instance()
 
-	#actor.set_as_toplevel(true)
+	actor.set_as_toplevel(true)
 	var parent = get_parent()
 	parent.add_child(actor_instance)
 	

@@ -38,9 +38,9 @@ margin_top = 64.0
 margin_right = 192.0
 margin_bottom = 128.0
 
-[node name="Boss_Enna" parent="." index="7" instance=ExtResource( 2 )]
-position = Vector2( 320, 272 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="8"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 4 )
 autoplay = true
+
+[node name="Boss_Enna" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 320, 272 )

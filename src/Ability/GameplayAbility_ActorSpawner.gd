@@ -33,7 +33,7 @@ func Activate():
 
 func SpawnActor() -> void:
 	var bullet = Bullet.instance()
-	#bullet.set_as_toplevel(true)
+	bullet.set_as_toplevel(true)
 	add_child(bullet)
 	
 	bullet.global_position = GetSpawnPosition()
