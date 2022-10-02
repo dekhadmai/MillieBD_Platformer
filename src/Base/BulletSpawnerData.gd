@@ -1,12 +1,12 @@
 class_name BulletSpawnerData
 extends Position2D
 
-
 export var BulletData_LocalOffset: Vector2
 export var BulletData_InstigatorFacingDirectionOffset: Vector2
 export var BulletData_GlobalOffset: Vector2
 export var BulletData_Rotation: float
 export var BulletData_Delay: float = 0.01
+export var BulletData_UseSetAsTopLevel: bool = true
 
 signal OnSpawnBullet(bullet)
 
@@ -31,7 +31,7 @@ func SpawnBullet() -> void:
 	var spawner_component = get_parent()
 	
 	var bullet:RigidBody2D = spawner_component.Bullet.instance()
-	bullet.set_as_toplevel(true)
+	bullet.set_as_toplevel(BulletData_UseSetAsTopLevel)
 	spawner_component.Instigator.add_child(bullet)
 	
 	bullet.global_position = get_global_position() + bullet_spawner_data.BulletData_LocalOffset.rotated(get_global_rotation())

@@ -3,7 +3,7 @@ extends "res://src/Ability/GameplayAbility_ActorSpawner.gd"
 
 func SpawnActor() -> void:
 	var bullet = Bullet.instance()
-	bullet.set_as_toplevel(true)
+	bullet.set_as_toplevel(bUseSetAsTopLevel)
 	add_child(bullet)
 	
 	bullet.global_position = GetSpawnPosition()

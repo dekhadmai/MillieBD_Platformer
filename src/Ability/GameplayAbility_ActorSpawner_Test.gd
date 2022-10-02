@@ -21,7 +21,7 @@ func SpawnCircle() -> void:
 		angle += deg2rad(360.0/amount)
 		
 		var bullet = Bullet.instance()
-		#bullet.set_as_toplevel(true)
+		bullet.set_as_toplevel(bUseSetAsTopLevel)
 		add_child(bullet)
 		bullet.Init(AbilityOwner, GameplayeEffect_Template)
 		bullet.global_position = GetSpawnPosition()

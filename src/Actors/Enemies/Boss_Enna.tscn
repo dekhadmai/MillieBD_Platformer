@@ -28,6 +28,9 @@ AbilityCooldownSecond = 4.0
 
 [node name="Enna_FeatherBeam" parent="AbilitySystemComponent" index="1" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 6.0
+bUseSetAsTopLevel = true
 
 [node name="Sprite" parent="." index="3"]
 frame = 8
+
+[editable path="AIControllerAerial"]

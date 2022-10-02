@@ -1,5 +1,6 @@
 extends BaseGameplayAbility
 
+export var bUseSetAsTopLevel = true
 export(String, FILE, "*.tscn") var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
 
@@ -33,7 +34,8 @@ func Activate():
 
 func SpawnActor() -> void:
 	var bullet = Bullet.instance()
-	bullet.set_as_toplevel(true)
+	
+	bullet.set_as_toplevel(bUseSetAsTopLevel)
 	add_child(bullet)
 	
 	bullet.global_position = GetSpawnPosition()
