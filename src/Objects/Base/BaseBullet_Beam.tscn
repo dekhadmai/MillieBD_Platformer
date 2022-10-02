@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Objects/Base/BaseBullet_Beam.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/bullet/bullet.png" type="Texture" id=2]
 [ext_resource path="res://src/Base/Area2D_Damage_Telegraph.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/art/bullets/sprite_enemy_shot_triangle_0.png" type="Texture" id=4]
 [ext_resource path="res://src/Component/MovementComponent.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/art/bullets/Thunder3.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/bullets/beam.png" type="Texture" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -46,7 +46,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "area_end"
-length = 0.6
+length = 0.4
 step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -55,16 +55,17 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 3, 4, 1, 0 ]
+"values": [ 4, 3, 2, 1 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "area_start"
-length = 0.2
+[sub_resource type="Animation" id=10]
+resource_name = "area_loop"
+length = 0.12
 loop = true
+step = 0.04
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -72,17 +73,33 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 3, 2 ]
+"values": [ 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "area_start"
+length = 0.12
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=8]
 resource_name = "telegraph_loop"
-length = 0.1
+length = 0.04
 loop = true
-step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -141,31 +158,23 @@ anims/destroy = SubResource( 5 )
 [node name="Area2D_Damage_Telegraph" parent="." instance=ExtResource( 3 )]
 visible = false
 EndDamageAnimDuration = 0.6
-TelegraphAnimDuration = 0.1
-AreaLingerDuration = 0.3
+AreaLingerDuration = 2.0
 AreaEffectInterval = 1.0
 
 [node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]
-position = Vector2( 100, 0 )
-rotation = -1.5708
-scale = Vector2( 0.25, 1.3 )
+position = Vector2( 95, 0 )
+rotation = 1.5708
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 6 )
 hframes = 5
-frame = 3
+vframes = 3
+frame = 4
 
 [node name="AnimationPlayer" parent="Area2D_Damage_Telegraph" index="2"]
 anims/area_end = SubResource( 6 )
+anims/area_loop = SubResource( 10 )
 anims/area_start = SubResource( 7 )
 anims/telegraph_loop = SubResource( 8 )
-
-[node name="WindDownAnimTimer" parent="Area2D_Damage_Telegraph" index="3"]
-wait_time = 1.0
-
-[node name="TelegraphTimer" parent="Area2D_Damage_Telegraph" index="4"]
-wait_time = 2.0
-
-[node name="AreaLingerTimer" parent="Area2D_Damage_Telegraph" index="5"]
-wait_time = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Damage_Telegraph"]
 position = Vector2( 100, 0 )

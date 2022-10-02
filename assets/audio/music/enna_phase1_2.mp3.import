@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/enna_phase1_2.mp3-cc6f7ab2cd297f97a186c7d85d0b7610.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/enna_phase1_2.mp3"
+dest_files=[ "res://.import/enna_phase1_2.mp3-cc6f7ab2cd297f97a186c7d85d0b7610.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

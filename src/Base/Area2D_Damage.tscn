@@ -18,4 +18,10 @@ process_mode = 0
 wait_time = 0.5
 one_shot = true
 
+[node name="AreaStartAnimTimer" type="Timer" parent="." index="4"]
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="WindDownAnimTimer" to="." method="_on_WindDownAnimTimer_timeout"]
+[connection signal="timeout" from="AreaStartAnimTimer" to="." method="_on_AreaStartAnimTimer_timeout"]

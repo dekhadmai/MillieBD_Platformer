@@ -20,7 +20,7 @@ func shoot(direction = 1):
 	bullet.linear_velocity = Vector2(direction * BULLET_VELOCITY, 0)
 	bullet.set_gravity_scale(0.0)
 
-	bullet.set_as_toplevel(true)
+	#bullet.set_as_toplevel(true)
 	add_child(bullet)
 	sound_shoot.play()
 	timer.start()
