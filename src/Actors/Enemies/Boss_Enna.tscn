@@ -25,6 +25,7 @@ InitStat_Movespeed = 0.0
 
 [node name="Enna_FeatherHoming" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
 AbilityCooldownSecond = 4.0
+bUseSetAsTopLevel = true
 
 [node name="Enna_FeatherBeam" parent="AbilitySystemComponent" index="1" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 6.0
@@ -32,5 +33,3 @@ bUseSetAsTopLevel = true
 
 [node name="Sprite" parent="." index="3"]
 frame = 8
-
-[editable path="AIControllerAerial"]
