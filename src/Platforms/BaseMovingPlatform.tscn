@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/art/tileset/enna_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/Platforms/BaseMovingPlatform.gd" type="Script" id=2]
+
+[node name="BaseMovingPlatform" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 0
+collision/safe_margin = 0.1
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 2 )
+
+[node name="TileMap_VisualOnly" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65534, 4, 0, 65535, 4, 0, 0, 4, 0, 1, 4, 0 )
