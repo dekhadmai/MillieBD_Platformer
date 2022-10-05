@@ -6,6 +6,7 @@
 
 [node name="GameplayAbility_ActorSpawner" instance=ExtResource( 4 )]
 script = ExtResource( 1 )
+bUseSetAsTopLevel = true
 ActorToSpawnPath = ""
 CustomAnimName = "_weapon"
 CustomAnimDuration = 0.1

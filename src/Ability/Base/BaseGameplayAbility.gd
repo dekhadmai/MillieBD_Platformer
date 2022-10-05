@@ -7,6 +7,7 @@ var AnimPlayer: AnimationPlayerState
 var AbilityCooldownTimer: Timer
 export var AbilityCooldownSecond: float = 1.0
 export var bCommitAbilityCooldownWhenDeactivate: bool = true
+export var AbilityLevel: int = 0
 var bIsActive: bool
 
 var bAlreadyInit: bool = false
@@ -15,6 +16,9 @@ onready var ability_sound = $AbilitySound
 onready var GameplayeEffect_Template: BaseGameplayEffect = $GameplayEffectTemplate
 
 var TargetActor:Actor = null setget SetTargetActor
+
+func GetAbilityLevel() -> int :
+	return AbilityLevel
 
 func SetTargetActor(target:Actor):
 	TargetActor = target

@@ -1,5 +1,6 @@
 extends BaseGameplayAbility
 
+export var bEndAbilityAfterActivate = true
 export var bUseSetAsTopLevel = true
 export(String, FILE, "*.tscn") var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
@@ -29,7 +30,8 @@ func Activate():
 	PlayCustomAnimation(CustomAnimName, CustomAnimDuration)
 	SetLingeringAnimation(LingeringAnimName, LingeringAnimDuration)
 	
-	EndAbility()
+	if bEndAbilityAfterActivate : 
+		EndAbility()
 	pass
 
 func SpawnActor() -> void:
@@ -43,8 +45,6 @@ func SpawnActor() -> void:
 	bullet.set_global_rotation(velocity.angle())
 	bullet.Init(AbilityOwner, GameplayeEffect_Template)
 	bullet.SetHomeTargetActor(TargetActor)
-	
-	pass
 
 func GetSpawnPosition() -> Vector2:
 	return SocketNode.global_position

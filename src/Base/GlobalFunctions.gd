@@ -27,6 +27,10 @@ static func CreateTimerAndBind(parent_object, bind_object, bind_function_name) -
 	timer.set_one_shot(true)
 	return timer
 
+static func queue_free_children(node: Node) -> void:
+	for n in node.get_children():
+		#node.remove_child(n)
+		n.queue_free()
 
 ##### Physics stuff
 static func optimal_angle(x: float, y: float, v0: float, g: float) -> float :

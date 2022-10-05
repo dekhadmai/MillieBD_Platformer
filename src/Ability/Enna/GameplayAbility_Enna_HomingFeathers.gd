@@ -4,7 +4,6 @@ var bullet_spawner_comp_array = []
 var bullet_spawner_component1 = null
 var bullet_spawner_component2 = null
 var bullet_spawner_component3 = null
-var comp_index = 0
 
 var move_offset_sec = 0
 
@@ -31,10 +30,10 @@ func _ready():
 	bullet_spawner_comp_array.append(bullet_spawner_component2)
 
 func SpawnActor() -> void:
-	bullet_spawner_component = bullet_spawner_comp_array[comp_index]
+	bullet_spawner_component = bullet_spawner_comp_array[AbilityLevel]
 	move_offset_sec = 0.0
-	comp_index += 1
-	comp_index = comp_index % bullet_spawner_comp_array.size()
+	AbilityLevel += 1
+	AbilityLevel = AbilityLevel % bullet_spawner_comp_array.size()
 	.SpawnActor()
 
 func OnSpawnBullet(bullet):
