@@ -54,6 +54,9 @@ func _on_DetectionRange_body_exited(body):
 		PlayerDetected = false
 
 func update_physics(delta):
+	if is_instance_valid(CurrentAbilityTarget):
+		CurrentAbilityTarget = autoload_transient.player
+		
 	kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
 	pass
 	

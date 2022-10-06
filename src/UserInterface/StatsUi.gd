@@ -26,23 +26,27 @@ onready var move_speed_value = $Statsbox/RighPage/Stats/MoveSpeedValue
 
 var inventor_is_expanded = false
 
-
-
-func _ready():
+func Init()->bool:
 	player = autoload_transient.player
-	player_current_stat = player.GetAbilitySystemComponent().CurrentCharStats
-
+	if is_instance_valid(player) :
+		player_current_stat = player.GetAbilitySystemComponent().CurrentCharStats
+		return true
+	
+	return false
 
 
 func _process(delta):
-	hp_value.set_text( str("", player_current_stat.CurrentHP) )
-	hp_bar.value = player_current_stat.CurrentHP
-	
-	exp_value.set_text( str("", player_current_stat.CurrentEXP) )
-	exp_bar.value = player_current_stat.CurrentEXP
-	lvl_value.set_text( str("", player_current_stat.CurrentLevel) )
-	attack_value.set_text( str("", player_current_stat.CurrentAttack) )
-	move_speed_value.set_text( str("", player_current_stat.CurrentMovespeed) )
+	if is_instance_valid(player_current_stat) :
+		hp_value.set_text( str("", player_current_stat.CurrentHP) )
+		hp_bar.value = player_current_stat.CurrentHP
+		
+		exp_value.set_text( str("", player_current_stat.CurrentEXP) )
+		exp_bar.value = player_current_stat.CurrentEXP
+		lvl_value.set_text( str("", player_current_stat.CurrentLevel) )
+		attack_value.set_text( str("", player_current_stat.CurrentAttack) )
+		move_speed_value.set_text( str("", player_current_stat.CurrentMovespeed) )
+	else:
+		Init()
 	
 
 func _unhandled_input(event):

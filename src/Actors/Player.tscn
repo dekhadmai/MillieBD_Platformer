@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState_Player.gd" type="Script" id=15]
 [ext_resource path="res://src/Ability/Beam/GameplayAbility_AreaDetection_FrontalBeam.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=13]
 
@@ -522,6 +524,7 @@ script = ExtResource( 1 )
 Team_ID = 1
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
+InitStat_HP = 400.0
 InitStat_IframeSeconds = 0.5
 
 [node name="Ability_Dash" parent="AbilitySystemComponent" instance=ExtResource( 12 )]
@@ -631,6 +634,34 @@ shape = SubResource( 11 )
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="DashCDBar" type="TextureProgress" parent="."]
+margin_left = -16.0
+margin_top = -61.0
+margin_right = 112.0
+margin_bottom = -25.0
+rect_scale = Vector2( 0.25, 0.25 )
+value = 80.0
+texture_under = ExtResource( 18 )
+texture_over = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
+tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
+tint_progress = Color( 0.741176, 0.717647, 0.145098, 1 )
+
+[node name="FloatTimeRemaining" type="TextureProgress" parent="."]
+margin_left = -16.0
+margin_top = -70.0
+margin_right = 112.0
+margin_bottom = -34.0
+rect_scale = Vector2( 0.25, 0.25 )
+value = 80.0
+texture_under = ExtResource( 18 )
+texture_over = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
+tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
+tint_progress = Color( 0.207843, 0.25098, 0.560784, 1 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0

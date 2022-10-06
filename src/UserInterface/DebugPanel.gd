@@ -11,7 +11,8 @@ onready var xp_label = $VBoxContainer/XPLabel
 
 func _ready():
 	player = autoload_transient.player
-	player_current_stat = player.GetAbilitySystemComponent().CurrentCharStats
+	if player : 
+		player_current_stat = player.GetAbilitySystemComponent().CurrentCharStats
 
 func _process(delta):
 	fps_label.set_text( str("FPS : ", Engine.get_frames_per_second()) )

@@ -13,6 +13,7 @@ const Max_Zoom = 3.0
 export(String) var action_suffix = ""
 
 onready var autoload_transientdata = $"/root/AutoLoadTransientData"
+onready var autoload_mapdata = $"/root/AutoLoadMapData"
 
 onready var platform_detector = $PlatformDetector
 onready var animation_player = $AnimationPlayerState
@@ -35,6 +36,12 @@ onready var float_timer: Timer = $JumpButtonTimer/FloatTimer
 var jump_direction: float = 0
 var jump_count = 0
 export var jump_max_count = 1;
+
+var float_time_remaining = 0
+var float_time_max = 5.0
+
+onready var dash_cd_bar = $DashCDBar
+onready var float_remaining_bar = $FloatTimeRemaining
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -79,7 +86,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("float"):
 		if can_float():
 			do_float()
-			float_timer.start()
+			float_timer.start(float_time_remaining)
 
 	if Input.is_action_just_released("float"):
 		do_unfloat()
@@ -104,6 +111,10 @@ func _physics_process(_delta):
 	
 	if is_on_floor():
 		jump_count = 0
+		float_time_remaining = float_time_max
+		
+	if !bUseGravity :
+		float_time_remaining -= _delta
 
 	# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
 	# This will make Robi face left or right depending on the direction you move.
@@ -144,6 +155,16 @@ func _physics_process(_delta):
 	if Input.is_action_just_released("zoom_out"):
 		camera.zoom.x = clamp(camera.zoom.x + 0.1, Min_Zoom, Max_Zoom)
 		camera.zoom.y = clamp(camera.zoom.y + 0.1, Min_Zoom, Max_Zoom)
+		
+	if dash_cd_bar :
+		dash_cd_bar.set_max(dash_abi.AbilityCooldownSecond * 100)
+		dash_cd_bar.set_value((dash_abi.AbilityCooldownSecond - dash_abi.GetAbilityRemainingCooldownSeconds()) * 100)
+	
+	if float_remaining_bar :
+		float_remaining_bar.set_max(float_time_max * 100)
+		float_remaining_bar.set_value((float_time_remaining) * 100)
+		
+
 
 func get_direction() -> Vector2 :
 	var result:Vector2
@@ -160,10 +181,11 @@ func get_direction() -> Vector2 :
 	
 func died():
 	.died()
-	#queue_free()
+	queue_free()
+	autoload_mapdata.SpawnPlayer()
 
 func can_float():
-	return false if is_on_floor() else true
+	return false if is_on_floor() or float_time_remaining <= 0.0 else true
 
 func do_float():
 	_velocity.y = 10

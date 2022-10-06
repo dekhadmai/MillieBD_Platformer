@@ -85,6 +85,9 @@ func IsAbilityOnCooldown() -> bool:
 func IsAbilityActive() -> bool:
 	return bIsActive
 	
+func GetAbilityRemainingCooldownSeconds() -> float:
+	return AbilityCooldownTimer.get_time_left()
+	
 func CanUseAbility() -> bool:
 	return !IsAbilityOnCooldown() and !bIsActive
 

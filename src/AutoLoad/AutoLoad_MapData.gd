@@ -19,6 +19,13 @@ var TotalRoomAvailable: int = 0
 
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
 
+export(String, FILE, "*.tscn") var PlayerTemplate
+onready var player_template = load(PlayerTemplate)
+var player
+func SpawnPlayer():
+	player = player_template.instance()
+	player.set_global_position(Vector2(100,150))
+	add_child(player)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

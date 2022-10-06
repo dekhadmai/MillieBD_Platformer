@@ -15,7 +15,8 @@ func _ready():
 
 func _physics_process(delta):
 	if bRotateToTarget :
-		set_global_rotation(movement_component.HomeTargetActor.GetTargetingPosition().angle_to_point(get_global_position()))
+		if is_instance_valid(movement_component.HomeTargetActor):
+			set_global_rotation(movement_component.HomeTargetActor.GetTargetingPosition().angle_to_point(get_global_position()))
 	pass
 
 

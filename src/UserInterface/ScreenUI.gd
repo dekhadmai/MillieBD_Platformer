@@ -13,16 +13,28 @@ onready var exp_value = $ColorRect/Expvalue
 onready var exp_bar = $ColorRect/Expbar
 onready var lvl_value = $ColorRect/Lvlvalue
 
-func _ready():
+
+func Init() -> bool:
 	player = autoload_transient.player
-	player_current_stat = player.GetAbilitySystemComponent().CurrentCharStats
+	if is_instance_valid(player) :
+		player_current_stat = player.GetAbilitySystemComponent().CurrentCharStats
+		hp_bar.set_max(player_current_stat.BaseHP)
+		return true
+		
+	return false
 
 func _process(delta):
-	hp_value.set_text( str("HP : ", player_current_stat.CurrentHP) )
-	hp_bar.value = player_current_stat.CurrentHP
+	if is_instance_valid(player_current_stat):
+		hp_value.set_text( str("HP : ", player_current_stat.CurrentHP) )
+		hp_bar.value = player_current_stat.CurrentHP
+		
+		lvl_value.set_text( str("LVL : ", player_current_stat.CurrentLevel) )
+		
+		exp_value.set_text( str("EXP : ", player_current_stat.CurrentEXP) )
+		exp_bar.value = player_current_stat.CurrentEXP
 	
-	lvl_value.set_text( str("LVL : ", player_current_stat.CurrentLevel) )
-	
-	exp_value.set_text( str("EXP : ", player_current_stat.CurrentEXP) )
-	exp_bar.value = player_current_stat.CurrentEXP
-	
+	else:
+		Init()
+		
+		hp_value.set_text( str("HP : ", 0) )
+		hp_bar.value = 0

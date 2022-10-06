@@ -30,7 +30,7 @@ func HomeStrength() -> Vector2 :
 	var steer = Vector2.ZERO
 	var target_position = Vector2.ZERO
 	if bUseHoming : 
-		if HomeTargetActor != null : 
+		if is_instance_valid(HomeTargetActor) : 
 			target_position = HomeTargetActor.GetTargetingPosition()
 		elif HomeTargetLocation != Vector2.ZERO:
 			target_position = HomeTargetLocation

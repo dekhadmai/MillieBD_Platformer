@@ -53,6 +53,9 @@ func _ready():
 # - If you split the character into a state machine or more advanced pattern,
 #   you can easily move individual functions.
 func _physics_process(_delta):
+	if is_instance_valid(CurrentTargetActor):
+		CurrentTargetActor = autoload_transient.player
+	
 	if ai_controller != null : 
 		ai_controller.update_physics(_delta)
 		
