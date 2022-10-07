@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner_BulletSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/art/vfx/shield_vfx.png" type="Texture" id=2]
 [ext_resource path="res://src/Component/BulletSpawnerComponent.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_FullScreen.gd" type="Script" id=4]
 
 [node name="GameplayAbility_Enna_FullScreen" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 AbilityCooldownSecond = 20.0
-bEndAbilityAfterActivate = true
 
 [node name="BulletSpawnerComponent" parent="." index="3"]
 ActorToSpawnPath = "res://src/Ability/Enna/Enna_Bullet_FallingFeathers.tscn"
@@ -18,5 +18,9 @@ ActorToSpawnPath = "res://src/Ability/Enna/Enna_Bullet_FallingFeathers.tscn"
 [node name="EndAbilityTimer" type="Timer" parent="." index="5"]
 process_mode = 0
 one_shot = true
+
+[node name="InvulSprite" type="Sprite" parent="." index="6"]
+visible = false
+texture = ExtResource( 2 )
 
 [connection signal="timeout" from="EndAbilityTimer" to="." method="_on_EndAbilityTimer_timeout"]

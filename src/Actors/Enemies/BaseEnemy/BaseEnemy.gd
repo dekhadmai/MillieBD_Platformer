@@ -18,6 +18,9 @@ onready var autoload_transient = $"/root/AutoLoadTransientData"
 export var AIcontroller_NodeName = "AIController"
 onready var ai_controller
 
+onready var hp_bar = $Hpbar
+onready var hp_value = $Hpvalue
+
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
 func _ready():
@@ -55,6 +58,13 @@ func _ready():
 func _physics_process(_delta):
 	if is_instance_valid(CurrentTargetActor):
 		CurrentTargetActor = autoload_transient.player
+	
+	var abi_comp = GetAbilitySystemComponent()
+	if abi_comp :
+		hp_bar.set_max(abi_comp.CurrentCharStats.BaseHP)
+		hp_bar.set_value(abi_comp.CurrentCharStats.CurrentHP)
+		hp_value.set_text(str(abi_comp.CurrentCharStats.CurrentHP))
+		
 	
 	if ai_controller != null : 
 		ai_controller.update_physics(_delta)

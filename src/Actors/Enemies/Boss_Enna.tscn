@@ -21,18 +21,16 @@ AbilityTriggerIntervalSeconds = 1.0
 AbilityNodeName = "Enna_FeatherHoming"
 
 [node name="AbilitySystemComponent" parent="." index="1"]
-InitStat_HP = 500.0
+InitStat_HP = 1000.0
 InitStat_Movespeed = 0.0
 
 [node name="Enna_FullScreen" parent="AbilitySystemComponent" index="0" instance=ExtResource( 6 )]
 
 [node name="Enna_FeatherHoming" parent="AbilitySystemComponent" index="1" instance=ExtResource( 1 )]
 AbilityCooldownSecond = 4.0
-bEndAbilityAfterActivate = true
 
 [node name="Enna_FeatherBeam" parent="AbilitySystemComponent" index="2" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 6.0
-bEndAbilityAfterActivate = true
 
 [node name="Sprite" parent="." index="3"]
 frame = 8

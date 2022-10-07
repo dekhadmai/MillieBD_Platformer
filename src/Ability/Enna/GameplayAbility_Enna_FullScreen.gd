@@ -11,6 +11,8 @@ var bottom_right
 var bullet_spacing = 30
 var bullet_spawn_delay_range = 3.0
 
+onready var invul_sprite = $InvulSprite
+
 func _ready():
 	top_left = AbilityOwner.get_parent().find_node("Room_TopLeft").get_global_position()
 	bottom_right = AbilityOwner.get_parent().find_node("Room_BottomRight").get_global_position()
@@ -45,8 +47,8 @@ func SpawnActor() -> void:
 	else:
 		DoSpawnerComponent(AbilityLevel)
 	
-	AbilityLevel += 1
-	AbilityLevel = AbilityLevel % 3
+#	AbilityLevel += 1
+#	AbilityLevel = AbilityLevel % 3
 	
 	end_ability_timer.start(bullet_spawn_delay_range * 4)
 	
@@ -98,6 +100,16 @@ func OnSpawnBullet(bullet):
 #		bullet.GetMovementComponent().HomingStrength = 600
 	pass
 
-
 func _on_EndAbilityTimer_timeout():
 	EndAbility()
+
+
+func Activate():
+	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible = true
+	invul_sprite.set_visible(true)
+	.Activate()
+	
+func Deactivate():
+	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible = false
+	invul_sprite.set_visible(false)
+	.Deactivate()
