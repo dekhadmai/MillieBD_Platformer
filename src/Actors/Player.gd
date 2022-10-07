@@ -7,7 +7,7 @@ signal collect_coin()
 
 const OriginalScale = 0.2
 const FLOOR_DETECT_DISTANCE = 20.0
-const Min_Zoom = 0.5
+const Min_Zoom = 0.7
 const Max_Zoom = 3.0
 
 export(String) var action_suffix = ""
@@ -188,7 +188,7 @@ func can_float():
 	return false if is_on_floor() or float_time_remaining <= 0.0 else true
 
 func do_float():
-	_velocity.y = 10
+	_velocity.y = 0
 	bUseGravity = false
 	
 func do_unfloat():
