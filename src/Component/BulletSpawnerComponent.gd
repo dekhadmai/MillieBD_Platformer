@@ -15,6 +15,15 @@ var Instigator:Actor
 var TargetActor = null
 var TargetLocation = Vector2.ZERO
 
+var bUseOverrideGlobalPosition = false
+var OverrideGlobalPosition = Vector2.ZERO
+
+func get_global_position()->Vector2:
+	if bUseOverrideGlobalPosition:
+		return OverrideGlobalPosition
+		
+	return .get_global_position()
+
 func GetOwnerObject() : 
 	return GlobalFunctions.GetOwnerObject(self)
 	

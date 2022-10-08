@@ -23,8 +23,12 @@ func _ready():
 	if bullet_spawner_component2 == null :
 		bullet_spawner_component2 = get_node("BulletSpawnerComponent2")
 		
-	bullet_spawner_component1.set_global_position(top_left)
-	bullet_spawner_component2.set_global_position(top_left)
+	#bullet_spawner_component1.set_global_position(top_left)
+	bullet_spawner_component1.bUseOverrideGlobalPosition = true
+	bullet_spawner_component1.OverrideGlobalPosition = top_left
+	#bullet_spawner_component2.set_global_position(top_left)
+	bullet_spawner_component2.bUseOverrideGlobalPosition = true
+	bullet_spawner_component2.OverrideGlobalPosition = top_left
 		
 	bullet_spawner_component1.Init(AbilityOwner, GameplayeEffect_Template)
 	bullet_spawner_component2.Init(AbilityOwner, GameplayeEffect_Template)
