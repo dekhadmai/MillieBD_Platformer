@@ -48,7 +48,6 @@ func _on_DetectionRange_body_entered(body):
 	if body.name == 'Player':
 		PlayerDetected = true
 
-
 func _on_DetectionRange_body_exited(body):
 	if body.name == 'Player':
 		PlayerDetected = false
@@ -61,15 +60,19 @@ func update_physics(delta):
 	pass
 	
 func MoveTo(target_position: Vector2) -> bool :
-	# more implementation here
-	return true
+	var result:= false
+	
+	if target_position:
+		kinematic_body._velocity = target_position * kinematic_body.speed.x
+		result = true
+		
+	return result
 	
 func FollowActor(target_actor: Actor) -> bool :
 	FollowActorTarget = target_actor
-	# more implementation here
-	return true
+	return MoveTo(kinematic_body.global_position.direction_to(FollowActorTarget.global_position))
 	
 func StopMove() -> bool : 
-	# more implementation here
+	kinematic_body._velocity = Vector2.ZERO
 	return true
 	

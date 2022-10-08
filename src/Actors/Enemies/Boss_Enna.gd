@@ -13,6 +13,9 @@ var bottom_right: Vector2
 var AbilityLevel = 0
 
 func _physics_process(delta):
+	if ai_controller:
+		ai_controller.update_physics(delta, true) # true for hover
+		
 	if GetAbilitySystemComponent().CurrentCharStats.CurrentHP <= GetAbilitySystemComponent().CurrentCharStats.BaseHP / 2.0 and AbilityLevel == 0:
 		EnterPhase(1)
 		
@@ -34,6 +37,7 @@ func EnterPhase(state_level):
 		
 
 func _ready():
+	ai_controller = get_parent().find_node("AIControllerAerial")
 	top_left = get_parent().find_node("Room_TopLeft").get_global_position()
 	bottom_right = get_parent().find_node("Room_BottomRight").get_global_position()
 	
