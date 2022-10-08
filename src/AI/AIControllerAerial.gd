@@ -1,11 +1,12 @@
 class_name AIControllerAerial
 extends AIController
 
+export var bUseHover = true
 var tooClose:= false
-var collisionAvoidanceDistance := 60
 onready var safe_distance = $SafeDistance
 onready var vision_rays = $VisionRays
 
+var rayHit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,18 +19,19 @@ func _ready():
 
 
 func _on_SafeDistance_body_entered(body):
-	if body.name == 'Player':
+	if body.GetTeam() != kinematic_body.GetTeam():
 		tooClose = true
 
 func _on_SafeDistance_body_exited(body):
-	if body.name == 'Player':
+	if body.GetTeam() != kinematic_body.GetTeam():
 		tooClose = false
 
-func update_physics(delta, hover = false):
+func update_physics(delta):
+	rayHit = false
 	if PlayerDetected:
 		FollowActor(kinematic_body.CurrentTargetActor)
 		
-		if hover and tooClose:
+		if bUseHover and tooClose and !rayHit:
 			StopMove()
 	else:
 		StopMove();
@@ -37,11 +39,12 @@ func update_physics(delta, hover = false):
 	.update_physics(delta)
 
 func update_ray(movementDir: Vector2):
-	vision_rays.angle = rad2deg(movementDir.angle())
+	vision_rays.set_global_rotation(movementDir.angle())
 	
 	for ray in vision_rays.get_children():
 		if ray.is_colliding():
-			kinematic_body._velocity += ray.get_collision_normal() * collisionAvoidanceDistance
+			kinematic_body._velocity += ray.get_collision_normal() * kinematic_body.speed.x
+			rayHit = true
 
 func FollowActor(target_actor: Actor) -> bool :
 	FollowActorTarget = target_actor

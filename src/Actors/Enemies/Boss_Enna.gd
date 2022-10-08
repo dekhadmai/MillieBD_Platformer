@@ -14,7 +14,7 @@ var AbilityLevel = 0
 
 func _physics_process(delta):
 	if ai_controller:
-		ai_controller.update_physics(delta, true) # true for hover
+		ai_controller.update_physics(delta)
 		
 	if GetAbilitySystemComponent().CurrentCharStats.CurrentHP <= GetAbilitySystemComponent().CurrentCharStats.BaseHP / 2.0 and AbilityLevel == 0:
 		EnterPhase(1)

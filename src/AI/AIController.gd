@@ -45,11 +45,11 @@ func init(kinematic: Actor):
 	CurrentAbilityTarget = autoload_transient.player
 	
 func _on_DetectionRange_body_entered(body):
-	if body.name == 'Player':
+	if body.GetTeam() != kinematic_body.GetTeam():
 		PlayerDetected = true
 
 func _on_DetectionRange_body_exited(body):
-	if body.name == 'Player':
+	if body.GetTeam() != kinematic_body.GetTeam():
 		PlayerDetected = false
 
 func update_physics(delta):
