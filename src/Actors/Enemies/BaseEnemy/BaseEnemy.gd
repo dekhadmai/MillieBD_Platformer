@@ -9,7 +9,7 @@ enum State {
 
 var _state = State.MOVING
 
-const OriginalScale = 0.25
+export var OriginalScale = 0.25
 
 onready var sprite = $Sprite
 onready var animation_player = $AnimationPlayerState

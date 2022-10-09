@@ -17,9 +17,9 @@ func _ready():
 	if bullet_spawner_component3 == null :
 		bullet_spawner_component3 = get_node("BulletSpawnerComponent3")
 		
-	bullet_spawner_component1.Init(AbilityOwner, GameplayeEffect_Template)
-	bullet_spawner_component2.Init(AbilityOwner, GameplayeEffect_Template)
-	bullet_spawner_component3.Init(AbilityOwner, GameplayeEffect_Template)
+	bullet_spawner_component1.Init(AbilityOwner, self, GameplayeEffect_Template)
+	bullet_spawner_component2.Init(AbilityOwner, self, GameplayeEffect_Template)
+	bullet_spawner_component3.Init(AbilityOwner, self, GameplayeEffect_Template)
 	
 	bullet_spawner_component1.connect("OnSpawnBullet", self, "OnSpawnBullet")
 	bullet_spawner_component2.connect("OnSpawnBullet", self, "OnSpawnBullet")

@@ -7,21 +7,28 @@ var RandomLocationInterval = 6.0
 var Phase2_MoveSpeedScale = 5.0
 var Phase2_RandomLocationInterval = 4.0
 
-var FeatherBeamTimer
 var FeatherHomingTimer
+var FeatherBeamTimer
 var FullScreenTimer
+var FeatherHomingInterval = 4.0
+var FeatherBeamInterval = 6.0
+var FullScreenInterval = 15.0
 onready var ability_feather_beam = $AbilitySystemComponent/Enna_FeatherBeam
 onready var ability_feather_homing = $AbilitySystemComponent/Enna_FeatherHoming
 onready var ability_fullscreen = $AbilitySystemComponent/Enna_FullScreen
+
+var StunnedTimer
 
 var top_left: Vector2
 var bottom_right: Vector2
 
 var AbilityLevel = 0
+var bIsStunned = false
+var StunDuration = 5.0
 
 func _physics_process(delta):
 	if ai_controller:
-		if ability_fullscreen.IsAbilityActive():
+		if ability_fullscreen.IsAbilityActive() or bIsStunned:
 			ai_controller.bUseFollowPosition = false
 		else:
 			ai_controller.bUseFollowPosition = true
@@ -31,6 +38,29 @@ func _physics_process(delta):
 	if GetAbilitySystemComponent().CurrentCharStats.CurrentHP <= GetAbilitySystemComponent().CurrentCharStats.BaseHP / 2.0 and AbilityLevel == 0:
 		EnterPhase(1)
 		
+
+func UpdateAnimState():
+	if !bIsStunned :
+		.UpdateAnimState()
+	else:
+		if animation_player != null : 
+			animation_player.BaseAnimState = "cast"
+
+func Stun():
+	bIsStunned = true
+	FeatherHomingTimer.stop()
+	FeatherBeamTimer.stop()
+	FullScreenTimer.stop()
+	StunnedTimer.start(StunDuration)
+
+func UnStun():
+	FeatherHomingTimer.start(FeatherHomingInterval)
+	FeatherBeamTimer.start(FeatherBeamInterval)
+	FullScreenTimer.start(FullScreenInterval)
+	bIsStunned = false
+	
+func _Stunned_Timeout():
+	UnStun()
 
 func died():
 	if AbilityLevel == 2:
@@ -49,7 +79,9 @@ func EnterPhase(state_level):
 		GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
 		GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
 		RandomLocationInterval = Phase2_RandomLocationInterval
+		StunDuration = 8.0
 		
+	UnStun()
 
 func _ready():
 	top_left = get_parent().find_node("Room_TopLeft").get_global_position()
@@ -59,20 +91,23 @@ func _ready():
 	
 	FeatherHomingTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_FeatherHoming_Timeout")
 	FeatherHomingTimer.set_one_shot(false)
-	FeatherHomingTimer.start(4)
+	FeatherHomingTimer.start(FeatherHomingInterval)
 	
 	FeatherBeamTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_FeatherBeam_Timeout")
 	FeatherBeamTimer.set_one_shot(false)
-	FeatherBeamTimer.start(6)
+	FeatherBeamTimer.start(FeatherBeamInterval)
 	
 	FullScreenTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_FullScreen_Timeout")
 	FullScreenTimer.set_one_shot(false)
-	FullScreenTimer.start(20)
+	FullScreenTimer.start(FullScreenInterval)
 	
 	ai_controller.SetFollowPosition(get_global_position())
 	RandomLocationTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_PickMoveToRandomLocation")
 	RandomLocationTimer.set_one_shot(true)
 	RandomLocationTimer.start(RandomLocationInterval)
+	
+	StunnedTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_Stunned_Timeout")
+	StunnedTimer.set_one_shot(true)
 
 func _PickMoveToRandomLocation():
 	var location:Vector2 = Vector2.ZERO

@@ -11,6 +11,7 @@ var bullet_spawner_data: BulletSpawnerData
 
 var gameplay_effect_template
 var Instigator:Actor
+var OwningAbility
 
 var TargetActor = null
 var TargetLocation = Vector2.ZERO
@@ -30,8 +31,9 @@ func GetOwnerObject() :
 func SetHomeTargetActor(target):
 	TargetActor = target
 
-func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
+func Init(instigator:Actor, owning_ability, gameplayeffect_template:BaseGameplayEffect):
 	Instigator = instigator
+	OwningAbility = owning_ability
 	gameplay_effect_template = gameplayeffect_template
 
 func Activate():

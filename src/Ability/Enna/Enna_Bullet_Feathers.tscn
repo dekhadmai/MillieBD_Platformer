@@ -16,9 +16,6 @@ second_move_speed = 600.0
 bUseHoming = true
 HomingStrength = 0.0
 
-[node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 0, 0 )
-
 [node name="Timer" parent="." index="4"]
 wait_time = 20.0
 

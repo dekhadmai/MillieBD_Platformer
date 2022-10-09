@@ -30,8 +30,8 @@ func _ready():
 	bullet_spawner_component2.bUseOverrideGlobalPosition = true
 	bullet_spawner_component2.OverrideGlobalPosition = top_left
 		
-	bullet_spawner_component1.Init(AbilityOwner, GameplayeEffect_Template)
-	bullet_spawner_component2.Init(AbilityOwner, GameplayeEffect_Template)
+	bullet_spawner_component1.Init(AbilityOwner, self, GameplayeEffect_Template)
+	bullet_spawner_component2.Init(AbilityOwner, self, GameplayeEffect_Template)
 	
 	bullet_spawner_component1.connect("OnSpawnBullet", self, "OnSpawnBullet")
 	bullet_spawner_component2.connect("OnSpawnBullet", self, "OnSpawnBullet")
@@ -116,4 +116,5 @@ func Activate():
 func Deactivate():
 	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible = false
 	invul_sprite.set_visible(false)
+	AbilityOwner.Stun()
 	.Deactivate()

@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Objects/Base/BaseBullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Component/BulletSpawnerComponent.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Base/BulletSpawnerData.gd" type="Script" id=3]
+[ext_resource path="res://src/Ability/Enna/Enna_Bullet_GroundBeamSpawner.gd" type="Script" id=4]
+[ext_resource path="res://src/Component/BulletSpawnerComponent.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.0
+
+[node name="Enna_Bullet_GroundBeamSpawner" instance=ExtResource( 1 )]
+collision_mask = 16
+gravity_scale = 1.0
+script = ExtResource( 4 )
+BaseSpeed = 1.0
+DeathLingerDuration = 200.0
+
+[node name="BulletSpawnerComponent" parent="." index="1" instance=ExtResource( 2 )]
+ActorToSpawnPath = "res://src/Ability/Enna/Enna_Bullet_Beam.tscn"
+
+[node name="BulletSpawnerData" type="Position2D" parent="BulletSpawnerComponent" index="0"]
+script = ExtResource( 3 )
+BulletData_LocalOffset = Vector2( 10, 0 )
+BulletData_InstigatorFacingDirectionOffset = Vector2( 30, 0 )
+BulletData_Rotation = 180.0
+
+[node name="BulletSpawnerData2" type="Position2D" parent="BulletSpawnerComponent" index="1"]
+script = ExtResource( 3 )
+BulletData_LocalOffset = Vector2( 10, 0 )
+BulletData_InstigatorFacingDirectionOffset = Vector2( 60, 0 )
+BulletData_Rotation = 180.0
+BulletData_Delay = 0.5
+
+[node name="BulletSpawnerData3" type="Position2D" parent="BulletSpawnerComponent" index="2"]
+script = ExtResource( 3 )
+BulletData_LocalOffset = Vector2( 10, 0 )
+BulletData_InstigatorFacingDirectionOffset = Vector2( 90, 0 )
+BulletData_Rotation = 180.0
+BulletData_Delay = 1.0
+
+[node name="BulletSpawnerComponent2" type="Position2D" parent="." index="2"]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource( 1 )
+
+[node name="Timer" parent="." index="6"]
+wait_time = 200.0
+
+[node name="Area2D_Damage" parent="." index="8"]
+monitoring = false
+monitorable = false
+
+[node name="Sprite" parent="Area2D_Damage" index="1"]
+visible = false
+
+[editable path="Area2D_Damage"]

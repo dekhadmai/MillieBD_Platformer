@@ -23,7 +23,7 @@ func SpawnCircle() -> void:
 		var bullet = Bullet.instance()
 		bullet.set_as_toplevel(bUseSetAsTopLevel)
 		add_child(bullet)
-		bullet.Init(AbilityOwner, GameplayeEffect_Template)
+		bullet.Init(AbilityOwner, self, GameplayeEffect_Template)
 		bullet.global_position = GetSpawnPosition()
 		var velocity = rot
 		velocity *= bullet.BaseSpeed

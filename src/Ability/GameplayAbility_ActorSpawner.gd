@@ -43,7 +43,7 @@ func SpawnActor() -> void:
 	bullet.global_position = GetSpawnPosition()
 	var velocity = GetSpawnRotation()
 	bullet.set_global_rotation(velocity.angle())
-	bullet.Init(AbilityOwner, GameplayeEffect_Template)
+	bullet.Init(AbilityOwner, self, GameplayeEffect_Template)
 	bullet.SetHomeTargetActor(TargetActor)
 
 func GetSpawnPosition() -> Vector2:
