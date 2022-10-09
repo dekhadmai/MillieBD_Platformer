@@ -3,6 +3,7 @@
 [ext_resource path="res://src/Objects/Base/BaseBullet.tscn" type="PackedScene" id=1]
 
 [node name="BaseBullet" instance=ExtResource( 1 )]
+collision_mask = 16
 BaseSpeed = 600.0
 
 [editable path="Area2D_Damage"]

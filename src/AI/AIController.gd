@@ -1,11 +1,17 @@
 class_name AIController
 extends Node2D
 
+export var bDebug = false
+var end_debug_position:Vector2
+
 onready var autoload_transient = $"/root/AutoLoadTransientData"
 
 var kinematic_body: Actor
 var PlayerDetected:= false
 onready var detection_range = $DetectionRange
+
+export var bUseFollowActor = true
+export var bUseFollowPosition = false
 
 export var bUseAbilityTriggerInterval = true
 export var AbilityTriggerIntervalSeconds = 2.0
@@ -14,16 +20,22 @@ onready var AbilityTriggerIntervalTimer:Timer = $AbilityTriggerInterval
 var CurrentAbilityTarget
 
 var FollowActorTarget: Actor = null
+var FollowPosition: Vector2 = Vector2.ZERO
+var move_direction: Vector2
+
+var starting_position: Vector2
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	starting_position = get_global_position()
 	pass # Replace with function body.
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _draw():
+	if bDebug:
+		draw_line(Vector2(0,0), end_debug_position - get_global_position(), Color(0,1,0,1))
+		draw_circle(end_debug_position - get_global_position(), 5, Color(0,1,0,1))
 
 func GetAbilityNode(ability_node_name:String) :
 	if ability_node_name != "" :
@@ -55,22 +67,46 @@ func _on_DetectionRange_body_exited(body):
 func update_physics(delta):
 	if is_instance_valid(CurrentAbilityTarget):
 		CurrentAbilityTarget = autoload_transient.player
+		SetFollowActor(autoload_transient.player)
+		
 		
 	kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
+	
 	pass
 	
-func MoveTo(target_position: Vector2) -> bool :
+func MoveTo(normalized_direction: Vector2) -> bool :
 	var result:= false
 	
-	if target_position:
-		kinematic_body._velocity = target_position * kinematic_body.speed.x
-		result = true
+	move_direction = normalized_direction
+	kinematic_body._velocity = normalized_direction * kinematic_body.GetAbilitySystemComponent().CurrentCharStats.CurrentMovespeed
+	result = true
 		
 	return result
 	
-func FollowActor(target_actor: Actor) -> bool :
+func SetFollowActor(target_actor: Actor):
 	FollowActorTarget = target_actor
-	return MoveTo(kinematic_body.global_position.direction_to(FollowActorTarget.global_position))
+	
+func FollowActor() -> bool :
+	if bUseFollowActor:
+		if bDebug:
+			#if end_debug_position != FollowActorTarget.global_position :
+			end_debug_position = FollowActorTarget.global_position
+			update()
+		return MoveTo(kinematic_body.global_position.direction_to(FollowActorTarget.global_position))
+	return false
+	
+func SetFollowPosition(target_position: Vector2):
+	FollowPosition = target_position
+	
+func FollowPosition() -> bool :
+	if bUseFollowPosition:
+		if bDebug:
+			#if end_debug_position != FollowPosition :
+			end_debug_position = FollowPosition
+			update()
+		return MoveTo(kinematic_body.global_position.direction_to(FollowPosition))
+	return false
+		
 	
 func StopMove() -> bool : 
 	kinematic_body._velocity = Vector2.ZERO

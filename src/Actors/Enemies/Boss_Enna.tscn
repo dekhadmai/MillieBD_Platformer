@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_HomingFeathers.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/AI/AIControllerAerial.tscn" type="PackedScene" id=2]
@@ -7,22 +7,40 @@
 [ext_resource path="res://src/Actors/Enemies/Boss_Enna.gd" type="Script" id=5]
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_FullScreen.tscn" type="PackedScene" id=6]
 
+[sub_resource type="CircleShape2D" id=1]
+radius = 1000.0
+
 [node name="Boss_Enna" instance=ExtResource( 3 )]
 z_index = 1000
 collision_layer = 0
-collision_mask = 0
+collision_mask = 16
 script = ExtResource( 5 )
 Team_ID = 0
 AIcontroller_NodeName = "AIControllerAerial"
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
+bDebug = true
+bUseFollowActor = false
 bUseAbilityTriggerInterval = false
 AbilityTriggerIntervalSeconds = 1.0
 AbilityNodeName = "Enna_FeatherHoming"
+bUseHover = false
+
+[node name="CollisionShape2D" parent="AIControllerAerial/DetectionRange" index="0"]
+shape = SubResource( 1 )
+
+[node name="Ray1" parent="AIControllerAerial/VisionRays" index="0"]
+enabled = false
+
+[node name="Ray2" parent="AIControllerAerial/VisionRays" index="1"]
+enabled = false
+
+[node name="Ray3" parent="AIControllerAerial/VisionRays" index="2"]
+enabled = false
 
 [node name="AbilitySystemComponent" parent="." index="1"]
 InitStat_HP = 1000.0
-InitStat_Movespeed = 50.0
+InitStat_Movespeed = 75.0
 
 [node name="Enna_FullScreen" parent="AbilitySystemComponent" index="0" instance=ExtResource( 6 )]
 
@@ -34,3 +52,5 @@ AbilityCooldownSecond = 6.0
 
 [node name="Sprite" parent="." index="3"]
 frame = 8
+
+[editable path="AIControllerAerial"]
