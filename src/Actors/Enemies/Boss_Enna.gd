@@ -18,6 +18,9 @@ onready var ability_feather_homing = $AbilitySystemComponent/Enna_FeatherHoming
 onready var ability_fullscreen = $AbilitySystemComponent/Enna_FullScreen
 onready var ability_groundbeam = $AbilitySystemComponent/Enna_GroundBeam
 
+onready var audio_phase1:AudioStreamPlayer = $EnnaPhase1
+onready var audio_phase2:AudioStreamPlayer = $EnnaPhase2
+
 var StunnedTimer
 
 var top_left: Vector2
@@ -86,6 +89,9 @@ func EnterPhase(state_level):
 		GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
 		RandomLocationInterval = Phase2_RandomLocationInterval
 		StunDuration = 8.0
+		
+		audio_phase1.stop()
+		audio_phase2.play()
 		
 	UnStun()
 
