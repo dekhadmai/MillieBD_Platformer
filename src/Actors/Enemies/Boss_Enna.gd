@@ -54,6 +54,7 @@ func Stun():
 	StunnedTimer.start(StunDuration)
 
 func UnStun():
+	_FeatherHoming_Timeout()
 	FeatherHomingTimer.start(FeatherHomingInterval)
 	FeatherBeamTimer.start(FeatherBeamInterval)
 	FullScreenTimer.start(FullScreenInterval)
