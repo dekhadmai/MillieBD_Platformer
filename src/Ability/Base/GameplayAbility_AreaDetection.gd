@@ -20,6 +20,9 @@ func _ready():
 		SocketNode = AbilityOwner.find_node(SpawnSocketName)
 		
 func _physics_process(delta):
+	update_physics(delta)
+	
+func update_physics(delta):
 	hurt_detection.set_scale(Vector2(AbilityOwner.FacingDirection, 1))
 
 func Init():

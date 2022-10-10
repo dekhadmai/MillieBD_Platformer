@@ -16,6 +16,7 @@ var FullScreenInterval = 15.0
 onready var ability_feather_beam = $AbilitySystemComponent/Enna_FeatherBeam
 onready var ability_feather_homing = $AbilitySystemComponent/Enna_FeatherHoming
 onready var ability_fullscreen = $AbilitySystemComponent/Enna_FullScreen
+onready var ability_groundbeam = $AbilitySystemComponent/Enna_GroundBeam
 
 var StunnedTimer
 
@@ -71,10 +72,14 @@ func died():
 	EnterPhase(2)
 
 func EnterPhase(state_level):
+	
 	AbilityLevel = state_level
 	ability_feather_beam.AbilityLevel = AbilityLevel
 	ability_feather_homing.AbilityLevel = AbilityLevel
 	ability_fullscreen.AbilityLevel = AbilityLevel
+	
+	if state_level == 1:
+		ActivateGroundBeam()
 	
 	if state_level == 2:
 		GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
@@ -83,6 +88,9 @@ func EnterPhase(state_level):
 		StunDuration = 8.0
 		
 	UnStun()
+
+func ActivateGroundBeam():	
+	ability_groundbeam.TryActivate()
 
 func _ready():
 	top_left = get_parent().find_node("Room_TopLeft").get_global_position()
