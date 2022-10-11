@@ -31,9 +31,10 @@ func Init():
 		SocketNode = AbilityOwner.find_node(SpawnSocketName)
 		
 	if hurt_detection == null:
-		hurt_detection = get_node(Area2D_Damage_NodeName)
-		hurt_detection.connect("OnHurtDetection", self, "OnHurtDetectionHit")
-		hurt_detection.connect("OnEndAreaLinger", self, "_on_Area2D_Damage_OnEndAreaLinger")
+		hurt_detection = find_node(Area2D_Damage_NodeName)
+		if hurt_detection :
+			hurt_detection.connect("OnHurtDetection", self, "OnHurtDetectionHit")
+			hurt_detection.connect("OnEndAreaLinger", self, "_on_Area2D_Damage_OnEndAreaLinger")
 	
 
 func Activate():
@@ -42,6 +43,9 @@ func Activate():
 	StartAreaDetection()
 
 	pass
+	
+func Deactivate():
+	.Deactivate()
 	
 func EndAbility():
 	.EndAbility()
@@ -54,7 +58,8 @@ func OnHurtDetectionHit(body:Actor) :
 	
 
 func StartAreaDetection():
-	hurt_detection.SetActive(true)
+	if hurt_detection :
+		hurt_detection.SetActive(true)
 	pass
 
 func _on_Area2D_Damage_OnEndAreaLinger():

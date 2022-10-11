@@ -1,0 +1,473 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://src/Ability/Base/GameplayAbility_AreaDetection.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/art/bullets/beam.png" type="Texture" id=2]
+[ext_resource path="res://src/Base/Area2D_Damage_Telegraph.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Ability/Enna/Enna_SpinBeam.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=6]
+resource_name = "area_end"
+length = 0.4
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "area_loop"
+length = 0.12
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "area_start"
+length = 0.12
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "telegraph_loop"
+length = 0.04
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 500, 10 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "area_end"
+length = 0.4
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "area_loop"
+length = 0.12
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "area_start"
+length = 0.12
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "telegraph_loop"
+length = 0.04
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "area_end"
+length = 0.4
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "area_loop"
+length = 0.12
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "area_start"
+length = 0.12
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "telegraph_loop"
+length = 0.04
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "area_end"
+length = 0.4
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "area_loop"
+length = 0.12
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "area_start"
+length = 0.12
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "telegraph_loop"
+length = 0.04
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[node name="Enna_SpinBeam" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+AbilityCooldownSecond = 0.001
+bCommitAbilityCooldownWhenDeactivate = false
+Area2D_Damage_NodeName = "Area2D_Damage_Telegraph"
+Spin_TelegraphDuration = 4.0
+Spin_LingerDuration = 7.95
+Spin_ReactivateDuration = 8.0
+Spin_DegreePerSecond = 15.0
+
+[node name="Anchor" type="Position2D" parent="." index="3"]
+
+[node name="Area2D_Damage_Telegraph1" parent="Anchor" index="0" instance=ExtResource( 3 )]
+visible = false
+scale = Vector2( 1, 0.5 )
+z_index = -50
+z_as_relative = false
+EndDamageAnimDuration = 0.001
+TelegraphAnimDuration = 4.0
+AreaLingerDuration = 7.95
+AreaEffectInterval = 0.3
+
+[node name="Sprite" parent="Anchor/Area2D_Damage_Telegraph1" index="1"]
+position = Vector2( 470, 0 )
+rotation = 1.5708
+scale = Vector2( 0.5, 3.9 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" parent="Anchor/Area2D_Damage_Telegraph1" index="2"]
+autoplay = "telegraph_loop"
+anims/area_end = SubResource( 6 )
+anims/area_loop = SubResource( 10 )
+anims/area_start = SubResource( 7 )
+anims/telegraph_loop = SubResource( 8 )
+
+[node name="WindDownAnimTimer" parent="Anchor/Area2D_Damage_Telegraph1" index="3"]
+wait_time = 1.0
+
+[node name="TelegraphTimer" parent="Anchor/Area2D_Damage_Telegraph1" index="4"]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/Area2D_Damage_Telegraph1" index="5"]
+position = Vector2( 470, 0 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AreaLingerTimer" parent="Anchor/Area2D_Damage_Telegraph1" index="6"]
+wait_time = 10.0
+
+[node name="Area2D_Damage_Telegraph2" parent="Anchor" index="1" instance=ExtResource( 3 )]
+visible = false
+rotation = 1.5708
+scale = Vector2( 1, 0.5 )
+z_index = -50
+z_as_relative = false
+EndDamageAnimDuration = 0.001
+TelegraphAnimDuration = 4.0
+AreaLingerDuration = 7.95
+AreaEffectInterval = 0.3
+
+[node name="Sprite" parent="Anchor/Area2D_Damage_Telegraph2" index="1"]
+position = Vector2( 470, 0 )
+rotation = 1.5708
+scale = Vector2( 0.5, 3.9 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" parent="Anchor/Area2D_Damage_Telegraph2" index="2"]
+autoplay = "telegraph_loop"
+anims/area_end = SubResource( 12 )
+anims/area_loop = SubResource( 13 )
+anims/area_start = SubResource( 14 )
+anims/telegraph_loop = SubResource( 15 )
+
+[node name="WindDownAnimTimer" parent="Anchor/Area2D_Damage_Telegraph2" index="3"]
+wait_time = 1.0
+
+[node name="TelegraphTimer" parent="Anchor/Area2D_Damage_Telegraph2" index="4"]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/Area2D_Damage_Telegraph2" index="5"]
+position = Vector2( 470, 0 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AreaLingerTimer" parent="Anchor/Area2D_Damage_Telegraph2" index="6"]
+wait_time = 10.0
+
+[node name="Area2D_Damage_Telegraph3" parent="Anchor" index="2" instance=ExtResource( 3 )]
+visible = false
+rotation = 3.14159
+scale = Vector2( 1, 0.5 )
+z_index = -50
+z_as_relative = false
+EndDamageAnimDuration = 0.001
+TelegraphAnimDuration = 4.0
+AreaLingerDuration = 7.95
+AreaEffectInterval = 0.3
+
+[node name="Sprite" parent="Anchor/Area2D_Damage_Telegraph3" index="1"]
+position = Vector2( 470, 0 )
+rotation = 1.5708
+scale = Vector2( 0.5, 3.9 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" parent="Anchor/Area2D_Damage_Telegraph3" index="2"]
+autoplay = "telegraph_loop"
+anims/area_end = SubResource( 16 )
+anims/area_loop = SubResource( 17 )
+anims/area_start = SubResource( 18 )
+anims/telegraph_loop = SubResource( 19 )
+
+[node name="WindDownAnimTimer" parent="Anchor/Area2D_Damage_Telegraph3" index="3"]
+wait_time = 1.0
+
+[node name="TelegraphTimer" parent="Anchor/Area2D_Damage_Telegraph3" index="4"]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/Area2D_Damage_Telegraph3" index="5"]
+position = Vector2( 470, 0 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AreaLingerTimer" parent="Anchor/Area2D_Damage_Telegraph3" index="6"]
+wait_time = 10.0
+
+[node name="Area2D_Damage_Telegraph4" parent="Anchor" index="3" instance=ExtResource( 3 )]
+visible = false
+rotation = 4.71239
+scale = Vector2( 1, 0.5 )
+z_index = -50
+z_as_relative = false
+EndDamageAnimDuration = 0.001
+TelegraphAnimDuration = 4.0
+AreaLingerDuration = 7.95
+AreaEffectInterval = 0.3
+
+[node name="Sprite" parent="Anchor/Area2D_Damage_Telegraph4" index="1"]
+position = Vector2( 470, 0 )
+rotation = 1.5708
+scale = Vector2( 0.5, 3.9 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" parent="Anchor/Area2D_Damage_Telegraph4" index="2"]
+autoplay = "telegraph_loop"
+anims/area_end = SubResource( 20 )
+anims/area_loop = SubResource( 21 )
+anims/area_start = SubResource( 22 )
+anims/telegraph_loop = SubResource( 23 )
+
+[node name="WindDownAnimTimer" parent="Anchor/Area2D_Damage_Telegraph4" index="3"]
+wait_time = 1.0
+
+[node name="TelegraphTimer" parent="Anchor/Area2D_Damage_Telegraph4" index="4"]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/Area2D_Damage_Telegraph4" index="5"]
+position = Vector2( 470, 0 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AreaLingerTimer" parent="Anchor/Area2D_Damage_Telegraph4" index="6"]
+wait_time = 10.0
+
+[editable path="Anchor/Area2D_Damage_Telegraph1"]
+[editable path="Anchor/Area2D_Damage_Telegraph2"]
+[editable path="Anchor/Area2D_Damage_Telegraph3"]
+[editable path="Anchor/Area2D_Damage_Telegraph4"]

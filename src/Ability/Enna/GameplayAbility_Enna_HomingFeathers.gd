@@ -43,5 +43,5 @@ func OnSpawnBullet(bullet):
 		
 	if bullet_spawner_component == bullet_spawner_component2 :
 		bullet.second_move_speed = 300
-		bullet.GetMovementComponent().HomingStrength = 600
+		bullet.GetMovementComponent().HomingStrength = 400
 	pass

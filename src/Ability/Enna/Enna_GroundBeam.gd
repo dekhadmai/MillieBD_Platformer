@@ -10,8 +10,6 @@ func Init():
 		hurt_detection.connect("OnHurtDetection", self, "OnHurtDetectionHit")
 		hurt_detection.connect("OnEndAreaLinger", self, "_on_Area2D_Damage_OnEndAreaLinger")
 	
-#	hurt_detection.z_as_relative = false
-#	hurt_detection.set_z_index(-50)	
 	hurt_detection.set_as_toplevel(true)
 	hurt_detection.set_global_position(SocketNode.get_global_position())
 	

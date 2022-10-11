@@ -525,7 +525,7 @@ Team_ID = 1
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
 InitStat_HP = 400.0
-InitStat_IframeSeconds = 0.5
+InitStat_IframeSeconds = 0.3
 
 [node name="Ability_Dash" parent="AbilitySystemComponent" instance=ExtResource( 12 )]
 

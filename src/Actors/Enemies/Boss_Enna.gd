@@ -8,15 +8,21 @@ var Phase2_MoveSpeedScale = 5.0
 var Phase2_RandomLocationInterval = 4.0
 
 var FeatherHomingTimer
+var FeatherBouncingTimer
 var FeatherBeamTimer
 var FullScreenTimer
+var SpinBeamTimer
 var FeatherHomingInterval = 4.0
+var FeatherBouncingInterval = 10.0
 var FeatherBeamInterval = 6.0
 var FullScreenInterval = 15.0
+var SpinBeamInterval = 1.0
 onready var ability_feather_beam = $AbilitySystemComponent/Enna_FeatherBeam
 onready var ability_feather_homing = $AbilitySystemComponent/Enna_FeatherHoming
+onready var ability_feather_bouncing = $AbilitySystemComponent/Enna_FeatherBouncing
 onready var ability_fullscreen = $AbilitySystemComponent/Enna_FullScreen
 onready var ability_groundbeam = $AbilitySystemComponent/Enna_GroundBeam
+onready var ability_spinbeam = $AbilitySystemComponent/Enna_SpinBeam
 
 onready var audio_phase1:AudioStreamPlayer = $EnnaPhase1
 onready var audio_phase2:AudioStreamPlayer = $EnnaPhase2
@@ -44,7 +50,7 @@ func _physics_process(delta):
 		
 
 func UpdateAnimState():
-	if !bIsStunned :
+	if !bIsStunned or _state == State.DEAD :
 		.UpdateAnimState()
 	else:
 		if animation_player != null : 
@@ -53,15 +59,19 @@ func UpdateAnimState():
 func Stun():
 	bIsStunned = true
 	FeatherHomingTimer.stop()
+	#FeatherBouncingTimer.stop()
 	FeatherBeamTimer.stop()
 	FullScreenTimer.stop()
+	SpinBeamTimer.stop()
 	StunnedTimer.start(StunDuration)
 
 func UnStun():
 	_FeatherHoming_Timeout()
 	FeatherHomingTimer.start(FeatherHomingInterval)
+	#FeatherBouncingTimer.start(FeatherBouncingInterval)
 	FeatherBeamTimer.start(FeatherBeamInterval)
 	FullScreenTimer.start(FullScreenInterval)
+	SpinBeamTimer.start(SpinBeamInterval)
 	bIsStunned = false
 	
 func _Stunned_Timeout():
@@ -79,7 +89,9 @@ func EnterPhase(state_level):
 	AbilityLevel = state_level
 	ability_feather_beam.AbilityLevel = AbilityLevel
 	ability_feather_homing.AbilityLevel = AbilityLevel
+	ability_feather_bouncing.AbilityLevel = AbilityLevel
 	ability_fullscreen.AbilityLevel = AbilityLevel
+	ability_spinbeam.AbilityLevel = AbilityLevel
 	
 	if state_level == 1:
 		ActivateGroundBeam()
@@ -89,6 +101,10 @@ func EnterPhase(state_level):
 		GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
 		RandomLocationInterval = Phase2_RandomLocationInterval
 		StunDuration = 8.0
+		
+		FeatherHomingInterval = 6.0
+#		FeatherBouncingInterval = 6.0
+		FeatherBeamInterval = 8.0
 		
 		audio_phase1.stop()
 		audio_phase2.play()
@@ -108,6 +124,10 @@ func _ready():
 	FeatherHomingTimer.set_one_shot(false)
 	FeatherHomingTimer.start(FeatherHomingInterval)
 	
+	FeatherBouncingTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_FeatherBouncing_Timeout")
+	FeatherBouncingTimer.set_one_shot(false)
+	#FeatherBouncingTimer.start(FeatherBouncingInterval)
+	
 	FeatherBeamTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_FeatherBeam_Timeout")
 	FeatherBeamTimer.set_one_shot(false)
 	FeatherBeamTimer.start(FeatherBeamInterval)
@@ -115,6 +135,11 @@ func _ready():
 	FullScreenTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_FullScreen_Timeout")
 	FullScreenTimer.set_one_shot(false)
 	FullScreenTimer.start(FullScreenInterval)
+	
+	SpinBeamTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_SpinBeam_Timeout")
+	SpinBeamTimer.set_one_shot(false)
+	SpinBeamTimer.start(SpinBeamInterval)
+	
 	
 	ai_controller.SetFollowPosition(get_global_position())
 	RandomLocationTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_PickMoveToRandomLocation")
@@ -139,10 +164,28 @@ func _FeatherBeam_Timeout():
 
 func _FeatherHoming_Timeout():
 	if !ability_fullscreen.IsAbilityActive():
-		ability_feather_homing.SetTargetActor(CurrentTargetActor)
-		ability_feather_homing.TryActivate()
+		if randf() < 0.5:
+			ability_feather_homing.SetTargetActor(CurrentTargetActor)
+			ability_feather_homing.TryActivate()
+		else:
+			ability_feather_bouncing.SetTargetActor(CurrentTargetActor)
+			ability_feather_bouncing.TryActivate()
+		
+func _FeatherBouncing_Timeout():
+	if !ability_fullscreen.IsAbilityActive():
+		ability_feather_bouncing.SetTargetActor(CurrentTargetActor)
+		ability_feather_bouncing.TryActivate()
 
 func _FullScreen_Timeout():
 	ability_fullscreen.SetTargetActor(CurrentTargetActor)
 	ability_fullscreen.TryActivate()
+	
 	FullScreenTimer.start(1)
+
+func _SpinBeam_Timeout():
+	if AbilityLevel == 2 : 
+		if !ability_fullscreen.IsAbilityActive():
+			ability_spinbeam.SetTargetActor(CurrentTargetActor)
+			ability_spinbeam.TryActivate()
+		else:
+			ability_spinbeam.ForceEndAbility()
