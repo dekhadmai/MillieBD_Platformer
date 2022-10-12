@@ -36,6 +36,8 @@ var AbilityLevel = 0
 var bIsStunned = false
 var StunDuration = 5.0
 
+var HomingFeatherChance = 0.5
+
 func _physics_process(delta):
 	if ai_controller:
 		if ability_fullscreen.IsAbilityActive() or bIsStunned:
@@ -66,7 +68,9 @@ func Stun():
 	StunnedTimer.start(StunDuration)
 
 func UnStun():
-	_FeatherHoming_Timeout()
+	ability_feather_homing.SetTargetActor(CurrentTargetActor)
+	ability_feather_homing.TryActivate()
+			
 	FeatherHomingTimer.start(FeatherHomingInterval)
 	#FeatherBouncingTimer.start(FeatherBouncingInterval)
 	FeatherBeamTimer.start(FeatherBeamInterval)
@@ -105,6 +109,7 @@ func EnterPhase(state_level):
 		FeatherHomingInterval = 6.0
 #		FeatherBouncingInterval = 6.0
 		FeatherBeamInterval = 8.0
+		HomingFeatherChance = 0.10
 		
 		audio_phase1.stop()
 		audio_phase2.play()
@@ -164,7 +169,7 @@ func _FeatherBeam_Timeout():
 
 func _FeatherHoming_Timeout():
 	if !ability_fullscreen.IsAbilityActive():
-		if randf() < 0.5:
+		if randf() < HomingFeatherChance:
 			ability_feather_homing.SetTargetActor(CurrentTargetActor)
 			ability_feather_homing.TryActivate()
 		else:
