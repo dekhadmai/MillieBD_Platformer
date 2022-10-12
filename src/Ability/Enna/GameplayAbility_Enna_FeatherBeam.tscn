@@ -6,27 +6,8 @@
 [node name="GameplayAbility_Enna_FeatherBeam" instance=ExtResource( 1 )]
 
 [node name="BulletSpawnerComponent" parent="." index="3"]
-ActorToSpawnPath = "res://src/Ability/Enna/Enna_Bullet_Beam.tscn"
+ActorToSpawnPath = "res://src/Ability/Enna/Enna_Bullet_GroundBeamSpawner.tscn"
 
 [node name="BulletSpawnerData2" type="Position2D" parent="BulletSpawnerComponent" index="0"]
 script = ExtResource( 2 )
 BulletData_Rotation = 90.0
-
-[node name="BulletSpawnerData" type="Position2D" parent="BulletSpawnerComponent" index="1"]
-script = ExtResource( 2 )
-BulletData_Delay = 0.6
-
-[node name="BulletSpawnerData3" type="Position2D" parent="BulletSpawnerComponent" index="2"]
-script = ExtResource( 2 )
-BulletData_Rotation = 180.0
-BulletData_Delay = 0.6
-
-[node name="BulletSpawnerData4" type="Position2D" parent="BulletSpawnerComponent" index="3"]
-script = ExtResource( 2 )
-BulletData_Rotation = 45.0
-BulletData_Delay = 0.3
-
-[node name="BulletSpawnerData5" type="Position2D" parent="BulletSpawnerComponent" index="4"]
-script = ExtResource( 2 )
-BulletData_Rotation = 135.0
-BulletData_Delay = 0.3

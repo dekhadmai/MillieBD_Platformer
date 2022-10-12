@@ -17,9 +17,9 @@ func _ready():
 	if bullet_spawner_component3 == null :
 		bullet_spawner_component3 = get_node("BulletSpawnerComponent3")
 		
-	bullet_spawner_component1.Init(AbilityOwner, GameplayeEffect_Template)
-	bullet_spawner_component2.Init(AbilityOwner, GameplayeEffect_Template)
-	bullet_spawner_component3.Init(AbilityOwner, GameplayeEffect_Template)
+	bullet_spawner_component1.Init(AbilityOwner, self, GameplayeEffect_Template)
+	bullet_spawner_component2.Init(AbilityOwner, self, GameplayeEffect_Template)
+	bullet_spawner_component3.Init(AbilityOwner, self, GameplayeEffect_Template)
 	
 	bullet_spawner_component1.connect("OnSpawnBullet", self, "OnSpawnBullet")
 	bullet_spawner_component2.connect("OnSpawnBullet", self, "OnSpawnBullet")
@@ -43,5 +43,5 @@ func OnSpawnBullet(bullet):
 		
 	if bullet_spawner_component == bullet_spawner_component2 :
 		bullet.second_move_speed = 300
-		bullet.GetMovementComponent().HomingStrength = 600
+		bullet.GetMovementComponent().HomingStrength = 400
 	pass

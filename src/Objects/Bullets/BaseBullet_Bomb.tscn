@@ -6,4 +6,7 @@
 gravity_scale = 1.0
 BaseSpeed = 500.0
 
+[node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]
+frame = 4
+
 [editable path="Area2D_Damage_Telegraph"]

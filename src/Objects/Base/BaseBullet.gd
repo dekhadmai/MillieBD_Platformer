@@ -22,6 +22,7 @@ var movement_component
 var sprite_node
 
 var Instigator:Actor
+var OwningAbility
 
 var bullet_spawner_component: BulletSpawnerComponent
 
@@ -56,13 +57,14 @@ func _ready():
 	if death_linger_timer == null :
 		death_linger_timer = find_node("DeathLingerTimer")
 
-func Init(instigator:Actor, gameplayeffect_template:BaseGameplayEffect):
+func Init(instigator:Actor, owning_ability, gameplayeffect_template:BaseGameplayEffect):
 	Instigator = instigator
+	OwningAbility = owning_ability
 	gameplay_effect_template = gameplayeffect_template
 	
 	bullet_spawner_component = find_node("BulletSpawnerComponent")
 	if bullet_spawner_component != null:
-		bullet_spawner_component.Init(Instigator, gameplay_effect_template)
+		bullet_spawner_component.Init(Instigator, OwningAbility, gameplay_effect_template)
 		
 	GetMovementComponent().SetSpeed(BaseSpeed, BaseSpeed)
 	GetMovementComponent().Init()

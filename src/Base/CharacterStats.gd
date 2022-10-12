@@ -9,7 +9,7 @@ signal level_up
 enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed, EXP, Fever, ExpAdjustScale}
 
 var HurtIframeTimer:Timer
-var HurtIframeDuration = 0.5
+var HurtIframeDuration = 1.0
 var bHurtIframe: bool = false
 
 var bInvincible: bool = false setget SetInvincible

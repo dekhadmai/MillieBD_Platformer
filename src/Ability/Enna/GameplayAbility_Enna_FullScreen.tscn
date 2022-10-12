@@ -21,6 +21,7 @@ one_shot = true
 
 [node name="InvulSprite" type="Sprite" parent="." index="6"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [connection signal="timeout" from="EndAbilityTimer" to="." method="_on_EndAbilityTimer_timeout"]

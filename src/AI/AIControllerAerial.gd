@@ -6,7 +6,6 @@ var tooClose:= false
 onready var safe_distance = $SafeDistance
 onready var vision_rays = $VisionRays
 
-var rayHit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,15 +26,21 @@ func _on_SafeDistance_body_exited(body):
 		tooClose = false
 
 func update_physics(delta):
-	rayHit = false
 	if PlayerDetected:
-		FollowActor(kinematic_body.CurrentTargetActor)
+		if bUseFollowActor or bUseFollowPosition :
+			FollowActor()
+			FollowPosition()
+		else:
+			StopMove()
 		
-		if bUseHover and tooClose and !rayHit:
+		if bUseHover and tooClose:
 			StopMove()
 	else:
 		StopMove();
 		
+	# collision avoidance
+	update_ray(move_direction)
+	
 	.update_physics(delta)
 
 func update_ray(movementDir: Vector2):
@@ -44,15 +49,3 @@ func update_ray(movementDir: Vector2):
 	for ray in vision_rays.get_children():
 		if ray.is_colliding():
 			kinematic_body._velocity += ray.get_collision_normal() * kinematic_body.speed.x
-			rayHit = true
-
-func FollowActor(target_actor: Actor) -> bool :
-	FollowActorTarget = target_actor
-	
-	var movementDir := kinematic_body.global_position.direction_to(target_actor.global_position)
-	var result = MoveTo(movementDir)
-	
-	# collision avoidance
-	update_ray(movementDir)
-
-	return result
