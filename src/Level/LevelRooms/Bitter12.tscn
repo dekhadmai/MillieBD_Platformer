@@ -23,7 +23,7 @@ tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 
 [node name="BaseMovingPlatform" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 304, 416 )
 collision_layer = 16
-MoveToPosition_Local = [ Vector2( 0, 0 ), Vector2( 672, 0 ) ]
+MoveToPosition_Local = [ Vector2( 672, 0 ), Vector2( 0, 0 ) ]
 MoveToRotation_Local = [ -720.0 ]
 default_move_to_seconds = 5.0
 
@@ -36,7 +36,7 @@ shape = SubResource( 1 )
 [node name="BaseMovingPlatform2" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 1024, 144 )
 collision_layer = 16
-MoveToPosition_Local = [ Vector2( 0, 0 ), Vector2( -320, 0 ) ]
+MoveToPosition_Local = [ Vector2( -320, 0 ), Vector2( 0, 0 ) ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseMovingPlatform2" index="1"]
 shape = SubResource( 2 )
@@ -44,7 +44,7 @@ shape = SubResource( 2 )
 [node name="BaseMovingPlatform3" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 256, 144 )
 collision_layer = 16
-MoveToPosition_Local = [ Vector2( 0, 0 ), Vector2( 320, 0 ) ]
+MoveToPosition_Local = [ Vector2( 320, 0 ), Vector2( 0, 0 ) ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseMovingPlatform3" index="1"]
 shape = SubResource( 3 )

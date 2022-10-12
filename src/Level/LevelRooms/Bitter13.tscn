@@ -16,7 +16,7 @@ tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 
 
 [node name="BaseMovingPlatform" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 833, 593 )
-MoveToPosition_Local = [ Vector2( 0, 0 ), Vector2( 0, -384 ), Vector2( -384, -384 ), Vector2( -384, 0 ) ]
+MoveToPosition_Local = [ Vector2( 0, -384 ), Vector2( -384, -384 ), Vector2( -384, 0 ), Vector2( 0, 0 ) ]
 default_move_to_seconds = 4.0
 
 [node name="TileMap_VisualOnly" parent="BaseMovingPlatform" index="0"]
