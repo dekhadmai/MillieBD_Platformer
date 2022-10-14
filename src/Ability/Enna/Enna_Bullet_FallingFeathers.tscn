@@ -10,7 +10,7 @@ continuous_cd = 0
 script = ExtResource( 2 )
 first_stop_seconds = 0.01
 second_move_seconds = 1.5
-second_move_speed = 100.0
+second_move_speed = 200.0
 
 [node name="MovementComponent" parent="." index="0"]
 bUseHoming = true

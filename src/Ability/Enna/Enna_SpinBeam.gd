@@ -9,9 +9,15 @@ onready var hurt_detection3: Area2D = $Anchor/Area2D_Damage_Telegraph3
 onready var hurt_detection4: Area2D = $Anchor/Area2D_Damage_Telegraph4
 
 export var Spin_TelegraphDuration: float = 4.00
-export var Spin_LingerDuration: float = 7.95
+export var Spin_LingerDuration: float = 7.00
 export var Spin_ReactivateDuration: float = 8.00
 export var Spin_DegreePerSecond: float = 15
+
+export var RandomRadius = 50
+export var InnerRadius = 150
+
+var top_left
+var bottom_right
 
 func update_physics(delta):
 	AnchorNode.rotate(deg2rad(Spin_DegreePerSecond * delta))
@@ -24,6 +30,9 @@ func InitHurtDetection(hurt_detection_local):
 
 func Init():
 	.Init()
+	
+	top_left = AbilityOwner.get_parent().find_node("Room_TopLeft").get_global_position()
+	bottom_right = AbilityOwner.get_parent().find_node("Room_BottomRight").get_global_position()
 	
 	hurt_detection1 = find_node("Area2D_Damage_Telegraph1")
 	hurt_detection2 = find_node("Area2D_Damage_Telegraph2")
@@ -39,11 +48,17 @@ func Init():
 	SpinActiveTimer = GlobalFunctions.CreateTimerAndBind(self, self, "SpinActive_Timeout")
 	SpinActiveTimer.set_one_shot(true)
 	
+	AnchorNode = get_node("Anchor")
+	AnchorNode.set_as_toplevel(true)
+	
 func SpinActive_Timeout():
 	Activate()
 
 func Activate():
 	.Activate()
+	
+	AnchorNode.set_global_position(GenerateTargetPosition())
+	
 	SpinActiveTimer.start(Spin_ReactivateDuration)
 	
 	hurt_detection1.SetActive(true)
@@ -56,3 +71,13 @@ func ForceEndAbility():
 	SpinActiveTimer.stop()
 	
 	
+func GenerateTargetPosition() -> Vector2:
+	var result:Vector2
+	var random_position:Vector2 = Vector2(rand_range(-RandomRadius, RandomRadius), rand_range(-RandomRadius, RandomRadius))
+	var inner_vector = random_position.normalized() * InnerRadius
+	if is_instance_valid(TargetActor):
+		result = TargetActor.GetTargetingPosition() + random_position + inner_vector
+		result.x = clamp(result.x, top_left.x, bottom_right.x)
+		result.y = clamp(result.y, top_left.y, bottom_right.y)
+		
+	return result

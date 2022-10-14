@@ -290,9 +290,11 @@ AbilityCooldownSecond = 0.001
 bCommitAbilityCooldownWhenDeactivate = false
 Area2D_Damage_NodeName = "Area2D_Damage_Telegraph"
 Spin_TelegraphDuration = 4.0
-Spin_LingerDuration = 7.95
+Spin_LingerDuration = 7.0
 Spin_ReactivateDuration = 8.0
 Spin_DegreePerSecond = 15.0
+RandomRadius = 50
+InnerRadius = 150
 
 [node name="Anchor" type="Position2D" parent="." index="3"]
 

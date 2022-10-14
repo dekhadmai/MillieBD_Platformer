@@ -300,14 +300,17 @@ bUseHover = false
 shape = SubResource( 1 )
 
 [node name="Ray1" parent="AIControllerAerial/VisionRays" index="0"]
+enabled = false
 cast_to = Vector2( 90, -20 )
 collision_mask = 16
 
 [node name="Ray2" parent="AIControllerAerial/VisionRays" index="1"]
+enabled = false
 cast_to = Vector2( 100, 0 )
 collision_mask = 16
 
 [node name="Ray3" parent="AIControllerAerial/VisionRays" index="2"]
+enabled = false
 cast_to = Vector2( 90, 20 )
 collision_mask = 16
 

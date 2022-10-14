@@ -2,6 +2,9 @@ extends BaseBullet
 
 var bRotateToTarget = true
 
+var DelayBeforeBounceTimer:Timer
+var DelayBeforeBounceSecond = 0.7
+
 export var BounceMaxCount = 1
 var BounceCount = 0
 var HomeTarget
@@ -36,6 +39,11 @@ func Init(instigator:Actor, owning_ability, gameplayeffect_template:BaseGameplay
 	.Init(instigator, owning_ability, gameplayeffect_template)
 	top_left = instigator.top_left
 	bottom_right = instigator.bottom_right
+	
+	set_linear_velocity(Vector2(0,0))
+	DelayBeforeBounceTimer = GlobalFunctions.CreateTimerAndBind(self, self, "BounceDelay_Timeout")
+	DelayBeforeBounceTimer.set_one_shot(true)
+	DelayBeforeBounceTimer.start(DelayBeforeBounceSecond)
 
 func SetHomeTargetActor(target):
 	.SetHomeTargetActor(target)
@@ -53,6 +61,11 @@ func GenerateTargetPosition():
 			TargetPosition.x = clamp(TargetPosition.x, top_left.x, bottom_right.x)
 			TargetPosition.y = clamp(TargetPosition.y, top_left.y, bottom_right.y)
 			set_global_rotation(TargetPosition.angle_to_point(get_global_position()))
-			GetMovementComponent().Init()
+			set_linear_velocity(Vector2(0,0))
+			DelayBeforeBounceTimer.start(DelayBeforeBounceSecond)
 			
+	
+
+func BounceDelay_Timeout():
+	GetMovementComponent().Init()
 	BounceCount += 1

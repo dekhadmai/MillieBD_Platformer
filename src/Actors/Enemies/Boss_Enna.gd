@@ -3,7 +3,7 @@ extends Enemy
 var RandomLocationTimer
 var RandomLocationRadiusFromPlayer = 300
 var RandomLocationInterval = 6.0
-var RandomLocationEdgeOffset = 50.0
+var RandomLocationEdgeOffset = 100.0
 
 var Phase2_MoveSpeedScale = 5.0
 var Phase2_RandomLocationInterval = 4.0
@@ -63,7 +63,6 @@ func UpdateAnimState():
 func Stun():
 	bIsStunned = true
 	FeatherHomingTimer.stop()
-	#FeatherBouncingTimer.stop()
 	FeatherBeamTimer.stop()
 	FullScreenTimer.stop()
 	SpinBeamTimer.stop()
@@ -72,12 +71,12 @@ func Stun():
 func UnStun():
 	ability_feather_homing.SetTargetActor(CurrentTargetActor)
 	ability_feather_homing.TryActivate()
-			
+
 	FeatherHomingTimer.start(FeatherHomingInterval)
-	#FeatherBouncingTimer.start(FeatherBouncingInterval)
 	FeatherBeamTimer.start(FeatherBeamInterval)
 	FullScreenTimer.start(FullScreenInterval)
 	SpinBeamTimer.start(SpinBeamInterval)
+
 	bIsStunned = false
 	
 func _Stunned_Timeout():
@@ -157,6 +156,15 @@ func _ready():
 	
 	StunnedTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_Stunned_Timeout")
 	StunnedTimer.set_one_shot(true)
+	
+#	FeatherHomingTimer.stop()
+#	FeatherBeamTimer.stop()
+#	FullScreenTimer.stop()
+#	SpinBeamTimer.stop()
+#
+#	SpinBeamTimer.start(SpinBeamInterval)
+#	ability_spinbeam.AbilityLevel = 2
+#	AbilityLevel = 2
 
 func _PickMoveToRandomLocation():
 	var location:Vector2 = Vector2.ZERO

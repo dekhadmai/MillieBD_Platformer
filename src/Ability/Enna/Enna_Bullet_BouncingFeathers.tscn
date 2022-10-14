@@ -9,7 +9,7 @@ collision_mask = 16
 continuous_cd = 0
 script = ExtResource( 2 )
 bDebug = true
-BaseSpeed = 200.0
+BaseSpeed = 600.0
 BounceMaxCount = 1
 
 [node name="MovementComponent" parent="." index="0"]

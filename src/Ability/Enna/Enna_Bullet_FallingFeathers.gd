@@ -2,7 +2,7 @@ extends BaseBullet
 
 export var first_stop_seconds = 0.01
 export var second_move_seconds = 1.5
-export var second_move_speed = 100.0
+export var second_move_speed = 200.0
 
 var first_stop_timer
 var second_move_timer

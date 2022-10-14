@@ -20,11 +20,10 @@ func SpawnActor() -> void:
 
 func OnSpawnBullet(bullet):
 	if AbilityLevel == 1:
-		bullet.BounceMaxCount = 2
+		bullet.BounceMaxCount = 3
 		
 	if AbilityLevel == 2:
-		bullet.BounceMaxCount = 3
-		bullet.movement_component.SetSpeed(300,300)
-		bullet.movement_component.Init()
+		bullet.BounceMaxCount = 5
+		#bullet.movement_component.SetSpeed(300,300)
 		
 	pass
