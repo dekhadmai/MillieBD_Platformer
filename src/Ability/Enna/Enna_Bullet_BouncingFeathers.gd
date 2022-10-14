@@ -16,8 +16,8 @@ var bottom_right
 
 func _draw():
 	if bDebug and BounceCount <= BounceMaxCount:
-		draw_line(Vector2(0,0), to_local(TargetPosition), Color(0,1,0,1))
-		draw_circle(to_local(TargetPosition), 5, Color(0,1,0,1))
+		draw_line(Vector2(0,0), to_local(TargetPosition), Color(1,1,0,1), 3)
+		draw_circle(to_local(TargetPosition), 5, Color(1,1,0,1))
 
 func _physics_process(delta):
 	if bDebug:

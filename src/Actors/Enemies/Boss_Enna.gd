@@ -3,6 +3,7 @@ extends Enemy
 var RandomLocationTimer
 var RandomLocationRadiusFromPlayer = 300
 var RandomLocationInterval = 6.0
+var RandomLocationEdgeOffset = 50.0
 
 var Phase2_MoveSpeedScale = 5.0
 var Phase2_RandomLocationInterval = 4.0
@@ -37,6 +38,7 @@ var bIsStunned = false
 var StunDuration = 5.0
 
 var HomingFeatherChance = 0.5
+
 
 func _physics_process(delta):
 	if ai_controller:
@@ -98,9 +100,11 @@ func EnterPhase(state_level):
 	ability_spinbeam.AbilityLevel = AbilityLevel
 	
 	if state_level == 1:
+		DialogEnna(1)
 		ActivateGroundBeam()
 	
 	if state_level == 2:
+		DialogEnna(2)
 		GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
 		GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
 		RandomLocationInterval = Phase2_RandomLocationInterval
@@ -158,6 +162,8 @@ func _PickMoveToRandomLocation():
 	var location:Vector2 = Vector2.ZERO
 	location.x = CurrentTargetActor.get_global_position().x + rand_range(0, RandomLocationRadiusFromPlayer) - (RandomLocationRadiusFromPlayer/2)
 	location.y = CurrentTargetActor.get_global_position().y + rand_range(0, RandomLocationRadiusFromPlayer) - (RandomLocationRadiusFromPlayer/2)
+	location.x = clamp(location.x, top_left.x+RandomLocationEdgeOffset, bottom_right.x-RandomLocationEdgeOffset)
+	location.y = clamp(location.y, top_left.y+RandomLocationEdgeOffset, bottom_right.y-RandomLocationEdgeOffset)
 	ai_controller.SetFollowPosition(location)
 	
 	RandomLocationTimer.start(RandomLocationInterval)
@@ -194,3 +200,27 @@ func _SpinBeam_Timeout():
 			ability_spinbeam.TryActivate()
 		else:
 			ability_spinbeam.ForceEndAbility()
+
+
+##### dialog stuff
+func DialogEnna(phase_number):
+	GlobalSettings.dialog_test_up = true
+	GlobalSettings.dialog_reset = false
+	if phase_number == 0 :
+		get_node("DialogLayer/Enna_DialogPlayer1/DialogControl").dialog_index = 0
+		get_node("DialogLayer/Enna_DialogPlayer1").show()
+		get_node("DialogLayer/Enna_DialogPlayer1/DialogControl").show_dialog()
+	elif phase_number == 1 :
+		get_node("DialogLayer/Enna_DialogPlayer2/DialogControl").dialog_index = 0
+		get_node("DialogLayer/Enna_DialogPlayer2").show()
+		get_node("DialogLayer/Enna_DialogPlayer2/DialogControl").show_dialog()
+	elif phase_number == 2 :
+		get_node("DialogLayer/Enna_DialogPlayer3/DialogControl").dialog_index = 0
+		get_node("DialogLayer/Enna_DialogPlayer3").show()
+		get_node("DialogLayer/Enna_DialogPlayer3/DialogControl").show_dialog()
+		
+	get_tree().paused = true
+
+
+func _on_FirstDialogTimer_timeout():
+	DialogEnna(0)

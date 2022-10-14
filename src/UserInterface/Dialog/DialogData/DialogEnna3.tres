@@ -1,0 +1,49 @@
+[
+
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "AHHHHHHH."
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "I won, Enna. Now turn back to your normal self."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "AHHHHHH\n...\n...\n...\nHAHAHAHAHA (*laugh in Enna voice*)"
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "What is so funny?"
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Funniest shit I've ever heard, Millie. \nYou're so entertaining."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Are you -3 Int?"
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "What kind of boss have only one health bar?"
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "What!?"
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "But you said that's your full power."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "It's my full power when I'm toying with you."
+		},
+			{
+			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Now observe my true power when I'm not holding back!"
+		},
+			
+		
+]
