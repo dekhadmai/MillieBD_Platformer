@@ -3,7 +3,7 @@ extends Node2D
 onready var editor_hint = $EditorSpriteHint
 
 export var bUseTestEnemy = false
-export(String, FILE) var TestEnemy
+export(String, FILE, "*.tscn") var TestEnemy
 
 export(Array, String, FILE, "*.tscn") var RandomActorTemplatePool
 var ValidActorToSpawn = []

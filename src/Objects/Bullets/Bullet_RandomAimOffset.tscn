@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Ability/Enna/Enna_Bullet_BouncingFeathers.tscn" type="PackedScene" id=1]
+
+[node name="Bullet_RandomAimOffset" instance=ExtResource( 1 )]
+bDebug = false
+BaseSpeed = 300.0
+DelayBeforeBounceSecond = 0.01
+BounceMaxCount = 0
+InnerRadius = 0
+bUseTopLeftBottomRight = false
+
+[editable path="Area2D_Damage"]

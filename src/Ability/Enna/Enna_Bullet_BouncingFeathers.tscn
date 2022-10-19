@@ -10,7 +10,11 @@ continuous_cd = 0
 script = ExtResource( 2 )
 bDebug = true
 BaseSpeed = 600.0
+DelayBeforeBounceSecond = 0.7
 BounceMaxCount = 1
+RandomRadius = 50
+InnerRadius = 150
+bUseTopLeftBottomRight = true
 
 [node name="MovementComponent" parent="." index="0"]
 bUseHoming = true

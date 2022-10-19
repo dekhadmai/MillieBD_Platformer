@@ -183,8 +183,6 @@ InitStat_Movespeed = 50.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 5 )]
 AbilityCooldownSecond = 0.3
-bEndAbilityAfterActivate = true
-bUseSetAsTopLevel = true
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Enemy_Homing.tscn"
 CustomAnimName = ""
 CustomAnimDuration = 0.0
