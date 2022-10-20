@@ -15,7 +15,7 @@
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState_Player.gd" type="Script" id=15]
-[ext_resource path="res://src/Ability/Beam/GameplayAbility_AreaDetection_FrontalBeam.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/Ability/Player/GameplayAbility_SlowTime.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=17]
 [ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=18]
 
@@ -532,20 +532,16 @@ InitStat_IframeSeconds = 0.3
 [node name="GrazeSystem" parent="AbilitySystemComponent" instance=ExtResource( 9 )]
 position = Vector2( 0, -22 )
 
-[node name="SpecialAbility" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
-AbilityCooldownSecond = 0.3
-ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
-amount = 10
+[node name="SpecialAbility" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
 
 [node name="SpecialAbility_Up" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
+amount = 10
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"
-
-[node name="GameplayAbility_AreaDetection_Beam" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true

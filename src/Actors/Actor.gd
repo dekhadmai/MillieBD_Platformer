@@ -52,6 +52,12 @@ func GetAbilitySystemComponent() -> BaseAbilitySystemComponent:
 		ability_system_component = get_node("AbilitySystemComponent")
 		return ability_system_component
 	
+func GetAbilityNode(node_name):
+	var comp = GetAbilitySystemComponent()
+	if comp :
+		return comp.get_node(node_name)
+	return null
+	
 func died():
 	bIsDead = true
 	
