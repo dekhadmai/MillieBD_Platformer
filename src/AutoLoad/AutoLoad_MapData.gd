@@ -52,6 +52,8 @@ func SetCurrentRoom(vec: Vector2):
 		CurrentPlayerRoom = vec
 		LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].bIsExplored = true
 		LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].CurrentLocation = true
+		if LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].RoomInstance :
+			LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].RoomInstance.SetCurrentRoom()
 
 func GenerateRooms():
 	LevelRoomMap = []
@@ -75,6 +77,10 @@ func GenerateRooms():
 	
 	if bSpawnOneRoom and bUseTestRoom : 
 		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[1] = 1
+		
+		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[0] = 1
+		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[2] = 1
+		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[3] = 1
 	pass
 
 func Traverse(row:int, column:int, from_row: int, from_column: int, distance: int):

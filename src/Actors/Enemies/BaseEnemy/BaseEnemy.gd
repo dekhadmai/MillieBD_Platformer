@@ -21,6 +21,9 @@ onready var ai_controller
 onready var hp_bar = $Hpbar
 onready var hp_value = $Hpvalue
 
+func get_class():
+	return "Actor"
+	
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
 func _ready():
