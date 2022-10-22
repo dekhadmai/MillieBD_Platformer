@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Actor.gd"
 }, {
-"base": "Enemy",
-"class": "AerialEnemy",
-"language": "GDScript",
-"path": "res://src/Actors/Enemies/AerialEnemy.gd"
-}, {
 "base": "AnimationPlayer",
 "class": "AnimationPlayerState",
 "language": "GDScript",
@@ -129,11 +124,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Base/GlobalFunctions.gd"
 }, {
-"base": "Enemy",
-"class": "GroundedEnemy",
-"language": "GDScript",
-"path": "res://src/Actors/Enemies/GroundedEnemy.gd"
-}, {
 "base": "Position2D",
 "class": "Gun",
 "language": "GDScript",
@@ -159,7 +149,6 @@ _global_script_class_icons={
 "AIControllerAerial": "",
 "AIControllerGrounded": "",
 "Actor": "",
-"AerialEnemy": "",
 "AnimationPlayerState": "",
 "BaseAbilitySystemComponent": "",
 "BaseArea2D": "",
@@ -179,7 +168,6 @@ _global_script_class_icons={
 "Enemy": "",
 "GitAPI": "",
 "GlobalFunctions": "",
-"GroundedEnemy": "",
 "Gun": "",
 "LevelRoomData": "",
 "MovementComponent": "",
