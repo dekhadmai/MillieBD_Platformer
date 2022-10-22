@@ -533,9 +533,11 @@ InitStat_IframeSeconds = 0.3
 position = Vector2( 0, -22 )
 
 [node name="SpecialAbility" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
+bUseFervor = true
 
 [node name="SpecialAbility_Up" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
 AbilityCooldownSecond = 0.3
+bUseFervor = true
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
 amount = 10
 

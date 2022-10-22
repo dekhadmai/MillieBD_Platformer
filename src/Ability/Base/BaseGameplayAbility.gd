@@ -7,6 +7,8 @@ var AnimPlayer: AnimationPlayerState
 var AbilityCooldownTimer: Timer
 export var AbilityCooldownSecond: float = 1.0
 export var bCommitAbilityCooldownWhenDeactivate: bool = true
+export var bUseFervor = false
+export var FervorCost = 25.0
 export var AbilityLevel: int = 0
 var bIsActive: bool
 
@@ -62,6 +64,8 @@ func TryActivate():
 		Activate()
 
 func Activate():
+	if bUseFervor:
+		AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.AddFervor(-FervorCost)
 	bIsActive = true
 	pass
 	
@@ -89,7 +93,11 @@ func GetAbilityRemainingCooldownSeconds() -> float:
 	return AbilityCooldownTimer.get_time_left()
 	
 func CanUseAbility() -> bool:
-	return !IsAbilityOnCooldown() and !bIsActive
+	var result = true
+	if bUseFervor :
+		result = result and AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.CurrentFervor >= FervorCost
+	result = result and !IsAbilityOnCooldown() and !bIsActive
+	return  result
 
 func SetLingeringAnimation(lingering_anim_name: String, seconds: float = 0.0):
 	if AnimPlayer != null:
