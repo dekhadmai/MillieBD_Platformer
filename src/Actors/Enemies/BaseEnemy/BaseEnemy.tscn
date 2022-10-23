@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Actors/Enemies/BaseEnemy/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/enemy/robe_enjoyer.png" type="Texture" id=2]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Base/Area2D_HurtBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_RobeEnjoyer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Base/Raycast_LineOfSight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=8]
@@ -35,8 +34,6 @@ hframes = 8
 vframes = 5
 
 [node name="ShootSocket" type="Position2D" parent="Sprite"]
-
-[node name="AnimationPlayerStateScene" parent="." instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
