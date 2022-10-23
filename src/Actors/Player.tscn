@@ -543,6 +543,8 @@ amount = 10
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3
+CustomAnimName = "_weapon"
+LingeringAnimName = "_active_weapon"
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]

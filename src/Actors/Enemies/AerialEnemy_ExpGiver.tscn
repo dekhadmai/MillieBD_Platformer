@@ -23,6 +23,9 @@ enabled = false
 InitStat_Movespeed = 0.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
+FullbodyAnimName = "range_attack"
+FullbodyAnimDuration = 1.0
+AbilityDelayForAnimationSecond = 0.4
 
 [node name="Sprite" parent="." index="3"]
 frame = 8

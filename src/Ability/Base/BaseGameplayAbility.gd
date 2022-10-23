@@ -14,10 +14,27 @@ var bIsActive: bool
 
 var bAlreadyInit: bool = false
 
+export var bStopMovingWhilePlayingAnim = true
+export var CustomAnimName: String = ""
+export var CustomAnimDuration: float = 0.1
+
+export var FullbodyAnimName: String = ""
+export var FullbodyAnimDuration: float = 0.1
+
+export var LingeringAnimName: String = ""
+export var LingeringAnimDuration: float = 1.0
+
+export var AbilityDelayForAnimationSecond: float = 0.0
+var AbilityDelayTimer: Timer
+
+
 onready var ability_sound = $AbilitySound
 onready var GameplayeEffect_Template: BaseGameplayEffect = $GameplayEffectTemplate
 
 var TargetActor:Actor = null setget SetTargetActor
+
+var bStopMovingAnim: bool
+var StopMovingAnimTimer:Timer
 
 func GetAbilityLevel() -> int :
 	return AbilityLevel
@@ -36,7 +53,7 @@ func _ready():
 		AnimPlayer = AbilityOwner.find_node("AnimationPlayerState")
 		AbilityCooldownTimer = get_node("AbilityCooldown")
 		AbilityCooldownTimer.set_one_shot(true)
-	
+		
 		if !bAlreadyInit:
 			Init()
 		
@@ -56,6 +73,15 @@ func Init():
 		
 	if ability_sound == null:
 		ability_sound = get_node("AbilitySound")
+		
+	if StopMovingAnimTimer == null :
+		StopMovingAnimTimer = GlobalFunctions.CreateTimerAndBind(self, self, "StopMovingAnimTimer_timeout")
+		StopMovingAnimTimer.set_one_shot(true)
+		
+	if AbilityDelayTimer == null:
+		AbilityDelayTimer = GlobalFunctions.CreateTimerAndBind(self, self, "AbilityDelayTimer_timeout")
+		AbilityDelayTimer.set_one_shot(true)
+		
 	pass
 
 # Always Use this one. Don't directly "Activate" ability
@@ -67,8 +93,27 @@ func Activate():
 	if bUseFervor:
 		AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.AddFervor(-FervorCost)
 	bIsActive = true
+	
+	if CustomAnimName != "":
+		PlayCustomAnimation(CustomAnimName, CustomAnimDuration, bStopMovingWhilePlayingAnim)
+		
+	if FullbodyAnimName != "":
+		PlayFullBodyAnimation(FullbodyAnimName, FullbodyAnimDuration, bStopMovingWhilePlayingAnim)
+		
+	SetLingeringAnimation(LingeringAnimName, LingeringAnimDuration)
+	
+	if AbilityDelayForAnimationSecond > 0 : 
+		AbilityDelayTimer.start(AbilityDelayForAnimationSecond)
+	else:
+		DoAbility()
+			
+	
 	pass
 	
+func DoAbility():
+	ability_sound.play()
+	pass
+
 func Deactivate():
 	if bCommitAbilityCooldownWhenDeactivate:
 		CommitAbilityCooldown()
@@ -96,20 +141,36 @@ func CanUseAbility() -> bool:
 	var result = true
 	if bUseFervor :
 		result = result and AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.CurrentFervor >= FervorCost
-	result = result and !IsAbilityOnCooldown() and !bIsActive
+	result = result and !IsAbilityOnCooldown() and !bIsActive and !AbilityOwner.bIsDead
 	return  result
 
 func SetLingeringAnimation(lingering_anim_name: String, seconds: float = 0.0):
 	if AnimPlayer != null:
 		AnimPlayer.SetLingeringAnim(lingering_anim_name, seconds)
 
-func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0):
+func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0, bStopMovingWhilePlayingAnim = false):
+	if custom_anim_name == "":
+		return
+		
 	if AnimPlayer != null:
 		AnimPlayer.PlayCustomAnim(custom_anim_name, seconds)
 		
-func PlayFullBodyAnimation(fullbody_anim_name: String, seconds: float = 0.0):
+	if bStopMovingWhilePlayingAnim:
+		bStopMovingAnim = bStopMovingWhilePlayingAnim
+		AbilityOwner.bDontMoveStack += 1
+		StopMovingAnimTimer.start(seconds)
+		
+func PlayFullBodyAnimation(fullbody_anim_name: String, seconds: float = 0.0, bStopMovingWhilePlayingAnim = false):
+	if fullbody_anim_name == "":
+		return
+	
 	if AnimPlayer != null:
 		AnimPlayer.PlayFullBodyAnim(fullbody_anim_name, seconds)
+		
+	if bStopMovingWhilePlayingAnim:
+		bStopMovingAnim = bStopMovingWhilePlayingAnim
+		AbilityOwner.bDontMoveStack += 1
+		StopMovingAnimTimer.start(seconds)
 		
 func getAnim() -> AnimationPlayerState:
 	if AnimPlayer != null:
@@ -118,3 +179,8 @@ func getAnim() -> AnimationPlayerState:
 		print_debug('AnimPlayer not ready yet')
 		return null
 		
+func StopMovingAnimTimer_timeout():
+	AbilityOwner.bDontMoveStack -= 1
+	
+func AbilityDelayTimer_timeout():
+	DoAbility()

@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Actors/Enemies/BaseEnemy/BaseEnemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/art/enemy/tmp_aloupeep.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/enemy/robe_enjoyer.png" type="Texture" id=2]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Base/Area2D_HurtBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_RobeEnjoyer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Base/Raycast_LineOfSight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=8]
@@ -13,103 +13,7 @@
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 16 )
-
-[sub_resource type="Animation" id=5]
-resource_name = "attack"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 8, 9, 10 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "cast"
-length = 0.3
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 12, 13, 14 ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 15 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "walk"
-length = 0.3
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 5, 6 ]
-}
+extents = Vector2( 16, 26 )
 
 [node name="BaseEnemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -122,29 +26,26 @@ Team_ID = 2
 [node name="RayCast_LineOfSight" parent="." instance=ExtResource( 6 )]
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 material = SubResource( 1 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 flip_h = true
-hframes = 4
-vframes = 4
-frame = 15
+hframes = 8
+vframes = 5
 
 [node name="ShootSocket" type="Position2D" parent="Sprite"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+[node name="AnimationPlayerStateScene" parent="." instance=ExtResource( 5 )]
 
-[node name="AnimationPlayerState" parent="." instance=ExtResource( 5 )]
-anims/attack = SubResource( 5 )
-anims/cast = SubResource( 6 )
-anims/death = SubResource( 7 )
-anims/idle = SubResource( 3 )
-anims/walk = SubResource( 4 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4 )
+shape = SubResource( 2 )
 
 [node name="Area2D_HurtBox" parent="." instance=ExtResource( 4 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_HurtBox"]
+position = Vector2( 0, 4 )
 shape = SubResource( 2 )
 
 [node name="Hpbar" type="TextureProgress" parent="."]

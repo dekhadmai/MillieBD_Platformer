@@ -23,6 +23,8 @@ var _velocity = Vector2.ZERO
 var FacingDirection: float = 1.0
 var CurrentTargetActor: Actor
 
+var bDontMoveStack:int = 0
+
 func get_class():
 	return "Actor"
 	

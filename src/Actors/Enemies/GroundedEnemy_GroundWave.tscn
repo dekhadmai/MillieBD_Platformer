@@ -16,9 +16,11 @@ InitStat_Movespeed = 20.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
 AbilityCooldownSecond = 0.3
-ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_GroundSpawner.tscn"
-CustomAnimName = ""
 CustomAnimDuration = 0.0
+FullbodyAnimName = "attack"
+FullbodyAnimDuration = 0.7
+AbilityDelayForAnimationSecond = 0.3
+ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_GroundSpawner.tscn"
 
 [node name="Sprite" parent="." index="3"]
 frame = 8

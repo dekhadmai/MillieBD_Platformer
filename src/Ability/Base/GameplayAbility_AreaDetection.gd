@@ -36,13 +36,10 @@ func Init():
 			hurt_detection.connect("OnHurtDetection", self, "OnHurtDetectionHit")
 			hurt_detection.connect("OnEndAreaLinger", self, "_on_Area2D_Damage_OnEndAreaLinger")
 	
-
-func Activate():
-	.Activate()
-
+	
+func DoAbility():
+	.DoAbility()
 	StartAreaDetection()
-
-	pass
 	
 func Deactivate():
 	.Deactivate()

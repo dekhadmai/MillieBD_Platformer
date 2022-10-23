@@ -112,9 +112,12 @@ func _on_EndAbilityTimer_timeout():
 
 
 func Activate():
+	.Activate()
+	
+func DoAbility():
 	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible = true
 	invul_sprite.set_visible(true)
-	.Activate()
+	.DoAbility()
 	
 func Deactivate():
 	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible = false

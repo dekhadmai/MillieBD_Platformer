@@ -12,9 +12,10 @@ AbilityNodeName = "ShootAbility"
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
 AbilityCooldownSecond = 0.3
+FullbodyAnimName = "range_attack"
+FullbodyAnimDuration = 1.0
+AbilityDelayForAnimationSecond = 0.4
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Enemy.tscn"
-CustomAnimName = ""
-CustomAnimDuration = 0.0
 
 [node name="Sprite" parent="." index="3"]
-frame = 8
+frame = 16

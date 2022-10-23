@@ -38,4 +38,7 @@ BulletData_Delay = 1.0
 monitoring = false
 monitorable = false
 
+[node name="Sprite" parent="Area2D_Damage" index="1"]
+visible = false
+
 [editable path="Area2D_Damage"]

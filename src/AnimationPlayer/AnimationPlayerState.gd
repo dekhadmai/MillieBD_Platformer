@@ -11,6 +11,9 @@ var LingeringAnimTimer: Timer
 var bIsPlayingFullBodyAnim: bool = false
 var LastAnimation: String
 
+func OwnerQueueFree():
+	GlobalFunctions.GetOwnerObject(self).queue_free()
+
 func GetCurrentAnimName() -> String:
 	if bIsPlayingFullBodyAnim:
 		return FullBodyAnimState

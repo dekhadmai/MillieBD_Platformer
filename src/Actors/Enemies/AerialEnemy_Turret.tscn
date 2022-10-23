@@ -24,9 +24,11 @@ InitStat_Movespeed = 0.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
 AbilityCooldownSecond = 0.3
-ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Enemy_Homing.tscn"
-CustomAnimName = ""
 CustomAnimDuration = 0.0
+FullbodyAnimName = "range_attack"
+FullbodyAnimDuration = 1.0
+AbilityDelayForAnimationSecond = 0.4
+ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Enemy_Homing.tscn"
 
 [node name="Sprite" parent="." index="3"]
 frame = 8

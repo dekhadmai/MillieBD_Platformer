@@ -9,10 +9,6 @@ script = ExtResource( 1 )
 bEndAbilityAfterActivate = true
 bUseSetAsTopLevel = true
 ActorToSpawnPath = ""
-CustomAnimName = "_weapon"
-CustomAnimDuration = 0.1
-LingeringAnimName = "_active_weapon"
-LingeringAnimDuration = 1.0
 SpawnSocketName = "ShootSocket"
 
 [node name="AbilitySound" parent="." index="2"]

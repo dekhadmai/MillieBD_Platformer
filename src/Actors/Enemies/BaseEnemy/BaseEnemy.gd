@@ -11,8 +11,8 @@ var _state = State.MOVING
 
 export var OriginalScale = 0.25
 
-onready var sprite = $Sprite
-onready var animation_player = $AnimationPlayerState
+onready var sprite = $AnimationPlayerStateScene/Sprite
+onready var animation_player = $AnimationPlayerStateScene/AnimationPlayerState
 onready var autoload_transient = $"/root/AutoLoadTransientData"
 
 export var AIcontroller_NodeName = "AIController"
@@ -75,8 +75,10 @@ func _physics_process(_delta):
 	# We flip the Sprite depending on which way the enemy is moving.
 	if _velocity.x > 0:
 		sprite.scale.x = -OriginalScale
+		#scale.x = -1
 	else:
 		sprite.scale.x = OriginalScale
+		#scale.x = 1
 		
 	FacingDirection = -sprite.scale.x / OriginalScale
 

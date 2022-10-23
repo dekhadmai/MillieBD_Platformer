@@ -21,10 +21,9 @@ func _process(delta):
 		current_active_time += delta
 	
 
-func Activate():
-	.Activate()
+func DoAbility():
+	.DoAbility()
 	current_active_time = 0.0
-
 
 func Deactivate():
 	.Deactivate()
