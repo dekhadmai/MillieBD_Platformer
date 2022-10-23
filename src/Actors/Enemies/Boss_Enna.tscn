@@ -12,7 +12,7 @@
 [ext_resource path="res://src/Ability/Enna/Enna_SpinBeam.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_BouncingFeathers.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/UserInterface/Dialog/DialogPlayer.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_RobeEnjoyer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_Aloupeep.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1000.0
