@@ -315,9 +315,7 @@ enabled = false
 cast_to = Vector2( 90, 20 )
 collision_mask = 16
 
-[node name="AnimationPlayerStateScene" parent="." index="1" instance=ExtResource( 13 )]
-
-[node name="AbilitySystemComponent" parent="." index="2"]
+[node name="AbilitySystemComponent" parent="." index="1"]
 InitStat_HP = 1000.0
 InitStat_Movespeed = 75.0
 
@@ -335,6 +333,8 @@ AreaEffectInterval = 0.3
 [node name="Enna_SpinBeam" parent="AbilitySystemComponent" index="4" instance=ExtResource( 10 )]
 
 [node name="Enna_FeatherBouncing" parent="AbilitySystemComponent" index="5" instance=ExtResource( 11 )]
+
+[node name="AnimationPlayerStateScene" parent="." index="2" instance=ExtResource( 13 )]
 
 [node name="Sprite" parent="." index="4"]
 scale = Vector2( 0.5, 0.5 )
