@@ -3,7 +3,6 @@ extends Node
 export var bSpawnOneRoom: bool = false
 export var bUseTestRoom: bool = false
 export(String, FILE) var TestRoom
-onready var test_room = load(TestRoom)
 
 export(Array, String, FILE) var RandomLevelPool
 var LevelRoomMapPool = []
@@ -14,7 +13,7 @@ var startroom_col = 0
 var LevelRoomMap = []
 var GridWidth = 10
 var GridHeight = 5
-var DoorChance = 15
+var DoorChance = 150
 var TotalRoomAvailable: int = 0
 
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
@@ -63,7 +62,10 @@ func GenerateRooms():
 		LevelRoomMap.append([])
 		for j in GridWidth:
 			var level_room_data: LevelRoomData = LevelRoomData.new()
-			level_room_data.LevelRoomTemplate = LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
+			if bUseTestRoom and TestRoom != "":
+				level_room_data.LevelRoomTemplate = TestRoom
+			else:
+				level_room_data.LevelRoomTemplate = LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
 			LevelRoomMap[i].append(level_room_data)
 			
 	randomize()
@@ -78,9 +80,9 @@ func GenerateRooms():
 	if bSpawnOneRoom and bUseTestRoom : 
 		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[1] = 1
 		
-		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[0] = 1
-		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[2] = 1
-		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[3] = 1
+#		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[0] = 1
+#		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[2] = 1
+#		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[3] = 1
 	pass
 
 func Traverse(row:int, column:int, from_row: int, from_column: int, distance: int):
@@ -249,12 +251,8 @@ func CreateRoomInstance(row: int, column: int) -> BaseLevelRoom:
 	var room = null
 	if CanSpawnRoom(row, column):
 		var room_data:LevelRoomData = LevelRoomMap[row][column]
-		
-		if bUseTestRoom and test_room != null:
-			room = test_room.instance()
-		else:
-			var tmp_room = load(room_data.LevelRoomTemplate)
-			room = tmp_room.instance()
+		var tmp_room = load(room_data.LevelRoomTemplate)
+		room = tmp_room.instance()
 		room_data.bActive = true
 		room_data.RoomInstance = room
 		room.SetRoomPosition(row, column)
@@ -284,19 +282,19 @@ func CreateRoomInstance(row: int, column: int) -> BaseLevelRoom:
 			text += " "
 		
 		room.SetText(text)
-		
+
 		if room_data.bIsDoorOpened[0] == 1 :
 			var door:Door = room.find_node("Door_Left")
 			room.OpenDoor(door)
-		
+#
 		if room_data.bIsDoorOpened[1] == 1 :
 			var door:Door = room.find_node("Door_Up")
 			room.OpenDoor(door)
-			
+#
 		if room_data.bIsDoorOpened[2] == 1 :
 			var door:Door = room.find_node("Door_Right")
 			room.OpenDoor(door)
-			
+#
 		if room_data.bIsDoorOpened[3] == 1 :
 			var door:Door = room.find_node("Door_Down")
 			room.OpenDoor(door)
@@ -306,10 +304,8 @@ func CreateRoomInstance(row: int, column: int) -> BaseLevelRoom:
 # spawn room and its adjacent rooms
 func SpawnRooms(row: int, column: int) -> void :
 	var room_data:LevelRoomData
-	var room = CreateRoomInstance(row, column)
-	if room != null:
-		add_child(room)
-	else:
+	var room = null# = CreateRoomInstance(row, column)
+	if room == null:
 		if column < 0 or column >= GridWidth :
 			return
 	
@@ -318,26 +314,33 @@ func SpawnRooms(row: int, column: int) -> void :
 			
 		room_data = LevelRoomMap[row][column]
 		room = room_data.RoomInstance
+	else:
+		room.set_global_position(Vector2(0,0))
+		room.add_child(room)
 		
 	if room == null:
 		return
-		
+	
 	var room_up = CreateRoomInstance(row-1, column)
 	if room_up != null:
-		add_child(room_up)
+		#add_child(room_up)
 		SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
+		add_child(room_up)
 	var room_down = CreateRoomInstance(row+1, column)
 	if room_down != null:
-		add_child(room_down)
+		#add_child(room_down)
 		SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
+		add_child(room_down)
 	var room_left = CreateRoomInstance(row, column-1)
 	if room_left != null:
-		add_child(room_left)
+		#add_child(room_left)
 		SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
+		add_child(room_left)
 	var room_right = CreateRoomInstance(row, column+1)
 	if room_right != null:
-		add_child(room_right)
+		#add_child(room_right)
 		SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
+		add_child(room_right)
 	
 	pass
 
@@ -371,9 +374,10 @@ func RemoveRoomInstance(row: int, column: int) :
 func InitSpawnRooms():
 	var room
 	room = CreateRoomInstance(startroom_row, startroom_col)
-	room.global_position = Vector2(0,0)
 	if room != null:
+		room.global_position = Vector2(0,0)
 		add_child(room)
+	
 	SpawnRooms(startroom_row, startroom_col)
 	
 	pass
@@ -385,6 +389,6 @@ func SetPositionNextRoom(current_room: BaseLevelRoom, exit, next_room: BaseLevel
 	var offset = (current_room.global_position)
 	offset.y += exit_node.position.y - entrance_node.position.y
 	offset.x += exit_node.position.x - entrance_node.position.x
-	next_room.global_position = offset
+	next_room.set_global_position(offset)
 	
 	pass
