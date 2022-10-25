@@ -1,5 +1,5 @@
 class_name BaseLevelRoom
-extends Node
+extends Node2D
 
 onready var autoload_mapdata = $"/root/AutoLoadMapData"
 onready var Room_Position: Vector2 # room coordinate in the mapdata grid (not global position)
@@ -41,6 +41,7 @@ func SetRoomPosition(row: int, column: int) -> void :
 
 func SetCurrentRoom():
 	SetRoomCondition(0)
+	pass
 	
 func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]

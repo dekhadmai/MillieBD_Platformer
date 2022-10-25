@@ -1,5 +1,9 @@
 extends Node
 
+var CreateInstanceQueue = []
+var InstanceQueueTimer: Timer
+var InstanceQueueInterval = 0.05
+
 export var bSpawnOneRoom: bool = false
 export var bUseTestRoom: bool = false
 export(String, FILE) var TestRoom
@@ -13,7 +17,7 @@ var startroom_col = 0
 var LevelRoomMap = []
 var GridWidth = 10
 var GridHeight = 5
-var DoorChance = 150
+var DoorChance = 15
 var TotalRoomAvailable: int = 0
 
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
@@ -28,6 +32,9 @@ func SpawnPlayer():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	InstanceQueueTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_ProcessInstanceQueue")
+	InstanceQueueTimer.set_one_shot(true)
+	
 	if (bSpawnOneRoom and bUseTestRoom) : 
 		GridWidth = 1
 		GridHeight = 1
@@ -44,6 +51,55 @@ func _ready():
 	print_map()
 	
 	pass # Replace with function body.
+
+func _ProcessInstanceQueue():
+	var queue_data = CreateInstanceQueue.pop_back()
+	CreateInstanceFromQueue(queue_data.r, queue_data.c, queue_data.d)
+	if CreateInstanceQueue.size() > 0:
+		InstanceQueueTimer.start(InstanceQueueInterval)
+	pass
+	
+func CreateInstanceFromQueue(row, column, room_direction):
+	
+	var room_data:LevelRoomData
+	var room = null# = CreateRoomInstance(row, column)
+	if room == null:
+		if column < 0 or column >= GridWidth :
+			return
+	
+		if row < 0 or row >= GridHeight :
+			return
+			
+		room_data = LevelRoomMap[row][column]
+		room = room_data.RoomInstance
+		
+	if room == null:
+		return
+	
+	if (room_direction == "Up"):
+		var room_up = CreateRoomInstance(row-1, column)
+		if room_up != null:
+			#add_child(room_up)
+			SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
+			add_child(room_up)
+	if (room_direction == "Down"):
+		var room_down = CreateRoomInstance(row+1, column)
+		if room_down != null:
+			#add_child(room_down)
+			SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
+			add_child(room_down)
+	if (room_direction == "Left"):
+		var room_left = CreateRoomInstance(row, column-1)
+		if room_left != null:
+			#add_child(room_left)
+			SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
+			add_child(room_left)
+	if (room_direction == "Right"):
+		var room_right = CreateRoomInstance(row, column+1)
+		if room_right != null:
+			#add_child(room_right)
+			SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
+			add_child(room_right)
 
 func SetCurrentRoom(vec: Vector2):
 	if vec != CurrentPlayerRoom :
@@ -321,26 +377,40 @@ func SpawnRooms(row: int, column: int) -> void :
 	if room == null:
 		return
 	
-	var room_up = CreateRoomInstance(row-1, column)
-	if room_up != null:
-		#add_child(room_up)
-		SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
-		add_child(room_up)
-	var room_down = CreateRoomInstance(row+1, column)
-	if room_down != null:
-		#add_child(room_down)
-		SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
-		add_child(room_down)
-	var room_left = CreateRoomInstance(row, column-1)
-	if room_left != null:
-		#add_child(room_left)
-		SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
-		add_child(room_left)
-	var room_right = CreateRoomInstance(row, column+1)
-	if room_right != null:
-		#add_child(room_right)
-		SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
-		add_child(room_right)
+	var data = {r = row, c = column, d = "Up"}
+	CreateInstanceQueue.push_back(data)
+	
+	data = {r = row, c = column, d = "Down"}
+	CreateInstanceQueue.push_back(data)
+	
+	data = {r = row, c = column, d = "Left"}
+	CreateInstanceQueue.push_back(data)
+	
+	data = {r = row, c = column, d = "Right"}
+	CreateInstanceQueue.push_back(data)
+	
+	InstanceQueueTimer.start(InstanceQueueInterval)
+	
+#	var room_up = CreateRoomInstance(row-1, column)
+#	if room_up != null:
+#		#add_child(room_up)
+#		SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
+#		add_child(room_up)
+#	var room_down = CreateRoomInstance(row+1, column)
+#	if room_down != null:
+#		#add_child(room_down)
+#		SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
+#		add_child(room_down)
+#	var room_left = CreateRoomInstance(row, column-1)
+#	if room_left != null:
+#		#add_child(room_left)
+#		SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
+#		add_child(room_left)
+#	var room_right = CreateRoomInstance(row, column+1)
+#	if room_right != null:
+#		#add_child(room_right)
+#		SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
+#		add_child(room_right)
 	
 	pass
 
