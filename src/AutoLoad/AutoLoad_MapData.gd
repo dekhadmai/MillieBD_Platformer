@@ -21,13 +21,14 @@ var DoorChance = 15
 var TotalRoomAvailable: int = 0
 
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
+var Checkpoint_Position: Vector2 = Vector2(100,150)
 
 export(String, FILE, "*.tscn") var PlayerTemplate
 onready var player_template = load(PlayerTemplate)
 var player
 func SpawnPlayer():
 	player = player_template.instance()
-	player.set_global_position(Vector2(100,150))
+	player.set_global_position(Checkpoint_Position)
 	add_child(player)
 
 # Called when the node enters the scene tree for the first time.
@@ -79,27 +80,27 @@ func CreateInstanceFromQueue(row, column, room_direction):
 	if (room_direction == "Up"):
 		var room_up = CreateRoomInstance(row-1, column)
 		if room_up != null:
-			#add_child(room_up)
-			SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
 			add_child(room_up)
+			SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
+			#add_child(room_up)
 	if (room_direction == "Down"):
 		var room_down = CreateRoomInstance(row+1, column)
 		if room_down != null:
-			#add_child(room_down)
-			SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
 			add_child(room_down)
+			SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
+			#add_child(room_down)
 	if (room_direction == "Left"):
 		var room_left = CreateRoomInstance(row, column-1)
 		if room_left != null:
-			#add_child(room_left)
-			SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
 			add_child(room_left)
+			SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
+			#add_child(room_left)
 	if (room_direction == "Right"):
 		var room_right = CreateRoomInstance(row, column+1)
 		if room_right != null:
-			#add_child(room_right)
-			SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
 			add_child(room_right)
+			SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
+			#add_child(room_right)
 
 func SetCurrentRoom(vec: Vector2):
 	if vec != CurrentPlayerRoom :
@@ -122,12 +123,14 @@ func GenerateRooms():
 				level_room_data.LevelRoomTemplate = TestRoom
 			else:
 				level_room_data.LevelRoomTemplate = LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
+				
 			LevelRoomMap[i].append(level_room_data)
 			
 	randomize()
 	#seed(35)
 	
 	# start in the middle
+	LevelRoomMap[startroom_row][startroom_col].LevelRoomTemplate = "res://src/Level/LevelRooms/LevelRoom_Checkpoint.tscn"
 	LevelRoomMap[startroom_row][startroom_col].bStartRoom = true
 	LevelRoomMap[startroom_row][startroom_col].bIsExplored = true
 	SetCurrentRoom(Vector2(startroom_row, startroom_col))

@@ -2,6 +2,9 @@ extends "res://src/Ability/GameplayAbility_ActorSpawner.gd"
 
 
 func SpawnActor() -> void:
+	if !is_instance_valid(TargetActor) :
+		return
+	
 	var bullet = Bullet.instance()
 	bullet.set_as_toplevel(bUseSetAsTopLevel)
 	add_child(bullet)

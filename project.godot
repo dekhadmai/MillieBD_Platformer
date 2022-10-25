@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Base/CharacterStatsInit.gd"
 }, {
+"base": "Node2D",
+"class": "Checkpoint",
+"language": "GDScript",
+"path": "res://src/Level/Checkpoint.gd"
+}, {
 "base": "Area2D",
 "class": "Coin",
 "language": "GDScript",
@@ -163,6 +168,7 @@ _global_script_class_icons={
 "BulletSpawnerData": "",
 "CharacterStats": "",
 "CharacterStatsInit": "",
+"Checkpoint": "",
 "Coin": "",
 "Door": "",
 "Enemy": "",
