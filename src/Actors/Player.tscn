@@ -1,9 +1,8 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
-[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner_Test.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
@@ -534,12 +533,6 @@ position = Vector2( 0, -22 )
 
 [node name="SpecialAbility" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
 bUseFervor = true
-
-[node name="SpecialAbility_Up" parent="AbilitySystemComponent" instance=ExtResource( 4 )]
-AbilityCooldownSecond = 0.3
-bUseFervor = true
-ActorToSpawnPath = "res://src/Objects/Base/BaseBullet.tscn"
-amount = 10
 
 [node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
 AbilityCooldownSecond = 0.3
