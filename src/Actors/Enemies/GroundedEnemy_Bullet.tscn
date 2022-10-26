@@ -22,3 +22,5 @@ ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_RobeEnjoyer_Fireball.tscn"
 frame = 16
 
 [node name="AnimationPlayerStateScene" parent="." index="8" instance=ExtResource( 4 )]
+
+[editable path="AnimationPlayerStateScene"]
