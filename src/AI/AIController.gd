@@ -70,7 +70,8 @@ func update_physics(delta):
 		SetFollowActor(autoload_transient.player)
 		
 		
-	kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
+	if get_parent().bDontMoveStack <= 0 :
+		kinematic_body._velocity.y = kinematic_body.move_and_slide(kinematic_body._velocity, kinematic_body.FLOOR_NORMAL).y
 	
 	pass
 	

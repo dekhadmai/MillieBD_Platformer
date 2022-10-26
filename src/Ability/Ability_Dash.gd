@@ -24,8 +24,8 @@ func _process(delta):
 		AbilityOwner._velocity.y = 0.0
 	pass
 
-func Activate():
-	.Activate()
+func DoAbility():
+	.DoAbility()
 	do_dash()
 	
 	var effect:BaseGameplayEffect = effect_exp.duplicate() as BaseGameplayEffect

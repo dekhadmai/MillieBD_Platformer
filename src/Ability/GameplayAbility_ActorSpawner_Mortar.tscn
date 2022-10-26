@@ -5,3 +5,6 @@
 
 [node name="GameplayAbility_ActorSpawner_Mortar" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+FullbodyAnimName = "range_attack"
+FullbodyAnimDuration = 1.0
+AbilityDelayForAnimationSecond = 0.4

@@ -1,5 +1,5 @@
 class_name BaseLevelRoom
-extends Node
+extends Node2D
 
 onready var autoload_mapdata = $"/root/AutoLoadMapData"
 onready var Room_Position: Vector2 # room coordinate in the mapdata grid (not global position)
@@ -39,6 +39,46 @@ func SetRoomPosition(row: int, column: int) -> void :
 	Room_Position.y = column
 	pass
 
+func SetCurrentRoom():
+	SetRoomCondition(0)
+	pass
+	
+func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
+	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
+	if tilemap == null:
+		tilemap = find_node("TileMap")
+		
+	if room_data.bIsDoorOpened[0] == 1 :
+		var door:Door = find_node("Door_Left")
+		SetDoorCondition(condition, door, tilemap)
+	
+	if room_data.bIsDoorOpened[1] == 1 :
+		var door:Door = find_node("Door_Up")
+		SetDoorCondition(condition, door, tilemap)
+		
+	if room_data.bIsDoorOpened[2] == 1 :
+		var door:Door = find_node("Door_Right")
+		SetDoorCondition(condition, door, tilemap)
+		
+	if room_data.bIsDoorOpened[3] == 1 :
+		var door:Door = find_node("Door_Down")
+		SetDoorCondition(condition, door, tilemap)
+			
+func SetDoorCondition(condition, door, tilemap): # 0 = lock door, 1 = open door
+	if condition == 0 : 
+		door.LockDoor(tilemap)
+	elif condition == 1 :
+		door.OpenDoor(tilemap)
+	
+func _on_CheckRoomClearCondition_timeout():
+	var child_array = get_children()
+	
+	for i in child_array.size():
+		if child_array[i].get_class() == "Actor" :
+			return
+			
+	SetRoomCondition(1)
+	
 
 func _on_Door_Left_PlayerEntered(body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
@@ -120,3 +160,4 @@ func _on_RoomUiMark_PlayerExited(body):
 	room_data.CurrentLocation = false
 	print("room exited")
 	pass # Replace with function body.
+

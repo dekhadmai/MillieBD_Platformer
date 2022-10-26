@@ -22,11 +22,7 @@ onready var sprite = $Sprite
 onready var sound_jump = $Jump
 onready var player_collision:CollisionShape2D = $PlayerCollision
 
-#onready var ability_system_component:BaseAbilitySystemComponent = $AbilitySystemComponent
 onready var shoot_abi = $AbilitySystemComponent/ShootAbility
-onready var special_abi = $AbilitySystemComponent/SpecialAbility
-onready var special_abi_up = $AbilitySystemComponent/SpecialAbility_Up
-onready var gameplay_ability_melee = $AbilitySystemComponent/GameplayAbility_AreaDetection_Beam
 onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 
 onready var camera = $Camera
@@ -129,13 +125,20 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("shoot" + action_suffix):
 		shoot_abi.TryActivate()
 	
+	var abi_node = null
 	if GlobalFunctions.IsKeyModifierPressed("use_ability", "move_up"):
-		special_abi_up.TryActivate()
+		abi_node = GetAbilityNode("SpecialAbility_Up")
+		if abi_node : 
+			abi_node.TryActivate()
 	elif GlobalFunctions.IsKeyModifierPressed("use_ability", "move_down"):
-		gameplay_ability_melee.TryActivate()
+		abi_node = GetAbilityNode("SpecialAbility_Down")
+		if abi_node : 
+			abi_node.TryActivate()
 	else:
 		if Input.is_action_just_pressed("use_ability" + action_suffix):
-			special_abi.TryActivate()
+			abi_node = GetAbilityNode("SpecialAbility")
+			if abi_node : 
+				abi_node.TryActivate()
 			
 	if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
 		set_collision_mask_bit(3, false)

@@ -5,12 +5,6 @@ export var bUseSetAsTopLevel = true
 export(String, FILE, "*.tscn") var ActorToSpawnPath
 onready var Bullet = load(ActorToSpawnPath)
 
-export var CustomAnimName: String = "_weapon"
-export var CustomAnimDuration: float = 0.1
-
-export var LingeringAnimName: String = "_active_weapon"
-export var LingeringAnimDuration: float = 1.0
-
 export var SpawnSocketName: String = "ShootSocket"
 onready var SocketNode: Position2D
 
@@ -22,13 +16,10 @@ func Init():
 		SocketNode = AbilityOwner.find_node(SpawnSocketName)
 	
 
-func Activate():
-	.Activate()
+func DoAbility():
+	.DoAbility()
 	
 	SpawnActor()
-	ability_sound.play()
-	PlayCustomAnimation(CustomAnimName, CustomAnimDuration)
-	SetLingeringAnimation(LingeringAnimName, LingeringAnimDuration)
 	
 	if bEndAbilityAfterActivate : 
 		EndAbility()
@@ -52,7 +43,7 @@ func GetSpawnPosition() -> Vector2:
 func GetSpawnRotation() -> Vector2:
 	var vec : Vector2
 	
-	if TargetActor:
+	if is_instance_valid(TargetActor):
 		vec = (TargetActor.GetTargetingPosition() - GetSpawnPosition()).normalized()
 	elif SpawnRotation != Vector2(0,0) :
 		vec = SpawnRotation 

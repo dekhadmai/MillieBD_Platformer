@@ -23,6 +23,8 @@ var _velocity = Vector2.ZERO
 var FacingDirection: float = 1.0
 var CurrentTargetActor: Actor
 
+var bDontMoveStack:int = 0
+
 func get_class():
 	return "Actor"
 	
@@ -51,6 +53,12 @@ func GetAbilitySystemComponent() -> BaseAbilitySystemComponent:
 	else:
 		ability_system_component = get_node("AbilitySystemComponent")
 		return ability_system_component
+	
+func GetAbilityNode(node_name):
+	var comp = GetAbilitySystemComponent()
+	if comp :
+		return comp.get_node(node_name)
+	return null
 	
 func died():
 	bIsDead = true

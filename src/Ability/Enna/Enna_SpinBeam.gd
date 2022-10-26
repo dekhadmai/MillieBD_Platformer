@@ -54,8 +54,8 @@ func Init():
 func SpinActive_Timeout():
 	Activate()
 
-func Activate():
-	.Activate()
+func DoAbility():
+	.DoAbility()
 	
 	AnchorNode.set_global_position(GenerateTargetPosition())
 	

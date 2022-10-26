@@ -40,6 +40,10 @@ margin_bottom = 64.0
 text = "TEST
 "
 
+[node name="CheckRoomClearCondition" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
 [connection signal="PlayerEntered" from="Door_Left" to="." method="_on_Door_Left_PlayerEntered"]
 [connection signal="PlayerExited" from="Door_Left" to="." method="_on_Door_Left_PlayerExited"]
 [connection signal="PlayerEntered" from="Door_Right" to="." method="_on_Door_Right_PlayerEntered"]
@@ -48,3 +52,4 @@ text = "TEST
 [connection signal="PlayerExited" from="Door_Up" to="." method="_on_Door_Up_PlayerExited"]
 [connection signal="PlayerEntered" from="Door_Down" to="." method="_on_Door_Down_PlayerEntered"]
 [connection signal="PlayerExited" from="Door_Down" to="." method="_on_Door_Down_PlayerExited"]
+[connection signal="timeout" from="CheckRoomClearCondition" to="." method="_on_CheckRoomClearCondition_timeout"]

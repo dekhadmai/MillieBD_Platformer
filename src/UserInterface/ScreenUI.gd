@@ -32,6 +32,9 @@ func _process(delta):
 		
 		exp_value.set_text( str("EXP : ", player_current_stat.CurrentEXP) )
 		exp_bar.value = player_current_stat.CurrentEXP
+		
+		fevor_value.set_text( str("MP : ", player_current_stat.CurrentFervor) )
+		fevor_bar.value = player_current_stat.CurrentFervor
 	
 	else:
 		Init()

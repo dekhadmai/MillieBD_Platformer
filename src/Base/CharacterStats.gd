@@ -18,6 +18,8 @@ var CurrentAttack: float = 0.0
 var CurrentMovespeed: float = 0.0
 var CurrentJumpSpeed: float = 0.0
 var CurrentLevel: int = 1
+var CurrentFervor: float = 0.0
+var MaxFervor: float = 100.0
 var CurrentEXP: float = 0.0
 var MaxEXP: float = 100.0
 var TotalDamageAdjustScale: float = 1.0
@@ -76,10 +78,16 @@ func TakeDamage(value: float):
 
 func AddEXP(value: float):
 	CurrentEXP += (value * ExpAdjustScale)
+	AddFervor(value)
 	if CurrentEXP >= MaxEXP:
 		CurrentEXP -= MaxEXP
 		CurrentLevel += 1
 		emit_signal("level_up")
+		
+func AddFervor(value: float):
+	CurrentFervor += (value)
+	if CurrentFervor >= MaxFervor:
+		CurrentFervor = MaxFervor
 
 func SetAttackScale(value: float):
 	AttackScale = value
