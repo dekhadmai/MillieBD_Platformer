@@ -25,4 +25,4 @@ ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Enemy.tscn"
 [node name="Sprite" parent="." index="3"]
 frame = 8
 
-[node name="AnimationPlayerStateScene" parent="." index="8" instance=ExtResource( 4 )]
+[node name="AnimationPlayerStateScene" parent="." index="6" instance=ExtResource( 4 )]
