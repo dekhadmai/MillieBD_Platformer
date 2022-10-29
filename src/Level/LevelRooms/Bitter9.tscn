@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Enemies/AerialEnemy_ExpGiver.tscn" type="PackedScene" id=3]
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -21,3 +23,27 @@ position = Vector2( 640, 16 )
 
 [node name="Door_Down" parent="." index="5"]
 position = Vector2( 640, 721 )
+
+[node name="AerialEnemy_Bullet" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 96, 222 )
+
+[node name="AerialEnemy_Bullet2" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 1023, 362 )
+
+[node name="AerialEnemy_Bullet3" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 1043, 95 )
+
+[node name="AerialEnemy_ExpGiver" parent="." index="11" instance=ExtResource( 3 )]
+position = Vector2( 630, 173 )
+
+[node name="AerialEnemy_Bullet4" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 124, 588 )
+
+[node name="AerialEnemy_Bullet5" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( 1168, 632 )
+
+[node name="AerialEnemy_Bullet" parent="AerialEnemy_Bullet5" index="9" instance=ExtResource( 2 )]
+position = Vector2( -882, -233 )
+
+[node name="AerialEnemy_Bullet6" parent="." index="14" instance=ExtResource( 2 )]
+position = Vector2( 637, 527 )

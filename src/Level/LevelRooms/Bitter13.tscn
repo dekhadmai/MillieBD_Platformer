@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BitterTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Platforms/BaseMovingPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Turret.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Mortar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 8.5 )
@@ -27,5 +32,29 @@ tile_data = PoolIntArray( -2, 536870918, 0, -65536, 536870918, 0 )
 position = Vector2( -1, -8.5 )
 shape = SubResource( 1 )
 one_way_collision = true
+
+[node name="AerialEnemy_Bullet" parent="." index="9" instance=ExtResource( 7 )]
+position = Vector2( 638, 326 )
+
+[node name="BaseGroundedEnemy_GroundWave" parent="." index="10" instance=ExtResource( 3 )]
+position = Vector2( 59, 670 )
+
+[node name="BaseGroundedEnemy_Bullet" parent="." index="11" instance=ExtResource( 4 )]
+position = Vector2( 54, 482 )
+
+[node name="BaseGroundedEnemy_Bullet2" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 1214, 672 )
+
+[node name="BaseGroundedEnemy_Bullet3" parent="." index="13" instance=ExtResource( 5 )]
+position = Vector2( 1216, 484 )
+
+[node name="BaseGroundedEnemy_Mortar" parent="." index="14" instance=ExtResource( 6 )]
+position = Vector2( 1228, 97 )
+
+[node name="BaseGroundedEnemy_Bullet4" parent="." index="15" instance=ExtResource( 4 )]
+position = Vector2( 99, 193 )
+
+[node name="BaseGroundedEnemy_Bullet5" parent="." index="16" instance=ExtResource( 4 )]
+position = Vector2( 333, 68 )
 
 [editable path="BaseMovingPlatform"]
