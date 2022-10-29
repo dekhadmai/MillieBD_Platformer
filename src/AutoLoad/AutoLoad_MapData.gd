@@ -4,10 +4,13 @@ var CreateInstanceQueue = []
 var InstanceQueueTimer: Timer
 var InstanceQueueInterval = 0.05
 
-export var bSpawnOneRoom: bool = false
+var bSpawnOneRoom: bool = false
 export var bUseTestRoom: bool = false
 export(String, FILE) var TestRoom
 
+## will cycle through every room first before picking duplicates
+export var bTestAllRandomLevel = false
+var AllRandomLevelRoomMapPool = []
 export(Array, String, FILE, "*.tscn") var RandomLevelPool #N
 export(Array, String, FILE, "*.tscn") var CheckpointPool #C
 export(Array, String, FILE, "*.tscn") var MiniBossLevelPool #M
@@ -82,6 +85,16 @@ func _ready():
 	print_map()
 	
 	pass # Replace with function body.
+
+func GetRandomLevelRoom():
+	if bTestAllRandomLevel : 
+		if AllRandomLevelRoomMapPool.size() == 0:
+			AllRandomLevelRoomMapPool.append(LevelRoomMapPool)
+			
+		AllRandomLevelRoomMapPool.shuffle()
+		return AllRandomLevelRoomMapPool.pop_back()
+	else : 
+		return LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
 
 func GetCheckpointRoom():
 	return CheckpointPool[0]
@@ -189,7 +202,7 @@ func GenerateRooms()->bool:
 			if bUseTestRoom and TestRoom != "":
 				level_room_data.LevelRoomTemplate = TestRoom
 			else:
-				level_room_data.LevelRoomTemplate = LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
+				level_room_data.LevelRoomTemplate = GetRandomLevelRoom()
 			level_room_data.RoomType = "N"
 			LevelRoomMap[i].append(level_room_data)
 			
