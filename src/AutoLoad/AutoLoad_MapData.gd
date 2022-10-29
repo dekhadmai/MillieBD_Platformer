@@ -2,7 +2,7 @@ extends Node
 
 var CreateInstanceQueue = []
 var InstanceQueueTimer: Timer
-var InstanceQueueInterval = 0.05
+var InstanceQueueInterval = 0.1
 
 var bSpawnOneRoom: bool = false
 export var bUseTestRoom: bool = false
@@ -39,6 +39,8 @@ var Checkpoint_Position: Vector2 = Vector2(100,150)
 var Checkpoint_RoomPosition: Vector2 = Vector2(2,0)
 var Checkpoint_RoomGlobalPosition: Vector2 = Vector2(0,0)
 
+var bIsDebugBuild = true
+
 export(String, FILE, "*.tscn") var PlayerTemplate
 onready var player_template = load(PlayerTemplate)
 var player
@@ -63,6 +65,9 @@ func DespawnAllRooms():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	bIsDebugBuild = OS.is_debug_build()
+	bIsDebugBuild = true
+	
 	InstanceQueueTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_ProcessInstanceQueue")
 	InstanceQueueTimer.set_one_shot(true)
 	
@@ -134,9 +139,13 @@ func CreateInstanceFromQueue(row, column, room_direction):
 		if (room_direction == "Center"):
 			room_center = CreateRoomInstance(row, column)
 			if room_center != null:
-				#add_child(room_center)
-				room_center.set_global_position(Checkpoint_RoomGlobalPosition)
-				add_child(room_center)
+				if !bIsDebugBuild :
+					add_child(room_center)
+					room_center.set_global_position(Checkpoint_RoomGlobalPosition)
+				else : 
+					room_center.set_global_position(Checkpoint_RoomGlobalPosition)
+					add_child(room_center)
+					
 				LevelRoomMap[row][column].RoomInstance = room_center
 			
 		room_data = LevelRoomMap[row][column]
@@ -148,27 +157,39 @@ func CreateInstanceFromQueue(row, column, room_direction):
 	if (room_direction == "Up"):
 		var room_up = CreateRoomInstance(row-1, column)
 		if room_up != null:
-			#add_child(room_up)
-			SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
-			add_child(room_up)
+			if !bIsDebugBuild :
+				add_child(room_up)
+				SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
+			else : 
+				SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
+				add_child(room_up)
 	if (room_direction == "Down"):
 		var room_down = CreateRoomInstance(row+1, column)
 		if room_down != null:
-			#add_child(room_down)
-			SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
-			add_child(room_down)
+			if !bIsDebugBuild :
+				add_child(room_down)
+				SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
+			else : 
+				SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
+				add_child(room_down)
 	if (room_direction == "Left"):
 		var room_left = CreateRoomInstance(row, column-1)
 		if room_left != null:
-			#add_child(room_left)
-			SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
-			add_child(room_left)
+			if !bIsDebugBuild :
+				add_child(room_left)
+				SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
+			else : 
+				SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
+				add_child(room_left)
 	if (room_direction == "Right"):
 		var room_right = CreateRoomInstance(row, column+1)
 		if room_right != null:
-			#add_child(room_right)
-			SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
-			add_child(room_right)
+			if !bIsDebugBuild :
+				add_child(room_right)
+				SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
+			else : 
+				SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
+				add_child(room_right)
 
 func SetCurrentRoom(vec: Vector2):
 	if vec != CurrentPlayerRoom :
