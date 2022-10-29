@@ -87,14 +87,19 @@ func _ready():
 	pass # Replace with function body.
 
 func GetRandomLevelRoom():
+	var result
 	if bTestAllRandomLevel : 
 		if AllRandomLevelRoomMapPool.size() == 0:
-			AllRandomLevelRoomMapPool.append(LevelRoomMapPool)
+			AllRandomLevelRoomMapPool.append_array(LevelRoomMapPool)
 			
 		AllRandomLevelRoomMapPool.shuffle()
-		return AllRandomLevelRoomMapPool.pop_back()
+		result = AllRandomLevelRoomMapPool.pop_back()
 	else : 
-		return LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
+		result = LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
+	
+	#print(result)
+	return result
+
 
 func GetCheckpointRoom():
 	return CheckpointPool[0]

@@ -6,6 +6,7 @@
 pause_mode = 1
 script = ExtResource( 1 )
 TestRoom = "res://src/Level/LevelRooms/Bitter16.tscn"
+bTestAllRandomLevel = true
 RandomLevelPool = [ "res://src/Level/LevelRooms/level_A.tscn", "res://src/Level/LevelRooms/level_B.tscn", "res://src/Level/LevelRooms/level_C.tscn", "res://src/Level/LevelRooms/level_D.tscn", "res://src/Level/LevelRooms/Bitter1.tscn", "res://src/Level/LevelRooms/Bitter2.tscn", "res://src/Level/LevelRooms/Bitter3.tscn", "res://src/Level/LevelRooms/Bitter4.tscn", "res://src/Level/LevelRooms/Bitter5.tscn", "res://src/Level/LevelRooms/Bitter6.tscn", "res://src/Level/LevelRooms/Bitter7.tscn", "res://src/Level/LevelRooms/Bitter8.tscn", "res://src/Level/LevelRooms/Bitter9.tscn", "res://src/Level/LevelRooms/Bitter10.tscn", "res://src/Level/LevelRooms/Bitter11.tscn", "res://src/Level/LevelRooms/Bitter12.tscn", "res://src/Level/LevelRooms/Bitter13.tscn", "res://src/Level/LevelRooms/Bitter14.tscn", "res://src/Level/LevelRooms/Bitter15.tscn", "res://src/Level/LevelRooms/Bitter16.tscn" ]
 CheckpointPool = [ "res://src/Level/LevelRooms/LevelRoom_Checkpoint.tscn" ]
 BossLevelPool = [ "res://src/Level/LevelRooms/LevelRoom_BossTeleporter.tscn" ]
