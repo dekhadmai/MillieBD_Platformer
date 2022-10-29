@@ -79,9 +79,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "OwnerDisableCollision"
+}, {
 "args": [  ],
 "method": "OwnerQueueFree"
 } ]
@@ -162,7 +165,7 @@ texture = ExtResource( 2 )
 flip_h = true
 hframes = 5
 vframes = 5
-frame = 12
+frame = 20
 
 [node name="AnimationPlayerState" parent="." instance=ExtResource( 1 )]
 anims/attack = SubResource( 1 )

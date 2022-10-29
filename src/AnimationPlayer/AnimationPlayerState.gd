@@ -14,6 +14,9 @@ var LastAnimation: String
 func OwnerQueueFree():
 	GlobalFunctions.GetOwnerObject(self).queue_free()
 
+func OwnerDisableCollision():
+	GlobalFunctions.GetOwnerObject(self).DisableCollision()
+
 func GetCurrentAnimName() -> String:
 	if bIsPlayingFullBodyAnim:
 		return FullBodyAnimState

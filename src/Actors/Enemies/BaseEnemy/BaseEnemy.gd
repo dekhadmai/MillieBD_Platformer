@@ -87,6 +87,9 @@ func _physics_process(_delta):
 #	if animation != animation_player.current_animation:
 #		animation_player.play(animation)
 
+func DisableCollision():
+	set_collision_layer(0)
+
 func died():
 	.died()
 	destroy()
