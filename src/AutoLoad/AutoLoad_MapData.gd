@@ -8,8 +8,15 @@ export var bSpawnOneRoom: bool = false
 export var bUseTestRoom: bool = false
 export(String, FILE) var TestRoom
 
-export(Array, String, FILE) var RandomLevelPool
+export(Array, String, FILE, "*.tscn") var RandomLevelPool #N
+export(Array, String, FILE, "*.tscn") var CheckpointPool #C
+export(Array, String, FILE, "*.tscn") var MiniBossLevelPool #M
+export(Array, String, FILE, "*.tscn") var BossLevelPool #B
 var LevelRoomMapPool = []
+export(String, FILE, "*.tscn") var BossLevelTemplate
+var BossLevelInstance = null
+
+var TotalCheckpointRoomCount = 10
 
 var startroom_row = 2
 var startroom_col = 0
@@ -19,17 +26,37 @@ var GridWidth = 10
 var GridHeight = 5
 var DoorChance = 15
 var TotalRoomAvailable: int = 0
+var LongestDistance: int = 0
+
+var TotalRoomThreshold = 30
+var LongestDistanceThreshold = 15
 
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
 var Checkpoint_Position: Vector2 = Vector2(100,150)
+var Checkpoint_RoomPosition: Vector2 = Vector2(2,0)
+var Checkpoint_RoomGlobalPosition: Vector2 = Vector2(0,0)
 
 export(String, FILE, "*.tscn") var PlayerTemplate
 onready var player_template = load(PlayerTemplate)
 var player
 func SpawnPlayer():
+	DespawnAllRooms()
+			
+	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y)
+	SetCurrentRoom(Checkpoint_RoomPosition)
+	
 	player = player_template.instance()
 	player.set_global_position(Checkpoint_Position)
 	add_child(player)
+
+func DespawnAllRooms():
+	for i in GridHeight:
+		for j in GridWidth:
+			RemoveRoomInstance(i, j)
+			
+	if is_instance_valid(BossLevelInstance) : 
+		BossLevelInstance.queue_free()
+		BossLevelInstance = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,12 +73,21 @@ func _ready():
 		if RandomLevelPool[i] != null :
 			LevelRoomMapPool.append(RandomLevelPool[i])
 	
-	GenerateRooms()
+	var bValidGen = false
+	while (!bValidGen):
+		bValidGen = GenerateRooms()
+		
 	print("\n")
 	
 	print_map()
 	
 	pass # Replace with function body.
+
+func GetCheckpointRoom():
+	return CheckpointPool[0]
+	
+func GetBossRoom():
+	return BossLevelPool[0]
 
 func _ProcessInstanceQueue():
 	var queue_data = CreateInstanceQueue.pop_back()
@@ -62,6 +98,10 @@ func _ProcessInstanceQueue():
 	
 func CreateInstanceFromQueue(row, column, room_direction):
 	
+	if (room_direction == "Boss"):
+		SpawnBossRoom()
+		return
+	
 	var room_data:LevelRoomData
 	var room = null# = CreateRoomInstance(row, column)
 	if room == null:
@@ -70,6 +110,16 @@ func CreateInstanceFromQueue(row, column, room_direction):
 	
 		if row < 0 or row >= GridHeight :
 			return
+			
+			
+		var room_center
+		if (room_direction == "Center"):
+			room_center = CreateRoomInstance(row, column)
+			if room_center != null:
+				add_child(room_center)
+				room_center.set_global_position(Checkpoint_RoomGlobalPosition)
+				#add_child(room_up)
+				LevelRoomMap[row][column].RoomInstance = room_center
 			
 		room_data = LevelRoomMap[row][column]
 		room = room_data.RoomInstance
@@ -111,7 +161,24 @@ func SetCurrentRoom(vec: Vector2):
 		if LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].RoomInstance :
 			LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].RoomInstance.SetCurrentRoom()
 
-func GenerateRooms():
+func CheckAdjacentHasRoomType(row, column, room_type) -> bool:
+	if row-1 >= 0 :
+		if LevelRoomMap[row-1][column].RoomType == room_type :
+			return true
+	if row+1 < GridHeight :
+		if LevelRoomMap[row+1][column].RoomType == room_type :
+			return true
+			
+	if column-1 >= 0 :
+		if LevelRoomMap[row][column-1].RoomType == room_type :
+			return true
+	if column+1 < GridWidth :
+		if LevelRoomMap[row][column+1].RoomType == room_type :
+			return true
+		
+	return false
+
+func GenerateRooms()->bool:
 	LevelRoomMap = []
 	TotalRoomAvailable = 0
 	
@@ -123,18 +190,57 @@ func GenerateRooms():
 				level_room_data.LevelRoomTemplate = TestRoom
 			else:
 				level_room_data.LevelRoomTemplate = LevelRoomMapPool[randi() % LevelRoomMapPool.size()]
-				
+			level_room_data.RoomType = "N"
 			LevelRoomMap[i].append(level_room_data)
 			
 	randomize()
-	#seed(35)
+	#seed(350)
 	
 	# start in the middle
-	LevelRoomMap[startroom_row][startroom_col].LevelRoomTemplate = "res://src/Level/LevelRooms/LevelRoom_Checkpoint.tscn"
+	LevelRoomMap[startroom_row][startroom_col].LevelRoomTemplate = GetCheckpointRoom()
 	LevelRoomMap[startroom_row][startroom_col].bStartRoom = true
 	LevelRoomMap[startroom_row][startroom_col].bIsExplored = true
+	LevelRoomMap[startroom_row][startroom_col].RoomType = "C"
 	SetCurrentRoom(Vector2(startroom_row, startroom_col))
 	Traverse(startroom_row, startroom_col, -1, -1, 0)
+	
+	var AvailableRooms = []
+	for i in GridHeight:
+		for j in GridWidth:
+			var level_room_data: LevelRoomData = LevelRoomMap[i][j]
+			if level_room_data.bTraversed : 
+				AvailableRooms.append({r=i, c=j})
+	AvailableRooms.shuffle()
+	
+	# add checkpoint rooms
+	var count = 0
+	while (count < TotalCheckpointRoomCount and AvailableRooms.size() > 0) : 
+		var room_pos = AvailableRooms.pop_back()
+		if room_pos : 
+			if !CheckAdjacentHasRoomType(room_pos.r, room_pos.c, "C") : 
+				var level_room_data: LevelRoomData
+				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetCheckpointRoom()
+				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "C"
+				count += 1
+				
+	AvailableRooms = []
+	for i in GridHeight:
+		for j in GridWidth:
+			var level_room_data: LevelRoomData = LevelRoomMap[i][j]
+			if level_room_data.bTraversed : 
+				AvailableRooms.append({r=i, c=j})
+	AvailableRooms.shuffle()
+	
+	# add boss rooms
+	count = 0
+	while (AvailableRooms.size() > 0) : 
+		var room_pos = AvailableRooms.pop_back()
+		if room_pos : 
+			var level_room_data: LevelRoomData
+			if LevelRoomMap[room_pos.r][room_pos.c].Distance >= LongestDistanceThreshold : 
+				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetBossRoom()
+				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "B"
+				break
 	
 	if bSpawnOneRoom and bUseTestRoom : 
 		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[1] = 1
@@ -142,7 +248,13 @@ func GenerateRooms():
 #		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[0] = 1
 #		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[2] = 1
 #		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[3] = 1
-	pass
+
+		return true
+		
+	if TotalRoomAvailable > TotalRoomThreshold && LongestDistance > LongestDistanceThreshold:
+		return true
+	
+	return false
 
 func Traverse(row:int, column:int, from_row: int, from_column: int, distance: int):
 	
@@ -167,6 +279,8 @@ func Traverse(row:int, column:int, from_row: int, from_column: int, distance: in
 	##### mark this room
 	room_data.bTraversed = true
 	room_data.Distance = distance
+	if LongestDistance < room_data.Distance:
+		LongestDistance = room_data.Distance
 	TotalRoomAvailable += 1
 	
 	# setup for new room to traverse
@@ -254,6 +368,7 @@ func print_map():
 		for j in GridWidth:
 			var room_data:LevelRoomData = LevelRoomMap[i][j]
 			
+			result += room_data.RoomType + " "
 			if !room_data.bStartRoom:
 				result += str(room_data.Distance)
 				for n in (3 - str(room_data.Distance).length()):
@@ -362,23 +477,27 @@ func CreateRoomInstance(row: int, column: int) -> BaseLevelRoom:
 
 # spawn room and its adjacent rooms
 func SpawnRooms(row: int, column: int) -> void :
-	var room_data:LevelRoomData
-	var room = null# = CreateRoomInstance(row, column)
-	if room == null:
-		if column < 0 or column >= GridWidth :
-			return
+#	var room_data:LevelRoomData
+#	var room = null #CreateRoomInstance(row, column)
+#	if room == null:
+#		if column < 0 or column >= GridWidth :
+#			return
+#
+#		if row < 0 or row >= GridHeight :
+#			return
+#
+#		room_data = LevelRoomMap[row][column]
+#		room = room_data.RoomInstance
+#	else:
+#		room.set_global_position(Checkpoint_RoomGlobalPosition)
+#		add_child(room)
+#
+#
+#	if room == null:
+#		return
 	
-		if row < 0 or row >= GridHeight :
-			return
-			
-		room_data = LevelRoomMap[row][column]
-		room = room_data.RoomInstance
-	else:
-		room.set_global_position(Vector2(0,0))
-		room.add_child(room)
-		
-	if room == null:
-		return
+	# stagger spawn rooms
+	
 	
 	var data = {r = row, c = column, d = "Up"}
 	CreateInstanceQueue.push_back(data)
@@ -392,28 +511,10 @@ func SpawnRooms(row: int, column: int) -> void :
 	data = {r = row, c = column, d = "Right"}
 	CreateInstanceQueue.push_back(data)
 	
-	InstanceQueueTimer.start(InstanceQueueInterval)
+	data = {r = row, c = column, d = "Center"}
+	CreateInstanceQueue.push_back(data)
 	
-#	var room_up = CreateRoomInstance(row-1, column)
-#	if room_up != null:
-#		#add_child(room_up)
-#		SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
-#		add_child(room_up)
-#	var room_down = CreateRoomInstance(row+1, column)
-#	if room_down != null:
-#		#add_child(room_down)
-#		SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
-#		add_child(room_down)
-#	var room_left = CreateRoomInstance(row, column-1)
-#	if room_left != null:
-#		#add_child(room_left)
-#		SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
-#		add_child(room_left)
-#	var room_right = CreateRoomInstance(row, column+1)
-#	if room_right != null:
-#		#add_child(room_right)
-#		SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
-#		add_child(room_right)
+	InstanceQueueTimer.start(InstanceQueueInterval)
 	
 	pass
 
@@ -445,12 +546,7 @@ func RemoveRoomInstance(row: int, column: int) :
 	pass
 
 func InitSpawnRooms():
-	var room
-	room = CreateRoomInstance(startroom_row, startroom_col)
-	if room != null:
-		room.global_position = Vector2(0,0)
-		add_child(room)
-	
+		
 	SpawnRooms(startroom_row, startroom_col)
 	
 	pass
@@ -465,3 +561,18 @@ func SetPositionNextRoom(current_room: BaseLevelRoom, exit, next_room: BaseLevel
 	next_room.set_global_position(offset)
 	
 	pass
+
+func SpawnBossRoomDelay():
+	var data = {r = 0, c = 0, d = "Boss"}
+	CreateInstanceQueue.push_back(data)
+	
+	InstanceQueueTimer.start(InstanceQueueInterval)
+
+func SpawnBossRoom():
+	var tmp_room = load(BossLevelTemplate)
+	BossLevelInstance = tmp_room.instance()
+	BossLevelInstance.set_global_position(Vector2(0,0))
+	add_child(BossLevelInstance)
+	
+	player.set_global_position(Vector2(100,150))
+	

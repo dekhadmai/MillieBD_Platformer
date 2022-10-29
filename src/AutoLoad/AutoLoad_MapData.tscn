@@ -5,6 +5,10 @@
 [node name="AutoLoad_MapData" type="Node"]
 pause_mode = 1
 script = ExtResource( 1 )
-TestRoom = "res://src/Level/LevelRooms/level_D.tscn"
+bUseTestRoom = true
+TestRoom = "res://src/Level/LevelRooms/LevelRoom_BossTeleporter.tscn"
 RandomLevelPool = [ "res://src/Level/LevelRooms/level_A.tscn", "res://src/Level/LevelRooms/level_B.tscn", "res://src/Level/LevelRooms/level_C.tscn", "res://src/Level/LevelRooms/level_D.tscn", "res://src/Level/LevelRooms/Bitter1.tscn", "res://src/Level/LevelRooms/Bitter2.tscn", "res://src/Level/LevelRooms/Bitter3.tscn", "res://src/Level/LevelRooms/Bitter4.tscn", "res://src/Level/LevelRooms/Bitter5.tscn", "res://src/Level/LevelRooms/Bitter6.tscn" ]
+CheckpointPool = [ "res://src/Level/LevelRooms/LevelRoom_Checkpoint.tscn" ]
+BossLevelPool = [ "res://src/Level/LevelRooms/LevelRoom_BossTeleporter.tscn" ]
+BossLevelTemplate = "res://src/Level/LevelRooms/LevelRoom_Enna.tscn"
 PlayerTemplate = "res://src/Actors/Player.tscn"

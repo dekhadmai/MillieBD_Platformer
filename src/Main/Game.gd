@@ -29,7 +29,8 @@ func _notification(what):
 
 
 func _ready():
-	autoload_mapdata.SpawnPlayer()
+	
 	autoload_mapdata.InitSpawnRooms()
+	autoload_mapdata.SpawnPlayer()
 	
 	pass
