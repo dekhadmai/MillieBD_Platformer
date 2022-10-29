@@ -116,9 +116,9 @@ func CreateInstanceFromQueue(row, column, room_direction):
 		if (room_direction == "Center"):
 			room_center = CreateRoomInstance(row, column)
 			if room_center != null:
-				add_child(room_center)
+				#add_child(room_center)
 				room_center.set_global_position(Checkpoint_RoomGlobalPosition)
-				#add_child(room_up)
+				add_child(room_center)
 				LevelRoomMap[row][column].RoomInstance = room_center
 			
 		room_data = LevelRoomMap[row][column]
@@ -130,27 +130,27 @@ func CreateInstanceFromQueue(row, column, room_direction):
 	if (room_direction == "Up"):
 		var room_up = CreateRoomInstance(row-1, column)
 		if room_up != null:
-			add_child(room_up)
-			SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
 			#add_child(room_up)
+			SetPositionNextRoom(room, "Door_Up", room_up, "Door_Down")
+			add_child(room_up)
 	if (room_direction == "Down"):
 		var room_down = CreateRoomInstance(row+1, column)
 		if room_down != null:
-			add_child(room_down)
-			SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
 			#add_child(room_down)
+			SetPositionNextRoom(room, "Door_Down", room_down, "Door_Up")
+			add_child(room_down)
 	if (room_direction == "Left"):
 		var room_left = CreateRoomInstance(row, column-1)
 		if room_left != null:
-			add_child(room_left)
-			SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
 			#add_child(room_left)
+			SetPositionNextRoom(room, "Door_Left", room_left, "Door_Right")
+			add_child(room_left)
 	if (room_direction == "Right"):
 		var room_right = CreateRoomInstance(row, column+1)
 		if room_right != null:
-			add_child(room_right)
-			SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
 			#add_child(room_right)
+			SetPositionNextRoom(room, "Door_Right", room_right, "Door_Left")
+			add_child(room_right)
 
 func SetCurrentRoom(vec: Vector2):
 	if vec != CurrentPlayerRoom :
@@ -194,7 +194,7 @@ func GenerateRooms()->bool:
 			LevelRoomMap[i].append(level_room_data)
 			
 	randomize()
-	#seed(350)
+	#seed(35)
 	
 	# start in the middle
 	LevelRoomMap[startroom_row][startroom_col].LevelRoomTemplate = GetCheckpointRoom()

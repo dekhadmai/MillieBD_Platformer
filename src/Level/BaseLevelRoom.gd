@@ -44,6 +44,7 @@ func SetCurrentRoom():
 	pass
 	
 func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
+	return
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if tilemap == null:
 		tilemap = find_node("TileMap")

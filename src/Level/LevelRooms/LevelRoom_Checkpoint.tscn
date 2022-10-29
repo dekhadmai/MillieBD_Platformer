@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Level/Checkpoint.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Objects/RandomActorSpawner_GroundEnemies.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Objects/Spawners/RandomActorSpawner_AerialEnemies.tscn" type="PackedScene" id=4]
 
 [node name="LevelRoom_Checkpoint" instance=ExtResource( 1 )]
 
@@ -23,16 +21,4 @@ position = Vector2( 640, 16 )
 position = Vector2( 640, 721 )
 
 [node name="Checkpoint" parent="." index="8" instance=ExtResource( 2 )]
-position = Vector2( 640, 432 )
-
-[node name="RandomActorSpawner_GroundEnemies" parent="." index="9" instance=ExtResource( 3 )]
-position = Vector2( 1160, 376 )
-
-[node name="RandomActorSpawner_AerialEnemies" parent="RandomActorSpawner_GroundEnemies" index="2" instance=ExtResource( 4 )]
-position = Vector2( -56, -128 )
-
-[node name="RandomActorSpawner_AerialEnemies2" parent="RandomActorSpawner_GroundEnemies" index="3" instance=ExtResource( 4 )]
-position = Vector2( -168, -136 )
-
-[node name="RandomActorSpawner_AerialEnemies3" parent="RandomActorSpawner_GroundEnemies" index="4" instance=ExtResource( 4 )]
-position = Vector2( -272, -128 )
+position = Vector2( 640, 435 )
