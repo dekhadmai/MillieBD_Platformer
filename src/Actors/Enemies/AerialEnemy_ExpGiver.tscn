@@ -6,7 +6,6 @@
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_Aloupeep.tscn" type="PackedScene" id=4]
 
 [node name="AerialEnemy_ExpGiver" instance=ExtResource( 3 )]
-collision_layer = 0
 AIcontroller_NodeName = "AIControllerAerial"
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]

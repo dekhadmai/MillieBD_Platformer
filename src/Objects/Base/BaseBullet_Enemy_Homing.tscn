@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Objects/Base/BaseBullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/art/bullets/Aloubullets.png" type="Texture" id=2]
 
 [node name="BaseBullet" instance=ExtResource( 1 )]
 collision_mask = 0
@@ -9,5 +10,9 @@ BaseSpeed = 200.0
 
 [node name="MovementComponent" parent="." index="0"]
 bUseHoming = true
+
+[node name="Sprite" parent="Area2D_Damage" index="1"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
 
 [editable path="Area2D_Damage"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Ability/Enna/Enna_Bullet_BouncingFeathers.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/art/bullets/Exp_giver.png" type="Texture" id=2]
 
 [node name="Bullet_ExpGiver" instance=ExtResource( 1 )]
 bDebug = false
@@ -13,5 +14,12 @@ bUseTopLeftBottomRight = false
 
 [node name="GrazeExpGiver" parent="Area2D_Damage" index="0"]
 graze_exp_per_period = 3.0
+
+[node name="Sprite" parent="Area2D_Damage" index="1"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="Area2D_Damage" index="5"]
+visible = false
 
 [editable path="Area2D_Damage"]
