@@ -3,7 +3,7 @@ extends BaseGameplayAbility
 var SlowTimer: Timer
 
 export var SlowTimeDuration = 1.0
-export var TimeScaleAmount = 0.2
+export var TimeScaleAmount = 0.1
 export var FadeInTime = 0.2
 export var FadeOutTime = 0.5
 

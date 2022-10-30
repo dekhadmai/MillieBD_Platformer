@@ -8,7 +8,7 @@ var AbilityCooldownTimer: Timer
 export var AbilityCooldownSecond: float = 1.0
 export var bCommitAbilityCooldownWhenDeactivate: bool = true
 export var bUseFervor = false
-export var FervorCost = 25.0
+export var FervorCost = 20.0
 export var AbilityLevel: int = 0
 var bIsActive: bool
 

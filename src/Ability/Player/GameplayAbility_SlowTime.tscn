@@ -7,6 +7,6 @@
 script = ExtResource( 2 )
 AbilityCooldownSecond = 3.0
 SlowTimeDuration = 1.0
-TimeScaleAmount = 0.2
+TimeScaleAmount = 0.1
 FadeInTime = 0.2
 FadeOutTime = 0.5
