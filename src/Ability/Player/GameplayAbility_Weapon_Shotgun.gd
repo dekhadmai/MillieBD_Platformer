@@ -1,15 +1,9 @@
 extends "res://src/Ability/GameplayAbility_ActorSpawner_BulletSpawner.gd"
 
 
-var bullet_count = 5
-var bullet_rotation_range = 15
-var bullet_spawn_delay_range = 0.1
-
-var cache_rotation
-
-func Activate():
-	.Activate()
-	cache_rotation = .GetSpawnRotation()
+export var bullet_count = 5
+export var bullet_rotation_range = 15
+export var bullet_spawn_delay_range = 0.1
 	
 func SpawnActor() -> void:
 	GlobalFunctions.queue_free_children(bullet_spawner_component)
@@ -20,6 +14,3 @@ func SpawnActor() -> void:
 		bullet_spawner_component.add_child(bullet_data)
 	
 	.SpawnActor()
-
-func GetSpawnRotation():
-	return cache_rotation

@@ -87,7 +87,8 @@ func _ready():
 	
 	# init ability
 	AddWeaponAbility("HandGun")
-	AddWeaponAbility("ShotGun")
+	AddWeaponAbility("Shotgun")
+	AddWeaponAbility("Minigun")
 	SwapWeapon()
 	
 	pass

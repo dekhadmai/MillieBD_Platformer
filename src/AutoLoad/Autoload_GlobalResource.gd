@@ -5,7 +5,8 @@ extends Node
 
 var PlayerWeaponAbilityTemplates = {
 	"HandGun" : "res://src/Ability/Player/GameplayAbility_Weapon_HandGun.tscn",
-	"ShotGun" : "res://src/Ability/Player/GameplayAbility_Weapon_Shotgun.tscn"
+	"Shotgun" : "res://src/Ability/Player/GameplayAbility_Weapon_Shotgun.tscn",
+	"Minigun" : "res://src/Ability/Player/GameplayAbility_Weapon_Minigun.tscn"
 }
 
 

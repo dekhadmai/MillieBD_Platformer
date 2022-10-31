@@ -7,6 +7,9 @@
 script = ExtResource( 3 )
 CustomAnimName = "_weapon"
 LingeringAnimName = "_active_weapon"
+bullet_count = 5
+bullet_rotation_range = 15
+bullet_spawn_delay_range = 0.1
 
 [node name="BulletSpawnerComponent" parent="." index="3"]
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"
