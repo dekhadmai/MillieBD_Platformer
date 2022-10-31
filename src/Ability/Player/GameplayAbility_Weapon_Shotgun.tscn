@@ -7,6 +7,7 @@
 script = ExtResource( 3 )
 CustomAnimName = "_weapon"
 LingeringAnimName = "_active_weapon"
+LingeringAnimDuration = 1.2
 bullet_count = 5
 bullet_rotation_range = 15
 bullet_spawn_delay_range = 0.1
