@@ -27,9 +27,12 @@ export var LingeringAnimDuration: float = 1.0
 export var AbilityDelayForAnimationSecond: float = 0.0
 var AbilityDelayTimer: Timer
 
+export var bUseAbilitySprite = false
+
 
 onready var ability_sound = $AbilitySound
 onready var GameplayeEffect_Template: BaseGameplayEffect = $GameplayEffectTemplate
+onready var ability_sprite = $AbilitySprite
 
 var TargetActor:Actor = null setget SetTargetActor
 
@@ -93,6 +96,8 @@ func Activate():
 	if bUseFervor:
 		AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.AddFervor(-FervorCost)
 	bIsActive = true
+	if bUseAbilitySprite : 
+		ability_sprite.set_visible(true)
 	
 	if CustomAnimName != "":
 		PlayCustomAnimation(CustomAnimName, CustomAnimDuration, bStopMovingWhilePlayingAnim)
@@ -118,6 +123,8 @@ func Deactivate():
 	if bCommitAbilityCooldownWhenDeactivate:
 		CommitAbilityCooldown()
 	bIsActive = false
+	if bUseAbilitySprite : 
+		ability_sprite.set_visible(false)
 	pass
 	
 func EndAbility():

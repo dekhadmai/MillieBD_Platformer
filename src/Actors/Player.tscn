@@ -521,13 +521,14 @@ script = ExtResource( 1 )
 Team_ID = 1
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, -22 )
 InitStat_HP = 400.0
 InitStat_IframeSeconds = 0.3
 
 [node name="Ability_Dash" parent="AbilitySystemComponent" instance=ExtResource( 12 )]
+position = Vector2( 0, -22 )
 
 [node name="GrazeSystem" parent="AbilitySystemComponent" instance=ExtResource( 9 )]
-position = Vector2( 0, -22 )
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true

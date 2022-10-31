@@ -13,6 +13,8 @@ var TargetAbilitySystemComponent: BaseAbilitySystemComponent
 
 var EffectDurationTimer: Timer
 
+onready var effect_sprite = $GameplayEffectSprite
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -36,6 +38,9 @@ func Activate(instigator_ability_system_component, target_ability_system_compone
 		EffectDurationTimer.connect("timeout", self, "on_timeout_effect_duration")
 		EffectDurationTimer.set_one_shot(true)
 		EffectDurationTimer.start(EffectDuration)
+		
+		if effect_sprite : 
+			effect_sprite.set_visible(true)
 	
 	pass
 
@@ -44,6 +49,8 @@ func on_timeout_effect_duration():
 
 func Deactivate():
 	UndoEffect()
+	if effect_sprite : 
+		effect_sprite.set_visible(false) 
 	queue_free()
 	pass
 
