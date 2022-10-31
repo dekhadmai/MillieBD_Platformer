@@ -23,7 +23,16 @@ func get_global_position()->Vector2:
 	if bUseOverrideGlobalPosition:
 		return OverrideGlobalPosition
 		
+	if get_parent().has_method("GetSpawnPosition") :
+		return get_parent().GetSpawnPosition()
+		
 	return .get_global_position()
+	
+func get_global_rotation()->float:
+	if get_parent().has_method("GetSpawnRotation") :
+		return get_parent().GetSpawnRotation().angle()
+	return .get_global_rotation()
+	pass
 
 func GetOwnerObject() : 
 	return GlobalFunctions.GetOwnerObject(self)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=1]
+
+[node name="GameplayAbility_HandGun" instance=ExtResource( 1 )]
+AbilityCooldownSecond = 0.3
+CustomAnimName = "_weapon"
+LingeringAnimName = "_active_weapon"
+ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"

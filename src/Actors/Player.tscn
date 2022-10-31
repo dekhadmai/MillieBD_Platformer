@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Ability/GrazeSystem.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Ability/Ability_Dash.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
@@ -533,12 +532,6 @@ position = Vector2( 0, -22 )
 
 [node name="SpecialAbility" parent="AbilitySystemComponent" instance=ExtResource( 16 )]
 bUseFervor = true
-
-[node name="ShootAbility" parent="AbilitySystemComponent" instance=ExtResource( 11 )]
-AbilityCooldownSecond = 0.3
-CustomAnimName = "_weapon"
-LingeringAnimName = "_active_weapon"
-ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true

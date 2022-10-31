@@ -14,6 +14,7 @@ export(String) var action_suffix = ""
 
 onready var autoload_transientdata = $"/root/AutoLoadTransientData"
 onready var autoload_mapdata = $"/root/AutoLoadMapData"
+onready var autoload_globalresource = $"/root/AutoloadGlobalResource"
 
 onready var platform_detector = $PlatformDetector
 onready var animation_player = $AnimationPlayerState
@@ -21,9 +22,6 @@ onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var sound_jump = $Jump
 onready var player_collision:CollisionShape2D = $PlayerCollision
-
-onready var shoot_abi = $AbilitySystemComponent/ShootAbility
-onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 
 onready var camera = $Camera
 
@@ -36,8 +34,36 @@ export var jump_max_count = 1;
 var float_time_remaining = 0
 var float_time_max = 5.0
 
+onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 onready var dash_cd_bar = $DashCDBar
 onready var float_remaining_bar = $FloatTimeRemaining
+
+
+
+
+#####
+## Ability stuff
+#####
+
+var weapon_abi
+var WeaponAbilityArray = []
+var WeaponAbilityIndex = -1
+
+func AddWeaponAbility(dict_key: String):
+	var abi_template = load(autoload_globalresource.PlayerWeaponAbilityTemplates[dict_key])
+	if abi_template :
+		var abi_instance = abi_template.instance()
+		if is_instance_valid(abi_instance) : 
+			WeaponAbilityArray.push_back(abi_instance)
+			GetAbilitySystemComponent().add_child(abi_instance)
+	pass
+	
+func SwapWeapon():
+	WeaponAbilityIndex = (WeaponAbilityIndex + 1) % WeaponAbilityArray.size()
+	weapon_abi = WeaponAbilityArray[WeaponAbilityIndex]
+	
+
+##### 
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -57,6 +83,11 @@ func _ready():
 	
 	sprite.scale.x = OriginalScale
 	sprite.scale.y = OriginalScale
+	
+	# init ability
+	AddWeaponAbility("HandGun")
+	AddWeaponAbility("ShotGun")
+	SwapWeapon()
 	
 	pass
 
@@ -123,7 +154,10 @@ func _physics_process(_delta):
 	FacingDirection = sprite.scale.x / OriginalScale
 
 	if Input.is_action_just_pressed("shoot" + action_suffix):
-		shoot_abi.TryActivate()
+		weapon_abi.TryActivate()
+		
+	if Input.is_action_just_pressed("swap_weapon"):
+		SwapWeapon()
 	
 	var abi_node = null
 	if GlobalFunctions.IsKeyModifierPressed("use_ability", "move_up"):
