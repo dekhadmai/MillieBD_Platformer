@@ -21,7 +21,7 @@ func _on_body_entered(body):
 
 func OnBodyEnter(body):
 		if body.get_class() == "Actor":
-			if !body.GetAbilitySystemComponent().CurrentCharStats.bInvincible:
+			if !body.GetAbilitySystemComponent().CurrentCharStats.bInvincible > 0:
 				#if body.GetTeam() != Instigator.GetTeam():
 					OnBulletHit(body)
 		else :

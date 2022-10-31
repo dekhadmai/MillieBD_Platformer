@@ -49,13 +49,24 @@ func Deactivate():
 
 
 func DoEffect() -> void:
+	var instigator_stat = InstigatorAbilitySystemComponent.CurrentCharStats
+	var target_stat = TargetAbilitySystemComponent.CurrentCharStats
 	match StatToModify:
 		CharacterStats.CharacterStatType.Damage:
-			TargetAbilitySystemComponent.CurrentCharStats.TakeDamage(ValueToModify)
+			var calc_value = (ValueToModify * instigator_stat.CurrentAttack/100.0) * target_stat.TotalDamageAdjustScale
+			TargetAbilitySystemComponent.CurrentCharStats.TakeDamage(calc_value)
 		CharacterStats.CharacterStatType.EXP:
 			TargetAbilitySystemComponent.CurrentCharStats.AddEXP(ValueToModify)
 		CharacterStats.CharacterStatType.ExpAdjustScale:
 			TargetAbilitySystemComponent.CurrentCharStats.ExpAdjustScale += ValueToModify
+		CharacterStats.CharacterStatType.HP:
+			TargetAbilitySystemComponent.CurrentCharStats.CurrentHP += ValueToModify
+		CharacterStats.CharacterStatType.bInvincible:
+			TargetAbilitySystemComponent.CurrentCharStats.bInvincible += ValueToModify
+		CharacterStats.CharacterStatType.DamageAdjustScale:
+			TargetAbilitySystemComponent.CurrentCharStats.DamageAdjustScale += ValueToModify
+		CharacterStats.CharacterStatType.AttackScale:
+			TargetAbilitySystemComponent.CurrentCharStats.AttackScale += ValueToModify
 		_:
 			pass
 
@@ -63,6 +74,12 @@ func UndoEffect() -> void:
 	match StatToModify:
 		CharacterStats.CharacterStatType.ExpAdjustScale:
 			TargetAbilitySystemComponent.CurrentCharStats.ExpAdjustScale -= ValueToModify
+		CharacterStats.CharacterStatType.bInvincible:
+			TargetAbilitySystemComponent.CurrentCharStats.bInvincible -= ValueToModify
+		CharacterStats.CharacterStatType.DamageAdjustScale:
+			TargetAbilitySystemComponent.CurrentCharStats.DamageAdjustScale -= ValueToModify
+		CharacterStats.CharacterStatType.AttackScale:
+			TargetAbilitySystemComponent.CurrentCharStats.AttackScale -= ValueToModify
 		_:
 			pass
 	pass

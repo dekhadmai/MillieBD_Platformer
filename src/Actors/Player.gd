@@ -64,6 +64,23 @@ func SwapWeapon():
 	weapon_abi = WeaponAbilityArray[WeaponAbilityIndex]
 	
 
+var special_abi
+var SpecialAbilityArray = []
+var SpecialAbilityIndex = -1
+
+func AddSpecialAbility(dict_key: String):
+	var abi_template = load(autoload_globalresource.PlayerSpecialAbilityTemplates[dict_key])
+	if abi_template :
+		var abi_instance = abi_template.instance()
+		if is_instance_valid(abi_instance) : 
+			SpecialAbilityArray.push_back(abi_instance)
+			GetAbilitySystemComponent().add_child(abi_instance)
+	pass
+
+func SwapAbility():
+	SpecialAbilityIndex = (SpecialAbilityIndex + 1) % SpecialAbilityArray.size()
+	special_abi = SpecialAbilityArray[SpecialAbilityIndex]
+	
 ##### 
 
 func _ready():
@@ -90,6 +107,13 @@ func _ready():
 	AddWeaponAbility("Shotgun")
 	AddWeaponAbility("Minigun")
 	SwapWeapon()
+	
+	AddSpecialAbility("SlowTime")
+	AddSpecialAbility("Heal")
+	AddSpecialAbility("Invincible")
+	AddSpecialAbility("AttackBuff")
+	AddSpecialAbility("DamageReductionBuff")
+	SwapAbility()
 	
 	pass
 
@@ -163,24 +187,30 @@ func _physics_process(_delta):
 	if Input.is_action_just_released("shoot"):
 		hold_to_shoot_timer.stop()
 	
-
 	if Input.is_action_just_pressed("swap_weapon"):
 		SwapWeapon()
+		
+		
+	if Input.is_action_just_pressed("use_ability"):
+		special_abi.TryActivate()
+		
+	if Input.is_action_just_pressed("swap_ability"):
+		SwapAbility()
 	
-	var abi_node = null
-	if GlobalFunctions.IsKeyModifierPressed("use_ability", "move_up"):
-		abi_node = GetAbilityNode("SpecialAbility_Up")
-		if abi_node : 
-			abi_node.TryActivate()
-	elif GlobalFunctions.IsKeyModifierPressed("use_ability", "move_down"):
-		abi_node = GetAbilityNode("SpecialAbility_Down")
-		if abi_node : 
-			abi_node.TryActivate()
-	else:
-		if Input.is_action_just_pressed("use_ability" + action_suffix):
-			abi_node = GetAbilityNode("SpecialAbility")
-			if abi_node : 
-				abi_node.TryActivate()
+#	var abi_node = null
+#	if GlobalFunctions.IsKeyModifierPressed("use_ability", "move_up"):
+#		abi_node = GetAbilityNode("SpecialAbility_Up")
+#		if abi_node : 
+#			abi_node.TryActivate()
+#	elif GlobalFunctions.IsKeyModifierPressed("use_ability", "move_down"):
+#		abi_node = GetAbilityNode("SpecialAbility_Down")
+#		if abi_node : 
+#			abi_node.TryActivate()
+#	else:
+#		if Input.is_action_just_pressed("use_ability" + action_suffix):
+#			abi_node = GetAbilityNode("SpecialAbility")
+#			if abi_node : 
+#				abi_node.TryActivate()
 			
 	if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
 		set_collision_mask_bit(3, false)

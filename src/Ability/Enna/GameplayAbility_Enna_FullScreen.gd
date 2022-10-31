@@ -115,12 +115,12 @@ func Activate():
 	.Activate()
 	
 func DoAbility():
-	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible = true
+	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible += 1
 	invul_sprite.set_visible(true)
 	.DoAbility()
 	
 func Deactivate():
-	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible = false
+	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible -= 1
 	invul_sprite.set_visible(false)
 	AbilityOwner.Stun()
 	.Deactivate()

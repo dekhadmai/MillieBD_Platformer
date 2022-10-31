@@ -43,13 +43,13 @@ func do_dash():
 #	AbilityOwner.player_collision.get_shape().set_extents(shrink_extends)
 #	AbilityOwner.player_collision.position.y = -shrink_extends.y
 	dash_direction = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	player_current_stat.SetInvincible(true)
+	player_current_stat.bInvincible += 1
 	dash_duration_timer.start()
 	pass
 
 func _on_DashDuration_timeout():
 	dash_direction = 0
-	player_current_stat.SetInvincible(false)
+	player_current_stat.bInvincible -= 1
 #	AbilityOwner.player_collision.get_shape().set_extents(original_extends)
 #	AbilityOwner.player_collision.position.y = -original_extends.y
 	EndAbility()

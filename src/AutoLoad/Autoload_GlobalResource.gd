@@ -9,6 +9,14 @@ var PlayerWeaponAbilityTemplates = {
 	"Minigun" : "res://src/Ability/Player/GameplayAbility_Weapon_Minigun.tscn"
 }
 
+var PlayerSpecialAbilityTemplates = {
+	"SlowTime" : "res://src/Ability/Player/GameplayAbility_SlowTime.tscn",
+	"Heal" : "res://src/Ability/Player/GameplayAbility_Heal.tscn",
+	"Invincible" : "res://src/Ability/Player/GameplayAbility_Invincible.tscn",
+	"AttackBuff" : "res://src/Ability/Player/GameplayAbility_AttackBuff.tscn",
+	"DamageReductionBuff" : "res://src/Ability/Player/GameplayAbility_DamageReductionBuff.tscn"
+}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

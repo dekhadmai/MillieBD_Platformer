@@ -6,13 +6,13 @@ signal died
 signal level_up
 
 # Add to the back only, DO NOT ADD TO THE FRONT, It will shift everything that is already in the game by +1
-enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed, EXP, Fever, ExpAdjustScale}
+enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed, EXP, Fever, ExpAdjustScale, bInvincible, DamageAdjustScale, AttackScale}
 
 var HurtIframeTimer:Timer
 var HurtIframeDuration = 1.0
 var bHurtIframe: bool = false
 
-var bInvincible: bool = false setget SetInvincible
+var bInvincible: int = 0
 var CurrentHP: float = 0.0
 var CurrentAttack: float = 0.0
 var CurrentMovespeed: float = 0.0
@@ -57,12 +57,9 @@ func Calculate() -> void:
 	
 func HurtIframeTimer_timeout():
 	bHurtIframe = false
-	 
-func SetInvincible(value: bool):
-	bInvincible = value
 
 func TakeDamage(value: float):
-	if bHurtIframe or bInvincible : 
+	if bHurtIframe or bInvincible > 0 : 
 		return
 	
 	CurrentHP -= value
@@ -88,6 +85,14 @@ func AddFervor(value: float):
 	CurrentFervor += (value)
 	if CurrentFervor >= MaxFervor:
 		CurrentFervor = MaxFervor
+
+func AddBaseHP(value: float):
+	BaseHP += value
+	CurrentHP += value
+
+func AddBaseAtk(value: float):
+	BaseAttack += value
+	Calculate()
 
 func SetAttackScale(value: float):
 	AttackScale = value

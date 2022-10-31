@@ -59,7 +59,7 @@ func _on_EffectIntervalTimer_timeout():
 func _on_Area2D_Damage_Telegraph_area_entered(area):
 	if area.get_collision_layer_bit(7) :
 		var body:Actor = area.GetOwnerObject()
-		if !body.GetAbilitySystemComponent().CurrentCharStats.bInvincible:
+		if !body.GetAbilitySystemComponent().CurrentCharStats.bInvincible > 0:
 			if body.GetTeam() != GetOwnerObject().GetTeam():
 				OnHurtDetectionHit(body)
 				affected_actors.append(body)

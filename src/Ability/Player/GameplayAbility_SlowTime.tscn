@@ -6,6 +6,7 @@
 [node name="Ability_SlowTime" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 AbilityCooldownSecond = 3.0
+bUseFervor = true
 SlowTimeDuration = 1.0
 TimeScaleAmount = 0.1
 FadeInTime = 0.2

@@ -8,7 +8,7 @@ signal died
 
 # work around can't export character stats
 export(float) var InitStat_HP = 100.0
-export(float) var InitStat_Attack = 10.0
+export(float) var InitStat_Attack = 100.0
 export(float) var InitStat_Movespeed = 150.0
 export(float) var InitStat_JumpSpeed = 370.0
 export(float) var InitStat_IframeSeconds = 0.01

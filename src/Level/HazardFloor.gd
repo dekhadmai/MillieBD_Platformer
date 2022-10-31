@@ -12,6 +12,6 @@ func OnBulletHit(body:Actor):
 func _on_Area2D_area_entered(area):
 	if area.get_collision_layer_bit(7) :
 		var body:Actor = area.GetOwnerObject()
-		if !body.GetAbilitySystemComponent().CurrentCharStats.bInvincible:
+		if !body.GetAbilitySystemComponent().CurrentCharStats.bInvincible > 0:
 			#print(str(body) + "=" + str(body.GetTeam()) + ", " + str(Instigator) + "=" + str(GetTeam()))
 			OnBulletHit(body)
