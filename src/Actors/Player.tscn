@@ -538,6 +538,10 @@ enabled = true
 cast_to = Vector2( 0, 6 )
 collision_mask = 8
 
+[node name="HoldToShootTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.1
+
 [node name="JumpButtonTimer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.125
@@ -682,5 +686,6 @@ normal = ExtResource( 8 )
 action = "shoot"
 visibility_mode = 1
 
+[connection signal="timeout" from="HoldToShootTimer" to="." method="_on_HoldToShootTimer_timeout"]
 [connection signal="timeout" from="JumpButtonTimer" to="." method="_on_JumpButtonTimer_timeout"]
 [connection signal="timeout" from="JumpButtonTimer/FloatTimer" to="." method="_on_FloatTimer_timeout"]

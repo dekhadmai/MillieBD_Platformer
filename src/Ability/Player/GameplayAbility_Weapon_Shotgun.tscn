@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner_BulletSpawner.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Base/BulletSpawnerData.gd" type="Script" id=2]
 [ext_resource path="res://src/Ability/Player/GameplayAbility_Weapon_Shotgun.gd" type="Script" id=3]
 
 [node name="GameplayAbility_Shotgun" instance=ExtResource( 1 )]
@@ -11,22 +10,3 @@ LingeringAnimName = "_active_weapon"
 
 [node name="BulletSpawnerComponent" parent="." index="3"]
 ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"
-
-[node name="BulletSpawnerData" type="Position2D" parent="BulletSpawnerComponent" index="0"]
-script = ExtResource( 2 )
-
-[node name="BulletSpawnerData2" type="Position2D" parent="BulletSpawnerComponent" index="1"]
-script = ExtResource( 2 )
-BulletData_Rotation = 15.0
-
-[node name="BulletSpawnerData3" type="Position2D" parent="BulletSpawnerComponent" index="2"]
-script = ExtResource( 2 )
-BulletData_Rotation = 30.0
-
-[node name="BulletSpawnerData4" type="Position2D" parent="BulletSpawnerComponent" index="3"]
-script = ExtResource( 2 )
-BulletData_Rotation = -30.0
-
-[node name="BulletSpawnerData5" type="Position2D" parent="BulletSpawnerComponent" index="4"]
-script = ExtResource( 2 )
-BulletData_Rotation = -15.0

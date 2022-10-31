@@ -27,6 +27,7 @@ onready var camera = $Camera
 
 onready var jump_button_timer: Timer = $JumpButtonTimer
 onready var float_timer: Timer = $JumpButtonTimer/FloatTimer
+onready var hold_to_shoot_timer: Timer = $HoldToShootTimer
 var jump_direction: float = 0
 var jump_count = 0
 export var jump_max_count = 1;
@@ -153,9 +154,15 @@ func _physics_process(_delta):
 			
 	FacingDirection = sprite.scale.x / OriginalScale
 
-	if Input.is_action_just_pressed("shoot" + action_suffix):
+	if Input.is_action_just_pressed("shoot"):
 		weapon_abi.TryActivate()
-		
+		if hold_to_shoot_timer.is_stopped() :
+			hold_to_shoot_timer.start()
+			
+	if Input.is_action_just_released("shoot"):
+		hold_to_shoot_timer.stop()
+	
+
 	if Input.is_action_just_pressed("swap_weapon"):
 		SwapWeapon()
 	
@@ -332,3 +339,7 @@ func _on_JumpButtonTimer_timeout():
 func _on_FloatTimer_timeout():
 	do_unfloat()
 	pass # Replace with function body.
+
+
+func _on_HoldToShootTimer_timeout():
+	weapon_abi.TryActivate()
