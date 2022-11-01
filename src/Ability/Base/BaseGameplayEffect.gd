@@ -12,6 +12,11 @@ var InstigatorAbilitySystemComponent: BaseAbilitySystemComponent
 var TargetAbilitySystemComponent: BaseAbilitySystemComponent
 
 var EffectDurationTimer: Timer
+var EffectFadeOutTimer: Timer
+
+export var SpriteFadeOutDuration = 0.5
+var bStartFadeout = false
+var current_modulate:Color
 
 onready var effect_sprite = $GameplayEffectSprite
 
@@ -21,8 +26,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if effect_sprite and bStartFadeout :
+		current_modulate = effect_sprite.get_modulate()
+		current_modulate.a -= delta / SpriteFadeOutDuration
+		effect_sprite.set_modulate(current_modulate)
+	pass
 
 
 func Activate(instigator_ability_system_component, target_ability_system_component) -> void:
@@ -33,17 +42,20 @@ func Activate(instigator_ability_system_component, target_ability_system_compone
 	if EffectDurationType == DurationType.Instant:
 		Deactivate()
 	elif EffectDurationType == DurationType.HasDuration:
-		EffectDurationTimer = Timer.new()
-		add_child(EffectDurationTimer)
-		EffectDurationTimer.connect("timeout", self, "on_timeout_effect_duration")
-		EffectDurationTimer.set_one_shot(true)
+		EffectDurationTimer = GlobalFunctions.CreateTimerAndBind(self, self, "on_timeout_effect_duration")
 		EffectDurationTimer.start(EffectDuration)
+		
+		EffectFadeOutTimer = GlobalFunctions.CreateTimerAndBind(self, self, "on_timeout_effect_fadeout")
+		EffectFadeOutTimer.start(EffectDuration-SpriteFadeOutDuration)
 		
 		if effect_sprite : 
 			effect_sprite.set_visible(true)
 	
 	pass
 
+func on_timeout_effect_fadeout():
+	bStartFadeout = true
+	
 func on_timeout_effect_duration():
 	Deactivate()
 
@@ -51,6 +63,7 @@ func Deactivate():
 	UndoEffect()
 	if effect_sprite : 
 		effect_sprite.set_visible(false) 
+		bStartFadeout = false
 	queue_free()
 	pass
 
