@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=1]
+
+[node name="GameplayAbility_Projectile_Nuke" instance=ExtResource( 1 )]
+AbilityShortName = "Nuke"
+AbilityCooldownSecond = 10.0
+bUseFervor = true
+FervorCost = 50.0
+CustomAnimName = "_weapon"
+LingeringAnimName = "_active_weapon"
+ActorToSpawnPath = "res://src/Ability/Player/Bullet_Player_Nuke.tscn"
+
+[node name="GameplayEffectTemplate" parent="." index="1"]
+ValueToModify = 100.0

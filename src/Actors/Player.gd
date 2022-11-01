@@ -117,6 +117,7 @@ func _ready():
 	AddSpecialAbility("AttackBuff")
 	AddSpecialAbility("DamageReductionBuff")
 	AddSpecialAbility("Beam")
+	AddSpecialAbility("Nuke")
 	SwapAbility()
 	
 	pass

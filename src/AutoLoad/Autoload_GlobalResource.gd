@@ -15,7 +15,8 @@ var PlayerSpecialAbilityTemplates = {
 	"Invincible" : "res://src/Ability/Player/GameplayAbility_Invincible.tscn",
 	"AttackBuff" : "res://src/Ability/Player/GameplayAbility_AttackBuff.tscn",
 	"DamageReductionBuff" : "res://src/Ability/Player/GameplayAbility_DamageReductionBuff.tscn",
-	"Beam" : "res://src/Ability/Player/GameplayAbility_Player_Beam.tscn"
+	"Beam" : "res://src/Ability/Player/GameplayAbility_Player_Beam.tscn",
+	"Nuke" : "res://src/Ability/Player/GameplayAbility_Projectile_Nuke.tscn"
 }
 
 
