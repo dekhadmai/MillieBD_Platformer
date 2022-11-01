@@ -3,7 +3,8 @@
 [ext_resource path="res://src/Ability/GameplayAbility_ApplyGameplayEffect.tscn" type="PackedScene" id=1]
 
 [node name="Ability_Heal" instance=ExtResource( 1 )]
-AbilityCooldownSecond = 5.0
+AbilityShortName = "Heal"
+AbilityCooldownSecond = 10.0
 bUseFervor = true
 
 [node name="GameplayEffectTemplate" parent="." index="1"]

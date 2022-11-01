@@ -5,7 +5,8 @@
 
 [node name="Ability_SlowTime" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-AbilityCooldownSecond = 3.0
+AbilityShortName = "SlowTime"
+AbilityCooldownSecond = 5.0
 bUseFervor = true
 SlowTimeDuration = 1.0
 TimeScaleAmount = 0.1

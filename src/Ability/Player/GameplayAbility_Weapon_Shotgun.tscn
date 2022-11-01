@@ -5,6 +5,7 @@
 
 [node name="GameplayAbility_Shotgun" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+AbilityShortName = "ShotGun"
 CustomAnimName = "_weapon"
 LingeringAnimName = "_active_weapon"
 LingeringAnimDuration = 1.2

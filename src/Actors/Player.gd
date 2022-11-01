@@ -33,12 +33,15 @@ var jump_count = 0
 export var jump_max_count = 1;
 
 var float_time_remaining = 0
-var float_time_max = 5.0
+var float_time_max = 2.0
 
 onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 onready var dash_cd_bar = $DashCDBar
 onready var float_remaining_bar = $FloatTimeRemaining
 
+onready var skill_bar = $SkillBar
+onready var skill_name = $SkillName
+onready var weapon_name = $WeaponName
 
 
 
@@ -234,11 +237,26 @@ func _physics_process(_delta):
 	if dash_cd_bar :
 		dash_cd_bar.set_max(dash_abi.AbilityCooldownSecond * 100)
 		dash_cd_bar.set_value((dash_abi.AbilityCooldownSecond - dash_abi.GetAbilityRemainingCooldownSeconds()) * 100)
+		if dash_abi.GetAbilityRemainingCooldownSeconds() == 0 :
+			dash_cd_bar.set_visible(false)
+		else: 
+			dash_cd_bar.set_visible(true)
 	
 	if float_remaining_bar :
 		float_remaining_bar.set_max(float_time_max * 100)
 		float_remaining_bar.set_value((float_time_remaining) * 100)
+		if float_time_remaining == float_time_max :
+			float_remaining_bar.set_visible(false)
+		else: 
+			float_remaining_bar.set_visible(true)
 		
+	if skill_bar : 
+		skill_bar.set_max(special_abi.AbilityCooldownSecond * 100)
+		skill_bar.set_value((special_abi.AbilityCooldownSecond - special_abi.GetAbilityRemainingCooldownSeconds()) * 100)
+		skill_name.set_text(special_abi.AbilityShortName)
+		
+	if weapon_name : 
+		weapon_name.set_text(weapon_abi.AbilityShortName)
 
 
 func get_direction() -> Vector2 :

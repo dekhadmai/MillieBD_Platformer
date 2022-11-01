@@ -2,6 +2,11 @@ class_name BaseGameplayAbility
 extends Node2D
 
 
+export var AbilityShortName:String = "AbiAbbv"
+export var AbilityName:String = "AbiName"
+export var AbilityDescription:String = "AbiDesc"
+export var AbilityIcon:Texture
+
 var AbilityOwner: Actor
 var AnimPlayer: AnimationPlayerState
 var AbilityCooldownTimer: Timer

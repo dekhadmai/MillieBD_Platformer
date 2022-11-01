@@ -5,6 +5,7 @@
 
 [node name="GameplayAbility_Minigun" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+AbilityShortName = "MiniGun"
 AbilityCooldownSecond = 0.1
 bullet_count = 1
 bullet_rotation_range = 5

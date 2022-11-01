@@ -1,14 +1,16 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/art/ui/RadialBar.png" type="Texture" id=4]
 [ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Ability/GrazeSystem.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=11]
 [ext_resource path="res://src/Ability/Ability_Dash.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/art/weapons/sword.png" type="Texture" id=14]
@@ -623,11 +625,38 @@ shape = SubResource( 11 )
 stream = ExtResource( 3 )
 
 [node name="DashCDBar" type="TextureProgress" parent="."]
-margin_left = -16.0
+margin_top = -74.0
+margin_right = 128.0
+margin_bottom = 54.0
+rect_scale = Vector2( 0.1, 0.1 )
+value = 80.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 4 )
+fill_mode = 4
+tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
+tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
+tint_progress = Color( 1, 0.223529, 0, 1 )
+
+[node name="FloatTimeRemaining" type="TextureProgress" parent="."]
+margin_left = -13.0
+margin_top = -74.0
+margin_right = 115.0
+margin_bottom = 54.0
+rect_scale = Vector2( 0.1, 0.1 )
+value = 80.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 4 )
+fill_mode = 5
+tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
+tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
+tint_progress = Color( 0.207843, 0.25098, 0.560784, 1 )
+
+[node name="SkillBar" type="TextureProgress" parent="."]
+margin_left = -26.0
 margin_top = -61.0
-margin_right = 112.0
-margin_bottom = -25.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_right = 102.0
+margin_bottom = 67.0
+rect_scale = Vector2( 0.4, 0.25 )
 value = 80.0
 texture_under = ExtResource( 18 )
 texture_over = ExtResource( 17 )
@@ -636,19 +665,29 @@ tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
 tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
 tint_progress = Color( 0.741176, 0.717647, 0.145098, 1 )
 
-[node name="FloatTimeRemaining" type="TextureProgress" parent="."]
-margin_left = -16.0
-margin_top = -70.0
-margin_right = 112.0
-margin_bottom = -34.0
+[node name="SkillName" type="Label" parent="."]
+margin_left = -24.0
+margin_top = -62.0
+margin_right = 167.0
+margin_bottom = -24.0
 rect_scale = Vector2( 0.25, 0.25 )
-value = 80.0
-texture_under = ExtResource( 18 )
-texture_over = ExtResource( 17 )
-texture_progress = ExtResource( 18 )
-tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
-tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
-tint_progress = Color( 0.207843, 0.25098, 0.560784, 1 )
+theme = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="WeaponName" type="Label" parent="."]
+margin_left = -24.0
+margin_top = -54.0
+margin_right = 167.0
+margin_bottom = -16.0
+rect_scale = Vector2( 0.25, 0.25 )
+theme = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "100"
+align = 1
+valign = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0

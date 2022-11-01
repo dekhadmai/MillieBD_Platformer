@@ -13,7 +13,8 @@ shader_param/mix_amount = 1.0
 shader_param/gradient = SubResource( 1 )
 
 [node name="Ability_Invincible" instance=ExtResource( 1 )]
-AbilityCooldownSecond = 5.0
+AbilityShortName = "Invinc"
+AbilityCooldownSecond = 10.0
 bUseFervor = true
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
