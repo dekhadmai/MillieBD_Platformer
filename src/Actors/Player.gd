@@ -118,6 +118,7 @@ func _ready():
 	AddSpecialAbility("DamageReductionBuff")
 	AddSpecialAbility("Beam")
 	AddSpecialAbility("Nuke")
+	AddSpecialAbility("Homing")
 	SwapAbility()
 	
 	pass
@@ -185,9 +186,10 @@ func _physics_process(_delta):
 	FacingDirection = sprite.scale.x / OriginalScale
 
 	if Input.is_action_just_pressed("shoot"):
-		weapon_abi.TryActivate()
-		if hold_to_shoot_timer.is_stopped() :
-			hold_to_shoot_timer.start()
+		if !special_abi.IsAbilityActive() : 
+			weapon_abi.TryActivate()
+			if hold_to_shoot_timer.is_stopped() :
+				hold_to_shoot_timer.start()
 			
 	if Input.is_action_just_released("shoot"):
 		hold_to_shoot_timer.stop()

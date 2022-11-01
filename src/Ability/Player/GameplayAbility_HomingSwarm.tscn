@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Ability/Player/GameplayAbility_Weapon_Shotgun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Ability/Player/GameplayAbility_HomingSwarm.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 250.0
+
+[node name="GameplayAbility_HomingSwarm" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+AbilityShortName = "Homing"
+AbilityCooldownSecond = 10.0
+bUseFervor = true
+bullet_count = 20
+bullet_spawn_delay_range = 1.0
+
+[node name="GameplayEffectTemplate" parent="." index="1"]
+ValueToModify = 10.0
+
+[node name="Area2D_EnemyDetection" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_EnemyDetection" index="0"]
+shape = SubResource( 1 )

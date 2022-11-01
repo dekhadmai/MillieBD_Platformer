@@ -94,6 +94,7 @@ extents = Vector2( 100, 20 )
 
 [node name="GameplayAbility_Player_Beam" instance=ExtResource( 1 )]
 AbilityShortName = "Beam"
+AbilityCooldownSecond = 10.0
 bUseFervor = true
 CustomAnimName = "_weapon"
 CustomAnimDuration = 4.6

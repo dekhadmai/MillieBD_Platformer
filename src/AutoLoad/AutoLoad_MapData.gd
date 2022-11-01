@@ -2,7 +2,7 @@ extends Node
 
 var CreateInstanceQueue = []
 var InstanceQueueTimer: Timer
-var InstanceQueueInterval = 0.1
+var InstanceQueueInterval = 0.05
 
 var bSpawnOneRoom: bool = false
 export var bUseTestRoom: bool = false
