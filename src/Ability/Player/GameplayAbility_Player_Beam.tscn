@@ -1,0 +1,144 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Ability/Base/GameplayAbility_AreaDetection.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/art/bullets/beam.png" type="Texture" id=2]
+[ext_resource path="res://src/Base/Area2D_Damage_Telegraph.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "area_end"
+length = 0.4
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "area_loop"
+length = 0.12
+loop = true
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "area_start"
+length = 0.12
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "telegraph_loop"
+length = 0.04
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100, 20 )
+
+[node name="GameplayAbility_Player_Beam" instance=ExtResource( 1 )]
+AbilityShortName = "Beam"
+bUseFervor = true
+CustomAnimName = "_weapon"
+CustomAnimDuration = 4.6
+LingeringAnimName = "_active_weapon"
+AbilityDelayForAnimationSecond = 0.4
+Area2D_Damage_NodeName = "Area2D_Damage_Telegraph"
+AreaEffectInterval = 0.3
+
+[node name="Area2D_Damage_Telegraph" parent="." index="3" instance=ExtResource( 3 )]
+visible = false
+EndDamageAnimDuration = 0.6
+AreaLingerDuration = 4.0
+AreaEffectInterval = 0.3
+
+[node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]
+position = Vector2( 95, 0 )
+rotation = 1.5708
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 3
+frame = 1
+
+[node name="AnimationPlayer" parent="Area2D_Damage_Telegraph" index="2"]
+autoplay = "telegraph_loop"
+anims/RESET = SubResource( 11 )
+anims/area_end = SubResource( 6 )
+anims/area_loop = SubResource( 10 )
+anims/area_start = SubResource( 7 )
+anims/telegraph_loop = SubResource( 8 )
+
+[node name="WindDownAnimTimer" parent="Area2D_Damage_Telegraph" index="3"]
+wait_time = 1.0
+
+[node name="TelegraphTimer" parent="Area2D_Damage_Telegraph" index="4"]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Damage_Telegraph" index="5"]
+position = Vector2( 100, 0 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AreaLingerTimer" parent="Area2D_Damage_Telegraph" index="6"]
+wait_time = 10.0
+
+[editable path="Area2D_Damage_Telegraph"]

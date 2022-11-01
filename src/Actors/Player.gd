@@ -116,6 +116,7 @@ func _ready():
 	AddSpecialAbility("Invincible")
 	AddSpecialAbility("AttackBuff")
 	AddSpecialAbility("DamageReductionBuff")
+	AddSpecialAbility("Beam")
 	SwapAbility()
 	
 	pass

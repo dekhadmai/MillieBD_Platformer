@@ -23,7 +23,9 @@ func _physics_process(delta):
 	update_physics(delta)
 	
 func update_physics(delta):
-	hurt_detection.set_scale(Vector2(AbilityOwner.FacingDirection, 1))
+	hurt_detection.set_global_rotation(GetSpawnRotation().angle())
+	
+	#hurt_detection.set_scale(Vector2(AbilityOwner.FacingDirection, 1))
 
 func Init():
 	.Init()
@@ -46,6 +48,22 @@ func Deactivate():
 	
 func EndAbility():
 	.EndAbility()
+	
+func GetSpawnRotation() -> Vector2:
+	var vec : Vector2
+	
+	
+	vec = Vector2(AbilityOwner.FacingDirection, 0)
+
+	if AbilityOwner is Player : 
+		if Input.is_action_pressed("move_up") :
+			vec.x = 0.0
+			vec.y -= 1.0
+		if Input.is_action_pressed("move_down") :
+			vec.x = 0.0
+			vec.y += 1.0
+		
+	return vec
 	
 func OnHurtDetectionHit(body:Actor) :
 	var effect:BaseGameplayEffect = GameplayeEffect_Template.duplicate() as BaseGameplayEffect

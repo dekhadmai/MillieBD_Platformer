@@ -14,7 +14,8 @@ var PlayerSpecialAbilityTemplates = {
 	"Heal" : "res://src/Ability/Player/GameplayAbility_Heal.tscn",
 	"Invincible" : "res://src/Ability/Player/GameplayAbility_Invincible.tscn",
 	"AttackBuff" : "res://src/Ability/Player/GameplayAbility_AttackBuff.tscn",
-	"DamageReductionBuff" : "res://src/Ability/Player/GameplayAbility_DamageReductionBuff.tscn"
+	"DamageReductionBuff" : "res://src/Ability/Player/GameplayAbility_DamageReductionBuff.tscn",
+	"Beam" : "res://src/Ability/Player/GameplayAbility_Player_Beam.tscn"
 }
 
 
