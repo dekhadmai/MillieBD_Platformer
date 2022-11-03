@@ -10,6 +10,7 @@ var kinematic_body: Actor
 var PlayerDetected:= false
 onready var detection_range = $DetectionRange
 
+export var bCheckLineOfSight = true
 export var bUseFollowActor = true
 export var bUseFollowPosition = false
 
@@ -25,10 +26,13 @@ var move_direction: Vector2
 
 var starting_position: Vector2
 
+onready var line_of_sight: RayCast2D = $RayCast_LineOfSight
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	starting_position = get_global_position()
+	line_of_sight.set_enabled(bCheckLineOfSight)
 	pass # Replace with function body.
 	
 
@@ -46,7 +50,14 @@ func _on_AbilityTriggerInterval_timeout():
 	var ability_node = GetAbilityNode(AbilityNodeName)
 	
 	if PlayerDetected and ability_node != null:
-		ability_node.SetTargetActor(CurrentAbilityTarget)
+		if is_instance_valid(CurrentAbilityTarget) : 
+			if bCheckLineOfSight : 
+				line_of_sight.set_cast_to( to_local(CurrentAbilityTarget.get_global_position()) )
+				line_of_sight.force_raycast_update()
+				if line_of_sight.is_colliding() :
+					return
+					
+			ability_node.SetTargetActor(CurrentAbilityTarget)
 		ability_node.TryActivate()
 
 func init(kinematic: Actor):

@@ -1,4 +1,4 @@
 [gd_scene format=2]
 
 [node name="RayCast_LineOfSight" type="RayCast2D"]
-collision_mask = 24
+collision_mask = 16
