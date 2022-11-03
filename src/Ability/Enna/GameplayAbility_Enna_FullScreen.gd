@@ -42,6 +42,9 @@ func _ready():
 	end_ability_timer = get_node("EndAbilityTimer")
 	bEndAbilityAfterActivate = false
 
+func GetSpawnRotation() -> Vector2:
+	return Vector2(0,0)
+
 func SpawnActor() -> void:
 	#AbilityLevel = 2
 	

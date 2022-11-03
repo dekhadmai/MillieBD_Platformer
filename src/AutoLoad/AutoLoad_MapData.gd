@@ -32,7 +32,7 @@ var TotalRoomAvailable: int = 0
 var LongestDistance: int = 0
 
 var TotalRoomThreshold = 30
-var LongestDistanceThreshold = 15
+var LongestDistanceThreshold = 20
 
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
 var Checkpoint_Position: Vector2 = Vector2(100,150)

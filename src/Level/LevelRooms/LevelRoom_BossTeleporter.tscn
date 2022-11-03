@@ -25,4 +25,4 @@ position = Vector2( 640, 721 )
 position = Vector2( 640, 432 )
 
 [node name="Checkpoint" parent="." index="9" instance=ExtResource( 2 )]
-position = Vector2( 384, 371 )
+position = Vector2( 640, 307 )
