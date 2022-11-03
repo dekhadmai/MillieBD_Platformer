@@ -225,10 +225,10 @@ func GenerateRooms()->bool:
 		LevelRoomMap.append([])
 		for j in GridWidth:
 			var level_room_data: LevelRoomData = LevelRoomData.new()
-			if bUseTestRoom and TestRoom != "":
-				level_room_data.LevelRoomTemplate = TestRoom
-			else:
-				level_room_data.LevelRoomTemplate = GetRandomLevelRoom()
+#			if bUseTestRoom and TestRoom != "":
+#				level_room_data.LevelRoomTemplate = TestRoom
+#			else:
+#				level_room_data.LevelRoomTemplate = GetRandomLevelRoom()
 			level_room_data.RoomType = "N"
 			LevelRoomMap[i].append(level_room_data)
 			
@@ -300,6 +300,12 @@ func Traverse(row:int, column:int, from_row: int, from_column: int, distance: in
 	#print("Traverse : (" + str(row) + "," + str(column) + ")")
 	
 	var room_data:LevelRoomData = LevelRoomMap[row][column]
+	
+	if !(row == startroom_row and column == startroom_col) : 
+		if bUseTestRoom and TestRoom != "":
+			room_data.LevelRoomTemplate = TestRoom
+		else:
+			room_data.LevelRoomTemplate = GetRandomLevelRoom()
 	
 	if from_row != -1 :
 		# pop the door open from where we came from
