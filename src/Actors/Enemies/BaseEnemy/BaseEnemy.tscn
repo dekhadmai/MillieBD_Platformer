@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Actors/Enemies/BaseEnemy/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/enemy/robe_enjoyer.png" type="Texture" id=2]
 [ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Base/Area2D_HurtBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Ability/Base/BaseGameplayEffect.gd" type="Script" id=5]
 [ext_resource path="res://src/Base/Raycast_LineOfSight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=8]
@@ -19,6 +20,12 @@ collision_layer = 0
 collision_mask = 24
 script = ExtResource( 1 )
 Team_ID = 2
+
+[node name="GameplayEffect_KillExp" type="Node2D" parent="."]
+script = ExtResource( 5 )
+bExpAddFerver = false
+StatToModify = 5
+ValueToModify = 20.0
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 3 )]
 

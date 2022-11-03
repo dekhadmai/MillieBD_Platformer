@@ -30,8 +30,9 @@ func _process(delta):
 		
 		lvl_value.set_text( str("LVL : ", player_current_stat.CurrentLevel) )
 		
-		exp_value.set_text( str("EXP : ", player_current_stat.CurrentEXP) )
+		exp_value.set_text( str("XP:", player_current_stat.CurrentEXP, "/", player_current_stat.MaxEXP) )
 		exp_bar.value = player_current_stat.CurrentEXP
+		exp_bar.set_max(player_current_stat.MaxEXP)
 		
 		fevor_value.set_text( str("MP : ", player_current_stat.CurrentFervor) )
 		fevor_bar.value = player_current_stat.CurrentFervor

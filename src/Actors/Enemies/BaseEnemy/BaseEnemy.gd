@@ -21,6 +21,9 @@ onready var ai_controller
 onready var hp_bar = $Hpbar
 onready var hp_value = $Hpvalue
 
+var bAlreadyGiveExp = false
+onready var effect_kill_exp = $GameplayEffect_KillExp
+
 func get_class():
 	return "Actor"
 	
@@ -92,6 +95,13 @@ func DisableCollision():
 
 func died():
 	.died()
+	
+	if !bAlreadyGiveExp : 
+		if is_instance_valid(CurrentTargetActor) : 
+			var effect:BaseGameplayEffect = effect_kill_exp.duplicate() as BaseGameplayEffect
+			GetAbilitySystemComponent().ApplyGameplayEffectToTarget(CurrentTargetActor.GetAbilitySystemComponent(), effect)
+			bAlreadyGiveExp = true
+	
 	destroy()
 
 func destroy():

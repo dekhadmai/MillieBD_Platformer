@@ -32,6 +32,11 @@ var DamageAdjustScaleMultiplicative: float = 1.0 setget SetDamageAdjustScaleMult
 var ExpAdjustScale: float = 1.0
 var CooldownReductionScale: float = 1.0 setget SetCooldownReductionScale
 
+func GetMaxExp()->float:
+	var result = 100 + CurrentLevel * 20
+	return result
+	
+
 func InitBaseStat(init_stat: CharacterStatsInit, IframeSeconds: float) -> void:
 	HurtIframeDuration = IframeSeconds
 	HurtIframeTimer = Timer.new()
@@ -75,10 +80,10 @@ func TakeDamage(value: float):
 
 func AddEXP(value: float):
 	CurrentEXP += (value * ExpAdjustScale)
-	AddFervor(value)
 	if CurrentEXP >= MaxEXP:
 		CurrentEXP -= MaxEXP
 		CurrentLevel += 1
+		MaxEXP = GetMaxExp()
 		emit_signal("level_up")
 		
 func AddFervor(value: float):

@@ -3,6 +3,7 @@ extends Node2D
 
 enum DurationType {Instant, HasDuration, Infinite}
 
+export var bExpAddFerver = true
 export(DurationType) var EffectDurationType
 export(float) var EffectDuration
 export(CharacterStats.CharacterStatType) var StatToModify
@@ -77,6 +78,8 @@ func DoEffect() -> void:
 			TargetAbilitySystemComponent.CurrentCharStats.TakeDamage(calc_value)
 		CharacterStats.CharacterStatType.EXP:
 			TargetAbilitySystemComponent.CurrentCharStats.AddEXP(ValueToModify)
+			if bExpAddFerver :
+				TargetAbilitySystemComponent.CurrentCharStats.AddFervor(ValueToModify)
 		CharacterStats.CharacterStatType.ExpAdjustScale:
 			TargetAbilitySystemComponent.CurrentCharStats.ExpAdjustScale += ValueToModify
 		CharacterStats.CharacterStatType.HP:

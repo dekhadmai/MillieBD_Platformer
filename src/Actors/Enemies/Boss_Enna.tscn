@@ -314,7 +314,9 @@ enabled = false
 cast_to = Vector2( 90, 20 )
 collision_mask = 16
 
-[node name="AbilitySystemComponent" parent="." index="1"]
+[node name="AnimationPlayerStateScene" parent="." index="2" instance=ExtResource( 13 )]
+
+[node name="AbilitySystemComponent" parent="." index="3"]
 InitStat_HP = 1000.0
 InitStat_Movespeed = 75.0
 
@@ -333,13 +335,11 @@ AreaEffectInterval = 0.3
 
 [node name="Enna_FeatherBouncing" parent="AbilitySystemComponent" index="5" instance=ExtResource( 11 )]
 
-[node name="AnimationPlayerStateScene" parent="." index="2" instance=ExtResource( 13 )]
-
-[node name="Sprite" parent="." index="4"]
+[node name="Sprite" parent="." index="5"]
 scale = Vector2( 0.5, 0.5 )
 frame = 8
 
-[node name="CollisionShape2D" parent="." index="5"]
+[node name="CollisionShape2D" parent="." index="6"]
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="Area2D_HurtBox" index="0"]

@@ -44,6 +44,7 @@ func _process(delta):
 		fevor_bar.value = player_current_stat.CurrentFervor
 		exp_value.set_text( str("", player_current_stat.CurrentEXP) )
 		exp_bar.value = player_current_stat.CurrentEXP
+		exp_bar.set_max(player_current_stat.MaxEXP)
 		lvl_value.set_text( str("", player_current_stat.CurrentLevel) )
 		attack_value.set_text( str("", player_current_stat.CurrentAttack) )
 		move_speed_value.set_text( str("", player_current_stat.CurrentMovespeed) )
