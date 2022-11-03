@@ -52,7 +52,7 @@ func _on_AbilityTriggerInterval_timeout():
 	if PlayerDetected and ability_node != null:
 		if is_instance_valid(CurrentAbilityTarget) : 
 			if bCheckLineOfSight : 
-				line_of_sight.set_cast_to( to_local(CurrentAbilityTarget.get_global_position()) )
+				line_of_sight.set_cast_to( to_local(CurrentAbilityTarget.GetTargetingPosition()) )
 				line_of_sight.force_raycast_update()
 				if line_of_sight.is_colliding() :
 					return

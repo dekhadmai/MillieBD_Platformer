@@ -33,7 +33,7 @@ var ExpAdjustScale: float = 1.0
 var CooldownReductionScale: float = 1.0 setget SetCooldownReductionScale
 
 func GetMaxExp()->float:
-	var result = 100 + CurrentLevel * 20
+	var result = 100 + ((CurrentLevel-1) * 20)
 	return result
 	
 
