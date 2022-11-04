@@ -280,6 +280,7 @@ func died():
 	.died()
 	queue_free()
 	autoload_mapdata.SpawnPlayer()
+	autoload_transientdata.PlayerSaveData.DeathCount += 1
 
 func can_float():
 	return false if is_on_floor() or float_time_remaining <= 0.0 else true

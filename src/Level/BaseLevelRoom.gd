@@ -2,6 +2,7 @@ class_name BaseLevelRoom
 extends Node2D
 
 onready var autoload_mapdata = $"/root/AutoLoadMapData"
+onready var autoload_transient = $"/root/AutoLoadTransientData"
 onready var Room_Position: Vector2 # room coordinate in the mapdata grid (not global position)
 
 onready var tilemap:TileMap = $TileMap
@@ -44,7 +45,7 @@ func SetCurrentRoom():
 	pass
 	
 func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
-	return
+	#return
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if tilemap == null:
 		tilemap = find_node("TileMap")
@@ -72,12 +73,18 @@ func SetDoorCondition(condition, door, tilemap): # 0 = lock door, 1 = open door
 		door.OpenDoor(tilemap)
 	
 func _on_CheckRoomClearCondition_timeout():
+	var enemy_count = 0
 	var child_array = get_children()
 	
 	for i in child_array.size():
 		if child_array[i].get_class() == "Actor" :
-			return
+			enemy_count += 1
 			
+	if autoload_mapdata.CurrentPlayerRoom == Room_Position : 
+		autoload_transient.room_enemy_count = enemy_count
+		
+	if enemy_count > 0 : 
+		return
 	SetRoomCondition(1)
 	
 

@@ -12,6 +12,8 @@ onready var fevor_bar = $ColorRect/Fevorbar
 onready var exp_value = $ColorRect/Expvalue
 onready var exp_bar = $ColorRect/Expbar
 onready var lvl_value = $ColorRect/Lvlvalue
+onready var death_value = $ColorRect/DeathCounter
+onready var enemy_value = $ColorRect/RemainingEnemy
 
 
 func Init() -> bool:
@@ -36,6 +38,9 @@ func _process(delta):
 		
 		fevor_value.set_text( str("MP : ", player_current_stat.CurrentFervor) )
 		fevor_bar.value = player_current_stat.CurrentFervor
+		
+		death_value.set_text(str("Death : ", autoload_transient.PlayerSaveData.DeathCount))
+		enemy_value.set_text(str("Enemies : ", autoload_transient.room_enemy_count))
 	
 	else:
 		Init()

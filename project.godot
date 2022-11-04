@@ -148,6 +148,11 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/Actors/Player.gd"
+}, {
+"base": "Node",
+"class": "SaveData",
+"language": "GDScript",
+"path": "res://src/Base/SaveData.gd"
 } ]
 _global_script_class_icons={
 "AIController": "",
@@ -177,7 +182,8 @@ _global_script_class_icons={
 "Gun": "",
 "LevelRoomData": "",
 "MovementComponent": "",
-"Player": ""
+"Player": "",
+"SaveData": ""
 }
 
 [application]
