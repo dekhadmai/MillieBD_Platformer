@@ -12,4 +12,4 @@ bullet_rotation_range = 5
 bullet_spawn_delay_range = 0.01
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
-ValueToModify = 5.0
+ValueToModify = 8.0

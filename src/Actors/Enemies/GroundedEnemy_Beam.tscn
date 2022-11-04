@@ -9,15 +9,16 @@
 AIcontroller_NodeName = "AIControllerGrounded"
 
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 3 )]
-AbilityTriggerIntervalSeconds = 10.0
+AbilityTriggerIntervalSeconds = 1.0
 AbilityNodeName = "ShootAbility"
 
-[node name="AbilitySystemComponent" parent="." index="1"]
+[node name="AbilitySystemComponent" parent="." index="2"]
 InitStat_Movespeed = 20.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 4 )]
+AbilityCooldownSecond = 10.0
 
-[node name="Sprite" parent="." index="3"]
+[node name="Sprite" parent="." index="4"]
 frame = 8
 
 [node name="AnimationPlayerStateScene" parent="." index="6" instance=ExtResource( 2 )]

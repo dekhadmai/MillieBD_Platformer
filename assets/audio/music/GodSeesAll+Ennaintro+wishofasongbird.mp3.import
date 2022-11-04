@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GodSeesAll+Ennaintro+wishofasongbird.mp3-3e73c41cf2fbec8b7a9869565e3ace9f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/GodSeesAll+Ennaintro+wishofasongbird.mp3"
+dest_files=[ "res://.import/GodSeesAll+Ennaintro+wishofasongbird.mp3-3e73c41cf2fbec8b7a9869565e3ace9f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

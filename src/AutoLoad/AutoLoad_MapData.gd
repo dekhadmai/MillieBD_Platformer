@@ -1,5 +1,7 @@
 extends Node
 
+onready var bgm = $Level_BGM
+
 var CreateInstanceQueue = []
 var InstanceQueueTimer: Timer
 var InstanceQueueInterval = 0.05
@@ -53,6 +55,8 @@ func SpawnPlayer():
 	player = player_template.instance()
 	player.set_global_position(Checkpoint_Position)
 	add_child(player)
+	
+	StartPlayBGM()
 
 func DespawnAllRooms():
 	for i in GridHeight:
@@ -589,6 +593,12 @@ func RemoveRoomInstance(row: int, column: int) :
 		room_data.bActive = false
 		
 	pass
+
+func StartPlayBGM():
+	bgm.play()
+	
+func StopPlayBGM(): 
+	bgm.stop()
 
 func InitSpawnRooms():
 		

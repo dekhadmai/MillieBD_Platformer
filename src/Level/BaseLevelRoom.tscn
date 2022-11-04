@@ -41,7 +41,6 @@ text = "TEST
 "
 
 [node name="CheckRoomClearCondition" type="Timer" parent="."]
-wait_time = 4.0
 autostart = true
 
 [connection signal="PlayerEntered" from="Door_Left" to="." method="_on_Door_Left_PlayerEntered"]

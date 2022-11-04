@@ -11,7 +11,7 @@ AIcontroller_NodeName = "AIControllerGrounded"
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 3 )]
 AbilityNodeName = "ShootAbility"
 
-[node name="AbilitySystemComponent" parent="." index="1"]
+[node name="AbilitySystemComponent" parent="." index="2"]
 InitStat_Movespeed = 20.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 2 )]
@@ -19,7 +19,7 @@ AbilityCooldownSecond = 0.3
 CustomAnimDuration = 0.0
 ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_Bomb.tscn"
 
-[node name="Sprite" parent="." index="3"]
+[node name="Sprite" parent="." index="4"]
 frame = 8
 
 [node name="AnimationPlayerStateScene" parent="." index="6" instance=ExtResource( 4 )]
