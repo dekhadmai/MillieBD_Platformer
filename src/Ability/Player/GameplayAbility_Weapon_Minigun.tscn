@@ -13,3 +13,6 @@ bullet_spawn_delay_range = 0.01
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
 ValueToModify = 8.0
+
+[node name="BulletSpawnerComponent" parent="." index="3"]
+ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_Player_Minigun.tscn"

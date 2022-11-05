@@ -7,4 +7,4 @@ AbilityShortName = "HandGun"
 AbilityCooldownSecond = 0.3
 CustomAnimName = "_weapon"
 LingeringAnimName = "_active_weapon"
-ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Player.tscn"
+ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_Player_Handgun.tscn"
