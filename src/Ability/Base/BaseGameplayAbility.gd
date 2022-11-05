@@ -15,6 +15,8 @@ export var bCommitAbilityCooldownWhenDeactivate: bool = true
 export var bUseFervor = false
 export var FervorCost = 20.0
 export var AbilityLevel: int = 0
+export var AbilityMaxUseCount = 0
+var AbilityUseCount = 0
 var bIsActive: bool
 
 var bAlreadyInit: bool = false
@@ -117,7 +119,8 @@ func Activate():
 	else:
 		DoAbility()
 			
-	
+	if AbilityMaxUseCount > 0 : 
+		AbilityUseCount += 1
 	pass
 	
 func DoAbility():
@@ -151,6 +154,9 @@ func GetAbilityRemainingCooldownSeconds() -> float:
 	
 func CanUseAbility() -> bool:
 	var result = true
+	if AbilityMaxUseCount > 0 and AbilityUseCount >= AbilityMaxUseCount : 
+		return false
+	
 	if bUseFervor :
 		result = result and AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.CurrentFervor >= FervorCost
 	result = result and !IsAbilityOnCooldown() and !bIsActive and !AbilityOwner.bIsDead

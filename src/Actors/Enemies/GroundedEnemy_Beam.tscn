@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Actors/Enemies/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_RobeEnjoyer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/AI/AIControllerGrounded.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Ability/Beam/GameplayAbility_AreaDetection_FrontalBeam.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 216, 26 )
 
 [node name="BaseGroundedEnemy_Beam" instance=ExtResource( 1 )]
 AIcontroller_NodeName = "AIControllerGrounded"
@@ -11,6 +14,10 @@ AIcontroller_NodeName = "AIControllerGrounded"
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 3 )]
 AbilityTriggerIntervalSeconds = 1.0
 AbilityNodeName = "ShootAbility"
+
+[node name="CollisionShape2D" parent="AIControllerGrounded/DetectionRange" index="0"]
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
 
 [node name="AbilitySystemComponent" parent="." index="2"]
 InitStat_Movespeed = 20.0
@@ -22,3 +29,5 @@ AbilityCooldownSecond = 5.0
 frame = 8
 
 [node name="AnimationPlayerStateScene" parent="." index="6" instance=ExtResource( 2 )]
+
+[editable path="AIControllerGrounded"]

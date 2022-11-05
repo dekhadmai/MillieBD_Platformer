@@ -4,6 +4,7 @@
 [ext_resource path="res://src/Base/BulletSpawnerData.gd" type="Script" id=2]
 
 [node name="GameplayAbility_ActorSpawner_ExpGiver" instance=ExtResource( 1 )]
+AbilityCooldownSecond = 5.0
 
 [node name="BulletSpawnerComponent" parent="." index="3"]
 ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_ExpGiver.tscn"

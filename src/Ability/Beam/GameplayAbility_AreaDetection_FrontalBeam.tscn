@@ -93,6 +93,7 @@ tracks/0/keys = {
 extents = Vector2( 100, 20 )
 
 [node name="GameplayAbility_AreaDetection_Beam" instance=ExtResource( 1 )]
+AbilityMaxUseCount = 3
 FullbodyAnimName = "range_attack"
 FullbodyAnimDuration = 5.5
 AbilityDelayForAnimationSecond = 0.4
