@@ -51,6 +51,7 @@ onready var weapon_name = $WeaponName
 
 var weapon_abi
 var WeaponAbilityArray = []
+var WeaponAbilityTemplateNameArray = []
 var WeaponAbilityIndex = -1
 var WeaponAbilitySlotMax = 2
 
@@ -62,11 +63,13 @@ func AddWeaponAbility(dict_key: String):
 			if WeaponAbilityArray.size() < WeaponAbilitySlotMax : 
 				# add new
 				WeaponAbilityArray.push_back(abi_instance)
+				WeaponAbilityTemplateNameArray.push_back(dict_key)
 				WeaponAbilityIndex = WeaponAbilityArray.size()-1
 			else : 
 				# replace
 				WeaponAbilityArray[WeaponAbilityIndex].queue_free()
 				WeaponAbilityArray[WeaponAbilityIndex] = abi_instance
+				WeaponAbilityTemplateNameArray[WeaponAbilityIndex] = dict_key
 			
 			weapon_abi = WeaponAbilityArray[WeaponAbilityIndex]
 			GetAbilitySystemComponent().add_child(abi_instance)
@@ -79,6 +82,7 @@ func SwapWeapon():
 
 var special_abi
 var SpecialAbilityArray = []
+var SpecialAbilityTemplateNameArray = []
 var SpecialAbilityIndex = -1
 var SpecialAbilitySlotMax = 3
 
@@ -90,11 +94,13 @@ func AddSpecialAbility(dict_key: String):
 			if SpecialAbilityArray.size() < SpecialAbilitySlotMax : 
 				# add new
 				SpecialAbilityArray.push_back(abi_instance)
+				SpecialAbilityTemplateNameArray.push_back(dict_key)
 				SpecialAbilityIndex = SpecialAbilityArray.size()-1
 			else : 
 				# replace
 				SpecialAbilityArray[SpecialAbilityIndex].queue_free()
 				SpecialAbilityArray[SpecialAbilityIndex] = abi_instance
+				SpecialAbilityTemplateNameArray[SpecialAbilityIndex] = dict_key
 			
 			special_abi = SpecialAbilityArray[SpecialAbilityIndex]
 			GetAbilitySystemComponent().add_child(abi_instance)
@@ -125,19 +131,27 @@ func _ready():
 	sprite.scale.x = OriginalScale
 	sprite.scale.y = OriginalScale
 	
-	# init ability
-	AddWeaponAbility("HandGun")
-#	AddWeaponAbility("Shotgun")
-#	AddWeaponAbility("Minigun")
+	if autoload_transientdata.PlayerSaveData.WeaponAbilityTemplateNameArray.size() > 0 : 
+		for name in autoload_transientdata.PlayerSaveData.WeaponAbilityTemplateNameArray : 
+			AddWeaponAbility(name)
+	else : 
+		AddWeaponAbility("HandGun")
+	#	AddWeaponAbility("Shotgun")
+	#	AddWeaponAbility("Minigun")
 	
-	AddSpecialAbility("SlowTime")
-#	AddSpecialAbility("Heal")
-#	AddSpecialAbility("Invincible")
-#	AddSpecialAbility("AttackBuff")
-#	AddSpecialAbility("DamageReductionBuff")
-#	AddSpecialAbility("Beam")
-#	AddSpecialAbility("Nuke")
-#	AddSpecialAbility("Homing")
+	
+	if autoload_transientdata.PlayerSaveData.SpecialAbilityTemplateNameArray.size() > 0 : 
+		for name in autoload_transientdata.PlayerSaveData.SpecialAbilityTemplateNameArray : 
+			AddSpecialAbility(name)
+	else : 
+		AddSpecialAbility("SlowTime")
+	#	AddSpecialAbility("Heal")
+	#	AddSpecialAbility("Invincible")
+	#	AddSpecialAbility("AttackBuff")
+	#	AddSpecialAbility("DamageReductionBuff")
+	#	AddSpecialAbility("Beam")
+	#	AddSpecialAbility("Nuke")
+	#	AddSpecialAbility("Homing")
 	
 	pass
 
@@ -204,10 +218,11 @@ func _physics_process(_delta):
 	FacingDirection = sprite.scale.x / OriginalScale
 
 	if Input.is_action_just_pressed("shoot"):
-		if !special_abi.IsAbilityActive() : 
-			weapon_abi.TryActivate()
-			if hold_to_shoot_timer.is_stopped() :
-				hold_to_shoot_timer.start()
+		if is_instance_valid(special_abi) : 
+			if !special_abi.IsAbilityActive() : 
+				weapon_abi.TryActivate()
+				if hold_to_shoot_timer.is_stopped() :
+					hold_to_shoot_timer.start()
 			
 	if Input.is_action_just_released("shoot"):
 		hold_to_shoot_timer.stop()
@@ -217,7 +232,8 @@ func _physics_process(_delta):
 		
 		
 	if Input.is_action_just_pressed("use_ability"):
-		special_abi.TryActivate()
+		if is_instance_valid(special_abi) :
+			special_abi.TryActivate()
 		
 	if Input.is_action_just_pressed("swap_ability"):
 		SwapAbility()
@@ -296,7 +312,15 @@ func get_direction() -> Vector2 :
 	
 func died():
 	.died()
+	# save data before death
+	autoload_transientdata.PlayerSaveData.WeaponAbilityTemplateNameArray.clear()
+	autoload_transientdata.PlayerSaveData.WeaponAbilityTemplateNameArray.append_array(WeaponAbilityTemplateNameArray)
+	
+	autoload_transientdata.PlayerSaveData.SpecialAbilityTemplateNameArray.clear()
+	autoload_transientdata.PlayerSaveData.SpecialAbilityTemplateNameArray.append_array(SpecialAbilityTemplateNameArray)
+	
 	queue_free()
+	
 	autoload_mapdata.SpawnPlayer()
 	autoload_transientdata.PlayerSaveData.DeathCount += 1
 
@@ -414,4 +438,5 @@ func _on_FloatTimer_timeout():
 
 
 func _on_HoldToShootTimer_timeout():
-	weapon_abi.TryActivate()
+	if is_instance_valid(weapon_abi) : 
+		weapon_abi.TryActivate()
