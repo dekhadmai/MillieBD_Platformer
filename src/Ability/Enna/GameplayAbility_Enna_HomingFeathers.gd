@@ -39,7 +39,7 @@ func SpawnActor() -> void:
 func OnSpawnBullet(bullet):
 	if bullet_spawner_component == bullet_spawner_component3 :
 		bullet.second_move_seconds = 1.5 + move_offset_sec
-		move_offset_sec += 0.2
+		move_offset_sec += 0.1
 		
 	if bullet_spawner_component == bullet_spawner_component2 :
 		bullet.second_move_speed = 300

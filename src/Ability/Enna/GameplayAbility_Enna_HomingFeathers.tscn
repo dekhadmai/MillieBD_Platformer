@@ -52,37 +52,37 @@ script = ExtResource( 2 )
 [node name="BulletSpawnerData2" type="Position2D" parent="BulletSpawnerComponent2" index="1"]
 script = ExtResource( 2 )
 BulletData_Rotation = 90.0
-BulletData_Delay = 0.2
+BulletData_Delay = 0.1
 
 [node name="BulletSpawnerData3" type="Position2D" parent="BulletSpawnerComponent2" index="2"]
 script = ExtResource( 2 )
 BulletData_Rotation = 180.0
-BulletData_Delay = 0.4
+BulletData_Delay = 0.2
 
 [node name="BulletSpawnerData4" type="Position2D" parent="BulletSpawnerComponent2" index="3"]
 script = ExtResource( 2 )
 BulletData_Rotation = 270.0
-BulletData_Delay = 0.6
+BulletData_Delay = 0.3
 
 [node name="BulletSpawnerData5" type="Position2D" parent="BulletSpawnerComponent2" index="4"]
 script = ExtResource( 2 )
 BulletData_Rotation = 45.0
-BulletData_Delay = 0.8
+BulletData_Delay = 0.4
 
 [node name="BulletSpawnerData6" type="Position2D" parent="BulletSpawnerComponent2" index="5"]
 script = ExtResource( 2 )
 BulletData_Rotation = 135.0
-BulletData_Delay = 1.0
+BulletData_Delay = 0.5
 
 [node name="BulletSpawnerData7" type="Position2D" parent="BulletSpawnerComponent2" index="6"]
 script = ExtResource( 2 )
 BulletData_Rotation = 225.0
-BulletData_Delay = 1.2
+BulletData_Delay = 0.6
 
 [node name="BulletSpawnerData8" type="Position2D" parent="BulletSpawnerComponent2" index="7"]
 script = ExtResource( 2 )
 BulletData_Rotation = 315.0
-BulletData_Delay = 1.4
+BulletData_Delay = 0.7
 
 [node name="BulletSpawnerComponent3" parent="." index="5" instance=ExtResource( 3 )]
 ActorToSpawnPath = "res://src/Ability/Enna/Enna_Bullet_Feathers.tscn"
