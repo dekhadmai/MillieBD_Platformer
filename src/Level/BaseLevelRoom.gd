@@ -45,8 +45,13 @@ func SetCurrentRoom():
 	pass
 	
 func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
-	#return
+	
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
+	if condition == 1 and room_data.bIsExplored : 
+		room_data.bIsAlreadyCleared = true
+		
+	#return
+	
 	if tilemap == null:
 		tilemap = find_node("TileMap")
 		

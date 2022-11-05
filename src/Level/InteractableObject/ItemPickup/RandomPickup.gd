@@ -11,6 +11,16 @@ export var RandomizeWeaponChance = 30
 func Init():
 	if !autoload_globalresource : 
 		autoload_globalresource = $"/root/AutoloadGlobalResource"
+		
+	if !autoload_mapdata : 
+		autoload_mapdata = $"/root/AutoLoadMapData"
+		
+	var room = get_parent()
+	var room_data = autoload_mapdata.LevelRoomMap[room.Room_Position.x][room.Room_Position.y]
+	if room_data.bIsAlreadyCleared : 
+		queue_free()
+		return
+		
 	RandomizeDrop()
 	if item_name_label : 
 		item_name_label = find_node("ItemName")

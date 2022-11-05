@@ -1,9 +1,12 @@
 extends Node2D
 
+onready var autoload_mapdata = $"/root/AutoLoadMapData"
 onready var editor_hint = $EditorSpriteHint
 
 export var bUseTestEnemy = false
 export(String, FILE, "*.tscn") var TestEnemy
+
+export var bSpawnOnAlreadyClearedRoom = true
 
 export(Array, String, FILE, "*.tscn") var RandomActorTemplatePool
 var ValidActorToSpawn = []
@@ -20,6 +23,12 @@ func _ready():
 	else:
 		editor_hint.set_visible(false)
 		
+	if !bSpawnOnAlreadyClearedRoom : 
+		var room = get_parent()
+		var room_data = autoload_mapdata.LevelRoomMap[room.Room_Position.x][room.Room_Position.y]
+		if room_data.bIsAlreadyCleared : 
+			queue_free()
+			return
 	
 	for i in RandomActorTemplatePool.size() :
 		if RandomActorTemplatePool[i] != null :

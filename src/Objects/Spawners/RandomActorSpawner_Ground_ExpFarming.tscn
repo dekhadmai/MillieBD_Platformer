@@ -3,4 +3,5 @@
 [ext_resource path="res://src/Objects/Base/BaseRandomActorSpawner.tscn" type="PackedScene" id=1]
 
 [node name="RandomActorSpawner_ExpFarming" instance=ExtResource( 1 )]
+bSpawnOnAlreadyClearedRoom = false
 RandomActorTemplatePool = [ "res://src/Actors/Enemies/GroundedEnemy_Beam.tscn" ]
