@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Level/Checkpoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Level/InteractableObject/ItemPickup/RandomPickup.tscn" type="PackedScene" id=3]
 
 [node name="LevelRoom_Checkpoint" instance=ExtResource( 1 )]
 
@@ -22,3 +23,17 @@ position = Vector2( 640, 721 )
 
 [node name="Checkpoint" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 640, 435 )
+
+[node name="RandomPickup" parent="." index="9" instance=ExtResource( 3 )]
+position = Vector2( 640, 592 )
+
+[node name="RandomPickup2" parent="." index="10" instance=ExtResource( 3 )]
+position = Vector2( 640, 336 )
+
+[node name="SkillPickup" parent="." index="11" instance=ExtResource( 3 )]
+position = Vector2( 896, 400 )
+InteractableType = 2
+
+[node name="WeaponPickup" parent="." index="12" instance=ExtResource( 3 )]
+position = Vector2( 384, 400 )
+InteractableType = 1

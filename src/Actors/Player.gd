@@ -52,13 +52,23 @@ onready var weapon_name = $WeaponName
 var weapon_abi
 var WeaponAbilityArray = []
 var WeaponAbilityIndex = -1
+var WeaponAbilitySlotMax = 2
 
 func AddWeaponAbility(dict_key: String):
 	var abi_template = load(autoload_globalresource.PlayerWeaponAbilityTemplates[dict_key])
 	if abi_template :
 		var abi_instance = abi_template.instance()
 		if is_instance_valid(abi_instance) : 
-			WeaponAbilityArray.push_back(abi_instance)
+			if WeaponAbilityArray.size() < WeaponAbilitySlotMax : 
+				# add new
+				WeaponAbilityArray.push_back(abi_instance)
+				WeaponAbilityIndex = WeaponAbilityArray.size()-1
+			else : 
+				# replace
+				WeaponAbilityArray[WeaponAbilityIndex].queue_free()
+				WeaponAbilityArray[WeaponAbilityIndex] = abi_instance
+			
+			weapon_abi = WeaponAbilityArray[WeaponAbilityIndex]
 			GetAbilitySystemComponent().add_child(abi_instance)
 	pass
 	
@@ -70,13 +80,23 @@ func SwapWeapon():
 var special_abi
 var SpecialAbilityArray = []
 var SpecialAbilityIndex = -1
+var SpecialAbilitySlotMax = 3
 
 func AddSpecialAbility(dict_key: String):
 	var abi_template = load(autoload_globalresource.PlayerSpecialAbilityTemplates[dict_key])
 	if abi_template :
 		var abi_instance = abi_template.instance()
 		if is_instance_valid(abi_instance) : 
-			SpecialAbilityArray.push_back(abi_instance)
+			if SpecialAbilityArray.size() < SpecialAbilitySlotMax : 
+				# add new
+				SpecialAbilityArray.push_back(abi_instance)
+				SpecialAbilityIndex = SpecialAbilityArray.size()-1
+			else : 
+				# replace
+				SpecialAbilityArray[SpecialAbilityIndex].queue_free()
+				SpecialAbilityArray[SpecialAbilityIndex] = abi_instance
+			
+			special_abi = SpecialAbilityArray[SpecialAbilityIndex]
 			GetAbilitySystemComponent().add_child(abi_instance)
 	pass
 
@@ -107,19 +127,17 @@ func _ready():
 	
 	# init ability
 	AddWeaponAbility("HandGun")
-	AddWeaponAbility("Shotgun")
-	AddWeaponAbility("Minigun")
-	SwapWeapon()
+#	AddWeaponAbility("Shotgun")
+#	AddWeaponAbility("Minigun")
 	
 	AddSpecialAbility("SlowTime")
-	AddSpecialAbility("Heal")
-	AddSpecialAbility("Invincible")
-	AddSpecialAbility("AttackBuff")
-	AddSpecialAbility("DamageReductionBuff")
-	AddSpecialAbility("Beam")
-	AddSpecialAbility("Nuke")
-	AddSpecialAbility("Homing")
-	SwapAbility()
+#	AddSpecialAbility("Heal")
+#	AddSpecialAbility("Invincible")
+#	AddSpecialAbility("AttackBuff")
+#	AddSpecialAbility("DamageReductionBuff")
+#	AddSpecialAbility("Beam")
+#	AddSpecialAbility("Nuke")
+#	AddSpecialAbility("Homing")
 	
 	pass
 
@@ -254,13 +272,13 @@ func _physics_process(_delta):
 		else: 
 			float_remaining_bar.set_visible(true)
 		
-	if skill_bar : 
+	if skill_bar and special_abi : 
 		skill_bar.set_max(special_abi.AbilityCooldownSecond * 100)
 		skill_bar.set_value((special_abi.AbilityCooldownSecond - special_abi.GetAbilityRemainingCooldownSeconds()) * 100)
-		skill_name.set_text(special_abi.AbilityShortName)
+		skill_name.set_text(str(SpecialAbilityIndex+1) + "." + special_abi.AbilityShortName)
 		
-	if weapon_name : 
-		weapon_name.set_text(weapon_abi.AbilityShortName)
+	if weapon_name and weapon_abi : 
+		weapon_name.set_text(str(WeaponAbilityIndex+1) + "." + weapon_abi.AbilityShortName)
 
 
 func get_direction() -> Vector2 :

@@ -28,7 +28,7 @@ func _ready():
 	width = autoload_mapdata.GridWidth
 	height = autoload_mapdata.GridHeight
 	_add_room_ui()
-	print(Map[0][0])
+	#print(Map[0][0])
 
 
 func _add_room_ui():
@@ -64,7 +64,7 @@ func _add_room_ui():
 					start.texture = start_icon
 					start.set_position(room_ui.get_position())
 					#start.rotation_degrees = -room_ui.rotation_degrees
-					print(room_ui.get_position())
+					#print(room_ui.get_position())
 				
 				if room_data.CurrentLocation:
 					var location = Sprite.new()

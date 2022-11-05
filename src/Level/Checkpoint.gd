@@ -20,3 +20,6 @@ func _on_CheckpointArea2D_body_entered(body):
 	
 	print("Set Checkpoint")
 	pass # Replace with function body.
+
+func _play_loop_anim():
+	anim.play("loop")
