@@ -94,7 +94,7 @@ extents = Vector2( 100, 20 )
 
 [node name="GameplayAbility_AreaDetection_Beam" instance=ExtResource( 1 )]
 FullbodyAnimName = "range_attack"
-FullbodyAnimDuration = 10.6
+FullbodyAnimDuration = 5.5
 AbilityDelayForAnimationSecond = 0.4
 Area2D_Damage_NodeName = "Area2D_Damage_Telegraph"
 AreaLingerDuration = 7.0
@@ -103,8 +103,7 @@ AreaEffectInterval = 0.3
 [node name="Area2D_Damage_Telegraph" parent="." index="3" instance=ExtResource( 3 )]
 visible = false
 EndDamageAnimDuration = 0.6
-TelegraphAnimDuration = 2.0
-AreaLingerDuration = 10.0
+AreaLingerDuration = 5.0
 AreaEffectInterval = 0.3
 
 [node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]

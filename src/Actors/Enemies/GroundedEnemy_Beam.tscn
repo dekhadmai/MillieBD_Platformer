@@ -16,7 +16,7 @@ AbilityNodeName = "ShootAbility"
 InitStat_Movespeed = 20.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 4 )]
-AbilityCooldownSecond = 10.0
+AbilityCooldownSecond = 5.0
 
 [node name="Sprite" parent="." index="4"]
 frame = 8
