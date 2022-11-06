@@ -32,3 +32,15 @@ position = Vector2( 1130, 353 )
 
 [node name="BaseGroundedEnemy_Bullet4" parent="." index="14" instance=ExtResource( 3 )]
 position = Vector2( 1112, 673 )
+
+[node name="BaseGroundedEnemy_Beam2" parent="." index="15" instance=ExtResource( 6 )]
+position = Vector2( 1051, 514 )
+
+[node name="BaseGroundedEnemy_Bullet5" parent="." index="16" instance=ExtResource( 3 )]
+position = Vector2( 1000, 228 )
+
+[node name="BaseGroundedEnemy_GroundWave2" parent="." index="17" instance=ExtResource( 2 )]
+position = Vector2( 287, 223 )
+
+[node name="AerialEnemy_Bullet2" parent="." index="18" instance=ExtResource( 5 )]
+position = Vector2( 687, 500 )

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Beam.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_Turret.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=6]
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -33,19 +34,31 @@ visible = false
 position = Vector2( 419, 321 )
 
 [node name="BaseGroundedEnemy_Bullet2" parent="." index="9" instance=ExtResource( 4 )]
-position = Vector2( 831, 223 )
+position = Vector2( 885, 222 )
 
-[node name="BaseGroundedEnemy_Beam" parent="." index="10" instance=ExtResource( 2 )]
-position = Vector2( 794, 538 )
+[node name="BaseGroundedEnemy_Bullet3" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 371, 543 )
 
-[node name="BaseGroundedEnemy_Beam2" parent="." index="11" instance=ExtResource( 2 )]
-position = Vector2( 99, 674 )
+[node name="BaseGroundedEnemy_Beam" parent="." index="11" instance=ExtResource( 2 )]
+position = Vector2( 939, 542 )
 
-[node name="BaseGroundedEnemy_Beam3" parent="." index="12" instance=ExtResource( 2 )]
-position = Vector2( 1216, 674 )
+[node name="BaseGroundedEnemy_Beam2" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 200, 673 )
 
-[node name="AerialEnemy_Bullet2" parent="." index="13" instance=ExtResource( 5 )]
-position = Vector2( 1180, 70 )
+[node name="BaseGroundedEnemy_Beam3" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( 1090, 671 )
 
-[node name="AerialEnemy_Bullet" parent="." index="14" instance=ExtResource( 3 )]
+[node name="BaseGroundedEnemy_Beam4" parent="." index="14" instance=ExtResource( 2 )]
+position = Vector2( 805, 416 )
+
+[node name="BaseGroundedEnemy_GroundWave" parent="." index="15" instance=ExtResource( 6 )]
+position = Vector2( 500, 96 )
+
+[node name="BaseGroundedEnemy_GroundWave2" parent="." index="16" instance=ExtResource( 6 )]
+position = Vector2( 409, 217 )
+
+[node name="AerialEnemy_Bullet" parent="." index="17" instance=ExtResource( 3 )]
 position = Vector2( 102, 74 )
+
+[node name="AerialEnemy_Bullet2" parent="." index="18" instance=ExtResource( 5 )]
+position = Vector2( 1180, 70 )

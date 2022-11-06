@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BitterTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Platforms/BaseMovingPlatform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Level/HazardFloor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Level/HazardFloorWoodenSpikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/Enemies/AerialEnemy_Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actors/Enemies/AerialEnemy_ExpGiver.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 80, 10 )
@@ -13,14 +16,8 @@ extents = Vector2( 80, 10 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 64, 10 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 24.5, 10 )
-
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 64, 10 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 24.5, 10 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 48, 10 )
@@ -31,13 +28,25 @@ extents = Vector2( 32, 10 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32, 10 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 80, 12 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 64, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 80, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 64, 12.5 )
+
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
 [node name="TileMap_Platform" parent="." index="0"]
 tile_data = PoolIntArray( 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458784, 4, 0, 458785, 4, 0, 458786, 4, 0, 589842, 4, 0, 589843, 4, 0, 589844, 4, 0, 589845, 4, 0 )
 
 [node name="TileMap" parent="." index="1"]
-tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 20, 5, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 24, 5, 0, 25, 5, 0, 26, 5, 0, 27, 5, 0, 28, 5, 0, 29, 5, 0, 30, 5, 0, 31, 5, 0, 32, 5, 0, 33, 5, 0, 34, 5, 0, 35, 5, 0, 36, 5, 0, 37, 5, 0, 38, 5, 0, 39, 5, 0, 65536, 5, 0, 65575, 5, 0, 131072, 5, 0, 131111, 5, 0, 196608, 5, 0, 196647, 5, 0, 262144, 5, 0, 262147, 8, 0, 262183, 5, 0, 327680, 5, 0, 327719, 5, 0, 393216, 5, 0, 393255, 5, 0, 458752, 5, 0, 458791, 5, 0, 524288, 5, 0, 524327, 5, 0, 589824, 5, 0, 589863, 5, 0, 655360, 5, 0, 655399, 5, 0, 720896, 5, 0, 720935, 5, 0, 786432, 5, 0, 786471, 5, 0, 851968, 5, 0, 852007, 5, 0, 917504, 5, 0, 917543, 5, 0, 983040, 5, 0, 983079, 5, 0, 1048576, 5, 0, 1048615, 5, 0, 1114112, 5, 0, 1114151, 5, 0, 1179648, 5, 0, 1179687, 5, 0, 1245184, 5, 0, 1245223, 5, 0, 1310720, 5, 0, 1310759, 5, 0, 1376256, 5, 0, 1376295, 5, 0, 1441792, 5, 0, 1441793, 5, 0, 1441794, 5, 0, 1441795, 5, 0, 1441796, 5, 0, 1441797, 5, 0, 1441798, 5, 0, 1441799, 5, 0, 1441800, 5, 0, 1441801, 5, 0, 1441802, 5, 0, 1441803, 5, 0, 1441804, 5, 0, 1441805, 5, 0, 1441806, 5, 0, 1441807, 5, 0, 1441808, 5, 0, 1441809, 5, 0, 1441810, 5, 0, 1441811, 5, 0, 1441812, 5, 0, 1441813, 5, 0, 1441814, 5, 0, 1441815, 5, 0, 1441816, 5, 0, 1441817, 5, 0, 1441818, 5, 0, 1441819, 5, 0, 1441820, 5, 0, 1441821, 5, 0, 1441822, 5, 0, 1441823, 5, 0, 1441824, 5, 0, 1441825, 5, 0, 1441826, 5, 0, 1441827, 5, 0, 1441828, 5, 0, 1441829, 5, 0, 1441830, 5, 0, 1441831, 5, 0 )
+tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 20, 5, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 24, 5, 0, 25, 5, 0, 26, 5, 0, 27, 5, 0, 28, 5, 0, 29, 5, 0, 30, 5, 0, 31, 5, 0, 32, 5, 0, 33, 5, 0, 34, 5, 0, 35, 5, 0, 36, 5, 0, 37, 5, 0, 38, 5, 0, 39, 5, 0, 65536, 5, 0, 65575, 5, 0, 131072, 5, 0, 131111, 5, 0, 196608, 5, 0, 196647, 5, 0, 262144, 5, 0, 262147, 8, 0, 262183, 5, 0, 327680, 5, 0, 327719, 5, 0, 393216, 5, 0, 393255, 5, 0, 458752, 5, 0, 458791, 5, 0, 524288, 5, 0, 524327, 5, 0, 589824, 5, 0, 589863, 5, 0, 655360, 5, 0, 655399, 5, 0, 720896, 5, 0, 720935, 5, 0, 786432, 5, 0, 786471, 5, 0, 851968, 5, 0, 852007, 5, 0, 917504, 5, 0, 917543, 5, 0, 983040, 5, 0, 983079, 5, 0, 1048576, 5, 0, 1048615, 5, 0, 1114112, 5, 0, 1114151, 5, 0, 1179648, 5, 0, 1179687, 5, 0, 1245184, 5, 0, 1245223, 5, 0, 1310720, 5, 0, 1310759, 5, 0, 1376256, 5, 0, 1376262, -1610612734, 0, 1376266, -2147483646, 0, 1376271, -1610612734, 0, 1376280, -2147483646, 0, 1376285, -1610612734, 0, 1376289, -2147483646, 0, 1376295, 5, 0, 1441792, 5, 0, 1441793, 5, 0, 1441794, 5, 0, 1441795, 5, 0, 1441796, 5, 0, 1441797, 5, 0, 1441798, 5, 0, 1441799, 5, 0, 1441800, 5, 0, 1441801, 5, 0, 1441802, 5, 0, 1441803, 5, 0, 1441804, 5, 0, 1441805, 5, 0, 1441806, 5, 0, 1441807, 5, 0, 1441808, 5, 0, 1441809, 5, 0, 1441810, 5, 0, 1441811, 5, 0, 1441812, 5, 0, 1441813, 5, 0, 1441814, 5, 0, 1441815, 5, 0, 1441816, 5, 0, 1441817, 5, 0, 1441818, 5, 0, 1441819, 5, 0, 1441820, 5, 0, 1441821, 5, 0, 1441822, 5, 0, 1441823, 5, 0, 1441824, 5, 0, 1441825, 5, 0, 1441826, 5, 0, 1441827, 5, 0, 1441828, 5, 0, 1441829, 5, 0, 1441830, 5, 0, 1441831, 5, 0 )
 
 [node name="RoomLabel" parent="." index="6"]
 visible = false
@@ -82,12 +91,6 @@ position = Vector2( 0, -6 )
 shape = SubResource( 3 )
 one_way_collision = true
 
-[node name="HazardFloor" parent="BaseMovingPlatform3" index="2" instance=ExtResource( 3 )]
-position = Vector2( 1, -26 )
-
-[node name="CollisionShape2D" parent="BaseMovingPlatform3/HazardFloor/Area2D" index="0"]
-shape = SubResource( 8 )
-
 [node name="BaseMovingPlatform4" parent="." index="10" instance=ExtResource( 2 )]
 position = Vector2( 704, 496 )
 MoveToPosition_Local = [ Vector2( 480, 0 ), Vector2( 0, 0 ) ]
@@ -99,13 +102,6 @@ tile_data = PoolIntArray( -4, 536870918, 0, -2, 536870918, 0, -65536, 536870918,
 position = Vector2( 0, -6 )
 shape = SubResource( 4 )
 one_way_collision = true
-
-[node name="HazardFloor" parent="BaseMovingPlatform4" index="2" instance=ExtResource( 3 )]
-position = Vector2( 0, -26 )
-
-[node name="CollisionShape2D" parent="BaseMovingPlatform4/HazardFloor/Area2D" index="0"]
-position = Vector2( -0.5, 0 )
-shape = SubResource( 9 )
 
 [node name="BaseMovingPlatform5" parent="." index="11" instance=ExtResource( 2 )]
 position = Vector2( 128, 368 )
@@ -144,12 +140,88 @@ position = Vector2( 0, -6 )
 shape = SubResource( 7 )
 one_way_collision = true
 
+[node name="HazardFloor" parent="." index="15" instance=ExtResource( 3 )]
+position = Vector2( 58, 691 )
+
+[node name="Sprite" parent="HazardFloor" index="0"]
+position = Vector2( 54, 0 )
+region_rect = Rect2( 0, 0, 64, 400 )
+
+[node name="GameplayEffectTemplate" parent="HazardFloor" index="1"]
+ValueToModify = 40.0
+
+[node name="CollisionShape2D" parent="HazardFloor/Area2D" index="0"]
+position = Vector2( 54, 1 )
+shape = SubResource( 8 )
+
+[node name="HazardFloor2" parent="." index="16" instance=ExtResource( 3 )]
+position = Vector2( 832, 691 )
+
+[node name="Sprite" parent="HazardFloor2" index="0"]
+position = Vector2( 32, 0 )
+region_rect = Rect2( 0, 0, 64, 320 )
+
+[node name="GameplayEffectTemplate" parent="HazardFloor2" index="1"]
+ValueToModify = 40.0
+
+[node name="CollisionShape2D" parent="HazardFloor2/Area2D" index="0"]
+position = Vector2( 32, 0.5 )
+shape = SubResource( 9 )
+
+[node name="HazardFloor3" parent="." index="17" instance=ExtResource( 3 )]
+position = Vector2( 1114, 691 )
+
+[node name="Sprite" parent="HazardFloor3" index="0"]
+position = Vector2( 54, 0 )
+region_rect = Rect2( 0, 0, 64, 400 )
+
+[node name="GameplayEffectTemplate" parent="HazardFloor3" index="1"]
+ValueToModify = 40.0
+
+[node name="CollisionShape2D" parent="HazardFloor3/Area2D" index="0"]
+position = Vector2( 54, 0.5 )
+shape = SubResource( 10 )
+
+[node name="HazardFloor4" parent="." index="18" instance=ExtResource( 3 )]
+position = Vector2( 392, 693 )
+
+[node name="Sprite" parent="HazardFloor4" index="0"]
+position = Vector2( 24, -2 )
+region_rect = Rect2( 0, 0, 64, 320 )
+
+[node name="GameplayEffectTemplate" parent="HazardFloor4" index="1"]
+ValueToModify = 40.0
+
+[node name="CollisionShape2D" parent="HazardFloor4/Area2D" index="0"]
+position = Vector2( 24, -1.5 )
+shape = SubResource( 11 )
+
+[node name="AerialEnemy_Bullet2" parent="." index="19" instance=ExtResource( 5 )]
+position = Vector2( 999, 461 )
+
+[node name="AerialEnemy_Bullet" parent="." index="20" instance=ExtResource( 5 )]
+position = Vector2( 278, 461 )
+
+[node name="AerialEnemy_Turret" parent="." index="21" instance=ExtResource( 4 )]
+position = Vector2( 634, 170 )
+
+[node name="AerialEnemy_ExpGiver" parent="." index="22" instance=ExtResource( 6 )]
+position = Vector2( 631, 396 )
+
+[node name="AerialEnemy_Bullet3" parent="." index="23" instance=ExtResource( 5 )]
+position = Vector2( 1099, 133 )
+
+[node name="AerialEnemy_Bullet4" parent="." index="24" instance=ExtResource( 5 )]
+position = Vector2( 170, 125 )
+
 [editable path="BaseMovingPlatform"]
 [editable path="BaseMovingPlatform2"]
 [editable path="BaseMovingPlatform3"]
-[editable path="BaseMovingPlatform3/HazardFloor"]
 [editable path="BaseMovingPlatform4"]
-[editable path="BaseMovingPlatform4/HazardFloor"]
 [editable path="BaseMovingPlatform5"]
 [editable path="BaseMovingPlatform6"]
 [editable path="BaseMovingPlatform7"]
+[editable path="HazardFloor"]
+[editable path="HazardFloor2"]
+[editable path="HazardFloor3"]
+[editable path="HazardFloor4"]

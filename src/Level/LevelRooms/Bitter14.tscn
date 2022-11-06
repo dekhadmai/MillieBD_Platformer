@@ -27,25 +27,34 @@ position = Vector2( 640, 16 )
 position = Vector2( 640, 721 )
 
 [node name="BaseGroundedEnemy_GroundWave" parent="." index="8" instance=ExtResource( 4 )]
-position = Vector2( 1100, 223 )
+position = Vector2( 993, 352 )
 
-[node name="BaseGroundedEnemy_Beam" parent="." index="9" instance=ExtResource( 2 )]
-position = Vector2( 226, 192 )
+[node name="BaseGroundedEnemy_Beam" parent="BaseGroundedEnemy_GroundWave" index="10" instance=ExtResource( 2 )]
+position = Vector2( 132, -254 )
 
-[node name="BaseGroundedEnemy_Bullet" parent="." index="10" instance=ExtResource( 5 )]
+[node name="BaseGroundedEnemy_GroundWave4" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 328, 290 )
+
+[node name="BaseGroundedEnemy_Beam" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 336, 100 )
+
+[node name="BaseGroundedEnemy_Bullet" parent="." index="11" instance=ExtResource( 5 )]
 position = Vector2( 308, 385 )
 
-[node name="BaseGroundedEnemy_Bullet2" parent="." index="11" instance=ExtResource( 3 )]
+[node name="BaseGroundedEnemy_Bullet2" parent="." index="12" instance=ExtResource( 3 )]
 position = Vector2( 285, 675 )
 
-[node name="BaseGroundedEnemy_Bullet3" parent="." index="12" instance=ExtResource( 5 )]
+[node name="BaseGroundedEnemy_Bullet3" parent="." index="13" instance=ExtResource( 5 )]
 position = Vector2( 1002, 671 )
 
-[node name="BaseGroundedEnemy_Bullet4" parent="." index="13" instance=ExtResource( 5 )]
+[node name="BaseGroundedEnemy_Bullet4" parent="." index="14" instance=ExtResource( 5 )]
 position = Vector2( 1188, 482 )
 
-[node name="BaseGroundedEnemy_GroundWave2" parent="." index="14" instance=ExtResource( 4 )]
+[node name="BaseGroundedEnemy_GroundWave2" parent="." index="15" instance=ExtResource( 4 )]
 position = Vector2( 757, 448 )
 
-[node name="BaseGroundedEnemy_Beam2" parent="." index="15" instance=ExtResource( 2 )]
+[node name="BaseGroundedEnemy_Beam2" parent="." index="16" instance=ExtResource( 2 )]
 position = Vector2( 768, 188 )
+
+[node name="BaseGroundedEnemy_GroundWave3" parent="." index="17" instance=ExtResource( 4 )]
+position = Vector2( 266, 575 )
