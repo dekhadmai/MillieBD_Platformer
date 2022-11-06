@@ -30,6 +30,7 @@ shader_param/color_count = 2
 AIcontroller_NodeName = "AIControllerGrounded"
 
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 3 )]
+AbilityTriggerIntervalSeconds = 4.0
 AbilityNodeName = "ShootAbility"
 
 [node name="AbilitySystemComponent" parent="." index="2"]
