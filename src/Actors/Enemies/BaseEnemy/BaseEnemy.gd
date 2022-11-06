@@ -11,7 +11,7 @@ var _state = State.MOVING
 
 export var OriginalScale = 0.25
 
-onready var sprite = $AnimationPlayerStateScene/Sprite
+onready var sprite:Sprite = $AnimationPlayerStateScene/Sprite
 onready var animation_player = $AnimationPlayerStateScene/AnimationPlayerState
 onready var autoload_transient = $"/root/AutoLoadTransientData"
 
@@ -76,14 +76,20 @@ func _physics_process(_delta):
 		ai_controller.update_physics(_delta)
 		
 	# We flip the Sprite depending on which way the enemy is moving.
-	if _velocity.x > 0:
-		sprite.scale.x = -OriginalScale
-		#scale.x = -1
-	else:
-		sprite.scale.x = OriginalScale
-		#scale.x = 1
-		
-	FacingDirection = -sprite.scale.x / OriginalScale
+	if bDontMoveStack > 0 or _velocity.x == 0 : 
+		if CurrentTargetActor.get_global_position().x - get_global_position().x > 0 :
+			sprite.flip_h = true
+			FacingDirection = 1
+		else : 
+			sprite.flip_h = false
+			FacingDirection = -1
+	elif _velocity.x > 0:
+		sprite.flip_h = true
+		FacingDirection = 1
+	elif _velocity.x < 0:
+		sprite.flip_h = false
+		FacingDirection = -1
+	
 
 	UpdateAnimState()
 #	var animation = get_new_animation()
