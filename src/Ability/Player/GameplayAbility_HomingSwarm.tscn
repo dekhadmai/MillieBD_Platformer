@@ -4,18 +4,22 @@
 [ext_resource path="res://src/Ability/Player/GameplayAbility_HomingSwarm.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 250.0
+radius = 300.0
 
 [node name="GameplayAbility_HomingSwarm" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 AbilityShortName = "Homing"
 AbilityCooldownSecond = 10.0
 bUseFervor = true
+FervorCost = 50.0
 bullet_count = 20
 bullet_spawn_delay_range = 1.0
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
 ValueToModify = 10.0
+
+[node name="BulletSpawnerComponent" parent="." index="3"]
+ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_Player_Handgun.tscn"
 
 [node name="Area2D_EnemyDetection" type="Area2D" parent="." index="5"]
 collision_layer = 0

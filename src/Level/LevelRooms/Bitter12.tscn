@@ -4,7 +4,6 @@
 [ext_resource path="res://src/Platforms/BaseMovingPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_Turret.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Actors/Enemies/AerialEnemy_ExpGiver.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 16 )
@@ -14,6 +13,9 @@ extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 561.5, 277 )
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -67,7 +69,13 @@ position = Vector2( 959, 534 )
 [node name="AerialEnemy_Bullet6" parent="." index="15" instance=ExtResource( 3 )]
 position = Vector2( 311, 580 )
 
-[node name="AerialEnemy_ExpGiver" parent="." index="16" instance=ExtResource( 5 )]
-position = Vector2( 640, 351 )
+[node name="AerialEnemy_Turret" parent="." index="16" instance=ExtResource( 4 )]
+position = Vector2( 637, 338 )
+
+[node name="CollisionShape2D" parent="AerialEnemy_Turret/AIControllerAerial/DetectionRange" index="0"]
+position = Vector2( 8.5, 27 )
+shape = SubResource( 4 )
 
 [editable path="BaseMovingPlatform"]
+[editable path="AerialEnemy_Turret"]
+[editable path="AerialEnemy_Turret/AIControllerAerial"]

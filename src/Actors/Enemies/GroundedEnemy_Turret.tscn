@@ -1,9 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/AI/AIControllerGrounded.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Enemies/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_RobeEnjoyer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/art/Gradient/palette_swap_mapping.gdshader" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/original_0 = Color( 0.34902, 0.34902, 0.34902, 1 )
+shader_param/original_1 = Color( 0.717647, 0.717647, 0.717647, 1 )
+shader_param/original_2 = null
+shader_param/original_3 = null
+shader_param/original_4 = null
+shader_param/original_5 = null
+shader_param/original_6 = null
+shader_param/original_7 = null
+shader_param/replace_0 = Color( 0.243137, 0.32549, 0.866667, 1 )
+shader_param/replace_1 = Color( 0.792157, 0.85098, 0.0470588, 1 )
+shader_param/replace_2 = null
+shader_param/replace_3 = null
+shader_param/replace_4 = null
+shader_param/replace_5 = null
+shader_param/replace_6 = null
+shader_param/replace_7 = null
+shader_param/color_count = 2
 
 [node name="BaseGroundedEnemy_Bullet" instance=ExtResource( 3 )]
 AIcontroller_NodeName = "AIControllerGrounded"
@@ -26,3 +47,8 @@ ActorToSpawnPath = "res://src/Objects/Base/BaseBullet_Enemy.tscn"
 frame = 8
 
 [node name="AnimationPlayerStateScene" parent="." index="6" instance=ExtResource( 4 )]
+
+[node name="Sprite" parent="AnimationPlayerStateScene" index="0"]
+material = SubResource( 1 )
+
+[editable path="AnimationPlayerStateScene"]

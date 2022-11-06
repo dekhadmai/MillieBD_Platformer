@@ -12,14 +12,14 @@ radius = 100.0
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 5 )
 shader_param/original_0 = Color( 0.34902, 0.34902, 0.34902, 1 )
-shader_param/original_1 = null
+shader_param/original_1 = Color( 0, 0, 0, 1 )
 shader_param/original_2 = null
 shader_param/original_3 = null
 shader_param/original_4 = null
 shader_param/original_5 = null
 shader_param/original_6 = null
 shader_param/original_7 = null
-shader_param/replace_0 = Color( 1, 0.596078, 0, 1 )
+shader_param/replace_0 = Color( 1, 0.866667, 0, 1 )
 shader_param/replace_1 = null
 shader_param/replace_2 = null
 shader_param/replace_3 = null
@@ -63,6 +63,7 @@ frame = 8
 
 [node name="Sprite" parent="AnimationPlayerStateScene" index="0"]
 material = SubResource( 2 )
+frame = 0
 
 [editable path="AIControllerAerial"]
 [editable path="AnimationPlayerStateScene"]

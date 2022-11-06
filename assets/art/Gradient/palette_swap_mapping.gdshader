@@ -18,7 +18,7 @@ uniform vec4 replace_5: hint_color;
 uniform vec4 replace_6: hint_color;
 uniform vec4 replace_7: hint_color;
 
-uniform int color_count = 8;
+uniform int color_count = 1;
 const float precision = 0.1;
 
 

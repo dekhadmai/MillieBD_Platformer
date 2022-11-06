@@ -7,22 +7,22 @@
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 3 )
 shader_param/original_0 = Color( 0.34902, 0.34902, 0.34902, 1 )
-shader_param/original_1 = null
-shader_param/original_2 = null
+shader_param/original_1 = Color( 0.717647, 0.717647, 0.717647, 1 )
+shader_param/original_2 = Color( 0, 0, 0, 1 )
 shader_param/original_3 = null
 shader_param/original_4 = null
 shader_param/original_5 = null
 shader_param/original_6 = null
 shader_param/original_7 = null
-shader_param/replace_0 = Color( 0, 0.34902, 0.34902, 1 )
-shader_param/replace_1 = null
+shader_param/replace_0 = Color( 0.219608, 0.470588, 0.356863, 1 )
+shader_param/replace_1 = Color( 0.792157, 0.85098, 0.0470588, 1 )
 shader_param/replace_2 = null
 shader_param/replace_3 = null
 shader_param/replace_4 = null
 shader_param/replace_5 = null
 shader_param/replace_6 = null
 shader_param/replace_7 = null
-shader_param/color_count = 1
+shader_param/color_count = 2
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
@@ -164,7 +164,6 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 hframes = 8
 vframes = 5
-frame = 32
 
 [node name="AnimationPlayerState" parent="." instance=ExtResource( 1 )]
 anims/attack = SubResource( 1 )
