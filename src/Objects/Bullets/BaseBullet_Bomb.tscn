@@ -19,8 +19,8 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 32.0
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 21, 32.5 )
 
 [node name="BaseBullet_Bomb" instance=ExtResource( 1 )]
 gravity_scale = 1.0
@@ -39,18 +39,18 @@ AreaLingerDuration = 0.6
 graze_period = 0.1
 
 [node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]
-position = Vector2( 32, 32 )
+position = Vector2( 22, 32 )
 scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 hframes = 6
 vframes = 1
-frame = 0
+frame = 2
 
 [node name="AnimationPlayer" parent="Area2D_Damage_Telegraph" index="2"]
 anims/area_loop_bomb = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="Area2D_Damage_Telegraph" index="8"]
-position = Vector2( 32, 32 )
-shape = SubResource( 1 )
+position = Vector2( 21, 32 )
+shape = SubResource( 3 )
 
 [editable path="Area2D_Damage_Telegraph"]
