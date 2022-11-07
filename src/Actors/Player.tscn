@@ -537,10 +537,17 @@ EffectDuration = 5.0
 StatToModify = 8
 ValueToModify = 1.0
 
-[node name="TestExp" parent="." instance=ExtResource( 16 )]
+[node name="CheatBuff" type="Node" parent="."]
+
+[node name="CheatExp" parent="CheatBuff" instance=ExtResource( 16 )]
 bExpAddFerver = false
 StatToModify = 5
 ValueToModify = 2000.0
+
+[node name="CheatTakeDamage" parent="CheatBuff" instance=ExtResource( 16 )]
+bExpAddFerver = false
+StatToModify = 1
+ValueToModify = 100.0
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, -22 )

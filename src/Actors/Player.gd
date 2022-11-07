@@ -19,7 +19,10 @@ onready var autoload_globalresource = $"/root/AutoloadGlobalResource"
 onready var levelup_effect_atk = $LevelUpEffect_Atk
 onready var levelup_effect_maxhp = $LevelUpEffect_MaxHP
 onready var levelup_effect_invincible = $LevelUpEffect_Invincible
-onready var test_exp = $TestExp
+
+# Cheat
+onready var cheat_exp = $CheatBuff/CheatExp
+onready var cheat_damage = $CheatBuff/CheatTakeDamage
 
 onready var platform_detector = $PlatformDetector
 onready var animation_player = $AnimationPlayerState
@@ -157,6 +160,19 @@ func _ready():
 	#	AddSpecialAbility("Beam")
 	#	AddSpecialAbility("Nuke")
 	#	AddSpecialAbility("Homing")
+		
+		
+	if autoload_transientdata.PlayerSaveData.Level > 0 : 
+		GetAbilitySystemComponent().CurrentCharStats.CurrentLevel = autoload_transientdata.PlayerSaveData.Level
+		GetAbilitySystemComponent().CurrentCharStats.MaxEXP = GetAbilitySystemComponent().CurrentCharStats.GetMaxExp()
+		
+	if autoload_transientdata.PlayerSaveData.BaseHP > 0 : 
+		GetAbilitySystemComponent().CurrentCharStats.BaseHP = autoload_transientdata.PlayerSaveData.BaseHP
+		GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
+		
+	if autoload_transientdata.PlayerSaveData.BaseAttack > 0 : 
+		GetAbilitySystemComponent().CurrentCharStats.BaseAttack = autoload_transientdata.PlayerSaveData.BaseAttack
+		GetAbilitySystemComponent().CurrentCharStats.Calculate()
 	
 	pass
 
@@ -258,7 +274,9 @@ func _physics_process(_delta):
 #			if abi_node : 
 #				abi_node.TryActivate()
 	if GlobalFunctions.IsKeyModifierPressed("move_up", "CheatModifier"):
-		TestExp()
+		CheatExp()
+	if GlobalFunctions.IsKeyModifierPressed("move_down", "CheatModifier"):
+		CheatTakeDamage()
 			
 	if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
 		set_collision_mask_bit(3, false)
@@ -326,6 +344,10 @@ func died():
 	autoload_transientdata.PlayerSaveData.SpecialAbilityTemplateNameArray.clear()
 	autoload_transientdata.PlayerSaveData.SpecialAbilityTemplateNameArray.append_array(SpecialAbilityTemplateNameArray)
 	
+	autoload_transientdata.PlayerSaveData.BaseHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
+	autoload_transientdata.PlayerSaveData.BaseAttack = GetAbilitySystemComponent().CurrentCharStats.BaseAttack
+	autoload_transientdata.PlayerSaveData.Level = GetAbilitySystemComponent().CurrentCharStats.CurrentLevel
+	
 	queue_free()
 	
 	autoload_mapdata.SpawnPlayer()
@@ -347,9 +369,14 @@ func level_up():
 	effect = levelup_effect_invincible.duplicate() as BaseGameplayEffect
 	body_asc.ApplyGameplayEffectToSelf(effect)
 	
-func TestExp():
+func CheatExp():
 	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
-	var effect:BaseGameplayEffect = test_exp.duplicate() as BaseGameplayEffect
+	var effect:BaseGameplayEffect = cheat_exp.duplicate() as BaseGameplayEffect
+	body_asc.ApplyGameplayEffectToSelf(effect)
+	
+func CheatTakeDamage():
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	var effect:BaseGameplayEffect = cheat_damage.duplicate() as BaseGameplayEffect
 	body_asc.ApplyGameplayEffectToSelf(effect)
 
 func can_float():
