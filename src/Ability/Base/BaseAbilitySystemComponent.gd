@@ -5,6 +5,7 @@ extends Node2D
 
 signal take_damage(value)
 signal died
+signal level_up
 
 # work around can't export character stats
 export(float) var InitStat_HP = 100.0
@@ -29,12 +30,16 @@ func _ready():
 	
 	CurrentCharStats.InitBaseStat(BaseCharStats, InitStat_IframeSeconds)
 	CurrentCharStats.connect("died", self, "died")
+	CurrentCharStats.connect("level_up", self, "level_up")
 	CurrentCharStats.connect("take_damage", self, "take_damage")
 	
 	pass
 
 func died():
 	emit_signal("died")
+	
+func level_up():
+	emit_signal("level_up")
 	
 func take_damage(value):
 	emit_signal("take_damage", value)

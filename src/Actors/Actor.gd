@@ -33,6 +33,7 @@ func GetInstigator() -> Actor:
 
 func _ready():
 	GetAbilitySystemComponent().connect("died", self, "died")
+	GetAbilitySystemComponent().connect("level_up", self, "level_up")
 	GetAbilitySystemComponent().connect("take_damage", self, "take_damage")
 
 # _physics_process is called after the inherited _physics_process function.
@@ -59,10 +60,13 @@ func GetAbilityNode(node_name):
 	if comp :
 		return comp.get_node(node_name)
 	return null
-	
+
 func died():
 	bIsDead = true
-	
+
+func level_up():
+	pass
+
 func take_damage(value):
 	pass
 

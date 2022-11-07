@@ -61,7 +61,8 @@ func on_timeout_effect_duration():
 	Deactivate()
 
 func Deactivate():
-	UndoEffect()
+	if EffectDurationType != DurationType.Instant:
+		UndoEffect()
 	if effect_sprite : 
 		effect_sprite.set_visible(false) 
 		bStartFadeout = false
@@ -84,6 +85,10 @@ func DoEffect() -> void:
 			TargetAbilitySystemComponent.CurrentCharStats.ExpAdjustScale += ValueToModify
 		CharacterStats.CharacterStatType.HP:
 			TargetAbilitySystemComponent.CurrentCharStats.CurrentHP += ValueToModify
+		CharacterStats.CharacterStatType.MaxHP:
+			TargetAbilitySystemComponent.CurrentCharStats.AddBaseHP(ValueToModify)
+		CharacterStats.CharacterStatType.Attack:
+			TargetAbilitySystemComponent.CurrentCharStats.AddBaseAtk(ValueToModify)
 		CharacterStats.CharacterStatType.bInvincible:
 			TargetAbilitySystemComponent.CurrentCharStats.bInvincible += ValueToModify
 		CharacterStats.CharacterStatType.DamageAdjustScale:

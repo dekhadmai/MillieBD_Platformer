@@ -16,7 +16,12 @@ func _ready():
 
 func _process(delta):
 	fps_label.set_text( str("FPS : ", Engine.get_frames_per_second()) )
-#	hp_label.set_text( str("HP : ", player_current_stat.CurrentHP) )
-#	level_label.set_text( str("LV : ", player_current_stat.CurrentLevel) )
-#	xp_label.set_text( str("EXP : ", player_current_stat.CurrentEXP) )
+	
+	player = autoload_transient.player
+	if is_instance_valid(player) : 
+		player_current_stat = player.GetAbilitySystemComponent().CurrentCharStats
+		if is_instance_valid(player_current_stat) : 
+			hp_label.set_text( str("ATK : ", player_current_stat.CurrentAttack) )
+		#	level_label.set_text( str("LV : ", player_current_stat.CurrentLevel) )
+		#	xp_label.set_text( str("EXP : ", player_current_stat.CurrentEXP) )
 	pass

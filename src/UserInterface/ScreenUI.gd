@@ -29,6 +29,7 @@ func _process(delta):
 	if is_instance_valid(player_current_stat):
 		hp_value.set_text( str("HP : ", player_current_stat.CurrentHP) )
 		hp_bar.value = player_current_stat.CurrentHP
+		hp_bar.set_max(player_current_stat.BaseHP)
 		
 		lvl_value.set_text( str("LVL : ", player_current_stat.CurrentLevel) )
 		

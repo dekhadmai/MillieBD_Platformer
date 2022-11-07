@@ -16,6 +16,11 @@ onready var autoload_transientdata = $"/root/AutoLoadTransientData"
 onready var autoload_mapdata = $"/root/AutoLoadMapData"
 onready var autoload_globalresource = $"/root/AutoloadGlobalResource"
 
+onready var levelup_effect_atk = $LevelUpEffect_Atk
+onready var levelup_effect_maxhp = $LevelUpEffect_MaxHP
+onready var levelup_effect_invincible = $LevelUpEffect_Invincible
+onready var test_exp = $TestExp
+
 onready var platform_detector = $PlatformDetector
 onready var animation_player = $AnimationPlayerState
 onready var shoot_timer = $ShootAnimation
@@ -252,6 +257,8 @@ func _physics_process(_delta):
 #			abi_node = GetAbilityNode("SpecialAbility")
 #			if abi_node : 
 #				abi_node.TryActivate()
+	if GlobalFunctions.IsKeyModifierPressed("move_up", "CheatModifier"):
+		TestExp()
 			
 	if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
 		set_collision_mask_bit(3, false)
@@ -323,6 +330,27 @@ func died():
 	
 	autoload_mapdata.SpawnPlayer()
 	autoload_transientdata.PlayerSaveData.DeathCount += 1
+	
+func level_up():
+	.level_up()
+	
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	var effect:BaseGameplayEffect = null
+	
+	if body_asc.CurrentCharStats.CurrentLevel < body_asc.CurrentCharStats.MaxLevel : 
+		effect = levelup_effect_atk.duplicate() as BaseGameplayEffect
+		body_asc.ApplyGameplayEffectToSelf(effect)
+	
+		effect = levelup_effect_maxhp.duplicate() as BaseGameplayEffect
+		body_asc.ApplyGameplayEffectToSelf(effect)
+	
+	effect = levelup_effect_invincible.duplicate() as BaseGameplayEffect
+	body_asc.ApplyGameplayEffectToSelf(effect)
+	
+func TestExp():
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	var effect:BaseGameplayEffect = test_exp.duplicate() as BaseGameplayEffect
+	body_asc.ApplyGameplayEffectToSelf(effect)
 
 func can_float():
 	return false if is_on_floor() or float_time_remaining <= 0.0 else true
