@@ -52,6 +52,9 @@ onready var skill_bar = $SkillBar
 onready var skill_name = $SkillName
 onready var weapon_name = $WeaponName
 
+onready var parallax:ParallaxBackground = $ParallaxBackground_Enna
+var parallax_offset = Vector2.ZERO
+
 
 
 #####
@@ -178,6 +181,14 @@ func _ready():
 	pass
 
 func _physics_process(_delta):
+
+	if !parallax : 
+		parallax = $ParallaxBackground_Enna
+	
+	parallax_offset = get_global_position() #camera.get_global_position()
+	parallax_offset.x = 0
+	parallax_offset.y -= 28
+	parallax.set_offset(parallax_offset)
 
 	if Input.is_action_just_pressed("jump"):
 		if can_jump():

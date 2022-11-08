@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
@@ -19,6 +19,17 @@
 [ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=17]
 [ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=18]
 [ext_resource path="res://assets/audio/sfx/PING_PONG.wav" type="AudioStream" id=19]
+[ext_resource path="res://src/Level/ParallaxBackground/ParallaxBackground_Enna.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/art/Gradient/palette_swap_gradient.gdshader" type="Shader" id=21]
+[ext_resource path="res://assets/art/Gradient/gradient_vfx_invincible.tres" type="Gradient" id=22]
+
+[sub_resource type="GradientTexture" id=32]
+gradient = ExtResource( 22 )
+
+[sub_resource type="ShaderMaterial" id=33]
+shader = ExtResource( 21 )
+shader_param/mix_amount = 1.0
+shader_param/gradient = SubResource( 32 )
 
 [sub_resource type="RectangleShape2D" id=13]
 
@@ -534,9 +545,12 @@ ValueToModify = 10.0
 
 [node name="LevelUpEffect_Invincible" parent="." instance=ExtResource( 16 )]
 EffectDurationType = 1
-EffectDuration = 5.0
+EffectDuration = 3.0
 StatToModify = 8
 ValueToModify = 1.0
+
+[node name="GameplayEffectSprite" parent="LevelUpEffect_Invincible" index="0"]
+material = SubResource( 33 )
 
 [node name="CheatBuff" type="Node" parent="."]
 
@@ -644,6 +658,8 @@ position = Vector2( 0, -28 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
 process_mode = 0
+smoothing_enabled = true
+smoothing_speed = 30.0
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -22 )
@@ -721,6 +737,8 @@ text = "100"
 align = 1
 valign = 1
 
+[node name="ParallaxBackground_Enna" parent="." instance=ExtResource( 20 )]
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0
 
@@ -757,3 +775,5 @@ visibility_mode = 1
 [connection signal="timeout" from="HoldToShootTimer" to="." method="_on_HoldToShootTimer_timeout"]
 [connection signal="timeout" from="JumpButtonTimer" to="." method="_on_JumpButtonTimer_timeout"]
 [connection signal="timeout" from="JumpButtonTimer/FloatTimer" to="." method="_on_FloatTimer_timeout"]
+
+[editable path="LevelUpEffect_Invincible"]
