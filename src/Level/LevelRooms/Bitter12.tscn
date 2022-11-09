@@ -54,6 +54,10 @@ MoveToPosition_Local = [ Vector2( 320, 0 ), Vector2( 0, 0 ) ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseMovingPlatform3" index="1"]
 shape = SubResource( 3 )
 
+[node name="RoomLabel" parent="." index="10"]
+text = "LEVEL 12
+"
+
 [node name="AerialEnemy_Bullet" parent="." index="11" instance=ExtResource( 3 )]
 position = Vector2( 421, 93 )
 

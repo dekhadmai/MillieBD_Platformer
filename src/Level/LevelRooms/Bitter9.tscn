@@ -24,6 +24,10 @@ position = Vector2( 640, 16 )
 [node name="Door_Down" parent="." index="6"]
 position = Vector2( 640, 721 )
 
+[node name="RoomLabel" parent="." index="7"]
+text = "LEVEL 9
+"
+
 [node name="AerialEnemy_Bullet" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 96, 222 )
 

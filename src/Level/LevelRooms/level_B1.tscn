@@ -36,7 +36,8 @@ position = Vector2( 640, 16 )
 position = Vector2( 640, 721 )
 
 [node name="RoomLabel" parent="." index="7"]
-visible = false
+text = "LEVEL B1
+"
 
 [node name="HazardFloor" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 58, 691.251 )
