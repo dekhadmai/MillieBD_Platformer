@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Ability/Base/BaseGameplayAbility.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/vfx/shield_vfx.png" type="Texture" id=2]
 [ext_resource path="res://src/Ability/Base/BaseGameplayEffect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/art/ui/icons/dash_icon_2.png" type="Texture" id=4]
 
 [node name="GameplayAbility" type="Node2D"]
 script = ExtResource( 1 )
+AbilityIcon = ExtResource( 4 )
 
 [node name="AbilityCooldown" type="Timer" parent="."]
 process_mode = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://src/Level/ParallaxBackground/ParallaxBackground_Enna.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/art/Gradient/palette_swap_gradient.gdshader" type="Shader" id=21]
 [ext_resource path="res://assets/art/Gradient/gradient_vfx_invincible.tres" type="Gradient" id=22]
+[ext_resource path="res://assets/art/ui/icons/dash_icon_2.png" type="Texture" id=23]
 
 [sub_resource type="GradientTexture" id=32]
 gradient = ExtResource( 22 )
@@ -685,6 +686,15 @@ tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
 tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
 tint_progress = Color( 1, 0.223529, 0, 1 )
 
+[node name="DashCDIcon" type="TextureRect" parent="DashCDBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+rect_scale = Vector2( 2, 2 )
+
 [node name="FloatTimeRemaining" type="TextureProgress" parent="."]
 margin_left = -13.0
 margin_top = -74.0
@@ -698,6 +708,16 @@ fill_mode = 5
 tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
 tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
 tint_progress = Color( 0.207843, 0.25098, 0.560784, 1 )
+
+[node name="FloatTimeIcon" type="TextureRect" parent="FloatTimeRemaining"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 23 )
 
 [node name="SkillBar" type="TextureProgress" parent="."]
 margin_left = -26.0
@@ -725,11 +745,25 @@ text = "100"
 align = 1
 valign = 1
 
+[node name="WeaponBar" type="TextureProgress" parent="."]
+margin_left = -26.0
+margin_top = -52.0
+margin_right = 102.0
+margin_bottom = 76.0
+rect_scale = Vector2( 0.4, 0.25 )
+value = 100.0
+texture_under = ExtResource( 18 )
+texture_over = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+tint_under = Color( 0.447059, 0.45098, 0.431373, 1 )
+tint_over = Color( 0.0588235, 0.054902, 0.054902, 1 )
+tint_progress = Color( 0.741176, 0.717647, 0.145098, 1 )
+
 [node name="WeaponName" type="Label" parent="."]
 margin_left = -24.0
-margin_top = -54.0
+margin_top = -53.0
 margin_right = 167.0
-margin_bottom = -16.0
+margin_bottom = -15.0
 rect_scale = Vector2( 0.25, 0.25 )
 theme = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
