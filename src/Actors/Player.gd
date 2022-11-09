@@ -46,7 +46,9 @@ var float_time_max = 2.0
 
 onready var dash_abi = $AbilitySystemComponent/Ability_Dash
 onready var dash_cd_bar = $DashCDBar
+onready var dash_cd_icon: TextureRect = $DashCDBar/DashCDIcon
 onready var float_remaining_bar = $FloatTimeRemaining
+onready var float_remaining_icon = $FloatTimeRemaining/FloatTimeIcon
 
 onready var skill_bar = $SkillBar
 onready var skill_name = $SkillName
@@ -312,6 +314,9 @@ func _physics_process(_delta):
 	if dash_cd_bar :
 		dash_cd_bar.set_max(dash_abi.AbilityCooldownSecond * 100)
 		dash_cd_bar.set_value((dash_abi.AbilityCooldownSecond - dash_abi.GetAbilityRemainingCooldownSeconds()) * 100)
+		if dash_cd_icon.get_texture() != dash_abi.AbilityIcon : 
+			dash_cd_icon.set_texture(dash_abi.AbilityIcon)
+			
 		if dash_abi.GetAbilityRemainingCooldownSeconds() == 0 :
 			dash_cd_bar.set_visible(false)
 		else: 
