@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Level/BaseLevelRoom.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/tileset/enna_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Level/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/art/tileset/enna_tileset_decoration.tres" type="TileSet" id=4]
 
 [node name="BaseLevelRoom" type="Node2D"]
 z_index = -100
 script = ExtResource( 1 )
+
+[node name="TileMap_Decoration" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 0
+collision_mask = 0
+format = 1
 
 [node name="TileMap_Platform" type="TileMap" parent="."]
 scale = Vector2( 0.25, 0.25 )
