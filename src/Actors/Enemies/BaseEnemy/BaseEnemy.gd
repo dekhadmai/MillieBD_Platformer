@@ -10,10 +10,12 @@ enum State {
 var _state = State.MOVING
 
 export var OriginalScale = 0.25
+export var bSpawnOnAlreadyClearedRoom = true
 
 onready var sprite:Sprite = $AnimationPlayerStateScene/Sprite
 onready var animation_player = $AnimationPlayerStateScene/AnimationPlayerState
 onready var autoload_transient = $"/root/AutoLoadTransientData"
+onready var autoload_mapdata = $"/root/AutoLoadMapData"
 
 export var AIcontroller_NodeName = "AIController"
 onready var ai_controller
@@ -30,6 +32,14 @@ func get_class():
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
 func _ready():
+	if !bSpawnOnAlreadyClearedRoom : 
+		var room = get_parent()
+		var room_data = autoload_mapdata.LevelRoomMap[room.Room_Position.x][room.Room_Position.y]
+		if room_data.bIsAlreadyCleared : 
+			queue_free()
+			return
+	
+	
 	speed.x = GetAbilitySystemComponent().CurrentCharStats.BaseMovespeed
 	speed.y = GetAbilitySystemComponent().CurrentCharStats.BaseJumpSpeed
 	_velocity.x = speed.x
@@ -77,12 +87,13 @@ func _physics_process(_delta):
 		
 	# We flip the Sprite depending on which way the enemy is moving.
 	if bDontMoveStack > 0 or _velocity.x == 0 : 
-		if CurrentTargetActor.get_global_position().x - get_global_position().x > 0 :
-			sprite.flip_h = true
-			FacingDirection = 1
-		else : 
-			sprite.flip_h = false
-			FacingDirection = -1
+		if is_instance_valid(CurrentTargetActor) : 
+			if CurrentTargetActor.get_global_position().x - get_global_position().x > 0 :
+				sprite.flip_h = true
+				FacingDirection = 1
+			else : 
+				sprite.flip_h = false
+				FacingDirection = -1
 	elif _velocity.x > 0:
 		sprite.flip_h = true
 		FacingDirection = 1

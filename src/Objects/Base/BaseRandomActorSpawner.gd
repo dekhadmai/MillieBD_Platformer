@@ -38,6 +38,7 @@ func _ready():
 
 func Activate():
 	SpawnActor()
+	queue_free()
 
 func GetActorToSpawn() -> Actor:
 	if !bUseTestEnemy:
