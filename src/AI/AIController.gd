@@ -27,14 +27,17 @@ var move_direction: Vector2
 var starting_position: Vector2
 
 onready var line_of_sight: RayCast2D = $RayCast_LineOfSight
+var bActive = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	starting_position = get_global_position()
-	line_of_sight.set_enabled(bCheckLineOfSight)
 	pass # Replace with function body.
 	
+func DelayInit():
+	starting_position = get_global_position()
+	line_of_sight.set_enabled(bCheckLineOfSight)
+	bActive = true
 
 func _draw():
 	if bDebug:
@@ -76,6 +79,9 @@ func _on_DetectionRange_body_exited(body):
 		PlayerDetected = false
 
 func update_physics(delta):
+	if !bActive : 
+		return
+	
 	if is_instance_valid(CurrentAbilityTarget):
 		CurrentAbilityTarget = autoload_transient.player
 		SetFollowActor(autoload_transient.player)
@@ -124,3 +130,7 @@ func StopMove() -> bool :
 	kinematic_body._velocity = Vector2.ZERO
 	return true
 	
+
+
+func _on_ActivateTimer_timeout():
+	DelayInit()

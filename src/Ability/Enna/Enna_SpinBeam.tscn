@@ -295,6 +295,8 @@ Spin_ReactivateDuration = 8.0
 Spin_DegreePerSecond = 15.0
 RandomRadius = 50
 InnerRadius = 150
+bTargetSelf = false
+bUseTopLeftBottomRight = true
 
 [node name="Anchor" type="Position2D" parent="." index="3"]
 

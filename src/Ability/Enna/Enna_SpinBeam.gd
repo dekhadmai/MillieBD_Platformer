@@ -16,6 +16,9 @@ export var Spin_DegreePerSecond: float = 15
 export var RandomRadius = 50
 export var InnerRadius = 150
 
+export var bTargetSelf = false
+
+export var bUseTopLeftBottomRight = true
 var top_left
 var bottom_right
 
@@ -31,8 +34,9 @@ func InitHurtDetection(hurt_detection_local):
 func Init():
 	.Init()
 	
-	top_left = AbilityOwner.get_parent().find_node("Room_TopLeft").get_global_position()
-	bottom_right = AbilityOwner.get_parent().find_node("Room_BottomRight").get_global_position()
+	if bUseTopLeftBottomRight : 
+		top_left = AbilityOwner.get_parent().find_node("Room_TopLeft").get_global_position()
+		bottom_right = AbilityOwner.get_parent().find_node("Room_BottomRight").get_global_position()
 	
 	hurt_detection1 = find_node("Area2D_Damage_Telegraph1")
 	hurt_detection2 = find_node("Area2D_Damage_Telegraph2")
@@ -77,7 +81,11 @@ func GenerateTargetPosition() -> Vector2:
 	var inner_vector = random_position.normalized() * InnerRadius
 	if is_instance_valid(TargetActor):
 		result = TargetActor.GetTargetingPosition() + random_position + inner_vector
-		result.x = clamp(result.x, top_left.x, bottom_right.x)
-		result.y = clamp(result.y, top_left.y, bottom_right.y)
+		if bUseTopLeftBottomRight : 
+			result.x = clamp(result.x, top_left.x, bottom_right.x)
+			result.y = clamp(result.y, top_left.y, bottom_right.y)
+		
+	if bTargetSelf : 
+		result = AbilityOwner.GetTargetingPosition()
 		
 	return result

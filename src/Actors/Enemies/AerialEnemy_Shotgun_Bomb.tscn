@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/AI/AIControllerAerial.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Enemies/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_Aloupeep.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Ability/Player/GameplayAbility_Weapon_Shotgun.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 150.0
+
+[node name="AerialEnemy_Shotgun_Bomb" instance=ExtResource( 3 )]
+collision_mask = 16
+AIcontroller_NodeName = "AIControllerAerial"
+
+[node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
+AbilityNodeName = "ShootAbility"
+
+[node name="CollisionShape2D" parent="AIControllerAerial/SafeDistance" index="0"]
+shape = SubResource( 1 )
+
+[node name="AbilitySystemComponent" parent="." index="2"]
+InitStat_Movespeed = 50.0
+
+[node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 5 )]
+AbilityCooldownSecond = 0.3
+CustomAnimName = ""
+CustomAnimDuration = 0.0
+FullbodyAnimName = "range_attack"
+FullbodyAnimDuration = 1.0
+LingeringAnimName = ""
+LingeringAnimDuration = 1.0
+AbilityDelayForAnimationSecond = 0.4
+bullet_rotation_range = 30
+bullet_spawn_delay_range = 0.2
+
+[node name="GameplayEffectTemplate" parent="AbilitySystemComponent/ShootAbility" index="1"]
+ValueToModify = 20.0
+
+[node name="BulletSpawnerComponent" parent="AbilitySystemComponent/ShootAbility" index="3"]
+ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_Bomb.tscn"
+
+[node name="Sprite" parent="." index="4"]
+frame = 8
+
+[node name="AnimationPlayerStateScene" parent="." index="8" instance=ExtResource( 4 )]
+
+[editable path="AIControllerAerial"]
+[editable path="AbilitySystemComponent/ShootAbility"]
