@@ -13,5 +13,8 @@ bullet_count = 5
 bullet_rotation_range = 15
 bullet_spawn_delay_range = 0.1
 
+[node name="GameplayEffectTemplate" parent="." index="1"]
+ValueToModify = 15.0
+
 [node name="BulletSpawnerComponent" parent="." index="3"]
 ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_Player_Shotgun.tscn"
