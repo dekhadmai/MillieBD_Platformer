@@ -632,6 +632,16 @@ func SetPositionNextRoom(current_room: BaseLevelRoom, exit, next_room: BaseLevel
 	var offset = (current_room.global_position)
 	offset.y += exit_node.position.y - entrance_node.position.y
 	offset.x += exit_node.position.x - entrance_node.position.x
+	
+	if exit == "Door_Up" :
+		offset.y -= 32.0
+	elif exit == "Door_Down" :
+		offset.y += 32.0
+	elif exit == "Door_Left" :
+		offset.x -= 32.0
+	elif exit == "Door_Right" :
+		offset.x += 32.0
+	
 	next_room.set_global_position(offset)
 	
 	pass
