@@ -10,16 +10,16 @@
 tile_data = PoolIntArray( 196626, 4, 0, 196627, 4, 0, 196628, 4, 0, 196629, 4, 0, 458770, 4, 0, 458771, 4, 0, 458772, 4, 0, 458773, 4, 0, 720914, 4, 0, 720915, 4, 0, 720916, 4, 0, 720917, 4, 0, 851970, 4, 0, 851971, 4, 0, 851972, 4, 0, 851973, 4, 0, 851974, 4, 0, 851975, 4, 0, 851976, 4, 0, 851977, 4, 0, 851978, 4, 0, 851979, 4, 0, 851980, 4, 0, 851981, 4, 0, 851994, 4, 0, 851995, 4, 0, 851996, 4, 0, 851997, 4, 0, 851998, 4, 0, 851999, 4, 0, 852000, 4, 0, 852001, 4, 0, 852002, 4, 0, 852003, 4, 0, 852004, 4, 0, 852005, 4, 0, 983058, 4, 0, 983059, 4, 0, 983060, 4, 0, 983061, 4, 0, 1245202, 4, 0, 1245203, 4, 0, 1245204, 4, 0, 1245205, 4, 0 )
 
 [node name="Door_Left" parent="." index="3"]
-position = Vector2( 16, 366 )
+position = Vector2( 16, 368 )
 
 [node name="Door_Right" parent="." index="4"]
-position = Vector2( 1264, 366 )
+position = Vector2( 1264, 368 )
 
 [node name="Door_Up" parent="." index="5"]
-position = Vector2( 640, 16 )
+position = Vector2( 656, 16 )
 
 [node name="Door_Down" parent="." index="6"]
-position = Vector2( 640, 721 )
+position = Vector2( 656, 720 )
 
 [node name="Checkpoint" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 640, 435 )
