@@ -46,6 +46,7 @@ var TargetActor:Actor = null setget SetTargetActor
 var bStopMovingAnim: bool
 var StopMovingAnimTimer:Timer
 
+export var bStopGravityWhilePlayingAnim = false
 var CacheGravity
 
 func GetAbilityLevel() -> int :
@@ -177,8 +178,9 @@ func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0, bStopMo
 		
 	if bStopMovingWhilePlayingAnim:
 		bStopMovingAnim = bStopMovingWhilePlayingAnim
-		CacheGravity = AbilityOwner.bUseGravity
-		AbilityOwner.bUseGravity = false
+		if bStopGravityWhilePlayingAnim : 
+			CacheGravity = AbilityOwner.bUseGravity
+			AbilityOwner.bUseGravity = false
 		AbilityOwner.bDontMoveStack += 1
 		StopMovingAnimTimer.start(seconds)
 		
@@ -191,8 +193,9 @@ func PlayFullBodyAnimation(fullbody_anim_name: String, seconds: float = 0.0, bSt
 		
 	if bStopMovingWhilePlayingAnim:
 		bStopMovingAnim = bStopMovingWhilePlayingAnim
-		CacheGravity = AbilityOwner.bUseGravity
-		AbilityOwner.bUseGravity = false
+		if bStopGravityWhilePlayingAnim : 
+			CacheGravity = AbilityOwner.bUseGravity
+			AbilityOwner.bUseGravity = false
 		AbilityOwner.bDontMoveStack += 1
 		StopMovingAnimTimer.start(seconds)
 		
@@ -205,7 +208,8 @@ func getAnim() -> AnimationPlayerState:
 		
 func StopMovingAnimTimer_timeout():
 	AbilityOwner.bDontMoveStack -= 1
-	AbilityOwner.bUseGravity = CacheGravity
+	if bStopGravityWhilePlayingAnim : 
+		AbilityOwner.bUseGravity = CacheGravity
 	
 func AbilityDelayTimer_timeout():
 	DoAbility()
