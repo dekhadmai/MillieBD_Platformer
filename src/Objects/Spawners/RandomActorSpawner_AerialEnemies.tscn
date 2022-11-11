@@ -3,4 +3,4 @@
 [ext_resource path="res://src/Objects/Base/BaseRandomActorSpawner.tscn" type="PackedScene" id=1]
 
 [node name="RandomActorSpawner_AerialEnemies" instance=ExtResource( 1 )]
-RandomActorTemplatePool = [ "res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" ]
+RandomActorTemplatePool = [ "res://src/Actors/Enemies/AerialEnemy_Bullet.tscn", "res://src/Actors/Enemies/AerialEnemy_Shotgun.tscn", "res://src/Actors/Enemies/AerialEnemy_Shotgun_Bomb.tscn" ]
