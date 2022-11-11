@@ -36,6 +36,7 @@ var LongestDistance: int = 0
 var TotalRoomThreshold = 30
 var LongestDistanceThreshold = 20
 
+var BossRoomPosition: Vector2
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
 var Checkpoint_Position: Vector2 = Vector2(100,150)
 var Checkpoint_RoomPosition: Vector2 = Vector2(2,0)
@@ -57,6 +58,18 @@ func SpawnPlayer():
 	add_child(player)
 	
 	StartPlayBGM()
+	
+func TeleportPlayer(player): 
+	Checkpoint_Position = Vector2(100,150)
+	Checkpoint_RoomPosition = BossRoomPosition
+	Checkpoint_RoomGlobalPosition = Vector2(0,0)
+	
+	DespawnAllRooms()
+			
+	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y)
+	SetCurrentRoom(Checkpoint_RoomPosition)
+	
+	player.set_global_position(Checkpoint_Position)
 
 func DespawnAllRooms():
 	for i in GridHeight:
@@ -283,6 +296,7 @@ func GenerateRooms()->bool:
 			if LevelRoomMap[room_pos.r][room_pos.c].Distance >= LongestDistanceThreshold : 
 				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetBossRoom()
 				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "B"
+				BossRoomPosition = Vector2(room_pos.r, room_pos.c)
 				break
 	
 	if bSpawnOneRoom and bUseTestRoom : 
