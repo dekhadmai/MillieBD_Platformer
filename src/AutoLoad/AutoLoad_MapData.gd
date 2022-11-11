@@ -50,7 +50,7 @@ var player
 func SpawnPlayer():
 	DespawnAllRooms()
 			
-	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y)
+	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y, "Center")
 	SetCurrentRoom(Checkpoint_RoomPosition)
 	
 	player = player_template.instance()
@@ -66,7 +66,7 @@ func TeleportPlayer(player):
 	
 	DespawnAllRooms()
 			
-	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y)
+	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y, "Center")
 	SetCurrentRoom(Checkpoint_RoomPosition)
 	
 	player.set_global_position(Checkpoint_Position)
@@ -83,7 +83,7 @@ func DespawnAllRooms():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bIsDebugBuild = OS.is_debug_build()
-	bIsDebugBuild = true
+#	bIsDebugBuild = false
 	
 	InstanceQueueTimer = GlobalFunctions.CreateTimerAndBind(self, self, "_ProcessInstanceQueue")
 	InstanceQueueTimer.set_one_shot(true)
@@ -539,7 +539,7 @@ func CreateRoomInstance(row: int, column: int) -> BaseLevelRoom:
 	return room
 
 # spawn room and its adjacent rooms
-func SpawnRooms(row: int, column: int) -> void :
+func SpawnRooms(row: int, column: int, direction) -> void :
 #	var room_data:LevelRoomData
 #	var room = null #CreateRoomInstance(row, column)
 #	if room == null:
@@ -562,19 +562,22 @@ func SpawnRooms(row: int, column: int) -> void :
 	# stagger spawn rooms
 	
 	
-	var data = {r = row, c = column, d = "Up"}
-	CreateInstanceQueue.push_back(data)
+#	var data = {r = row, c = column, d = "Up"}
+#	CreateInstanceQueue.push_back(data)
+#
+#	data = {r = row, c = column, d = "Down"}
+#	CreateInstanceQueue.push_back(data)
+#
+#	data = {r = row, c = column, d = "Left"}
+#	CreateInstanceQueue.push_back(data)
+#
+#	data = {r = row, c = column, d = "Right"}
+#	CreateInstanceQueue.push_back(data)
+#	
+#	data = {r = row, c = column, d = "Center"}
+#	CreateInstanceQueue.push_back(data)
 	
-	data = {r = row, c = column, d = "Down"}
-	CreateInstanceQueue.push_back(data)
-	
-	data = {r = row, c = column, d = "Left"}
-	CreateInstanceQueue.push_back(data)
-	
-	data = {r = row, c = column, d = "Right"}
-	CreateInstanceQueue.push_back(data)
-	
-	data = {r = row, c = column, d = "Center"}
+	var data = {r = row, c = column, d = direction}
 	CreateInstanceQueue.push_back(data)
 	
 	InstanceQueueTimer.start(InstanceQueueInterval)
@@ -582,15 +585,17 @@ func SpawnRooms(row: int, column: int) -> void :
 	pass
 
 func DespawnRooms(row: int, column: int) -> void :
-	var tmp: Vector2 = Vector2(row, column)
-	if not(row-1 == CurrentPlayerRoom.x and column == CurrentPlayerRoom.y):
-		RemoveRoomInstance(row-1, column)
-	if not(row+1 == CurrentPlayerRoom.x and column == CurrentPlayerRoom.y):
-		RemoveRoomInstance(row+1, column)
-	if not(row == CurrentPlayerRoom.x and column-1 == CurrentPlayerRoom.y):
-		RemoveRoomInstance(row, column-1)
-	if not(row == CurrentPlayerRoom.x and column+1 == CurrentPlayerRoom.y):
-		RemoveRoomInstance(row, column+1)
+#	var tmp: Vector2 = Vector2(row, column)
+#	if not(row-1 == CurrentPlayerRoom.x and column == CurrentPlayerRoom.y):
+#		RemoveRoomInstance(row-1, column)
+#	if not(row+1 == CurrentPlayerRoom.x and column == CurrentPlayerRoom.y):
+#		RemoveRoomInstance(row+1, column)
+#	if not(row == CurrentPlayerRoom.x and column-1 == CurrentPlayerRoom.y):
+#		RemoveRoomInstance(row, column-1)
+#	if not(row == CurrentPlayerRoom.x and column+1 == CurrentPlayerRoom.y):
+#		RemoveRoomInstance(row, column+1)
+		
+	RemoveRoomInstance(row, column)
 	pass
 
 func RemoveRoomInstance(row: int, column: int) :
@@ -616,7 +621,7 @@ func StopPlayBGM():
 
 func InitSpawnRooms():
 		
-	SpawnRooms(startroom_row, startroom_col)
+	SpawnRooms(startroom_row, startroom_col, "Center")
 	
 	pass
 

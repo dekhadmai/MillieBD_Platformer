@@ -50,7 +50,7 @@ func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
 	if condition == 1 and room_data.bIsExplored : 
 		room_data.bIsAlreadyCleared = true
 		
-	#return
+	return
 	
 	if tilemap == null:
 		tilemap = find_node("TileMap")
@@ -96,28 +96,28 @@ func _on_CheckRoomClearCondition_timeout():
 func _on_Door_Left_PlayerEntered(body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if room_data.bActive:
-		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y-1)
+		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y, "Left")
 	pass # Replace with function body.
 
 
 func _on_Door_Right_PlayerEntered(body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if room_data.bActive:
-		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y+1)
+		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y, "Right")
 	pass # Replace with function body.
 
 
 func _on_Door_Up_PlayerEntered(body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if room_data.bActive:
-		autoload_mapdata.SpawnRooms(Room_Position.x-1, Room_Position.y)
+		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y, "Up")
 	pass # Replace with function body.
 
 
 func _on_Door_Down_PlayerEntered(body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if room_data.bActive:
-		autoload_mapdata.SpawnRooms(Room_Position.x+1, Room_Position.y)
+		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y, "Down")
 	pass # Replace with function body.
 
 

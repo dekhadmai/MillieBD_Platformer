@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Level/Door.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/tileset/enna_tileset.tres" type="TileSet" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50, 50 )
@@ -15,6 +16,16 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D"]
 shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+mode = 2
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1, 4, 0 )
 
 [connection signal="body_entered" from="DoorArea2D" to="." method="_on_DoorArea2D_body_entered"]
 [connection signal="body_exited" from="DoorArea2D" to="." method="_on_DoorArea2D_body_exited"]

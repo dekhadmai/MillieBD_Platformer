@@ -1,6 +1,8 @@
 class_name Door
 extends Node2D
 
+onready var editor_hint = $TileMap
+
 onready var door_area: Area2D = $DoorArea2D
 export var bVerticalDoor = true
 
@@ -8,6 +10,10 @@ signal PlayerEntered(body)
 signal PlayerExited(body)
 
 func _ready():
+	if Engine.is_editor_hint() :
+		editor_hint.set_visible(true)
+	else:
+		editor_hint.set_visible(false)
 	pass
 
 func ReplaceTile(tilemap: TileMap, tile_id_to_replace: int):
