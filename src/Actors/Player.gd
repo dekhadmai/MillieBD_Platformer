@@ -124,6 +124,14 @@ func SwapAbility():
 	SpecialAbilityIndex = (SpecialAbilityIndex + 1) % SpecialAbilityArray.size()
 	special_abi = SpecialAbilityArray[SpecialAbilityIndex]
 	
+func UseAbilityByIndex(idx):
+	if idx < SpecialAbilityArray.size() : 
+		SpecialAbilityIndex = idx
+		special_abi = SpecialAbilityArray[SpecialAbilityIndex]
+		if is_instance_valid(special_abi) :
+			special_abi.TryActivate()
+	
+	
 ##### 
 
 func _ready():
@@ -272,6 +280,15 @@ func _physics_process(_delta):
 		
 	if Input.is_action_just_pressed("swap_ability"):
 		SwapAbility()
+		
+	if Input.is_action_just_pressed("Skill1"):
+		UseAbilityByIndex(0)
+		
+	if Input.is_action_just_pressed("Skill2"):
+		UseAbilityByIndex(1)
+		
+	if Input.is_action_just_pressed("Skill3"):
+		UseAbilityByIndex(2)
 	
 #	var abi_node = null
 #	if GlobalFunctions.IsKeyModifierPressed("use_ability", "move_up"):
@@ -287,10 +304,6 @@ func _physics_process(_delta):
 #			abi_node = GetAbilityNode("SpecialAbility")
 #			if abi_node : 
 #				abi_node.TryActivate()
-	if GlobalFunctions.IsKeyModifierPressed("move_up", "CheatModifier"):
-		CheatExp()
-	if GlobalFunctions.IsKeyModifierPressed("move_down", "CheatModifier"):
-		CheatTakeDamage()
 			
 	if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
 		set_collision_mask_bit(3, false)
@@ -337,6 +350,8 @@ func _physics_process(_delta):
 		
 	if weapon_name and weapon_abi : 
 		weapon_name.set_text(str(WeaponAbilityIndex+1) + "." + weapon_abi.AbilityShortName)
+		
+	CheckCheatCommands()
 
 
 func get_direction() -> Vector2 :
@@ -388,16 +403,6 @@ func level_up():
 	
 	if !sound_level_up.is_playing() : 
 		sound_level_up.play()
-	
-func CheatExp():
-	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
-	var effect:BaseGameplayEffect = cheat_exp.duplicate() as BaseGameplayEffect
-	body_asc.ApplyGameplayEffectToSelf(effect)
-	
-func CheatTakeDamage():
-	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
-	var effect:BaseGameplayEffect = cheat_damage.duplicate() as BaseGameplayEffect
-	body_asc.ApplyGameplayEffectToSelf(effect)
 
 func can_float():
 	return false if is_on_floor() or float_time_remaining <= 0.0 else true
@@ -515,3 +520,36 @@ func _on_FloatTimer_timeout():
 func _on_HoldToShootTimer_timeout():
 	if is_instance_valid(weapon_abi) : 
 		weapon_abi.TryActivate()
+
+
+
+
+##### CHEAT COMMANDS 
+func CheckCheatCommands():
+	if GlobalFunctions.IsKeyModifierPressed("move_up", "CheatModifier"):
+		CheatExp()
+	if GlobalFunctions.IsKeyModifierPressed("move_down", "CheatModifier"):
+		CheatTakeDamage()
+	if GlobalFunctions.IsKeyModifierPressed("move_left", "CheatModifier"):
+		CheatAddFerver()
+	if GlobalFunctions.IsKeyModifierPressed("move_right", "CheatModifier"):
+		CheatTeleportToBossRoom()
+	
+
+func CheatExp():
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	var effect:BaseGameplayEffect = cheat_exp.duplicate() as BaseGameplayEffect
+	body_asc.ApplyGameplayEffectToSelf(effect)
+	
+func CheatTakeDamage():
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	var effect:BaseGameplayEffect = cheat_damage.duplicate() as BaseGameplayEffect
+	body_asc.ApplyGameplayEffectToSelf(effect)
+	
+func CheatAddFerver():
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	body_asc.CurrentCharStats.CurrentFervor = 100
+	
+func CheatTeleportToBossRoom():
+	autoload_mapdata.TeleportPlayer(self)
+##### END OF CHEAT COMMANDS 

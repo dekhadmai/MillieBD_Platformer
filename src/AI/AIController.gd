@@ -106,11 +106,13 @@ func SetFollowActor(target_actor: Actor):
 	
 func FollowActor() -> bool :
 	if bUseFollowActor:
-		if bDebug:
-			#if end_debug_position != FollowActorTarget.global_position :
-			end_debug_position = FollowActorTarget.global_position
-			update()
-		return MoveTo(kinematic_body.global_position.direction_to(FollowActorTarget.global_position))
+		if is_instance_valid(FollowActorTarget) : 
+			if bDebug:
+				#if end_debug_position != FollowActorTarget.global_position :
+				end_debug_position = FollowActorTarget.global_position
+				update()
+			return MoveTo(kinematic_body.global_position.direction_to(FollowActorTarget.global_position))
+		
 	return false
 	
 func SetFollowPosition(target_position: Vector2):
