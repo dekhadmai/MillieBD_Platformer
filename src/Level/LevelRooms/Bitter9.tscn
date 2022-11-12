@@ -29,33 +29,30 @@ text = "LEVEL 9
 "
 
 [node name="AerialEnemy_Bullet" parent="." index="8" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 96, 222 )
 
 [node name="AerialEnemy_Bullet2" parent="." index="9" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1023, 362 )
 
 [node name="AerialEnemy_Bullet3" parent="." index="10" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1043, 95 )
 
 [node name="AerialEnemy_ExpGiver" parent="." index="11" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 630, 173 )
 
 [node name="AerialEnemy_Bullet4" parent="." index="12" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 124, 588 )
 
 [node name="AerialEnemy_Bullet5" parent="." index="13" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1168, 632 )
 
 [node name="AerialEnemy_Bullet6" parent="." index="14" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 637, 527 )
 
 [node name="AerialEnemy_Bullet7" parent="." index="15" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 286, 399 )
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]

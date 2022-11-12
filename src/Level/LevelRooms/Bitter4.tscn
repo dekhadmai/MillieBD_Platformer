@@ -35,45 +35,39 @@ text = "LEVEL 4
 "
 
 [node name="BaseGroundedEnemy_Bullet" parent="." index="8" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 419, 321 )
 
 [node name="BaseGroundedEnemy_Bullet2" parent="." index="9" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 885, 222 )
 
 [node name="BaseGroundedEnemy_Bullet3" parent="." index="10" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 371, 543 )
 
 [node name="BaseGroundedEnemy_Beam" parent="." index="11" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 939, 542 )
 
 [node name="BaseGroundedEnemy_Beam2" parent="." index="12" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 200, 673 )
 
 [node name="BaseGroundedEnemy_Beam3" parent="." index="13" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1090, 671 )
 
 [node name="BaseGroundedEnemy_Beam4" parent="." index="14" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 805, 416 )
 
 [node name="BaseGroundedEnemy_GroundWave" parent="." index="15" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 500, 96 )
 
 [node name="BaseGroundedEnemy_GroundWave2" parent="." index="16" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 409, 217 )
 
 [node name="AerialEnemy_Bullet" parent="." index="17" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 102, 74 )
 
 [node name="AerialEnemy_Bullet2" parent="." index="18" instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 1180, 70 )
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]

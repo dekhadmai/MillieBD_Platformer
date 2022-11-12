@@ -31,33 +31,30 @@ text = "LEVEL C1
 "
 
 [node name="BaseGroundedEnemy_GroundWave" parent="." index="8" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 624, 322 )
 
 [node name="BaseGroundedEnemy_Bullet" parent="." index="9" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 376, 159 )
 
 [node name="BaseGroundedEnemy_Bullet2" parent="." index="10" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 926, 160 )
 
 [node name="AerialEnemy_Turret" parent="." index="11" instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 639, 459 )
 
 [node name="BaseGroundedEnemy_Beam" parent="." index="12" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 245, 667 )
 
 [node name="BaseGroundedEnemy_Bullet3" parent="." index="13" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 86, 545 )
 
 [node name="BaseGroundedEnemy_Bullet4" parent="." index="14" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1169, 542 )
 
 [node name="BaseGroundedEnemy_GroundWave2" parent="." index="15" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 989, 669 )
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]
