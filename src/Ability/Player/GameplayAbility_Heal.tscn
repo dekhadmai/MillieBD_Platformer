@@ -4,8 +4,10 @@
 
 [node name="Ability_Heal" instance=ExtResource( 1 )]
 AbilityShortName = "Heal"
-AbilityCooldownSecond = 10.0
+AbilityCooldownSecond = 20.0
 bUseFervor = true
+FervorCost = 50.0
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
 StatToModify = 2
+ValueToModify = 50.0
