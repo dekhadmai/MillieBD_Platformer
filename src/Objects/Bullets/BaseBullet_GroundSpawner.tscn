@@ -25,14 +25,42 @@ script = ExtResource( 3 )
 BulletData_LocalOffset = Vector2( 10, 0 )
 BulletData_InstigatorFacingDirectionOffset = Vector2( 60, 0 )
 BulletData_Rotation = 180.0
-BulletData_Delay = 0.2
+BulletData_Delay = 0.1
 
 [node name="BulletSpawnerData3" type="Position2D" parent="BulletSpawnerComponent" index="2"]
 script = ExtResource( 3 )
 BulletData_LocalOffset = Vector2( 10, 0 )
 BulletData_InstigatorFacingDirectionOffset = Vector2( 90, 0 )
 BulletData_Rotation = 180.0
+BulletData_Delay = 0.2
+
+[node name="BulletSpawnerData4" type="Position2D" parent="BulletSpawnerComponent" index="3"]
+script = ExtResource( 3 )
+BulletData_LocalOffset = Vector2( 10, 0 )
+BulletData_InstigatorFacingDirectionOffset = Vector2( 120, 0 )
+BulletData_Rotation = 180.0
+BulletData_Delay = 0.3
+
+[node name="BulletSpawnerData5" type="Position2D" parent="BulletSpawnerComponent" index="4"]
+script = ExtResource( 3 )
+BulletData_LocalOffset = Vector2( 10, 0 )
+BulletData_InstigatorFacingDirectionOffset = Vector2( 150, 0 )
+BulletData_Rotation = 180.0
 BulletData_Delay = 0.4
+
+[node name="BulletSpawnerData6" type="Position2D" parent="BulletSpawnerComponent" index="5"]
+script = ExtResource( 3 )
+BulletData_LocalOffset = Vector2( 10, 0 )
+BulletData_InstigatorFacingDirectionOffset = Vector2( 180, 0 )
+BulletData_Rotation = 180.0
+BulletData_Delay = 0.5
+
+[node name="BulletSpawnerData7" type="Position2D" parent="BulletSpawnerComponent" index="6"]
+script = ExtResource( 3 )
+BulletData_LocalOffset = Vector2( 10, 0 )
+BulletData_InstigatorFacingDirectionOffset = Vector2( 210, 0 )
+BulletData_Rotation = 180.0
+BulletData_Delay = 0.6
 
 [node name="Area2D_Damage" parent="." index="7"]
 monitoring = false
