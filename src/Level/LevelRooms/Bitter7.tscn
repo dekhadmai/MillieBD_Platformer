@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BitterTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_ExpGiver.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/Enemies/AerialEnemy_Turret_SpinBeam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Mortar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/Spawners/RandomActorSpawner_AerialEnemies.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/art/tileset/enna_tileset_new.tres" type="TileSet" id=7]
+[ext_resource path="res://src/Objects/RandomActorSpawner_GroundEnemies.tscn" type="PackedScene" id=8]
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -23,37 +24,34 @@ text = "LEVEL 7
 "
 
 [node name="BaseGroundedEnemy_Mortar" parent="." index="8" instance=ExtResource( 4 )]
-position = Vector2( 57, 544 )
+position = Vector2( 56, 544 )
 
-[node name="BaseGroundedEnemy_Bullet" parent="." index="9" instance=ExtResource( 5 )]
-position = Vector2( 1195, 673 )
+[node name="BaseGroundedEnemy_Bullet2" parent="." index="9" instance=ExtResource( 5 )]
+position = Vector2( 1088, 256 )
 
-[node name="BaseGroundedEnemy_Bullet2" parent="." index="10" instance=ExtResource( 5 )]
-position = Vector2( 1082, 256 )
-
-[node name="BaseGroundedEnemy_Bullet3" parent="." index="11" instance=ExtResource( 5 )]
-position = Vector2( 337, 96 )
-
-[node name="BaseGroundedEnemy_Bullet4" parent="." index="12" instance=ExtResource( 5 )]
-position = Vector2( 924, 97 )
-
-[node name="AerialEnemy_Bullet" parent="." index="13" instance=ExtResource( 3 )]
-position = Vector2( 437, 300 )
-
-[node name="AerialEnemy_Bullet2" parent="." index="14" instance=ExtResource( 3 )]
-position = Vector2( 509, 465 )
-
-[node name="AerialEnemy_Bullet3" parent="." index="15" instance=ExtResource( 3 )]
-position = Vector2( 127, 278 )
-
-[node name="AerialEnemy_Bullet4" parent="." index="16" instance=ExtResource( 3 )]
-position = Vector2( 753, 418 )
-
-[node name="AerialEnemy_ExpGiver" parent="." index="17" instance=ExtResource( 2 )]
+[node name="AerialEnemy_ExpGiver" parent="." index="10" instance=ExtResource( 2 )]
 position = Vector2( 831, 198 )
 
-[node name="BaseGroundedEnemy_GroundWave" parent="." index="18" instance=ExtResource( 6 )]
-position = Vector2( 206, 668 )
+[node name="RandomActorSpawner_AerialEnemies2" parent="." index="11" instance=ExtResource( 6 )]
+position = Vector2( 760, 392 )
+
+[node name="AerialEnemy_Turret_SpinBeam" parent="." index="12" instance=ExtResource( 3 )]
+position = Vector2( 448, 360 )
+
+[node name="RandomActorSpawner_GroundEnemies" parent="." index="13" instance=ExtResource( 8 )]
+position = Vector2( 1040, 672 )
+
+[node name="RandomActorSpawner_GroundEnemies2" parent="." index="14" instance=ExtResource( 8 )]
+position = Vector2( 928, 96 )
+
+[node name="RandomActorSpawner_GroundEnemies3" parent="." index="15" instance=ExtResource( 8 )]
+position = Vector2( 400, 88 )
+
+[node name="RandomActorSpawner_AerialEnemies" parent="." index="16" instance=ExtResource( 6 )]
+position = Vector2( 136, 264 )
+
+[node name="RandomActorSpawner_GroundEnemies4" parent="." index="17" instance=ExtResource( 8 )]
+position = Vector2( 288, 672 )
 
 [editable path="Door_Left"]
 [editable path="Door_Right"]
