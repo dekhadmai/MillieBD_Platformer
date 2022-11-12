@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Level/BaseLevelRoom.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/tileset/enna_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Level/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/art/tileset/enna_tileset_decoration.tres" type="TileSet" id=4]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 96, 80 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 96, 80 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 80, 96 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 80, 96 )
 
 [node name="BaseLevelRoom" type="Node2D"]
 z_index = -100
@@ -35,13 +47,29 @@ format = 1
 
 [node name="Door_Left" parent="." instance=ExtResource( 3 )]
 
+[node name="CollisionShape2D" parent="Door_Left/DoorArea2D" index="0"]
+position = Vector2( -16, 0 )
+shape = SubResource( 2 )
+
 [node name="Door_Right" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" parent="Door_Right/DoorArea2D" index="0"]
+position = Vector2( 16, 0 )
+shape = SubResource( 1 )
 
 [node name="Door_Up" parent="." instance=ExtResource( 3 )]
 bVerticalDoor = false
 
+[node name="CollisionShape2D" parent="Door_Up/DoorArea2D" index="0"]
+position = Vector2( 0, -16 )
+shape = SubResource( 3 )
+
 [node name="Door_Down" parent="." instance=ExtResource( 3 )]
 bVerticalDoor = false
+
+[node name="CollisionShape2D" parent="Door_Down/DoorArea2D" index="0"]
+position = Vector2( 0, 16 )
+shape = SubResource( 4 )
 
 [node name="RoomLabel" type="Label" parent="."]
 margin_right = 128.0
@@ -61,3 +89,8 @@ autostart = true
 [connection signal="PlayerEntered" from="Door_Down" to="." method="_on_Door_Down_PlayerEntered"]
 [connection signal="PlayerExited" from="Door_Down" to="." method="_on_Door_Down_PlayerExited"]
 [connection signal="timeout" from="CheckRoomClearCondition" to="." method="_on_CheckRoomClearCondition_timeout"]
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]
