@@ -50,7 +50,7 @@ func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
 	if condition == 1 and room_data.bIsExplored : 
 		room_data.bIsAlreadyCleared = true
 		
-	return
+	#return
 	
 	if tilemap == null:
 		tilemap = find_node("TileMap")
