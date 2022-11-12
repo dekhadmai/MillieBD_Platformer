@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=90 format=2]
+[gd_resource type="TileSet" load_steps=93 format=2]
 
 [ext_resource path="res://assets/art/tileset/enna_tileset_new.png" type="Texture" id=1]
 
@@ -45,6 +45,15 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 
 [sub_resource type="ConvexPolygonShape2D" id=134]
+points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=156]
+points = PoolVector2Array( 0, 64, 128, 64, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=157]
+points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=158]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
@@ -635,11 +644,11 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 24/shape_offset = Vector2( 0, 0 )
 24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 24/shape = SubResource( 25 )
-24/shape_one_way = false
+24/shape_one_way = true
 24/shape_one_way_margin = 1.0
 24/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
+"one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 25 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2143,3 +2152,66 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 111/z_index = 0
+112/name = "enna_tileset_new.png 112"
+112/texture = ExtResource( 1 )
+112/tex_offset = Vector2( 0, 0 )
+112/modulate = Color( 1, 1, 1, 1 )
+112/region = Rect2( 1664, 1280, 128, 128 )
+112/tile_mode = 0
+112/occluder_offset = Vector2( 0, 0 )
+112/navigation_offset = Vector2( 0, 0 )
+112/shape_offset = Vector2( 0, 0 )
+112/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+112/shape = SubResource( 156 )
+112/shape_one_way = true
+112/shape_one_way_margin = 1.0
+112/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 156 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+112/z_index = 0
+113/name = "enna_tileset_new.png 113"
+113/texture = ExtResource( 1 )
+113/tex_offset = Vector2( 0, 0 )
+113/modulate = Color( 1, 1, 1, 1 )
+113/region = Rect2( 1792, 1280, 128, 128 )
+113/tile_mode = 0
+113/occluder_offset = Vector2( 0, 0 )
+113/navigation_offset = Vector2( 0, 0 )
+113/shape_offset = Vector2( 0, 0 )
+113/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+113/shape = SubResource( 157 )
+113/shape_one_way = true
+113/shape_one_way_margin = 1.0
+113/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 157 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+113/z_index = 0
+114/name = "enna_tileset_new.png 114"
+114/texture = ExtResource( 1 )
+114/tex_offset = Vector2( 0, 0 )
+114/modulate = Color( 1, 1, 1, 1 )
+114/region = Rect2( 1024, 0, 128, 128 )
+114/tile_mode = 0
+114/occluder_offset = Vector2( 0, 0 )
+114/navigation_offset = Vector2( 0, 0 )
+114/shape_offset = Vector2( 0, 0 )
+114/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+114/shape = SubResource( 158 )
+114/shape_one_way = true
+114/shape_one_way_margin = 1.0
+114/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": true,
+"one_way_margin": 1.0,
+"shape": SubResource( 158 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+114/z_index = 0
