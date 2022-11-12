@@ -50,6 +50,7 @@ onready var dash_cd_icon: TextureRect = $DashCDBar/DashCDIcon
 onready var float_remaining_bar = $FloatTimeRemaining
 onready var float_remaining_icon = $FloatTimeRemaining/FloatTimeIcon
 
+onready var hp_bar = $HpBar
 onready var skill_bar = $SkillBar
 onready var skill_name = $SkillName
 onready var weapon_name = $WeaponName
@@ -342,6 +343,10 @@ func _physics_process(_delta):
 			float_remaining_bar.set_visible(false)
 		else: 
 			float_remaining_bar.set_visible(true)
+			
+	if hp_bar : 
+		hp_bar.value = ability_system_component.CurrentCharStats.CurrentHP
+		hp_bar.set_max(ability_system_component.CurrentCharStats.BaseHP)
 		
 	if skill_bar and special_abi : 
 		skill_bar.set_max(special_abi.AbilityCooldownSecond * 100)
