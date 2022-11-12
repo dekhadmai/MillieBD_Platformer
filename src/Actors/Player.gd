@@ -58,6 +58,7 @@ onready var weapon_name = $WeaponName
 onready var parallax:ParallaxBackground = $ParallaxBackground_Enna
 var parallax_offset = Vector2.ZERO
 
+onready var graze_system = $AbilitySystemComponent/GrazeSystem
 
 
 #####
@@ -525,6 +526,9 @@ func _on_FloatTimer_timeout():
 func _on_HoldToShootTimer_timeout():
 	if is_instance_valid(weapon_abi) : 
 		weapon_abi.TryActivate()
+		
+func ShowGrazeVfx():
+	graze_system.ShowGrazeVfx()
 
 
 

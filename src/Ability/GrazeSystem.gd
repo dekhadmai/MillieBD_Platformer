@@ -1,16 +1,10 @@
 extends BaseGameplayAbility
 
-func _on_GrazeArea_Base_Area_Entered(area):
-	pass
-#	var body = area.GetOwnerObject()
-#	if area.has_method("StartGraze") :
-#		if body.GetTeam() != AbilityOwner.GetTeam():
-#			area.StartGraze(AbilityOwner)
+onready var graze_vfx_timer:Timer = $GrazeVfxTimer
 
+func ShowGrazeVfx() : 
+	ability_sprite.set_visible(true)
+	graze_vfx_timer.start()
 
-func _on_GrazeArea_Base_Area_Exited(area):
-	pass
-#	var body = area.GetOwnerObject()
-#	if area.has_method("StopGraze") :
-#		if body.GetTeam() != AbilityOwner.GetTeam():
-#			area.StopGraze()
+func _on_GrazeVfxTimer_timeout():
+	ability_sprite.set_visible(false)

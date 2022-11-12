@@ -36,6 +36,7 @@ func OnGraze():
 	var body_asc: BaseAbilitySystemComponent = graze_actor.GetAbilitySystemComponent()
 	
 	graze_instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
+	graze_actor.ShowGrazeVfx()
 	
 	if bUseGrazeVfx :
 		graze_vfx.restart()
