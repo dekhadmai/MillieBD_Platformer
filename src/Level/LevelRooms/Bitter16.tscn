@@ -48,7 +48,24 @@ tile_data = PoolIntArray( 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458784, 4, 0
 [node name="TileMap" parent="." index="2"]
 tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 20, 5, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 24, 5, 0, 25, 5, 0, 26, 5, 0, 27, 5, 0, 28, 5, 0, 29, 5, 0, 30, 5, 0, 31, 5, 0, 32, 5, 0, 33, 5, 0, 34, 5, 0, 35, 5, 0, 36, 5, 0, 37, 5, 0, 38, 5, 0, 39, 5, 0, 65536, 5, 0, 65575, 5, 0, 131072, 5, 0, 131111, 5, 0, 196608, 5, 0, 196647, 5, 0, 262144, 5, 0, 262147, 8, 0, 262183, 5, 0, 327680, 5, 0, 327719, 5, 0, 393216, 5, 0, 393255, 5, 0, 458752, 5, 0, 458791, 5, 0, 524288, 5, 0, 524327, 5, 0, 589824, 5, 0, 589863, 5, 0, 655360, 5, 0, 655399, 5, 0, 720896, 5, 0, 720935, 5, 0, 786432, 5, 0, 786471, 5, 0, 851968, 5, 0, 852007, 5, 0, 917504, 5, 0, 917543, 5, 0, 983040, 5, 0, 983079, 5, 0, 1048576, 5, 0, 1048615, 5, 0, 1114112, 5, 0, 1114151, 5, 0, 1179648, 5, 0, 1179687, 5, 0, 1245184, 5, 0, 1245223, 5, 0, 1310720, 5, 0, 1310759, 5, 0, 1376256, 5, 0, 1376262, -1610612734, 0, 1376266, -2147483646, 0, 1376271, -1610612734, 0, 1376280, -2147483646, 0, 1376285, -1610612734, 0, 1376289, -2147483646, 0, 1376295, 5, 0, 1441792, 5, 0, 1441793, 5, 0, 1441794, 5, 0, 1441795, 5, 0, 1441796, 5, 0, 1441797, 5, 0, 1441798, 5, 0, 1441799, 5, 0, 1441800, 5, 0, 1441801, 5, 0, 1441802, 5, 0, 1441803, 5, 0, 1441804, 5, 0, 1441805, 5, 0, 1441806, 5, 0, 1441807, 5, 0, 1441808, 5, 0, 1441809, 5, 0, 1441810, 5, 0, 1441811, 5, 0, 1441812, 5, 0, 1441813, 5, 0, 1441814, 5, 0, 1441815, 5, 0, 1441816, 5, 0, 1441817, 5, 0, 1441818, 5, 0, 1441819, 5, 0, 1441820, 5, 0, 1441821, 5, 0, 1441822, 5, 0, 1441823, 5, 0, 1441824, 5, 0, 1441825, 5, 0, 1441826, 5, 0, 1441827, 5, 0, 1441828, 5, 0, 1441829, 5, 0, 1441830, 5, 0, 1441831, 5, 0 )
 
-[node name="BaseMovingPlatform" parent="." index="7" instance=ExtResource( 2 )]
+[node name="Door_Left" parent="." index="3"]
+position = Vector2( 16, 368 )
+
+[node name="Door_Right" parent="." index="4"]
+position = Vector2( 1264, 368 )
+
+[node name="Door_Up" parent="." index="5"]
+position = Vector2( 656, 16 )
+
+[node name="Door_Down" parent="." index="6"]
+position = Vector2( 656, 720 )
+
+[node name="RoomLabel" parent="." index="7"]
+visible = false
+text = "LEVEL 16
+"
+
+[node name="BaseMovingPlatform" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 112, 592 )
 MoveToPosition_Local = [ Vector2( 448, 0 ), Vector2( 0, 0 ) ]
 default_move_to_seconds = 3.2
@@ -61,7 +78,7 @@ position = Vector2( 0, -6 )
 shape = SubResource( 1 )
 one_way_collision = true
 
-[node name="BaseMovingPlatform2" parent="." index="8" instance=ExtResource( 2 )]
+[node name="BaseMovingPlatform2" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 1168, 592 )
 MoveToPosition_Local = [ Vector2( -448, 0 ), Vector2( 0, 0 ) ]
 default_move_to_seconds = 3.2
@@ -74,7 +91,7 @@ position = Vector2( 0, -6 )
 shape = SubResource( 2 )
 one_way_collision = true
 
-[node name="BaseMovingPlatform3" parent="." index="9" instance=ExtResource( 2 )]
+[node name="BaseMovingPlatform3" parent="." index="10" instance=ExtResource( 2 )]
 position = Vector2( 576, 496 )
 MoveToPosition_Local = [ Vector2( -480, 0 ), Vector2( 0, 0 ) ]
 
@@ -86,7 +103,7 @@ position = Vector2( 0, -6 )
 shape = SubResource( 3 )
 one_way_collision = true
 
-[node name="BaseMovingPlatform4" parent="." index="10" instance=ExtResource( 2 )]
+[node name="BaseMovingPlatform4" parent="." index="11" instance=ExtResource( 2 )]
 position = Vector2( 704, 496 )
 MoveToPosition_Local = [ Vector2( 480, 0 ), Vector2( 0, 0 ) ]
 
@@ -98,7 +115,7 @@ position = Vector2( 0, -6 )
 shape = SubResource( 4 )
 one_way_collision = true
 
-[node name="BaseMovingPlatform5" parent="." index="11" instance=ExtResource( 2 )]
+[node name="BaseMovingPlatform5" parent="." index="12" instance=ExtResource( 2 )]
 position = Vector2( 128, 368 )
 MoveToPosition_Local = [ Vector2( 1024, 0 ), Vector2( 0, 0 ) ]
 
@@ -110,7 +127,7 @@ position = Vector2( 0, -6 )
 shape = SubResource( 5 )
 one_way_collision = true
 
-[node name="BaseMovingPlatform6" parent="." index="12" instance=ExtResource( 2 )]
+[node name="BaseMovingPlatform6" parent="." index="13" instance=ExtResource( 2 )]
 position = Vector2( 304, 144 )
 MoveToPosition_Local = [ Vector2( 304, 0 ), Vector2( 0, 0 ) ]
 
@@ -122,7 +139,7 @@ position = Vector2( 0, -6 )
 shape = SubResource( 6 )
 one_way_collision = true
 
-[node name="BaseMovingPlatform7" parent="." index="13" instance=ExtResource( 2 )]
+[node name="BaseMovingPlatform7" parent="." index="14" instance=ExtResource( 2 )]
 position = Vector2( 976, 144 )
 MoveToPosition_Local = [ Vector2( -304, 0 ), Vector2( 0, 0 ) ]
 default_move_to_seconds = 3.2
@@ -134,11 +151,6 @@ tile_data = PoolIntArray( -2, 6, 0, -65536, 6, 0 )
 position = Vector2( 0, -6 )
 shape = SubResource( 7 )
 one_way_collision = true
-
-[node name="RoomLabel" parent="." index="14"]
-visible = false
-text = "LEVEL 16
-"
 
 [node name="HazardFloor" parent="." index="15" instance=ExtResource( 3 )]
 position = Vector2( 58, 691 )
@@ -197,21 +209,27 @@ position = Vector2( 24, -1.5 )
 shape = SubResource( 11 )
 
 [node name="AerialEnemy_Bullet2" parent="." index="19" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 999, 461 )
 
 [node name="AerialEnemy_Bullet" parent="." index="20" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 278, 461 )
 
 [node name="AerialEnemy_Turret" parent="." index="21" instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 634, 170 )
 
 [node name="AerialEnemy_ExpGiver" parent="." index="22" instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 631, 396 )
 
 [node name="AerialEnemy_Bullet3" parent="." index="23" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 1099, 133 )
 
 [node name="AerialEnemy_Bullet4" parent="." index="24" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 170, 125 )
 
 [editable path="BaseMovingPlatform"]
