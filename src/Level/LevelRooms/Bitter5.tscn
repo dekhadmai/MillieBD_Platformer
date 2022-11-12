@@ -39,54 +39,39 @@ text = "LEVEL 5
 "
 
 [node name="AerialEnemy_Bullet" parent="." index="8" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 485, 79 )
 
 [node name="BaseGroundedEnemy_Beam" parent="." index="9" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 294, 513 )
 
 [node name="BaseGroundedEnemy_Bullet" parent="." index="10" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 1228, 129 )
 
 [node name="BaseGroundedEnemy_Bullet2" parent="." index="11" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1152, 675 )
 
 [node name="BaseGroundedEnemy_Bullet3" parent="." index="12" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 702, 382 )
 
 [node name="BaseGroundedEnemy_Bullet4" parent="." index="13" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 408, 257 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
 
 [node name="BaseGroundedEnemy_Bullet5" parent="." index="14" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 867, 255 )
 rotation = -3.14159
 scale = Vector2( -1, -1 )
 
 [node name="BaseGroundedEnemy_Bullet6" parent="." index="15" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1141, 509 )
 
 [node name="BaseGroundedEnemy_GroundWave" parent="." index="16" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 641, 575 )
 
 [node name="BaseGroundedEnemy_GroundWave2" parent="." index="17" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 335, 671 )
-scale = Vector2( -1, 1 )
 
 [node name="BaseGroundedEnemy_GroundWave3" parent="." index="18" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 231, 383 )
 
 [node name="AerialEnemy_Bullet2" parent="." index="19" instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 55, 127 )
