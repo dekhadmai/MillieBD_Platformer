@@ -72,35 +72,27 @@ position = Vector2( 39, 0.511292 )
 shape = SubResource( 3 )
 
 [node name="AerialEnemy_Bullet3" parent="." index="11" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 259, 479.787 )
 
 [node name="AerialEnemy_Bullet4" parent="." index="12" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 98, 216.453 )
 
 [node name="AerialEnemy_Bullet5" parent="." index="13" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 432, 281.289 )
 
 [node name="AerialEnemy_Bullet6" parent="." index="14" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 645, 355.102 )
 
 [node name="AerialEnemy_Bullet7" parent="." index="15" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 1023, 517.691 )
 
 [node name="BaseGroundedEnemy_Bullet" parent="." index="16" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 821, 675.292 )
 
 [node name="AerialEnemy_Bullet" parent="." index="17" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 852, 192.513 )
 
 [node name="AerialEnemy_Bullet2" parent="." index="18" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 1174, 258.346 )
 
 [editable path="Door_Left"]
