@@ -256,6 +256,7 @@ func GenerateRooms()->bool:
 	LevelRoomMap[startroom_row][startroom_col].LevelRoomTemplate = GetCheckpointRoom()
 	LevelRoomMap[startroom_row][startroom_col].bStartRoom = true
 	LevelRoomMap[startroom_row][startroom_col].bIsExplored = true
+	LevelRoomMap[startroom_row][startroom_col].bSpawnDropOnClear = false
 	LevelRoomMap[startroom_row][startroom_col].RoomType = "C"
 	SetCurrentRoom(Vector2(startroom_row, startroom_col))
 	Traverse(startroom_row, startroom_col, -1, -1, 0)
@@ -277,6 +278,7 @@ func GenerateRooms()->bool:
 				var level_room_data: LevelRoomData
 				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetCheckpointRoom()
 				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "C"
+				LevelRoomMap[room_pos.r][room_pos.c].bSpawnDropOnClear = false
 				count += 1
 				
 	AvailableRooms = []
@@ -296,6 +298,7 @@ func GenerateRooms()->bool:
 			if LevelRoomMap[room_pos.r][room_pos.c].Distance >= LongestDistanceThreshold : 
 				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetBossRoom()
 				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "B"
+				LevelRoomMap[room_pos.r][room_pos.c].bSpawnDropOnClear = false
 				BossRoomPosition = Vector2(room_pos.r, room_pos.c)
 				break
 	

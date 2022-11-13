@@ -1,5 +1,8 @@
 class_name InteractableObject
-extends Node2D
+extends RigidBody2D
+
+onready var autoload_globalresource = $"/root/AutoloadGlobalResource"
+export var bDontSpawnInIsAlreadyClearedRoom = true
 
 export var Name: String = "Name"
 export var Description: String = "Description"
@@ -31,10 +34,21 @@ func _process(delta):
 				TapAction()
 				bFinishHold = false
 		
-	pass
+	#set_rotation_degrees(0)
 
 func Init():
-	pass
+	if !autoload_globalresource : 
+		autoload_globalresource = $"/root/AutoloadGlobalResource"
+		
+	if !autoload_mapdata : 
+		autoload_mapdata = $"/root/AutoLoadMapData"
+		
+	if bDontSpawnInIsAlreadyClearedRoom : 
+		var room = get_parent()
+		var room_data = autoload_mapdata.LevelRoomMap[room.Room_Position.x][room.Room_Position.y]
+		if room_data.bIsAlreadyCleared and room_data.bIsExplored : 
+			queue_free()
+			return
 
 func TapAction():
 	#print("Tap")

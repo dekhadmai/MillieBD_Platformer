@@ -62,6 +62,9 @@ onready var graze_system = $AbilitySystemComponent/GrazeSystem
 onready var take_damage_vfx = $Vfx/TakeDamageVfx
 onready var take_damage_vfx_timer = $Vfx/TakeDamageVfxTimer
 
+var hp_orb = "res://src/Level/InteractableObject/ItemPickup/Pickup_Hp.tscn"
+var exp_orb = "res://src/Level/InteractableObject/ItemPickup/Pickup_Exp.tscn"
+var random_roomdrop = "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn"
 
 #####
 ## Ability stuff
@@ -85,6 +88,11 @@ func AddWeaponAbility(dict_key: String):
 				WeaponAbilityIndex = WeaponAbilityArray.size()-1
 			else : 
 				# replace
+				var drop = GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn", true)
+				drop.InteractableType = 1 # weapon
+				drop.ResourceTemplateKey = WeaponAbilityTemplateNameArray[WeaponAbilityIndex]
+				drop.Init()
+				
 				WeaponAbilityArray[WeaponAbilityIndex].queue_free()
 				WeaponAbilityArray[WeaponAbilityIndex] = abi_instance
 				WeaponAbilityTemplateNameArray[WeaponAbilityIndex] = dict_key
@@ -116,6 +124,11 @@ func AddSpecialAbility(dict_key: String):
 				SpecialAbilityIndex = SpecialAbilityArray.size()-1
 			else : 
 				# replace
+				var drop = GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn", true)
+				drop.InteractableType = 2 # SpecialAbility
+				drop.ResourceTemplateKey = SpecialAbilityTemplateNameArray[SpecialAbilityIndex]
+				drop.Init()
+				
 				SpecialAbilityArray[SpecialAbilityIndex].queue_free()
 				SpecialAbilityArray[SpecialAbilityIndex] = abi_instance
 				SpecialAbilityTemplateNameArray[SpecialAbilityIndex] = dict_key
@@ -531,6 +544,17 @@ func _on_HoldToShootTimer_timeout():
 		
 func ShowGrazeVfx():
 	graze_system.ShowGrazeVfx()
+	
+func SpawnRoomClearReward():
+	GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), hp_orb, true)
+	
+	var orb_chance = 50
+	if randi() % 100 < orb_chance : 
+		GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), exp_orb, true)
+	else :
+		GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), random_roomdrop, true)
+	
+	pass
 
 func take_damage(value):
 	if take_damage_vfx and take_damage_vfx_timer : 

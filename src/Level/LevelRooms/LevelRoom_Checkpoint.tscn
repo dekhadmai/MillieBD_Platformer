@@ -37,3 +37,8 @@ InteractableType = 2
 [node name="WeaponPickup" parent="." index="12" instance=ExtResource( 3 )]
 position = Vector2( 384, 400 )
 InteractableType = 1
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]

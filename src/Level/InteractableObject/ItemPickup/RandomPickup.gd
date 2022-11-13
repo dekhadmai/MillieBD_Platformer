@@ -1,7 +1,5 @@
 extends InteractableObject
 
-onready var autoload_globalresource = $"/root/AutoloadGlobalResource"
-
 export var ResourceTemplateKey = ""
 enum ItemType {Random, Weapon, SpecialAbility}
 export(ItemType) var InteractableType = ItemType.Random
@@ -15,18 +13,13 @@ func Init():
 	if !autoload_mapdata : 
 		autoload_mapdata = $"/root/AutoLoadMapData"
 		
-	var room = get_parent()
-	var room_data = autoload_mapdata.LevelRoomMap[room.Room_Position.x][room.Room_Position.y]
-	if room_data.bIsAlreadyCleared : 
-		queue_free()
-		return
-		
 	RandomizeDrop()
 	if item_name_label : 
 		item_name_label = find_node("ItemName")
 		
 	item_name_label.set_text(ResourceTemplateKey)
-	pass
+	
+	.Init()
 
 func RandomizeDrop(): 
 	var keys
@@ -45,7 +38,8 @@ func RandomizeDrop():
 			InteractableType = ItemType.SpecialAbility
 			keys = autoload_globalresource.PlayerSpecialAbilityTemplates.keys()
 	
-	ResourceTemplateKey = keys[randi() % keys.size()]
+	if ResourceTemplateKey == "" : 
+		ResourceTemplateKey = keys[randi() % keys.size()]
 
 func TapAction():
 	#print("Tap")
@@ -57,5 +51,5 @@ func TapAction():
 			if InteractableType == ItemType.SpecialAbility : 
 				InteractedPlayer.AddSpecialAbility(ResourceTemplateKey)
 		
-	queue_free()
+			queue_free()
 	pass

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Level/InteractableObject/ItemPickup/RandomEffectPickup.tscn" type="PackedScene" id=1]
+
+[node name="Pickup_Exp" instance=ExtResource( 1 )]
+Name = "HP Orb"
+
+[node name="PickupEffect" parent="." index="4"]
+StatToModify = 2
+ValueToModify = 50.0

@@ -32,6 +32,19 @@ static func queue_free_children(node: Node) -> void:
 		#node.remove_child(n)
 		n.queue_free()
 
+static func SpawnDropFromLocation(parent, location, drop_template, b_random_velocity) : 
+	var drop_instance = load(drop_template).instance()
+	if drop_instance : 
+		drop_instance.set_as_toplevel(true)
+		parent.add_child(drop_instance)
+		drop_instance.set_global_position(location)
+		if b_random_velocity : 
+			var velocity_direction = Vector2(0, -1)
+			var random_angle = (randi()%30)-15
+			velocity_direction = velocity_direction.rotated(deg2rad(random_angle))
+			drop_instance.set_linear_velocity(velocity_direction * 400.0)
+	return drop_instance
+
 ##### Physics stuff
 static func optimal_angle(x: float, y: float, v0: float, g: float) -> float :
 	var root = v0 * v0 * v0 * v0 - g * (g * x * x + 2.0 * y * v0 * v0)

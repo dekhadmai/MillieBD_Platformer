@@ -26,7 +26,7 @@ func _ready():
 	if !bSpawnOnAlreadyClearedRoom : 
 		var room = get_parent()
 		var room_data = autoload_mapdata.LevelRoomMap[room.Room_Position.x][room.Room_Position.y]
-		if room_data.bIsAlreadyCleared : 
+		if room_data.bIsAlreadyCleared and room_data.bIsExplored : 
 			queue_free()
 			return
 	

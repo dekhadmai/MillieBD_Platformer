@@ -48,6 +48,8 @@ func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
 	
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if condition == 1 and room_data.bIsExplored : 
+		if !room_data.bIsAlreadyCleared and room_data.bSpawnDropOnClear :
+			autoload_transient.player.SpawnRoomClearReward()
 		room_data.bIsAlreadyCleared = true
 		
 	#return
