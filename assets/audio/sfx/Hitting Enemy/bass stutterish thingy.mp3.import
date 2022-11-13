@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bass stutterish thingy.mp3-f36a9fb3022b88b9991c4742f2779a18.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Hitting Enemy/bass stutterish thingy.mp3"
+dest_files=[ "res://.import/bass stutterish thingy.mp3-f36a9fb3022b88b9991c4742f2779a18.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

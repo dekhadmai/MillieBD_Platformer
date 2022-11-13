@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/longer attack.mp3-e291de4e2d07734c1c03feb447443c71.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Attacking/longer attack.mp3"
+dest_files=[ "res://.import/longer attack.mp3-e291de4e2d07734c1c03feb447443c71.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
