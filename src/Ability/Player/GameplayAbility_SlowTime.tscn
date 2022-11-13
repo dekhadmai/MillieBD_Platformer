@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Ability/Base/BaseGameplayAbility.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Ability/Player/GameplayAbility_SlowTime.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/sfx/More sfx/millie ability sfx/slow time.wav" type="AudioStream" id=3]
 
 [node name="Ability_SlowTime" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -12,3 +13,6 @@ SlowTimeDuration = 1.0
 TimeScaleAmount = 0.1
 FadeInTime = 0.2
 FadeOutTime = 0.5
+
+[node name="AbilitySound" parent="." index="2"]
+stream = ExtResource( 3 )

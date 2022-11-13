@@ -60,6 +60,7 @@ var parallax_offset = Vector2.ZERO
 
 onready var graze_system = $AbilitySystemComponent/GrazeSystem
 onready var take_damage_vfx = $Vfx/TakeDamageVfx
+onready var take_damage_sfx = $Vfx/TakeDamageSfx
 onready var take_damage_vfx_timer = $Vfx/TakeDamageVfxTimer
 
 var hp_orb = "res://src/Level/InteractableObject/ItemPickup/Pickup_Hp.tscn"
@@ -561,6 +562,7 @@ func take_damage(value):
 		take_damage_vfx.set_frame(randi() % 4)
 		take_damage_vfx.set_visible(true)
 		take_damage_vfx_timer.start()
+		take_damage_sfx.play()
 	pass
 
 func _on_TakeDamageVfxTimer_timeout():

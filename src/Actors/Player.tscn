@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/art/Gradient/gradient_vfx_invincible.tres" type="Gradient" id=22]
 [ext_resource path="res://assets/art/ui/icons/dash_icon_2.png" type="Texture" id=23]
 [ext_resource path="res://assets/art/vfx/playerOnHit.png" type="Texture" id=24]
+[ext_resource path="res://assets/audio/sfx/Getting Hit/pixel splat vibes idk.wav" type="AudioStream" id=25]
 
 [sub_resource type="GradientTexture" id=32]
 gradient = ExtResource( 22 )
@@ -805,6 +806,9 @@ vframes = 2
 [node name="TakeDamageVfxTimer" type="Timer" parent="Vfx"]
 wait_time = 0.3
 one_shot = true
+
+[node name="TakeDamageSfx" type="AudioStreamPlayer2D" parent="Vfx"]
+stream = ExtResource( 25 )
 
 [node name="ParallaxBackground_Enna" parent="." instance=ExtResource( 20 )]
 
