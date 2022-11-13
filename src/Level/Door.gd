@@ -67,7 +67,7 @@ func OpenDoor(tilemap: TileMap):
 
 
 func LockDoor(tilemap: TileMap):
-	ReplaceTile(tilemap, 3)
+	ReplaceTile(tilemap, 114)
 	if door_area == null:
 		door_area = find_node("DoorArea2D")
 	door_area.set_monitoring(false)

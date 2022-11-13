@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://assets/art/Gradient/palette_swap_gradient.gdshader" type="Shader" id=21]
 [ext_resource path="res://assets/art/Gradient/gradient_vfx_invincible.tres" type="Gradient" id=22]
 [ext_resource path="res://assets/art/ui/icons/dash_icon_2.png" type="Texture" id=23]
+[ext_resource path="res://assets/art/vfx/playerOnHit.png" type="Texture" id=24]
 
 [sub_resource type="GradientTexture" id=32]
 gradient = ExtResource( 22 )
@@ -558,7 +559,7 @@ material = SubResource( 33 )
 [node name="CheatExp" parent="CheatBuff" instance=ExtResource( 16 )]
 bExpAddFerver = false
 StatToModify = 5
-ValueToModify = 2000.0
+ValueToModify = 1000.0
 
 [node name="CheatTakeDamage" parent="CheatBuff" instance=ExtResource( 16 )]
 bExpAddFerver = false
@@ -674,9 +675,9 @@ stream = ExtResource( 19 )
 volume_db = 12.0
 
 [node name="DashCDBar" type="TextureProgress" parent="."]
-margin_top = -74.0
+margin_top = -83.0
 margin_right = 128.0
-margin_bottom = 54.0
+margin_bottom = 45.0
 rect_scale = Vector2( 0.1, 0.1 )
 value = 80.0
 texture_under = ExtResource( 4 )
@@ -694,12 +695,15 @@ anchor_bottom = 0.5
 margin_left = -64.0
 margin_top = -64.0
 rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FloatTimeRemaining" type="TextureProgress" parent="."]
 margin_left = -13.0
-margin_top = -74.0
+margin_top = -83.0
 margin_right = 115.0
-margin_bottom = 54.0
+margin_bottom = 45.0
 rect_scale = Vector2( 0.1, 0.1 )
 value = 80.0
 texture_under = ExtResource( 4 )
@@ -718,6 +722,9 @@ margin_left = -64.0
 margin_top = -64.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 23 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="HpBar" type="TextureProgress" parent="."]
 margin_left = -26.0
@@ -785,6 +792,20 @@ text = "100"
 align = 1
 valign = 1
 
+[node name="Vfx" type="Node2D" parent="."]
+
+[node name="TakeDamageVfx" type="Sprite" parent="Vfx"]
+visible = false
+position = Vector2( 0, -16 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 24 )
+hframes = 2
+vframes = 2
+
+[node name="TakeDamageVfxTimer" type="Timer" parent="Vfx"]
+wait_time = 0.3
+one_shot = true
+
 [node name="ParallaxBackground_Enna" parent="." instance=ExtResource( 20 )]
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -823,5 +844,6 @@ visibility_mode = 1
 [connection signal="timeout" from="HoldToShootTimer" to="." method="_on_HoldToShootTimer_timeout"]
 [connection signal="timeout" from="JumpButtonTimer" to="." method="_on_JumpButtonTimer_timeout"]
 [connection signal="timeout" from="JumpButtonTimer/FloatTimer" to="." method="_on_FloatTimer_timeout"]
+[connection signal="timeout" from="Vfx/TakeDamageVfxTimer" to="." method="_on_TakeDamageVfxTimer_timeout"]
 
 [editable path="LevelUpEffect_Invincible"]

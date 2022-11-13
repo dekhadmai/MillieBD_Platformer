@@ -45,9 +45,6 @@ position = Vector2( 58, 691.251 )
 position = Vector2( 38.0024, 0 )
 region_rect = Rect2( 0, 0, 64, 320 )
 
-[node name="GameplayEffectTemplate" parent="HazardFloor" index="1"]
-ValueToModify = 40.0
-
 [node name="CollisionShape2D" parent="HazardFloor/Area2D" index="0"]
 position = Vector2( 38, 0.511414 )
 shape = SubResource( 1 )
@@ -59,9 +56,6 @@ position = Vector2( 426, 691.251 )
 position = Vector2( 6, 0.00244141 )
 region_rect = Rect2( 0, 0, 64, 400 )
 
-[node name="GameplayEffectTemplate" parent="HazardFloor2" index="1"]
-ValueToModify = 40.0
-
 [node name="CollisionShape2D" parent="HazardFloor2/Area2D" index="0"]
 position = Vector2( 6, 0.511292 )
 shape = SubResource( 2 )
@@ -72,9 +66,6 @@ position = Vector2( 1145, 691.251 )
 [node name="Sprite" parent="HazardFloor3" index="0"]
 position = Vector2( 38.9014, 0 )
 region_rect = Rect2( 0, 0, 64, 320 )
-
-[node name="GameplayEffectTemplate" parent="HazardFloor3" index="1"]
-ValueToModify = 40.0
 
 [node name="CollisionShape2D" parent="HazardFloor3/Area2D" index="0"]
 position = Vector2( 39, 0.511292 )

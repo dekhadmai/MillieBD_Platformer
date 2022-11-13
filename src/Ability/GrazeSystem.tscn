@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Ability/Base/BaseGameplayAbility.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Ability/GrazeSystem.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/Gradient/palette_swap_gradient.gdshader" type="Shader" id=3]
 [ext_resource path="res://src/Base/Area2D_HurtBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/art/Gradient/gradient_vfx_graze.tres" type="Gradient" id=5]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 30.0
@@ -10,10 +12,19 @@ radius = 30.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 6.0
 
+[sub_resource type="GradientTexture" id=4]
+gradient = ExtResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 3 )
+shader_param/mix_amount = 1.0
+shader_param/gradient = SubResource( 4 )
+
 [node name="GrazeSystem" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="GrazeArea" parent="." index="1" instance=ExtResource( 4 )]
+visible = false
 collision_layer = 64
 collision_mask = 256
 
@@ -21,7 +32,18 @@ collision_mask = 256
 shape = SubResource( 3 )
 
 [node name="Area2D_HurtBox" parent="." index="2" instance=ExtResource( 4 )]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_HurtBox" index="0"]
 self_modulate = Color( 0.168627, 0.027451, 0.027451, 1 )
 shape = SubResource( 2 )
+
+[node name="AbilitySprite" parent="." index="5"]
+modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 5 )
+
+[node name="GrazeVfxTimer" type="Timer" parent="." index="6"]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="GrazeVfxTimer" to="." method="_on_GrazeVfxTimer_timeout"]

@@ -20,7 +20,7 @@ region_rect = Rect2( 0, 0, 64, 128 )
 
 [node name="GameplayEffectTemplate" parent="." instance=ExtResource( 2 )]
 StatToModify = 1
-ValueToModify = 20.0
+ValueToModify = 50.0
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 3 )]
 

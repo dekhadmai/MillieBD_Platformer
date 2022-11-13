@@ -58,6 +58,9 @@ onready var weapon_name = $WeaponName
 onready var parallax:ParallaxBackground = $ParallaxBackground_Enna
 var parallax_offset = Vector2.ZERO
 
+onready var graze_system = $AbilitySystemComponent/GrazeSystem
+onready var take_damage_vfx = $Vfx/TakeDamageVfx
+onready var take_damage_vfx_timer = $Vfx/TakeDamageVfxTimer
 
 
 #####
@@ -525,9 +528,21 @@ func _on_FloatTimer_timeout():
 func _on_HoldToShootTimer_timeout():
 	if is_instance_valid(weapon_abi) : 
 		weapon_abi.TryActivate()
+		
+func ShowGrazeVfx():
+	graze_system.ShowGrazeVfx()
 
+func take_damage(value):
+	if take_damage_vfx and take_damage_vfx_timer : 
+		take_damage_vfx.set_frame(randi() % 4)
+		take_damage_vfx.set_visible(true)
+		take_damage_vfx_timer.start()
+	pass
 
-
+func _on_TakeDamageVfxTimer_timeout():
+	if take_damage_vfx and take_damage_vfx_timer : 
+		take_damage_vfx.set_visible(false)
+	
 
 ##### CHEAT COMMANDS 
 func CheckCheatCommands():
@@ -558,3 +573,6 @@ func CheatAddFerver():
 func CheatTeleportToBossRoom():
 	autoload_mapdata.TeleportPlayer(self)
 ##### END OF CHEAT COMMANDS 
+
+
+

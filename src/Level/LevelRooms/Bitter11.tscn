@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BitterTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Turret.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/art/tileset/enna_tileset_new.tres" type="TileSet" id=6]
-[ext_resource path="res://src/Objects/RandomActorSpawner_Test.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Objects/Spawners/RandomActorSpawner_AerialEnemies.tscn" type="PackedScene" id=8]
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
@@ -41,11 +40,11 @@ position = Vector2( 288, 256 )
 [node name="AIControllerGrounded" parent="BaseGroundedEnemy_Bullet5" index="0"]
 patrol_offset_x = 128
 
-[node name="RandomActorSpawner" parent="." index="12" instance=ExtResource( 7 )]
-position = Vector2( 424, 168 )
-
-[node name="RandomActorSpawner_GroundEnemies" parent="." index="13" instance=ExtResource( 3 )]
+[node name="RandomActorSpawner_GroundEnemies" parent="." index="12" instance=ExtResource( 3 )]
 position = Vector2( 944, 304 )
+
+[node name="RandomActorSpawner_GroundEnemies3" parent="." index="13" instance=ExtResource( 3 )]
+position = Vector2( 409, 172 )
 
 [node name="RandomActorSpawner_GroundEnemies2" parent="." index="14" instance=ExtResource( 3 )]
 position = Vector2( 968, 688 )

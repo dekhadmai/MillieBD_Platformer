@@ -15,3 +15,8 @@ position = Vector2( 656, 16 )
 
 [node name="Door_Down" parent="." index="6"]
 position = Vector2( 656, 720 )
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]

@@ -20,27 +20,11 @@ var start_position: Vector2
 var start_rotation: float
 var tmp_moveto_seconds
 
-func _ready():
-	start_position = get_global_position()
-	start_rotation = get_global_rotation()
-	
-	if MoveToPosition_Local.size() == 0 :
-		return
-	
-	for i in MoveToPosition_Local.size():
-		MoveToPosition.append(start_position + MoveToPosition_Local[i])
-		MoveToRotation.append(start_rotation)
-		
-	for i in MoveToRotation_Local.size():
-		MoveToRotation[i] = (start_rotation + deg2rad(MoveToRotation_Local[i]))
-		
-	current_move_to_index = 0
-	current_move_to_position = MoveToPosition[current_move_to_index]
-	current_move_to_rotation = MoveToRotation[current_move_to_index]
-	current_start_move_position = get_global_position()
-	current_start_move_rotation = get_global_rotation()
+var bIsInit = false
 
 func _physics_process(delta):
+	if !bIsInit :
+		return
 	
 	if MoveToPosition_Local.size() == 0 :
 		return
@@ -64,3 +48,26 @@ func _physics_process(delta):
 		current_move_to_position = MoveToPosition[current_move_to_index]
 		current_move_to_rotation = MoveToRotation[current_move_to_index]
 		
+
+
+func _on_DelayInit_timeout():
+	start_position = get_global_position()
+	start_rotation = get_global_rotation()
+	
+	if MoveToPosition_Local.size() == 0 :
+		return
+	
+	for i in MoveToPosition_Local.size():
+		MoveToPosition.append(start_position + MoveToPosition_Local[i])
+		MoveToRotation.append(start_rotation)
+		
+	for i in MoveToRotation_Local.size():
+		MoveToRotation[i] = (start_rotation + deg2rad(MoveToRotation_Local[i]))
+		
+	current_move_to_index = 0
+	current_move_to_position = MoveToPosition[current_move_to_index]
+	current_move_to_rotation = MoveToRotation[current_move_to_index]
+	current_start_move_position = get_global_position()
+	current_start_move_rotation = get_global_rotation()
+	
+	bIsInit = true

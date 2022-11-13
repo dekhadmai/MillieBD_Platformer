@@ -12,8 +12,8 @@ onready var fevor_bar = $ColorRect/Fevorbar
 onready var exp_value = $ColorRect/Expvalue
 onready var exp_bar = $ColorRect/Expbar
 onready var lvl_value = $ColorRect/Lvlvalue
-onready var death_value = $ColorRect/DeathCounter
-onready var enemy_value = $ColorRect/RemainingEnemy
+onready var death_value = $ColorRect2/DeathCounter
+onready var enemy_value = $ColorRect2/RemainingEnemy
 
 
 func Init() -> bool:
