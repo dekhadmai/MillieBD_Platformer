@@ -124,7 +124,7 @@ func AddSpecialAbility(dict_key: String):
 				SpecialAbilityIndex = SpecialAbilityArray.size()-1
 			else : 
 				# replace
-				var drop = GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn", true)
+				var drop = GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn", 30)
 				drop.InteractableType = 2 # SpecialAbility
 				drop.ResourceTemplateKey = SpecialAbilityTemplateNameArray[SpecialAbilityIndex]
 				drop.Init()
@@ -546,13 +546,13 @@ func ShowGrazeVfx():
 	graze_system.ShowGrazeVfx()
 	
 func SpawnRoomClearReward():
-	GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), hp_orb, true)
+	GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), hp_orb, 30)
 	
 	var orb_chance = 50
 	if randi() % 100 < orb_chance : 
-		GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), exp_orb, true)
+		GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), exp_orb, 30)
 	else :
-		GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), random_roomdrop, true)
+		GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), random_roomdrop, 30)
 	
 	pass
 
@@ -578,6 +578,10 @@ func CheckCheatCommands():
 		CheatAddFerver()
 	if GlobalFunctions.IsKeyModifierPressed("move_right", "CheatModifier"):
 		CheatTeleportToBossRoom()
+	if GlobalFunctions.IsKeyModifierPressed("swap_weapon", "CheatModifier"):
+		CheatSpawnAllWeapons()
+	if GlobalFunctions.IsKeyModifierPressed("swap_ability", "CheatModifier"):
+		CheatSpawnAllSpecialAbilities()
 	
 
 func CheatExp():
@@ -596,6 +600,22 @@ func CheatAddFerver():
 	
 func CheatTeleportToBossRoom():
 	autoload_mapdata.TeleportPlayer(self)
+	
+func CheatSpawnAllWeapons():
+	var keys = autoload_globalresource.PlayerWeaponAbilityTemplates.keys()
+	for key in keys : 
+		var drop = GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn", 30)
+		drop.InteractableType = 1 # weapon
+		drop.ResourceTemplateKey = key
+		drop.Init()
+		
+func CheatSpawnAllSpecialAbilities():
+	var keys = autoload_globalresource.PlayerSpecialAbilityTemplates.keys()
+	for key in keys : 
+		var drop = GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn", 60)
+		drop.InteractableType = 2 # SpecialAbility
+		drop.ResourceTemplateKey = key
+		drop.Init()
 ##### END OF CHEAT COMMANDS 
 
 

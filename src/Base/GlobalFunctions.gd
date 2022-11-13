@@ -32,15 +32,15 @@ static func queue_free_children(node: Node) -> void:
 		#node.remove_child(n)
 		n.queue_free()
 
-static func SpawnDropFromLocation(parent, location, drop_template, b_random_velocity) : 
+static func SpawnDropFromLocation(parent, location, drop_template, random_velocity_angle) : 
 	var drop_instance = load(drop_template).instance()
 	if drop_instance : 
 		drop_instance.set_as_toplevel(true)
 		parent.add_child(drop_instance)
 		drop_instance.set_global_position(location)
-		if b_random_velocity : 
+		if random_velocity_angle > 0 : 
 			var velocity_direction = Vector2(0, -1)
-			var random_angle = (randi()%30)-15
+			var random_angle = (randi()%random_velocity_angle)-(random_velocity_angle/2)
 			velocity_direction = velocity_direction.rotated(deg2rad(random_angle))
 			drop_instance.set_linear_velocity(velocity_direction * 400.0)
 	return drop_instance
