@@ -67,6 +67,9 @@ var hp_orb = "res://src/Level/InteractableObject/ItemPickup/Pickup_Hp.tscn"
 var exp_orb = "res://src/Level/InteractableObject/ItemPickup/Pickup_Exp.tscn"
 var random_roomdrop = "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn"
 
+var bHoldJumpToFloat = false
+var HoldJumpToFloatDuration = 0.2
+
 #####
 ## Ability stuff
 #####
@@ -218,9 +221,27 @@ func _physics_process(_delta):
 	parallax_offset.y -= 28
 	parallax.set_offset(parallax_offset)
 
-	if Input.is_action_just_pressed("jump"):
-		if can_jump():
-			do_jump()
+	if !bHoldJumpToFloat : 
+		if Input.is_action_just_pressed("jump"):
+			if can_jump():
+				do_jump()
+	else : 
+		if Input.is_action_just_pressed("jump"):
+			if is_on_floor() : 
+				if can_jump():
+					do_jump()
+			else : 
+				jump_button_timer.start(HoldJumpToFloatDuration)
+				
+		if Input.is_action_just_released("jump"):
+			if !jump_button_timer.is_stopped() :
+				if can_jump():
+					do_jump()
+				jump_button_timer.stop()
+				float_timer.stop()
+			else : 
+				do_unfloat()
+				float_timer.stop()
 			
 #	if Input.is_action_just_pressed("dash"):
 #		if can_float():
@@ -530,8 +551,9 @@ func try_jump():
 	
 
 func _on_JumpButtonTimer_timeout():
-	do_float()
-	float_timer.start()
+	if can_float() : 
+		do_float()
+		float_timer.start(float_time_remaining)
 
 
 func _on_FloatTimer_timeout():
