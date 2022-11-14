@@ -18,6 +18,8 @@ export(float) var InitStat_IframeSeconds = 0.01
 var BaseCharStats: CharacterStatsInit = CharacterStatsInit.new()
 var CurrentCharStats: CharacterStats = CharacterStats.new()
 
+onready var DamageNumberTemplate = preload("res://src/Ability/Base/DamageNumberTemplate.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(BaseCharStats)
@@ -42,6 +44,8 @@ func level_up():
 	emit_signal("level_up")
 	
 func take_damage(value):
+	var dmg_instance = DamageNumberTemplate.instance()
+	dmg_instance.Init(self, value)
 	emit_signal("take_damage", value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
