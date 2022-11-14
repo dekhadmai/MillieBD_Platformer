@@ -37,7 +37,7 @@ AIcontroller_NodeName = "AIControllerGrounded"
 
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 2 )]
 bCheckLineOfSight = false
-AbilityTriggerIntervalSeconds = 1.0
+AbilityTriggerIntervalSeconds = 0.4
 AbilityNodeName = "ShootAbility"
 
 [node name="CollisionShape2D" parent="AIControllerGrounded/DetectionRange" index="0"]

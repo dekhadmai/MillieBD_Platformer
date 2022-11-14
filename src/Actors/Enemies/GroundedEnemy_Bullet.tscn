@@ -10,10 +10,11 @@
 AIcontroller_NodeName = "AIControllerGrounded"
 
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 2 )]
+AbilityTriggerIntervalSeconds = 0.2
 AbilityNodeName = "ShootAbility"
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
-AbilityCooldownSecond = 0.3
+AbilityCooldownSecond = 2.0
 FullbodyAnimName = "range_attack"
 FullbodyAnimDuration = 1.0
 AbilityDelayForAnimationSecond = 0.4

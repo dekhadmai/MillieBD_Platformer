@@ -13,6 +13,7 @@ collision_mask = 16
 AIcontroller_NodeName = "AIControllerAerial"
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
+AbilityTriggerIntervalSeconds = 0.2
 AbilityNodeName = "ShootAbility"
 
 [node name="CollisionShape2D" parent="AIControllerAerial/SafeDistance" index="0"]
@@ -22,7 +23,7 @@ shape = SubResource( 1 )
 InitStat_Movespeed = 50.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 5 )]
-AbilityCooldownSecond = 0.3
+AbilityCooldownSecond = 2.0
 CustomAnimName = ""
 CustomAnimDuration = 0.0
 FullbodyAnimName = "range_attack"

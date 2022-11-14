@@ -33,7 +33,7 @@ shader_param/color_count = 2
 AIcontroller_NodeName = "AIControllerGrounded"
 
 [node name="AIControllerGrounded" parent="." index="0" instance=ExtResource( 3 )]
-AbilityTriggerIntervalSeconds = 2.5
+AbilityTriggerIntervalSeconds = 0.2
 AbilityNodeName = "ShootAbility"
 
 [node name="CollisionShape2D" parent="AIControllerGrounded/DetectionRange" index="0"]
@@ -43,7 +43,7 @@ shape = SubResource( 2 )
 InitStat_Movespeed = 20.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 2 )]
-AbilityCooldownSecond = 0.3
+AbilityCooldownSecond = 2.5
 CustomAnimDuration = 0.0
 ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_Bomb.tscn"
 
