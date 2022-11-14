@@ -5,6 +5,8 @@ onready var animation_player = $AnimationPlayer
 onready var vsync_btn = $Settings/VBoxContainer/SettingsContainer/VideoSetings/Vsync
 onready var fullscreen_btn = $Settings/VBoxContainer/SettingsContainer/VideoSetings/Fullscreen
 onready var Master_volume_slider = $Settings/VBoxContainer/SettingsContainer/MasterVolumebox/Volume
+onready var Bgm_volume_slider = $Settings/VBoxContainer/SettingsContainer/Bgmbox/BgmSlider
+onready var Sfx_volume_slider = $Settings/VBoxContainer/SettingsContainer/Sfx/SfxSlider
 var master_volume = AudioServer.get_bus_index("Master")
 
 
@@ -16,6 +18,8 @@ func _ready():
 	fullscreen_btn.pressed = SettingsSave.game_data.fullscreen_on
 	
 	Master_volume_slider.value = SettingsSave.game_data.master_vol
+	Bgm_volume_slider.value = SettingsSave.game_data.bgm_vol
+	Sfx_volume_slider.value = SettingsSave.game_data.sfx_vol
 	
 
 
@@ -42,5 +46,9 @@ func _on_Volume_value_changed(value):
 	GlobalSettings.update_master_vol(value)
 	
 	
+func _on_BgmSlider_value_changed(value):
+	GlobalSettings.update_bgm_vol(value)
 
 
+func _on_SfxSlider_value_changed(value):
+	GlobalSettings.update_sfx_vol(value)

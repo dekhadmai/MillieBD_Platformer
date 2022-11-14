@@ -20,6 +20,7 @@ ValueToModify = 20.0
 
 [node name="AbilitySound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( -30.6589, -6.13176 )
+bus = "Sfx"
 
 [node name="AbilitySprite" type="Sprite" parent="."]
 visible = false

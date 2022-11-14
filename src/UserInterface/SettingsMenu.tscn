@@ -348,4 +348,6 @@ anims/SettingsBook = SubResource( 3 )
 [connection signal="toggled" from="Settings/VBoxContainer/SettingsContainer/VideoSetings/Vsync" to="." method="_on_Vsync_toggled"]
 [connection signal="toggled" from="Settings/VBoxContainer/SettingsContainer/VideoSetings/Fullscreen" to="." method="_on_Fullscreen_toggled"]
 [connection signal="value_changed" from="Settings/VBoxContainer/SettingsContainer/MasterVolumebox/Volume" to="." method="_on_Volume_value_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/SettingsContainer/Bgmbox/BgmSlider" to="." method="_on_BgmSlider_value_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/SettingsContainer/Sfx/SfxSlider" to="." method="_on_SfxSlider_value_changed"]
 [connection signal="pressed" from="Settings/BackButton" to="." method="_on_BackButton_pressed"]

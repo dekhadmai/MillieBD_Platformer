@@ -2,6 +2,8 @@ extends Node
 
 
 var master_volume = AudioServer.get_bus_index("Master")
+var bgm_volume = AudioServer.get_bus_index("Bgm")
+var sfx_volume = AudioServer.get_bus_index("Sfx")
 
 var settings_menu_up = false
 var character_menu_up = false
@@ -33,3 +35,23 @@ func update_master_vol(vol):
 		AudioServer.set_bus_mute(master_volume, true)
 	else:
 		AudioServer.set_bus_mute(master_volume, false)
+		
+func update_bgm_vol(vol):
+	AudioServer.set_bus_volume_db(bgm_volume, vol)
+	SettingsSave.game_data.bgm_vol = vol
+	SettingsSave.save_data()
+	
+	if vol == -30:
+		AudioServer.set_bus_mute(bgm_volume, true)
+	else:
+		AudioServer.set_bus_mute(bgm_volume, false)
+		
+func update_sfx_vol(vol):
+	AudioServer.set_bus_volume_db(sfx_volume, vol)
+	SettingsSave.game_data.sfx_vol = vol
+	SettingsSave.save_data()
+	
+	if vol == -30:
+		AudioServer.set_bus_mute(sfx_volume, true)
+	else:
+		AudioServer.set_bus_mute(sfx_volume, false)

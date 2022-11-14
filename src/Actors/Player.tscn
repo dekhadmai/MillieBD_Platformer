@@ -670,10 +670,12 @@ shape = SubResource( 11 )
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+bus = "Sfx"
 
 [node name="LevelUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
 volume_db = 12.0
+bus = "Sfx"
 
 [node name="DashCDBar" type="TextureProgress" parent="."]
 margin_top = -83.0
@@ -809,6 +811,7 @@ one_shot = true
 
 [node name="TakeDamageSfx" type="AudioStreamPlayer2D" parent="Vfx"]
 stream = ExtResource( 25 )
+bus = "Sfx"
 
 [node name="ParallaxBackground_Enna" parent="." instance=ExtResource( 20 )]
 
