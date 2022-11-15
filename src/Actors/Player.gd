@@ -494,7 +494,7 @@ func calculate_move_velocity(
 	
 	if direction.y != 0.0:
 		velocity.y = speed.y * direction.y
-	if is_jump_interrupted:
+	if is_jump_interrupted and !bHoldJumpToFloat:
 		# Decrease the Y velocity by multiplying it, but don't set it to 0
 		# as to not be too abrupt.
 		velocity.y *= 0.6
