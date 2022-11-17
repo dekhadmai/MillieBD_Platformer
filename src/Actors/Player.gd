@@ -221,7 +221,7 @@ func _physics_process(_delta):
 	parallax_offset.y -= 28
 	parallax.set_offset(parallax_offset)
 
-	if !bHoldJumpToFloat : 
+	if !SettingsSave.game_data.hold_to_float : 
 		if Input.is_action_just_pressed("jump"):
 			if can_jump():
 				do_jump()
@@ -494,7 +494,7 @@ func calculate_move_velocity(
 	
 	if direction.y != 0.0:
 		velocity.y = speed.y * direction.y
-	if is_jump_interrupted and !bHoldJumpToFloat:
+	if is_jump_interrupted and !SettingsSave.game_data.hold_to_float:
 		# Decrease the Y velocity by multiplying it, but don't set it to 0
 		# as to not be too abrupt.
 		velocity.y *= 0.6

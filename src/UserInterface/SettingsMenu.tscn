@@ -186,7 +186,7 @@ margin_bottom = 21.508
 
 [node name="SettingsContainer" type="VBoxContainer" parent="Settings/VBoxContainer"]
 margin_right = 568.0
-margin_bottom = 210.0
+margin_bottom = 254.0
 
 [node name="VideoSetings" type="GridContainer" parent="Settings/VBoxContainer/SettingsContainer"]
 margin_right = 568.0
@@ -327,6 +327,36 @@ min_value = -30.0
 max_value = 0.0
 value = -10.0
 
+[node name="HoldToFloat" type="HBoxContainer" parent="Settings/VBoxContainer/SettingsContainer"]
+margin_top = 214.0
+margin_right = 568.0
+margin_bottom = 254.0
+
+[node name="HoldToFloatLabel" type="Label" parent="Settings/VBoxContainer/SettingsContainer/HoldToFloat"]
+margin_top = 1.0
+margin_right = 332.0
+margin_bottom = 39.0
+size_flags_horizontal = 2
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.329412, 0.219608, 0.219608, 1 )
+text = "     Hold Jump To Float"
+
+[node name="Spacer" type="Button" parent="Settings/VBoxContainer/SettingsContainer/HoldToFloat"]
+margin_left = 336.0
+margin_right = 488.0
+margin_bottom = 40.0
+focus_mode = 0
+size_flags_horizontal = 3
+disabled = true
+enabled_focus_mode = 0
+flat = true
+
+[node name="HoldToFloat" type="CheckButton" parent="Settings/VBoxContainer/SettingsContainer/HoldToFloat"]
+margin_left = 492.0
+margin_right = 568.0
+margin_bottom = 40.0
+flat = true
+
 [node name="BackButton" type="Button" parent="Settings"]
 margin_left = 106.0
 margin_top = 288.0
@@ -350,4 +380,5 @@ anims/SettingsBook = SubResource( 3 )
 [connection signal="value_changed" from="Settings/VBoxContainer/SettingsContainer/MasterVolumebox/Volume" to="." method="_on_Volume_value_changed"]
 [connection signal="value_changed" from="Settings/VBoxContainer/SettingsContainer/Bgmbox/BgmSlider" to="." method="_on_BgmSlider_value_changed"]
 [connection signal="value_changed" from="Settings/VBoxContainer/SettingsContainer/Sfx/SfxSlider" to="." method="_on_SfxSlider_value_changed"]
+[connection signal="toggled" from="Settings/VBoxContainer/SettingsContainer/HoldToFloat/HoldToFloat" to="." method="_on_HoldToFloat_toggled"]
 [connection signal="pressed" from="Settings/BackButton" to="." method="_on_BackButton_pressed"]

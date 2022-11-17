@@ -55,3 +55,7 @@ func update_sfx_vol(vol):
 		AudioServer.set_bus_mute(sfx_volume, true)
 	else:
 		AudioServer.set_bus_mute(sfx_volume, false)
+
+func toggle_hold_to_float(toggle):
+	SettingsSave.game_data.hold_to_float = toggle
+	SettingsSave.save_data()

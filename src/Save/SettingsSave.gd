@@ -20,6 +20,7 @@ func load_data():
 			"master_vol": -10,
 			"bgm_vol": -10,
 			"sfx_vol": -10,
+			"hold_to_float": false,
 		}
 		save_data()
 	file.open(SAVEFILE, File.READ)
