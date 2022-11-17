@@ -4,8 +4,8 @@
 [ext_resource path="res://src/Ability/Player/GameplayAbility_HomingSwarm.gd" type="Script" id=2]
 [ext_resource path="res://src/Base/Raycast_LineOfSight.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 300.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 450, 250 )
 
 [node name="GameplayAbility_HomingSwarm" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -20,7 +20,7 @@ bullet_spawn_delay_range = 1.0
 ValueToModify = 10.0
 
 [node name="BulletSpawnerComponent" parent="." index="3"]
-ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_Player_Handgun.tscn"
+ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_Player_HomingSwarm.tscn"
 
 [node name="RayCast_LineOfSight" parent="." index="5" instance=ExtResource( 3 )]
 enabled = true
@@ -30,4 +30,5 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_EnemyDetection" index="0"]
+position = Vector2( 0, -5 )
 shape = SubResource( 1 )
