@@ -10,7 +10,7 @@ enum State {
 var _state = State.MOVING
 
 export var OriginalScale = 0.25
-export var bSpawnOnAlreadyClearedRoom = true
+export var bSpawnOnAlreadyClearedRoom = false
 
 onready var sprite:Sprite = $AnimationPlayerStateScene/Sprite
 onready var animation_player = $AnimationPlayerStateScene/AnimationPlayerState
