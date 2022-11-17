@@ -92,7 +92,7 @@ func AddWeaponAbility(dict_key: String):
 				WeaponAbilityIndex = WeaponAbilityArray.size()-1
 			else : 
 				# replace
-				var drop = GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn", true)
+				var drop = GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn", 30)
 				drop.InteractableType = 1 # weapon
 				drop.ResourceTemplateKey = WeaponAbilityTemplateNameArray[WeaponAbilityIndex]
 				drop.Init()
