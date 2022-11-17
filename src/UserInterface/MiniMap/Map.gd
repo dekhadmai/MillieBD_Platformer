@@ -11,6 +11,8 @@ var DU_room = preload("res://assets/art/ui/Map/UDopen.png")
 var RLD_room = preload("res://assets/art/ui/Map/RLDopen.png")
 var L_room = preload("res://assets/art/ui/Map/Lopen.png")
 var start_icon = preload("res://assets/art/ui/Map/Start.png")
+var checkpoint_icon = preload("res://assets/art/ui/Map/Checkpoint.png")
+var boss_icon = preload("res://assets/art/ui/Map/Boss.png")
 var current_pos = preload("res://assets/art/ui/Map/millie_icon.png")
 
 
@@ -52,19 +54,28 @@ func _add_room_ui():
 			var room_size_y = (room_ui.texture.get_size().y * room_ui.scale.y)
 			size.y = room_size_y
 
-			if col <  10:
+			if col <  width:
 				#print(room_pos)
 				room_ui.set_position(room_pos)
 				room_pos += Vector2((room_size_x * wall_line.x), 0)
 				col += 1
 			
-				if room_data.bStartRoom:
-					var start = Sprite.new()
-					get_node("ColorRect/MarginContainer").add_child(start)
-					start.texture = start_icon
-					start.set_position(room_ui.get_position())
-					#start.rotation_degrees = -room_ui.rotation_degrees
-					#print(room_ui.get_position())
+#				if room_data.bStartRoom:
+#					var start = Sprite.new()
+#					get_node("ColorRect/MarginContainer").add_child(start)
+#					start.texture = start_icon
+#					start.set_position(room_ui.get_position())
+#					#start.rotation_degrees = -room_ui.rotation_degrees
+#					#print(room_ui.get_position())
+					
+				
+				var icon = Sprite.new()
+				get_node("ColorRect/MarginContainer").add_child(icon)
+				if room_data.RoomType == "C" and room_data.bIsExplored : 
+					icon.texture = checkpoint_icon
+				if room_data.RoomType == "B" : 
+					icon.texture = boss_icon
+				icon.set_position(room_ui.get_position())
 				
 				if room_data.CurrentLocation:
 					var location = Sprite.new()
@@ -76,6 +87,7 @@ func _add_room_ui():
 				
 				if !room_data.bIsExplored:
 					room_ui.use_parent_material = true
+				
 				
 				if (room_data.bIsDoorOpened[0] == 1 and room_data.bIsDoorOpened[1] == 1) and (
 					(room_data.bIsDoorOpened[2] == 1 and room_data.bIsDoorOpened[3] == 1)):
@@ -150,6 +162,8 @@ func _add_room_ui():
 					(room_data.bIsDoorOpened[2] == 1 and room_data.bIsDoorOpened[3] == 1)):
 					room_ui.texture = RLD_room
 					room_ui.rotation_degrees = 270
+				
+					
 
 #				print(room_data)
 
