@@ -20,6 +20,20 @@ var PlayerSpecialAbilityTemplates = {
 	"Homing" : "res://src/Ability/Player/GameplayAbility_HomingSwarm.tscn"
 }
 
+var IconResource = {
+	"HandGun" : "res://assets/art/ui/icons/Handgun.png",
+	"Shotgun" : "res://assets/art/ui/icons/Shotgun.png",
+	"Minigun" : "res://assets/art/ui/icons/Minigun.png",
+	"SlowTime" : "res://assets/art/ui/icons/Slowtime.png",
+	"Heal" : "res://assets/art/ui/icons/Heal.png",
+	"Invincible" : "res://assets/art/ui/icons/Invincible.png",
+	"AttackBuff" : "res://assets/art/ui/icons/AttackUp.png",
+	"DamageReductionBuff" : "res://assets/art/ui/icons/DamageReduced.png",
+	"Beam" : "res://assets/art/ui/icons/Beam.png",
+	"Nuke" : "res://assets/art/ui/icons/Nuke.png",
+	"Homing" : "res://assets/art/ui/icons/Homing.png"
+}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

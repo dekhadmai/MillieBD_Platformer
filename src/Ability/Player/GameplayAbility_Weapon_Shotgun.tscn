@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner_BulletSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/art/ui/icons/Shotgun.png" type="Texture" id=2]
 [ext_resource path="res://src/Ability/Player/GameplayAbility_Weapon_Shotgun.gd" type="Script" id=3]
 
 [node name="GameplayAbility_Shotgun" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 AbilityShortName = "ShotGun"
+AbilityIcon = ExtResource( 2 )
 CustomAnimName = "_weapon"
 LingeringAnimName = "_active_weapon"
 LingeringAnimDuration = 1.2

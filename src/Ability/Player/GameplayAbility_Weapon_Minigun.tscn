@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Ability/Player/GameplayAbility_Weapon_Shotgun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Ability/Player/GameplayAbility_Weapon_Minigun.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/ui/icons/Minigun.png" type="Texture" id=3]
 
 [node name="GameplayAbility_Minigun" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 AbilityShortName = "MiniGun"
+AbilityIcon = ExtResource( 3 )
 AbilityCooldownSecond = 0.1
 bullet_count = 1
 bullet_rotation_range = 5

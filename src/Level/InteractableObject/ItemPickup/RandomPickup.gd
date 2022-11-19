@@ -18,6 +18,9 @@ func Init():
 		item_name_label = find_node("ItemName")
 		
 	item_name_label.set_text(ResourceTemplateKey)
+	var icon = AutoloadGlobalResource.IconResource[ResourceTemplateKey]
+	if icon : 
+		item_sprite.set_texture(load(icon))
 	
 	.Init()
 

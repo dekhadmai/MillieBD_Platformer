@@ -10,6 +10,8 @@ export var Description: String = "Description"
 onready var autoload_mapdata = $"/root/AutoLoadMapData"
 onready var item_name_label = $ItemName
 
+onready var item_sprite: Sprite = $ItemSprite
+
 var bPlayerInRange = false
 var InteractedPlayer
 
