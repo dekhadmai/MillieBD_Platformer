@@ -1,0 +1,132 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=1]
+
+[node name="ContextButtonUI" type="Control"]
+margin_right = 312.0
+margin_bottom = 80.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 312.0
+margin_bottom = 80.0
+color = Color( 0.0745098, 0.0705882, 0.0705882, 0.454902 )
+
+[node name="swap_weapon" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 8.0
+action_name = "swap_weapon"
+label_text = "swap weapon"
+
+[node name="swap_ability" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 8.0
+margin_right = 72.0
+margin_bottom = 8.0
+action_name = "swap_ability"
+label_text = "cycle skill"
+
+[node name="use_ability" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 32.0
+margin_right = 8.0
+margin_bottom = 32.0
+action_name = "use_ability"
+label_text = "use skill"
+
+[node name="jump" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 56.0
+margin_right = 72.0
+margin_bottom = 56.0
+action_name = "jump"
+label_text = "jump"
+
+[node name="Minimap_test" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 56.0
+action_name = "Minimap_test"
+label_text = "minimap"
+
+[node name="interact" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 8.0
+margin_bottom = 56.0
+action_name = "interact"
+label_text = "interact"
+
+[node name="shoot" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 32.0
+margin_right = 72.0
+margin_bottom = 32.0
+action_name = "shoot"
+label_text = "shoot"
+
+[node name="dash" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 136.0
+margin_top = 32.0
+margin_right = 136.0
+margin_bottom = 32.0
+action_name = "dash"
+label_text = "dash"
+
+[node name="float" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 32.0
+margin_right = 200.0
+margin_bottom = 32.0
+action_name = "float"
+label_text = "float"
+
+[node name="Skill1" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 136.0
+margin_top = 8.0
+margin_right = 136.0
+margin_bottom = 8.0
+action_name = "Skill1"
+label_text = "Skill1"
+
+[node name="Skill2" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 8.0
+margin_right = 200.0
+margin_bottom = 8.0
+action_name = "Skill2"
+label_text = "Skill2"
+
+[node name="Skill3" parent="ColorRect" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 8.0
+margin_right = 264.0
+margin_bottom = 8.0
+action_name = "Skill3"
+label_text = "Skill3"

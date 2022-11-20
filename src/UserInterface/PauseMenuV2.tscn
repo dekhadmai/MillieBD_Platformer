@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/UserInterface/ScreenUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/UserInterface/Dialog/DialogPlayer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/UserInterface/MiniMap/Map.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/UserInterface/ContextButtonUI.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pause"
@@ -192,6 +193,16 @@ margin_right = 0.0
 margin_bottom = 200.0
 size_flags_vertical = 3
 
+[node name="ContextButtonUI" parent="." instance=ExtResource( 11 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -156.0
+margin_top = -80.0
+margin_right = 156.0
+margin_bottom = 0.0
+
 [node name="ScreenUI" parent="." instance=ExtResource( 8 )]
 mouse_filter = 2
 
@@ -203,8 +214,14 @@ anims/RESET = SubResource( 2 )
 layer = 101
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StatsUI" parent="CanvasLayer" instance=ExtResource( 7 )]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="DialogPlayer" parent="." instance=ExtResource( 9 )]
 visible = false
