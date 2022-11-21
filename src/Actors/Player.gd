@@ -363,36 +363,36 @@ func _physics_process(_delta):
 		camera.zoom.x = clamp(camera.zoom.x + 0.1, Min_Zoom, Max_Zoom)
 		camera.zoom.y = clamp(camera.zoom.y + 0.1, Min_Zoom, Max_Zoom)
 		
-	if dash_cd_bar :
-		dash_cd_bar.set_max(dash_abi.AbilityCooldownSecond * 100)
-		dash_cd_bar.set_value((dash_abi.AbilityCooldownSecond - dash_abi.GetAbilityRemainingCooldownSeconds()) * 100)
-		if dash_cd_icon.get_texture() != dash_abi.AbilityIcon : 
-			dash_cd_icon.set_texture(dash_abi.AbilityIcon)
-			
-		if dash_abi.GetAbilityRemainingCooldownSeconds() == 0 :
-			dash_cd_bar.set_visible(false)
-		else: 
-			dash_cd_bar.set_visible(true)
-	
-	if float_remaining_bar :
-		float_remaining_bar.set_max(float_time_max * 100)
-		float_remaining_bar.set_value((float_time_remaining) * 100)
-		if float_time_remaining == float_time_max :
-			float_remaining_bar.set_visible(false)
-		else: 
-			float_remaining_bar.set_visible(true)
-			
+#	if dash_cd_bar :
+#		dash_cd_bar.set_max(dash_abi.AbilityCooldownSecond * 100)
+#		dash_cd_bar.set_value((dash_abi.AbilityCooldownSecond - dash_abi.GetAbilityRemainingCooldownSeconds()) * 100)
+#		if dash_cd_icon.get_texture() != dash_abi.AbilityIcon : 
+#			dash_cd_icon.set_texture(dash_abi.AbilityIcon)
+#
+#		if dash_abi.GetAbilityRemainingCooldownSeconds() == 0 :
+#			dash_cd_bar.set_visible(false)
+#		else: 
+#			dash_cd_bar.set_visible(true)
+#
+#	if float_remaining_bar :
+#		float_remaining_bar.set_max(float_time_max * 100)
+#		float_remaining_bar.set_value((float_time_remaining) * 100)
+#		if float_time_remaining == float_time_max :
+#			float_remaining_bar.set_visible(false)
+#		else: 
+#			float_remaining_bar.set_visible(true)
+#
 	if hp_bar : 
 		hp_bar.value = ability_system_component.CurrentCharStats.CurrentHP
 		hp_bar.set_max(ability_system_component.CurrentCharStats.BaseHP)
-		
-	if skill_bar and special_abi : 
-		skill_bar.set_max(special_abi.AbilityCooldownSecond * 100)
-		skill_bar.set_value((special_abi.AbilityCooldownSecond - special_abi.GetAbilityRemainingCooldownSeconds()) * 100)
-		skill_name.set_text(str(SpecialAbilityIndex+1) + "." + special_abi.AbilityShortName)
-		
-	if weapon_name and weapon_abi : 
-		weapon_name.set_text(str(WeaponAbilityIndex+1) + "." + weapon_abi.AbilityShortName)
+#
+#	if skill_bar and special_abi : 
+#		skill_bar.set_max(special_abi.AbilityCooldownSecond * 100)
+#		skill_bar.set_value((special_abi.AbilityCooldownSecond - special_abi.GetAbilityRemainingCooldownSeconds()) * 100)
+#		skill_name.set_text(str(SpecialAbilityIndex+1) + "." + special_abi.AbilityShortName)
+#
+#	if weapon_name and weapon_abi : 
+#		weapon_name.set_text(str(WeaponAbilityIndex+1) + "." + weapon_abi.AbilityShortName)
 		
 	CheckCheatCommands()
 

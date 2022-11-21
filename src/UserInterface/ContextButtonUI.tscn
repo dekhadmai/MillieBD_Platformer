@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UserInterface/Ability_InputControl.tscn" type="PackedScene" id=2]
 
 [node name="ContextButtonUI" type="Control"]
 anchor_right = 1.0
@@ -11,127 +12,109 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -156.0
-margin_top = -104.0
-margin_right = 156.0
+margin_left = -136.0
+margin_top = -56.0
+margin_right = 136.0
 color = Color( 0.0745098, 0.0705882, 0.0705882, 0.454902 )
 
 [node name="swap_weapon" parent="ColorRect" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 72.0
+margin_left = 220.0
 margin_top = 16.0
-margin_right = 72.0
+margin_right = 220.0
 margin_bottom = 16.0
 action_name = "swap_weapon"
-label_text = "swap weapon"
+label_text = "swap_weapon"
 
-[node name="swap_ability" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
+[node name="shoot" parent="ColorRect" instance=ExtResource( 2 )]
+margin_left = 156.0
 margin_top = 16.0
-margin_right = 8.0
-margin_bottom = 16.0
-action_name = "swap_ability"
-label_text = "cycle skill"
-
-[node name="Skill1" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 136.0
-margin_top = 16.0
-margin_right = 136.0
-margin_bottom = 16.0
-action_name = "Skill1"
-label_text = "Skill1"
-
-[node name="Skill2" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 200.0
-margin_top = 16.0
-margin_right = 200.0
-margin_bottom = 16.0
-action_name = "Skill2"
-label_text = "Skill2"
-
-[node name="Skill3" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 264.0
-margin_top = 16.0
-margin_right = 264.0
-margin_bottom = 16.0
-action_name = "Skill3"
-label_text = "Skill3"
-
-[node name="use_ability" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
-margin_top = 48.0
-margin_right = 8.0
-margin_bottom = 48.0
-action_name = "use_ability"
-label_text = "use skill"
-
-[node name="shoot" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 72.0
-margin_top = 48.0
-margin_right = 72.0
-margin_bottom = 48.0
+margin_right = -156.0
+margin_bottom = -40.0
 action_name = "shoot"
 label_text = "shoot"
 
-[node name="dash" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 136.0
-margin_top = 48.0
-margin_right = 136.0
-margin_bottom = 48.0
+[node name="dash" parent="ColorRect" instance=ExtResource( 2 )]
+margin_left = 28.0
+margin_top = 16.0
+margin_right = -284.0
+margin_bottom = -40.0
 action_name = "dash"
 label_text = "dash"
 
-[node name="float" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 200.0
-margin_top = 48.0
-margin_right = 200.0
-margin_bottom = 48.0
+[node name="float" parent="ColorRect" instance=ExtResource( 2 )]
+margin_left = 88.0
+margin_top = 16.0
+margin_right = -184.0
+margin_bottom = -40.0
 action_name = "float"
 label_text = "float"
 
-[node name="jump" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 72.0
-margin_top = 80.0
-margin_right = 72.0
-margin_bottom = 80.0
-action_name = "jump"
-label_text = "jump"
+[node name="MaskProgress" parent="ColorRect/float" index="1"]
+fill_mode = 4
 
-[node name="Minimap_test" parent="ColorRect" instance=ExtResource( 1 )]
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -192.0
+margin_top = -96.0
+color = Color( 0.0745098, 0.0705882, 0.0705882, 0.454902 )
+
+[node name="swap_ability" parent="ColorRect2" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 200.0
-margin_top = 80.0
-margin_right = 200.0
-margin_bottom = 80.0
+margin_left = 112.0
+margin_top = 8.0
+margin_right = 112.0
+margin_bottom = 8.0
+action_name = "swap_ability"
+label_text = "swap_ability"
+
+[node name="use_ability" parent="ColorRect2" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 8.0
+action_name = "use_ability"
+label_text = "use_ability"
+
+[node name="Minimap_test" parent="ColorRect2" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 160.0
+margin_top = -32.0
+margin_right = 160.0
+margin_bottom = -32.0
 action_name = "Minimap_test"
-label_text = "minimap"
+label_text = "Minimap_test"
 
-[node name="interact" parent="ColorRect" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
-margin_top = 80.0
-margin_right = 8.0
-margin_bottom = 80.0
-action_name = "interact"
-label_text = "interact"
+[node name="Skill1" parent="ColorRect2" instance=ExtResource( 2 )]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = -280.0
+margin_bottom = -40.0
+action_name = "Skill1"
+label_text = "Skill1"
+
+[node name="Skill2" parent="ColorRect2" instance=ExtResource( 2 )]
+margin_left = 80.0
+margin_top = 56.0
+margin_right = -216.0
+margin_bottom = -40.0
+action_name = "Skill2"
+label_text = "Skill2"
+
+[node name="Skill3" parent="ColorRect2" instance=ExtResource( 2 )]
+margin_left = 144.0
+margin_top = 56.0
+margin_right = -152.0
+margin_bottom = -40.0
+action_name = "Skill3"
+label_text = "Skill3"
+
+[editable path="ColorRect/float"]
