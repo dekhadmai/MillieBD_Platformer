@@ -11,6 +11,7 @@ onready var autoload_mapdata = $"/root/AutoLoadMapData"
 onready var item_name_label = $ItemName
 
 onready var item_sprite: Sprite = $ItemSprite
+onready var interact_button = $interact
 
 var bPlayerInRange = false
 var InteractedPlayer
@@ -25,6 +26,8 @@ func _ready():
 
 func _process(delta):
 	if bPlayerInRange : 
+		#interact_button.set_visible(true)
+		
 		if Input.is_action_just_pressed("interact") :
 			hold_timer.start(hold_duration)
 			
@@ -35,8 +38,9 @@ func _process(delta):
 			else : 
 				TapAction()
 				bFinishHold = false
-		
-	#set_rotation_degrees(0)
+#	else : 
+#		interact_button.set_visible(false)
+	
 
 func Init():
 	if !autoload_globalresource : 
