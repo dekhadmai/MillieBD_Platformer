@@ -74,3 +74,8 @@ position = Vector2( 760, 136 )
 
 [node name="AerialEnemy_Shotgun_Bomb" parent="." index="19" instance=ExtResource( 8 )]
 position = Vector2( 880, 144 )
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]
