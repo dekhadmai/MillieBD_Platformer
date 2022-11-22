@@ -8,7 +8,7 @@ var end_ability_timer:Timer
 
 var top_left
 var bottom_right
-var bullet_spacing = 30
+var bullet_spacing = 25
 var bullet_spawn_delay_range = 3.0
 
 onready var invul_sprite = $InvulSprite

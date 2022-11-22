@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Objects/Base/BaseBullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Ability/Enna/Enna_Bullet_FallingFeathers.gd" type="Script" id=2]
 [ext_resource path="res://assets/art/bullets/EnnaurBullet2.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
 
 [node name="Enna_FallingFeathers" instance=ExtResource( 1 )]
 collision_mask = 16
@@ -28,5 +31,6 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Area2D_Damage" index="5"]
 scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
 
 [editable path="Area2D_Damage"]
