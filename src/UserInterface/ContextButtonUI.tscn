@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UserInterface/Ability_InputControl.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/art/ui/icons/float.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/ui/icons/swap_weapon.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/ui/icons/minimap.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/ui/icons/swap_ability.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/ui/icons/use_ability.png" type="Texture" id=7]
 
 [node name="ContextButtonUI" type="Control"]
 anchor_right = 1.0
@@ -26,6 +31,7 @@ margin_right = 220.0
 margin_bottom = 16.0
 action_name = "swap_weapon"
 label_text = "swap_weapon"
+icon = ExtResource( 4 )
 
 [node name="shoot" parent="ColorRect" instance=ExtResource( 2 )]
 margin_left = 156.0
@@ -50,6 +56,7 @@ margin_right = -184.0
 margin_bottom = -40.0
 action_name = "float"
 label_text = "float"
+icon = ExtResource( 3 )
 
 [node name="MaskProgress" parent="ColorRect/float" index="1"]
 fill_mode = 4
@@ -67,53 +74,56 @@ color = Color( 0.0745098, 0.0705882, 0.0705882, 0.454902 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 112.0
-margin_top = 8.0
+margin_top = 56.0
 margin_right = 112.0
-margin_bottom = 8.0
+margin_bottom = 56.0
 action_name = "swap_ability"
 label_text = "swap_ability"
+icon = ExtResource( 6 )
 
 [node name="use_ability" parent="ColorRect2" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 48.0
-margin_top = 8.0
+margin_top = 56.0
 margin_right = 48.0
-margin_bottom = 8.0
+margin_bottom = 56.0
 action_name = "use_ability"
 label_text = "use_ability"
+icon = ExtResource( 7 )
 
 [node name="Minimap_test" parent="ColorRect2" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 160.0
-margin_top = -32.0
-margin_right = 160.0
-margin_bottom = -32.0
+margin_left = -48.0
+margin_top = 56.0
+margin_right = -48.0
+margin_bottom = 56.0
 action_name = "Minimap_test"
 label_text = "Minimap_test"
+icon = ExtResource( 5 )
 
 [node name="Skill1" parent="ColorRect2" instance=ExtResource( 2 )]
 margin_left = 16.0
-margin_top = 56.0
-margin_right = -280.0
-margin_bottom = -40.0
+margin_top = 16.0
+margin_right = -176.0
+margin_bottom = -80.0
 action_name = "Skill1"
 label_text = "Skill1"
 
 [node name="Skill2" parent="ColorRect2" instance=ExtResource( 2 )]
 margin_left = 80.0
-margin_top = 56.0
-margin_right = -216.0
-margin_bottom = -40.0
+margin_top = 16.0
+margin_right = -112.0
+margin_bottom = -80.0
 action_name = "Skill2"
 label_text = "Skill2"
 
 [node name="Skill3" parent="ColorRect2" instance=ExtResource( 2 )]
 margin_left = 144.0
-margin_top = 56.0
-margin_right = -152.0
-margin_bottom = -40.0
+margin_top = 16.0
+margin_right = -48.0
+margin_bottom = -80.0
 action_name = "Skill3"
 label_text = "Skill3"
 
