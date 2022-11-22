@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/AI/AIControllerGrounded.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Enemies/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_RobeEnjoyer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/art/Gradient/palette_swap_mapping.gdshader" type="Shader" id=5]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 150, 100 )
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -33,6 +36,10 @@ AIcontroller_NodeName = "AIControllerGrounded"
 AbilityTriggerIntervalSeconds = 0.2
 AbilityNodeName = "ShootAbility"
 
+[node name="CollisionShape2D" parent="AIControllerGrounded/DetectionRange" index="0"]
+position = Vector2( 0, -70 )
+shape = SubResource( 2 )
+
 [node name="AbilitySystemComponent" parent="." index="2"]
 InitStat_Movespeed = 20.0
 
@@ -44,6 +51,9 @@ FullbodyAnimDuration = 1.2
 AbilityDelayForAnimationSecond = 0.3
 ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_GroundSpawner.tscn"
 
+[node name="GameplayEffectTemplate" parent="AbilitySystemComponent/ShootAbility" index="1"]
+ValueToModify = 50.0
+
 [node name="Sprite" parent="." index="4"]
 frame = 8
 
@@ -52,4 +62,6 @@ frame = 8
 [node name="Sprite" parent="AnimationPlayerStateScene" index="0"]
 material = SubResource( 1 )
 
+[editable path="AIControllerGrounded"]
+[editable path="AbilitySystemComponent/ShootAbility"]
 [editable path="AnimationPlayerStateScene"]
