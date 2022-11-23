@@ -21,7 +21,7 @@ var LevelRoomMapPool = []
 export(String, FILE, "*.tscn") var BossLevelTemplate
 var BossLevelInstance = null
 
-var TotalCheckpointRoomCount = 15
+var TotalCheckpointRoomCount = 12
 
 var startroom_row = 2
 var startroom_col = 0

@@ -544,7 +544,7 @@ ValueToModify = 2.5
 
 [node name="LevelUpEffect_MaxHP" parent="." instance=ExtResource( 16 )]
 StatToModify = 11
-ValueToModify = 10.0
+ValueToModify = 15.0
 
 [node name="LevelUpEffect_Invincible" parent="." instance=ExtResource( 16 )]
 EffectDurationType = 1
@@ -569,7 +569,7 @@ ValueToModify = 100.0
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, -22 )
-InitStat_HP = 400.0
+InitStat_HP = 200.0
 InitStat_IframeSeconds = 0.3
 
 [node name="Ability_Dash" parent="AbilitySystemComponent" instance=ExtResource( 12 )]
