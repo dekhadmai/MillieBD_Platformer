@@ -1,6 +1,7 @@
 extends "res://src/UserInterface/InputControl.gd"
 
 onready var ability_cost = $AbilityCost
+onready var cooldown = $CooldownRemaining
 var ability_instance : BaseGameplayAbility = null
 
 var original_scale = Vector2(0.25, 0.25)
@@ -10,14 +11,25 @@ func _ready() :
 	pass
 	
 func _process(delta):
+	var remaining_cd = 0
 	ability_instance = GetAbilityInstance()
 	
 	if is_instance_valid(ability_instance) : 
 		if sprite_icon.get_texture() != ability_instance.AbilityIcon : 
 			sprite_icon.set_texture(ability_instance.AbilityIcon)
 		
+		remaining_cd = ability_instance.GetAbilityRemainingCooldownSeconds()
+		if remaining_cd > 0 :
+			cooldown.set_visible(true)
+		else :
+			cooldown.set_visible(false)
+		
 		mask_progress.set_max(ability_instance.AbilityCooldownSecond * 100)
-		mask_progress.set_value((ability_instance.GetAbilityRemainingCooldownSeconds()) * 100)
+		mask_progress.set_value((remaining_cd) * 100)
+		if remaining_cd > 1.0 : 
+			cooldown.set_text(str("%.f" % remaining_cd))
+		else : 
+			cooldown.set_text(str("%.1f" % remaining_cd))
 		
 		if ability_instance.bUseFervor : 
 			ability_cost.set_text(str(ability_instance.FervorCost))
@@ -52,6 +64,15 @@ func _process(delta):
 		if is_instance_valid(player) : 
 			mask_progress.set_max(player.float_time_max * 100)
 			mask_progress.set_value((player.float_time_max - player.float_time_remaining) * 100)
+			remaining_cd = player.float_time_remaining
+			if remaining_cd < player.float_time_max and remaining_cd >= 0 :
+				cooldown.set_visible(true)
+			else :
+				cooldown.set_visible(false)
+			if remaining_cd > 1.0 : 
+				cooldown.set_text(str("%.f" % remaining_cd))
+			else : 
+				cooldown.set_text(str("%.1f" % remaining_cd))
 	
 	pass
 	

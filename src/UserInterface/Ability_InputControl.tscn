@@ -14,5 +14,20 @@ margin_right = 128.0
 margin_bottom = 62.0
 rect_scale = Vector2( 0.25, 0.25 )
 theme = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "20"
+align = 1
+
+[node name="CooldownRemaining" type="Label" parent="." index="5"]
+visible = false
+margin_left = -8.0
+margin_top = 8.0
+margin_right = 112.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.4, 0.4 )
+theme = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
 text = "20"
 align = 1
