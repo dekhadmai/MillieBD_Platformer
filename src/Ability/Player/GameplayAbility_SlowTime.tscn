@@ -9,10 +9,10 @@
 script = ExtResource( 2 )
 AbilityShortName = "SlowTime"
 AbilityIcon = ExtResource( 4 )
-AbilityCooldownSecond = 5.0
+AbilityCooldownSecond = 2.5
 bUseFervor = true
 FervorCost = 10.0
-SlowTimeDuration = 1.5
+SlowTimeDuration = 1.0
 TimeScaleAmount = 0.1
 FadeInTime = 0.2
 FadeOutTime = 0.5
