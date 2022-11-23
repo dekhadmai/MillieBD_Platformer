@@ -29,6 +29,7 @@ ValueToModify = 20.0
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 3 )]
 InitStat_HP = 150.0
+InitStat_IframeSeconds = 0.0
 
 [node name="RayCast_LineOfSight" parent="." instance=ExtResource( 6 )]
 

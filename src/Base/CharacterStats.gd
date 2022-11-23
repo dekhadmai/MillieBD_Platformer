@@ -70,8 +70,9 @@ func TakeDamage(value: float):
 	
 	CurrentHP -= value
 	emit_signal("take_damage", value)
-	bHurtIframe = true
-	HurtIframeTimer.start(HurtIframeDuration)
+	if HurtIframeDuration > 0 : 
+		bHurtIframe = true
+		HurtIframeTimer.start(HurtIframeDuration)
 	
 	if CurrentHP <= 0.0:
 		CurrentHP = 0.0

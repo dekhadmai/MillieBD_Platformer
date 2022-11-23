@@ -301,11 +301,16 @@ func _physics_process(_delta):
 	FacingDirection = sprite.scale.x / OriginalScale
 
 	if Input.is_action_just_pressed("shoot"):
-		if is_instance_valid(special_abi) : 
-			if !special_abi.IsAbilityActive() : 
-				weapon_abi.TryActivate()
-				if hold_to_shoot_timer.is_stopped() :
-					hold_to_shoot_timer.start()
+		var can_shoot = true
+		for i in SpecialAbilityArray.size() : 
+			if is_instance_valid(SpecialAbilityArray[i]) : 
+				if !(!SpecialAbilityArray[i].IsAbilityActive() or (SpecialAbilityArray[i].IsAbilityActive() and SpecialAbilityArray[i].GetAllowPrimaryToActivate())) : 
+					can_shoot = false
+		
+		if can_shoot : 
+			weapon_abi.TryActivate()
+			if hold_to_shoot_timer.is_stopped() :
+				hold_to_shoot_timer.start()
 			
 	if Input.is_action_just_released("shoot"):
 		hold_to_shoot_timer.stop()
@@ -353,8 +358,7 @@ func _physics_process(_delta):
 	UpdateAnimState()
 	
 	if Input.is_action_just_pressed("dash" + action_suffix):
-		if Input.get_action_strength("move_right") - Input.get_action_strength("move_left") != 0 : 
-			dash_abi.TryActivate()
+		dash_abi.TryActivate()
 	
 	if Input.is_action_just_released("zoom_in"):
 		camera.zoom.x = clamp(camera.zoom.x - 0.1, Min_Zoom, Max_Zoom)

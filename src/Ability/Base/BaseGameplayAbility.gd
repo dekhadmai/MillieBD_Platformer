@@ -19,6 +19,8 @@ export var AbilityMaxUseCount = 0
 var AbilityUseCount = 0
 var bIsActive: bool
 
+export var bAllowPrimaryToActivate = true
+
 var bAlreadyInit: bool = false
 
 export var bStopMovingWhilePlayingAnim = true
@@ -161,6 +163,9 @@ func IsAbilityActive() -> bool:
 	
 func GetAbilityRemainingCooldownSeconds() -> float:
 	return AbilityCooldownTimer.get_time_left()
+	
+func GetAllowPrimaryToActivate() -> bool : 
+	return bAllowPrimaryToActivate
 	
 func CanUseAbility() -> bool:
 	var result = true

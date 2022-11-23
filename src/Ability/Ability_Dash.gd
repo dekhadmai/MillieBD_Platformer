@@ -43,6 +43,8 @@ func do_dash():
 #	AbilityOwner.player_collision.get_shape().set_extents(shrink_extends)
 #	AbilityOwner.player_collision.position.y = -shrink_extends.y
 	dash_direction = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	if dash_direction == 0 : 
+		dash_direction = AbilityOwner.FacingDirection
 	player_current_stat.bInvincible += 1
 	dash_duration_timer.start()
 	pass

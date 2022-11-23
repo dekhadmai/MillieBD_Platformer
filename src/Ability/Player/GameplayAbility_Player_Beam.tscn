@@ -98,6 +98,7 @@ AbilityShortName = "Beam"
 AbilityIcon = ExtResource( 4 )
 AbilityCooldownSecond = 10.0
 bUseFervor = true
+bAllowPrimaryToActivate = false
 CustomAnimName = "_weapon"
 CustomAnimDuration = 4.6
 LingeringAnimName = "_active_weapon"
