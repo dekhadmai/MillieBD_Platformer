@@ -8,10 +8,10 @@ AbilityShortName = "Nuke"
 AbilityIcon = ExtResource( 2 )
 AbilityCooldownSecond = 10.0
 bUseFervor = true
-FervorCost = 50.0
+FervorCost = 35.0
 CustomAnimName = "_weapon"
 LingeringAnimName = "_active_weapon"
 ActorToSpawnPath = "res://src/Ability/Player/Bullet_Player_Nuke.tscn"
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
-ValueToModify = 100.0
+ValueToModify = 120.0

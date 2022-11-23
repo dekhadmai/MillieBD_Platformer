@@ -15,7 +15,7 @@ AbilityIcon = ExtResource( 4 )
 AbilityCooldownSecond = 10.0
 bUseFervor = true
 FervorCost = 50.0
-bullet_count = 20
+bullet_count = 15
 bullet_spawn_delay_range = 1.0
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
