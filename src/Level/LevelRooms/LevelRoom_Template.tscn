@@ -24,3 +24,8 @@ margin_left = 64.0
 margin_top = 64.0
 margin_right = 192.0
 margin_bottom = 128.0
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]

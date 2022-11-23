@@ -10,3 +10,6 @@ AbilityCooldownSecond = 0.3
 CustomAnimName = "_weapon"
 LingeringAnimName = "_active_weapon"
 ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_Player_Handgun.tscn"
+
+[node name="GameplayEffectTemplate" parent="." index="1"]
+ValueToModify = 23.0

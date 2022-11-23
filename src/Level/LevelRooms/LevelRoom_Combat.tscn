@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Level/BaseLevelRoom.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Turret.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Enemies/AerialEnemy_Turret.tscn" type="PackedScene" id=2]
 
 [node name="LevelRoom_Combat" instance=ExtResource( 1 )]
 
@@ -29,8 +29,8 @@ margin_top = 64.0
 margin_right = 192.0
 margin_bottom = 128.0
 
-[node name="BaseGroundedEnemy_Bullet" parent="." index="9" instance=ExtResource( 2 )]
-position = Vector2( 352, 352 )
+[node name="AerialEnemy_Turret" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 392, 224 )
 
 [editable path="Door_Left"]
 [editable path="Door_Right"]

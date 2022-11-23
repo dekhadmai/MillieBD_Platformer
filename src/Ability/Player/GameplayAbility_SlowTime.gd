@@ -28,3 +28,7 @@ func DoAbility():
 func Deactivate():
 	.Deactivate()
 	Engine.time_scale = 1.0
+
+func CleanUp():
+	Engine.time_scale = 1.0
+	.CleanUp()

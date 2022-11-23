@@ -102,3 +102,8 @@ position = Vector2( 776, 592 )
 
 [node name="RandomPickup" parent="." index="34" instance=ExtResource( 4 )]
 position = Vector2( 88, 400 )
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]

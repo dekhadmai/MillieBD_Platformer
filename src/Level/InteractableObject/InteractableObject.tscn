@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/art/ui/icons/BaseStand.png" type="Texture" id=1]
 [ext_resource path="res://src/Level/InteractableObject/InteractableObject.gd" type="Script" id=2]
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=3]
 [ext_resource path="res://assets/art/ui/icons/Heal.png" type="Texture" id=4]
+[ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 12 )
@@ -41,10 +42,43 @@ margin_right = 167.0
 margin_bottom = 14.0
 rect_scale = Vector2( 0.25, 0.25 )
 theme = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
 text = "100"
 align = 1
 valign = 1
 
+[node name="interact" parent="." instance=ExtResource( 5 )]
+margin_left = -8.0
+margin_top = -35.0
+margin_right = -8.0
+margin_bottom = -35.0
+action_name = "interact"
+label_text = "interact"
+
+[node name="IconSprite" parent="interact" index="0"]
+visible = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KeyboardSprite" parent="interact" index="2"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ControllerSprite" parent="interact" index="3"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ActionName" parent="interact" index="4"]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [connection signal="body_entered" from="CheckpointArea2D" to="." method="_on_CheckpointArea2D_body_entered"]
 [connection signal="body_exited" from="CheckpointArea2D" to="." method="_on_CheckpointArea2D_body_exited"]
+
+[editable path="interact"]

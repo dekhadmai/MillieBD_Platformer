@@ -31,7 +31,9 @@ var IconResource = {
 	"DamageReductionBuff" : "res://assets/art/ui/icons/DamageReduced.png",
 	"Beam" : "res://assets/art/ui/icons/Beam.png",
 	"Nuke" : "res://assets/art/ui/icons/Nuke.png",
-	"Homing" : "res://assets/art/ui/icons/Homing.png"
+	"Homing" : "res://assets/art/ui/icons/Homing.png",
+	"Dash" : "res://assets/art/ui/icons/dash.png",
+	"Float" : "res://assets/art/ui/icons/dash_icon_2.png"
 }
 
 

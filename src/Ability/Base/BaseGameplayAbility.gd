@@ -96,6 +96,13 @@ func Init():
 		AbilityDelayTimer.set_one_shot(true)
 		
 	pass
+	
+func queue_free():
+	CleanUp()
+	.queue_free()
+	
+func CleanUp() : 
+	pass
 
 # Always Use this one. Don't directly "Activate" ability
 func TryActivate():

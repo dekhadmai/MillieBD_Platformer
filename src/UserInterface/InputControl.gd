@@ -84,13 +84,17 @@ const KEYBOARD_BUTTON_TO_INDEX_MAPPING = {
 
 export(String) var action_name
 export(String) var label_text
+export(Texture) var icon
 onready var keyboard_icon : Sprite = $KeyboardSprite
 onready var controller_icon : Sprite = $ControllerSprite
+onready var sprite_icon : Sprite = $IconSprite
+onready var mask_progress = $MaskProgress
 onready var name_label : Label = $ActionName
 
 var device_id = -1
 
 func _ready() -> void:
+	sprite_icon.set_texture(icon)
 	Input.connect("joy_connection_changed", self, "_joy_connection_changed")
 	if Input.get_connected_joypads().size() > 0 : 
 		self.device_id = Input.get_connected_joypads()[0]
