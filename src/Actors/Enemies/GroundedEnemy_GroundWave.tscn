@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/art/Gradient/palette_swap_mapping.gdshader" type="Shader" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 150, 100 )
+extents = Vector2( 150, 80 )
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -37,7 +37,7 @@ AbilityTriggerIntervalSeconds = 0.2
 AbilityNodeName = "ShootAbility"
 
 [node name="CollisionShape2D" parent="AIControllerGrounded/DetectionRange" index="0"]
-position = Vector2( 0, -70 )
+position = Vector2( 0, -50 )
 shape = SubResource( 2 )
 
 [node name="AbilitySystemComponent" parent="." index="2"]
