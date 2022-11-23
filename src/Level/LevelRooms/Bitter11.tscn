@@ -23,30 +23,33 @@ text = "LEVEL 11
 position = Vector2( 272, 384 )
 
 [node name="BaseGroundedEnemy_Bullet" parent="." index="9" instance=ExtResource( 2 )]
-position = Vector2( 752, 512 )
+position = Vector2( 1064, 480 )
 
-[node name="RandomActorSpawner_GroundEnemies" parent="BaseGroundedEnemy_Bullet" index="10" instance=ExtResource( 3 )]
-position = Vector2( -432, 8 )
+[node name="AIControllerGrounded" parent="BaseGroundedEnemy_Bullet" index="0"]
+patrol_offset_x = 96
 
 [node name="BaseGroundedEnemy_Bullet4" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 987, 578 )
 
-[node name="BaseGroundedEnemy_Bullet5" parent="." index="11" instance=ExtResource( 2 )]
+[node name="RandomActorSpawner_GroundEnemies4" parent="." index="11" instance=ExtResource( 3 )]
+position = Vector2( 336, 512 )
+
+[node name="BaseGroundedEnemy_Bullet5" parent="." index="12" instance=ExtResource( 2 )]
 position = Vector2( 288, 256 )
 
 [node name="AIControllerGrounded" parent="BaseGroundedEnemy_Bullet5" index="0"]
 patrol_offset_x = 128
 
-[node name="RandomActorSpawner_GroundEnemies" parent="." index="12" instance=ExtResource( 3 )]
-position = Vector2( 944, 304 )
+[node name="RandomActorSpawner_GroundEnemies" parent="." index="13" instance=ExtResource( 3 )]
+position = Vector2( 952, 280 )
 
-[node name="RandomActorSpawner_GroundEnemies3" parent="." index="13" instance=ExtResource( 3 )]
-position = Vector2( 409, 172 )
+[node name="RandomActorSpawner_GroundEnemies3" parent="." index="14" instance=ExtResource( 3 )]
+position = Vector2( 408, 152 )
 
-[node name="RandomActorSpawner_GroundEnemies2" parent="." index="14" instance=ExtResource( 3 )]
-position = Vector2( 968, 688 )
+[node name="RandomActorSpawner_GroundEnemies2" parent="." index="15" instance=ExtResource( 3 )]
+position = Vector2( 968, 672 )
 
-[node name="RandomActorSpawner_AerialEnemies" parent="." index="15" instance=ExtResource( 8 )]
+[node name="RandomActorSpawner_AerialEnemies" parent="." index="16" instance=ExtResource( 8 )]
 position = Vector2( 880, 88 )
 
 [editable path="Door_Left"]
