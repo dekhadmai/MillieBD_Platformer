@@ -11,6 +11,7 @@ AbilityShortName = "SlowTime"
 AbilityIcon = ExtResource( 4 )
 AbilityCooldownSecond = 5.0
 bUseFervor = true
+FervorCost = 10.0
 SlowTimeDuration = 1.0
 TimeScaleAmount = 0.1
 FadeInTime = 0.2
