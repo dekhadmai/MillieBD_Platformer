@@ -45,6 +45,7 @@ InitStat_Movespeed = 20.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
 AbilityCooldownSecond = 4.0
+AbilityMaxUseCount = 7
 CustomAnimDuration = 0.0
 FullbodyAnimName = "attack"
 FullbodyAnimDuration = 1.2

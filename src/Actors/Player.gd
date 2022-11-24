@@ -39,7 +39,7 @@ onready var float_timer: Timer = $JumpButtonTimer/FloatTimer
 onready var hold_to_shoot_timer: Timer = $HoldToShootTimer
 var jump_direction: float = 0
 var jump_count = 0
-export var jump_max_count = 1;
+export var jump_max_count = 2;
 
 var float_time_remaining = 0
 var float_time_max = 2.0
@@ -470,8 +470,8 @@ func do_unfloat():
 func do_jump():
 	jump_direction = -1
 	
-	if !is_on_floor() : 
-		jump_count += 1
+	#if !is_on_floor() : 
+	jump_count += 1
 	
 	# Play jump sound
 	sound_jump.play()
