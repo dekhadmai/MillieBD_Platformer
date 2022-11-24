@@ -24,7 +24,7 @@
 [ext_resource path="res://assets/art/Gradient/gradient_vfx_invincible.tres" type="Gradient" id=22]
 [ext_resource path="res://assets/art/ui/icons/dash_icon_2.png" type="Texture" id=23]
 [ext_resource path="res://assets/art/vfx/playerOnHit.png" type="Texture" id=24]
-[ext_resource path="res://assets/audio/sfx/Getting Hit/pixel splat vibes idk.wav" type="AudioStream" id=25]
+[ext_resource path="res://assets/audio/sfx/getting hit.wav" type="AudioStream" id=25]
 
 [sub_resource type="GradientTexture" id=32]
 gradient = ExtResource( 22 )

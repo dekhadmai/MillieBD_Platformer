@@ -15,6 +15,9 @@ export var EndDamageAnimDuration: float = 0.25
 onready var winddown_anim_timer: Timer = $WindDownAnimTimer
 onready var area_start_timer: Timer = $AreaStartAnimTimer
 
+export var bStopActiveSoundWhenDeactivate = false
+onready var active_sound: AudioStreamPlayer = $ActiveSound
+
 
 func _ready():
 	if is_monitorable():
@@ -44,6 +47,8 @@ func SetActive(val: bool):
 		else:
 			GetAnimPlayer().play(LoopDamageAnimName)
 		set_visible(val)
+		
+		active_sound.play()
 	else : 
 		var end_anim:Animation = GetAnimPlayer().get_animation(EndDamageAnimName)
 		if EndDamageAnimDuration > 0 or end_anim != null or end_anim.length > 0 : 
@@ -55,6 +60,9 @@ func SetActive(val: bool):
 		else:
 			set_visible(val)
 			emit_signal("OnEndAreaLinger")
+			
+		if bStopActiveSoundWhenDeactivate :
+			active_sound.stop()
 		
 	set_monitorable(val)
 	set_monitoring(val)

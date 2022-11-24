@@ -23,5 +23,8 @@ process_mode = 0
 wait_time = 0.5
 one_shot = true
 
+[node name="ActiveSound" type="AudioStreamPlayer" parent="." index="5"]
+bus = "Sfx"
+
 [connection signal="timeout" from="WindDownAnimTimer" to="." method="_on_WindDownAnimTimer_timeout"]
 [connection signal="timeout" from="AreaStartAnimTimer" to="." method="_on_AreaStartAnimTimer_timeout"]
