@@ -11,5 +11,5 @@ dest_files=[ "res://.import/invinc shield.mp3-07403d01785f03daddc373d91a7c938c.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

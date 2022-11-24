@@ -9,6 +9,7 @@
 monitoring = false
 monitorable = false
 script = ExtResource( 2 )
+bStopActiveSoundWhenDeactivate = true
 TelegraphAnimName = "telegraph_loop"
 TelegraphAnimDuration = 1.0
 bStopTelegraphSoundWhenStopTelegraph = false

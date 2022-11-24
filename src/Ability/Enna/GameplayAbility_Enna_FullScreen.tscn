@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner_BulletSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/art/vfx/shield_vfx.png" type="Texture" id=2]
 [ext_resource path="res://src/Component/BulletSpawnerComponent.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_FullScreen.gd" type="Script" id=4]
+[ext_resource path="res://assets/art/Gradient/gradient_vfx_invincible.tres" type="Gradient" id=5]
+[ext_resource path="res://assets/art/Gradient/palette_swap_gradient.gdshader" type="Shader" id=6]
+
+[sub_resource type="GradientTexture" id=1]
+gradient = ExtResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 6 )
+shader_param/mix_amount = 1.0
+shader_param/gradient = SubResource( 1 )
 
 [node name="GameplayAbility_Enna_FullScreen" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
@@ -21,6 +31,7 @@ one_shot = true
 
 [node name="InvulSprite" type="Sprite" parent="." index="6"]
 visible = false
+material = SubResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
