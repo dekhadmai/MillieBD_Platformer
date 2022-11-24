@@ -57,6 +57,7 @@ cast_to = Vector2( 90, 20 )
 collision_mask = 16
 
 [node name="AbilitySystemComponent" parent="." index="2"]
+InitStat_HP = 3000.0
 InitStat_Movespeed = 75.0
 
 [node name="Enna_FullScreen" parent="AbilitySystemComponent" index="0" instance=ExtResource( 6 )]

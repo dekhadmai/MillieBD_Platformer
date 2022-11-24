@@ -106,7 +106,7 @@ func EnterPhase(state_level):
 		DialogEnna(2)
 		GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
 		GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
-		GetAbilitySystemComponent().CurrentCharStats.SetDamageAdjustScale(1.5)
+		GetAbilitySystemComponent().CurrentCharStats.SetDamageAdjustScale(1.25)
 		RandomLocationInterval = Phase2_RandomLocationInterval
 		StunDuration = 8.0
 		

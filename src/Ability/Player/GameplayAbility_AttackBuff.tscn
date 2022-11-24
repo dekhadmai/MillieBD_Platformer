@@ -32,7 +32,7 @@ bUseFervor = true
 EffectDurationType = 1
 EffectDuration = 5.0
 StatToModify = 10
-ValueToModify = 0.5
+ValueToModify = 0.25
 
 [node name="GameplayEffectSprite" parent="GameplayEffectTemplate" index="0"]
 material = SubResource( 4 )
