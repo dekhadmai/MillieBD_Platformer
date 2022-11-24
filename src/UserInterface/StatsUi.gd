@@ -37,12 +37,13 @@ func Init()->bool:
 
 func _process(delta):
 	if is_instance_valid(player_current_stat) :
-		hp_value.set_text( str("", player_current_stat.CurrentHP) )
+		hp_value.set_text( str("", player_current_stat.CurrentHP, "/", player_current_stat.BaseHP) )
 		hp_bar.value = player_current_stat.CurrentHP
+		hp_bar.max_value = player_current_stat.BaseHP
 		
 		fevor_value.set_text( str("", player_current_stat.CurrentFervor) )
 		fevor_bar.value = player_current_stat.CurrentFervor
-		exp_value.set_text( str("", player_current_stat.CurrentEXP) )
+		exp_value.set_text( str("", player_current_stat.CurrentEXP, "/", player_current_stat.MaxEXP) )
 		exp_bar.value = player_current_stat.CurrentEXP
 		exp_bar.set_max(player_current_stat.MaxEXP)
 		lvl_value.set_text( str("", player_current_stat.CurrentLevel) )
