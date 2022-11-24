@@ -30,4 +30,5 @@ func _second_move_timeout():
 	bRotateToTarget = false
 	movement_component.SetSpeed(second_move_speed,second_move_speed)
 	movement_component.Init()
+	$FlyoutSound.play()
 	pass

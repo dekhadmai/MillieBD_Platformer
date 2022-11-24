@@ -75,3 +75,4 @@ func GenerateTargetPosition():
 func BounceDelay_Timeout():
 	GetMovementComponent().Init()
 	BounceCount += 1
+	$FlyoutSound.play()

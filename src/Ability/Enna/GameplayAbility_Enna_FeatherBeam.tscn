@@ -5,6 +5,9 @@
 
 [node name="GameplayAbility_Enna_FeatherBeam" instance=ExtResource( 1 )]
 
+[node name="AbilitySound" parent="." index="2"]
+stream = null
+
 [node name="BulletSpawnerComponent" parent="." index="3"]
 ActorToSpawnPath = "res://src/Ability/Enna/Enna_Bullet_GroundBeamSpawner.tscn"
 

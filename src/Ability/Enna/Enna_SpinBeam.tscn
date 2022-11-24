@@ -385,6 +385,12 @@ __meta__ = {
 [node name="AreaLingerTimer" parent="Anchor/Area2D_Damage_Telegraph2" index="6"]
 wait_time = 10.0
 
+[node name="ActiveSound" parent="Anchor/Area2D_Damage_Telegraph2" index="9"]
+stream = null
+
+[node name="TelegraphSound" parent="Anchor/Area2D_Damage_Telegraph2" index="10"]
+stream = null
+
 [node name="Area2D_Damage_Telegraph3" parent="Anchor" index="2" instance=ExtResource( 3 )]
 visible = false
 rotation = 3.14159
@@ -428,6 +434,12 @@ __meta__ = {
 [node name="AreaLingerTimer" parent="Anchor/Area2D_Damage_Telegraph3" index="6"]
 wait_time = 10.0
 
+[node name="ActiveSound" parent="Anchor/Area2D_Damage_Telegraph3" index="9"]
+stream = null
+
+[node name="TelegraphSound" parent="Anchor/Area2D_Damage_Telegraph3" index="10"]
+stream = null
+
 [node name="Area2D_Damage_Telegraph4" parent="Anchor" index="3" instance=ExtResource( 3 )]
 visible = false
 rotation = 4.71239
@@ -470,6 +482,12 @@ __meta__ = {
 
 [node name="AreaLingerTimer" parent="Anchor/Area2D_Damage_Telegraph4" index="6"]
 wait_time = 10.0
+
+[node name="ActiveSound" parent="Anchor/Area2D_Damage_Telegraph4" index="9"]
+stream = null
+
+[node name="TelegraphSound" parent="Anchor/Area2D_Damage_Telegraph4" index="10"]
+stream = null
 
 [editable path="Anchor/Area2D_Damage_Telegraph1"]
 [editable path="Anchor/Area2D_Damage_Telegraph2"]

@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Ability/GameplayAbility_ActorSpawner_BulletSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Base/BulletSpawnerData.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/sfx/More sfx/enemies/aloupeep shotgun explosion .wav" type="AudioStream" id=3]
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_BouncingFeathers.gd" type="Script" id=4]
 
 [node name="GameplayAbility_Enna_BouncingFeathers" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+
+[node name="AbilitySound" parent="." index="2"]
+stream = ExtResource( 3 )
 
 [node name="BulletSpawnerComponent" parent="." index="3"]
 ActorToSpawnPath = "res://src/Ability/Enna/Enna_Bullet_BouncingFeathers.tscn"

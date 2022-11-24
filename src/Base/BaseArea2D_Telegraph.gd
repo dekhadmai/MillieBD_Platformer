@@ -4,6 +4,9 @@ extends BaseArea2D
 export var TelegraphAnimName: String = "telegraph_loop"
 export var TelegraphAnimDuration: float = 1.0
 
+export var bStopTelegraphSoundWhenStopTelegraph = false
+onready var telegraph_sound: AudioStreamPlayer2D = $TelegraphSound
+
 onready var telegraph_timer: Timer = $TelegraphTimer
 onready var area_linger_timer: Timer = $AreaLingerTimer
 onready var effect_interval_timer: Timer = $EffectIntervalTimer
@@ -16,6 +19,8 @@ signal OnHurtDetection(body)
 
 func _on_TelegraphTimer_timeout():
 	.SetActive(true)
+	if bStopTelegraphSoundWhenStopTelegraph : 
+		telegraph_sound.stop()
 	pass # Replace with function body.
 
 
@@ -29,6 +34,7 @@ func SetActive(val: bool):
 	if val and TelegraphAnimDuration > 0 :
 		set_visible(true)
 		GetAnimPlayer().play(TelegraphAnimName)
+		telegraph_sound.play()
 		telegraph_timer.start(TelegraphAnimDuration)
 	else:
 		.SetActive(val)

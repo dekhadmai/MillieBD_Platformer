@@ -16,7 +16,7 @@ onready var winddown_anim_timer: Timer = $WindDownAnimTimer
 onready var area_start_timer: Timer = $AreaStartAnimTimer
 
 export var bStopActiveSoundWhenDeactivate = false
-onready var active_sound: AudioStreamPlayer = $ActiveSound
+onready var active_sound: AudioStreamPlayer2D = $ActiveSound
 
 
 func _ready():
