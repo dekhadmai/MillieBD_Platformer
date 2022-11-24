@@ -6,6 +6,9 @@ var dialog_script
 
 
 func _ready():
+	init()
+	
+func init():
 	dialog_script = open_dialog_file()
 	assert(dialog_script, "dialog not found")
 	

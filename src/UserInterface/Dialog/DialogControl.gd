@@ -5,6 +5,9 @@ onready var text = get_parent().get_node("Dialog").dialog_script
 
 var millie = preload("res://assets/art/ui/CharacterPortrait.png")
 var bot = preload("res://assets/art/ui/CharacterPortrait2.png")
+var pic_default = preload("res://assets/art/ui/char_expression/Default.png")
+
+var pic_base_path = "res://assets/art/ui/char_expression/"
 
 onready var dialog_container = $DialogContainer
 onready var dialog_speakername = $SpeakerName
@@ -34,6 +37,10 @@ var expression
 func _ready():
 	text_timer.wait_time = text_speed
 #	show_dialog()
+
+func init():
+	text = get_parent().get_node("Dialog").dialog_script
+	dialog_index = 0
 	
 func _physics_process(delta):
 	if is_active:
@@ -48,40 +55,27 @@ func _physics_process(delta):
 				dialog_text.visible_characters = len(dialog_text.text)
 				is_finished = true
 
+		var str_path = pic_base_path + str(dialog_speakername.text) + "_" + expression + ".png"
+		var pic = load(str_path)
+		if pic : 
+			dialog_portrait.texture = pic
+		else : 
+			dialog_portrait.texture = pic_default
+			
+				
+		talking_sound.pitch_scale = 2
 		
-		elif dialog_speakername.text == "Millie":
+		if position == "1":
+			dialog_portrait.global_position = get_parent().get_node("LeftPortraitPosition").position
+			dialog_speakername.rect_global_position = get_parent().get_node("LeftNamePosition").rect_position
+			portrait_left.show()
+			portrait_right.hide()
 			
-			dialog_portrait.texture = millie
-			talking_sound.pitch_scale = 2
-			
-			if position == "1":
-				dialog_portrait.global_position = get_parent().get_node("LeftPortraitPosition").position
-				dialog_speakername.rect_global_position = get_parent().get_node("LeftNamePosition").rect_position
-				portrait_left.show()
-				portrait_right.hide()
-				
-			else:
-				dialog_portrait.global_position = get_parent().get_node("RightPortraitPosition").position
-				dialog_speakername.rect_global_position = get_parent().get_node("RightNamePosition").rect_position
-				portrait_left.hide()
-				portrait_right.show()
-				
-		elif dialog_speakername.text == "Bot":
-			
-			dialog_portrait.texture = bot
-			talking_sound.pitch_scale = 1
-			
-			if position == "1":
-				dialog_portrait.global_position = get_parent().get_node("LeftPortraitPosition").position
-				dialog_speakername.rect_global_position = get_parent().get_node("LeftNamePosition").rect_position
-				portrait_left.show()
-				portrait_right.hide()
-				
-			else:
-				dialog_portrait.global_position = get_parent().get_node("RightPortraitPosition").position
-				dialog_speakername.rect_global_position = get_parent().get_node("RightNamePosition").rect_position
-				portrait_left.hide()
-				portrait_right.show()
+		else:
+			dialog_portrait.global_position = get_parent().get_node("RightPortraitPosition").position
+			dialog_speakername.rect_global_position = get_parent().get_node("RightNamePosition").rect_position
+			portrait_left.hide()
+			portrait_right.show()
 		
 		
 func show_dialog():
@@ -99,6 +93,7 @@ func show_dialog():
 		button_choice2.text = text[dialog_index]["Choices"][1]
 		
 		position = text[dialog_index]["Position"]
+		expression = text[dialog_index]["Expression"]
 		
 		dialog_text.visible_characters = 0
 		

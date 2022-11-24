@@ -216,18 +216,16 @@ func DialogEnna(phase_number):
 	GlobalSettings.dialog_test_up = true
 	GlobalSettings.dialog_reset = false
 	if phase_number == 0 :
-		get_node("DialogLayer/Enna_DialogPlayer1/DialogControl").dialog_index = 0
-		get_node("DialogLayer/Enna_DialogPlayer1").show()
-		get_node("DialogLayer/Enna_DialogPlayer1/DialogControl").show_dialog()
+		get_node("DialogLayer/Enna_DialogPlayer1/Dialog").dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogEnna1.tres"
 	elif phase_number == 1 :
-		get_node("DialogLayer/Enna_DialogPlayer2/DialogControl").dialog_index = 0
-		get_node("DialogLayer/Enna_DialogPlayer2").show()
-		get_node("DialogLayer/Enna_DialogPlayer2/DialogControl").show_dialog()
+		get_node("DialogLayer/Enna_DialogPlayer1/Dialog").dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogEnna2.tres"
 	elif phase_number == 2 :
-		get_node("DialogLayer/Enna_DialogPlayer3/DialogControl").dialog_index = 0
-		get_node("DialogLayer/Enna_DialogPlayer3").show()
-		get_node("DialogLayer/Enna_DialogPlayer3/DialogControl").show_dialog()
-		
+		get_node("DialogLayer/Enna_DialogPlayer1/Dialog").dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogEnna3.tres"
+	
+	get_node("DialogLayer/Enna_DialogPlayer1/Dialog").init()
+	get_node("DialogLayer/Enna_DialogPlayer1/DialogControl").init()
+	get_node("DialogLayer/Enna_DialogPlayer1").show()
+	get_node("DialogLayer/Enna_DialogPlayer1/DialogControl").show_dialog()
 	get_tree().paused = true
 
 
