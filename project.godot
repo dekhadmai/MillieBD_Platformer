@@ -194,7 +194,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Millie Platformer 2D"
+config/name="Journey of Calamity"
 config/description="Desc"
 run/main_scene="res://src/UserInterface/MainMenu/startmenu.tscn"
 config/icon="res://icon.png"
