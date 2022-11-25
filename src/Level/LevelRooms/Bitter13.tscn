@@ -81,4 +81,6 @@ patrol_offset_x = 128
 [editable path="Door_Down"]
 [editable path="BaseMovingPlatform"]
 [editable path="BaseGroundedEnemy_GroundWave"]
+[editable path="BaseGroundedEnemy_GroundWave/AIControllerGrounded"]
+[editable path="BaseGroundedEnemy_GroundWave/AbilitySystemComponent/ShootAbility"]
 [editable path="BaseGroundedEnemy_GroundWave/AnimationPlayerStateScene"]

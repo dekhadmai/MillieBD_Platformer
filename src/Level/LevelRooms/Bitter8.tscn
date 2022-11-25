@@ -61,4 +61,6 @@ position = Vector2( 224, 384 )
 [editable path="BaseGroundedEnemy_Bullet3/AbilitySystemComponent/ShootAbility"]
 [editable path="BaseGroundedEnemy_Bullet3/AnimationPlayerStateScene"]
 [editable path="BaseGroundedEnemy_GroundWave2"]
+[editable path="BaseGroundedEnemy_GroundWave2/AIControllerGrounded"]
+[editable path="BaseGroundedEnemy_GroundWave2/AbilitySystemComponent/ShootAbility"]
 [editable path="BaseGroundedEnemy_GroundWave2/AnimationPlayerStateScene"]
