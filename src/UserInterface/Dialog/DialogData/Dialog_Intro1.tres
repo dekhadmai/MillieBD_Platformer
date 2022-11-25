@@ -1,0 +1,30 @@
+[
+
+
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Finally! I've completed my master piece! A spell to make me smarter."
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Chat can't bully me for being dumb once this succeeds!"
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Speaking of which... Lucie! You think this'll work? "
+		},
+			{
+			"Name": "Lucie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "You won't know until you try!"
+		},
+			{
+			"Name": "Lucie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Thinking: I wonder what'll happen once this fails "
+		},
+			{
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Text": "Well alright here we go! "
+		},
+
+		
+]

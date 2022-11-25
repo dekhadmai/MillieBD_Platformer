@@ -11,7 +11,8 @@ func _ready():
 
 
 func _on_StartBtn_pressed():
-	Transition.change_scene("res://src/Main/Game.tscn")
+	#Transition.change_scene("res://src/Main/Game.tscn")
+	Transition.change_scene("res://src/UserInterface/IntroUI.tscn")
 
 
 func _on_SettingsBtn_pressed():

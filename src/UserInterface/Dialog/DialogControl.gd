@@ -41,8 +41,9 @@ func _ready():
 func init():
 	text = get_parent().get_node("Dialog").dialog_script
 	dialog_index = 0
-	
-func _physics_process(delta):
+
+		
+func _process(delta):
 	if is_active:
 		
 		if (Input.is_action_just_pressed("ui_accept") and GlobalSettings.settings_menu_up == false) and (
@@ -76,8 +77,7 @@ func _physics_process(delta):
 			dialog_speakername.rect_global_position = get_parent().get_node("RightNamePosition").rect_position
 			portrait_left.hide()
 			portrait_right.show()
-		
-		
+
 func show_dialog():
 	if dialog_index < text.size() and get_node("Choices").choice_dialog_is_up == false:
 		dialog_arrow.hide()
