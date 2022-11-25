@@ -210,6 +210,14 @@ func _SpinBeam_Timeout():
 		else:
 			ability_spinbeam.ForceEndAbility()
 
+func queue_free() : 
+	DialogEnna(3)
+	var delay_death = GlobalFunctions.CreateTimerAndBind(self, self, "DelayDeath")
+	delay_death.start(0.1)
+	
+	
+func DelayDeath() : 
+	.queue_free()
 
 ##### dialog stuff
 func DialogEnna(phase_number):
@@ -221,6 +229,8 @@ func DialogEnna(phase_number):
 		get_node("DialogLayer/Enna_DialogPlayer1/Dialog").dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogEnna2.tres"
 	elif phase_number == 2 :
 		get_node("DialogLayer/Enna_DialogPlayer1/Dialog").dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogEnna3.tres"
+	elif phase_number == 3 :
+		get_node("DialogLayer/Enna_DialogPlayer1/Dialog").dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogEnna4.tres"
 	
 	get_node("DialogLayer/Enna_DialogPlayer1/Dialog").init()
 	get_node("DialogLayer/Enna_DialogPlayer1/DialogControl").init()

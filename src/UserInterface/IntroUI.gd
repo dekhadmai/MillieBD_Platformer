@@ -8,7 +8,7 @@ onready var Dialog = $DialogPlayer/Dialog
 onready var DialogControl = $DialogPlayer/DialogControl
 
 var slide_index = 0
-
+var bAlreadyTransitioned = false
 
 func _ready(): 
 	Slide.set_texture(Slides[slide_index])
@@ -26,7 +26,9 @@ func _on_StartDialogTimer_timeout():
 		else : 
 			StartDialog(slide_index)
 	else : 
-		Transition.change_scene("res://src/Main/Game.tscn")
+		if !bAlreadyTransitioned : 
+			Transition.change_scene("res://src/Main/Game.tscn")
+			bAlreadyTransitioned = true
 	
 ##### dialog stuff
 func StartDialog(index):

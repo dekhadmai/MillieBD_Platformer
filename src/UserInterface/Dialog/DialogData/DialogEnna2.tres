@@ -1,20 +1,9 @@
 [
 
 			{
-			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Not bad, Millie."
+			"Name": "Enna", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "You think your attacks can hurt ME?!"
 		},
-			{
-			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "But you know I'm just playing around with you, right?"
-		},
-			{
-			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
-			"Text": "Yea. That was too easy. \nIt's just my warm up too."
-		},
-			{
-			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Play time is over. \nWatch me show you my full power!"
-		},
+			
 		
 ]

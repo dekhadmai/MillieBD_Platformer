@@ -2,24 +2,12 @@
 
 
 			{
-			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
-			"Text": "I finally found you, Enna!"
+			"Name": "Millie", "Expression": "Sad", "Position": "1", "Choices": ["",""],
+			"Text": "Hi Babu! \nSorry I got you into this, don't worry though, I'll fix it!"
 		},
 			{
-			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Oh hi Millie. \nI don't know what got into me, but this darkness feels really good."
-		},
-			{
-			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
-			"Text": "You're infected by the curse of calamity. \nBut I know you can pull yourself out of it."
-		},
-			{
-			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "This negativity feels like home to me, Millie."
-		},
-			{
-			"Name": "Bot", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "If you want me to snap out of it, you have to convince me by force."
+			"Name": "Enna", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Babu?! \nGo away! \nYou can't defeat me, not after I've obtained all this power!"
 		},
 			
 			

@@ -1,0 +1,29 @@
+[
+
+			{
+			"Name": "Enna", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Babu?.. what happened..?"
+		},
+			{
+			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
+			"Text": "*faints"
+		},
+			{
+			"Name": "Millie", "Expression": "Vpose", "Position": "1", "Choices": ["",""],
+			"Text": "Sorry Babu but your villain arc ends here, get some rest now."
+		},
+			{
+			"Name": "Lucie", "Expression": "Annoy", "Position": "2", "Choices": ["",""],
+			"Text": "Is it done now? Can we go home?"
+		},
+			{
+			"Name": "Millie", "Expression": "Bored", "Position": "1", "Choices": ["",""],
+			"Text": "What do you mean?! We need to save Reimu and Mom too."
+		},
+			{
+			"Name": "Lucie", "Expression": "Pissed", "Position": "2", "Choices": ["",""],
+			"Text": "Well sh&t."
+		},
+			
+		
+]
