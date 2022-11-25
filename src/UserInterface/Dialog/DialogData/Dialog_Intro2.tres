@@ -5,7 +5,7 @@
 			"Text": "Crashing Noise as the magic flies out of Millie's House"
 		},
 			{
-			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Name": "Millie", "Expression": "Surprised", "Position": "1", "Choices": ["",""],
 			"Text": "What the faq?! Why didn't the spell work?!"
 		},
 			
