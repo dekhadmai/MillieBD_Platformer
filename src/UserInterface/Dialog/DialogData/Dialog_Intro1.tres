@@ -14,11 +14,11 @@
 			"Text": "Speaking of which... Lucie! You think this'll work? "
 		},
 			{
-			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Happy", "Position": "2", "Choices": ["",""],
 			"Text": "You won't know until you try!"
 		},
 			{
-			"Name": "Lucie", "Expression": "Smug", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
 			"Text": "Thinking: I wonder what'll happen once this fails "
 		},
 			{

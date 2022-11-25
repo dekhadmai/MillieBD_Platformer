@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lucie_Angry.png-5f8bfef9e32f428071bc52a7e404f2c5.stex"
+path="res://.import/Lucie_Happy.png-8707a476168c539a95644aa81ff411a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/char_expression/Lucie_Angry.png"
-dest_files=[ "res://.import/Lucie_Angry.png-5f8bfef9e32f428071bc52a7e404f2c5.stex" ]
+source_file="res://assets/art/ui/char_expression/Lucie_Happy.png"
+dest_files=[ "res://.import/Lucie_Happy.png-8707a476168c539a95644aa81ff411a5.stex" ]
 
 [params]
 

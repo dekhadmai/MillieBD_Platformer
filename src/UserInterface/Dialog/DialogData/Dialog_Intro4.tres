@@ -1,7 +1,7 @@
 [
 
 			{
-			"Name": "", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
 			"Text": "Random Chattering Noise coming from PC\nMillie sees the News with Ethyria going rampant"
 		},
 			{
@@ -9,7 +9,7 @@
 			"Text": "Oh shit"
 		},
 			{
-			"Name": "", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
+			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
 			"Text": "Lucie Laughs\nDiscord Notification Sound"
 		},
 			

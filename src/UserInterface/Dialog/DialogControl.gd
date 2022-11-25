@@ -67,16 +67,25 @@ func _process(delta):
 		talking_sound.pitch_scale = 2
 		
 		if position == "1":
+			dialog_portrait.show()
 			dialog_portrait.global_position = get_parent().get_node("LeftPortraitPosition").position
 			dialog_speakername.rect_global_position = get_parent().get_node("LeftNamePosition").rect_position
 			portrait_left.show()
 			portrait_right.hide()
 			
-		else:
+		elif position == "2":
+			dialog_portrait.show()
 			dialog_portrait.global_position = get_parent().get_node("RightPortraitPosition").position
 			dialog_speakername.rect_global_position = get_parent().get_node("RightNamePosition").rect_position
 			portrait_left.hide()
 			portrait_right.show()
+		else : 
+			dialog_portrait.hide()
+			portrait_left.hide()
+			portrait_right.hide()
+			
+	else :
+		dialog_portrait.hide()
 
 func show_dialog():
 	if dialog_index < text.size() and get_node("Choices").choice_dialog_is_up == false:
