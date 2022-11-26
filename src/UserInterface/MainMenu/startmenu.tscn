@@ -141,6 +141,7 @@ shortcut = SubResource( 5 )
 text = "Settings"
 
 [node name="Credits" type="Button" parent="ColorRect"]
+visible = false
 margin_left = 22.0
 margin_top = 155.0
 margin_right = 237.0
