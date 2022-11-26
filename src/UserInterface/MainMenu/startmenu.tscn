@@ -92,7 +92,7 @@ rect_scale = Vector2( 0.486, 0.474 )
 size_flags_stretch_ratio = 0.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
-text = "TITLE"
+text = "Journey of calamity"
 align = 1
 valign = 1
 

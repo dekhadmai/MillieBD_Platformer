@@ -89,7 +89,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 100, 20 )
 
 [node name="GameplayAbility_AreaDetection_Beam" instance=ExtResource( 1 )]
@@ -102,7 +102,6 @@ AreaLingerDuration = 7.0
 AreaEffectInterval = 0.3
 
 [node name="Area2D_Damage_Telegraph" parent="." index="3" instance=ExtResource( 3 )]
-visible = false
 EndDamageAnimDuration = 0.6
 AreaLingerDuration = 5.0
 AreaEffectInterval = 0.3
@@ -132,7 +131,7 @@ wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Damage_Telegraph" index="5"]
 position = Vector2( 100, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
