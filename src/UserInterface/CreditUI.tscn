@@ -1,0 +1,171 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UserInterface/CreditUI.gd" type="Script" id=1]
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=2]
+
+[node name="GodotCredits" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CreditsContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="RichLine" type="RichTextLabel" parent="CreditsContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_right = -639.0
+margin_bottom = -357.0
+theme = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "
+
+
+
+
+
+
+
+
+
+[center][color=maroon]Credits[/color][/center]
+
+
+[center][color=maroon]Programming[/color][/center]
+[center]name name1[/center]
+[center]name name2[/center]
+
+
+[center][color=maroon]Level Design[/color][/center]
+[center]name name1[/center]
+[center]name name2[/center]
+
+
+[center][color=maroon]Art[/color][/center]
+[center]name name1[/center]
+[center]name name2[/center]
+
+
+[center][color=maroon]Music[/color][/center]
+[center]name name1[/center]
+[center]name name2[/center]
+
+
+[center][color=maroon]Sound Effects[/color][/center]
+[center]name name1[/center]
+[center]name name2[/center]
+
+
+[center][color=maroon]Testers[/color][/center]
+[center]name name1[/center]
+[center]name name2[/center]
+
+
+[center][color=maroon]Tool used[/color][/center]
+[center]Developed with Godot Engine[/center]
+[center]https://godotengine.org/license[/center]
+
+
+[center][color=maroon]Special thanks[/color][/center]
+[center]name name1[/center]
+[center]name name2[/center]
+
+
+
+
+
+
+
+[center]Thank you for playing[/center]
+
+
+
+
+
+
+
+
+
+
+
+"
+text = "
+
+
+
+
+
+
+
+
+
+Credits
+
+
+Programming
+name name1
+name name2
+
+
+Level Design
+name name1
+name name2
+
+
+Art
+name name1
+name name2
+
+
+Music
+name name1
+name name2
+
+
+Sound Effects
+name name1
+name name2
+
+
+Testers
+name name1
+name name2
+
+
+Tool used
+Developed with Godot Engine
+https://godotengine.org/license
+
+
+Special thanks
+name name1
+name name2
+
+
+
+
+
+
+
+Thank you for playing
+
+
+
+
+
+
+
+
+
+
+
+"

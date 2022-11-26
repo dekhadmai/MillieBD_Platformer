@@ -26,8 +26,5 @@ func _on_QuitBtn_pressed():
 	get_tree().quit()
 
 
-
-
-
-
-
+func _on_Credits_pressed():
+	Transition.change_scene("res://src/UserInterface/CreditUI.tscn")

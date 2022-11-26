@@ -108,7 +108,7 @@ color = Color( 0, 0, 0, 0.0235294 )
 [node name="StartBtn" type="Button" parent="ColorRect"]
 margin_left = 22.0
 margin_top = 21.0
-margin_right = 234.0
+margin_right = 237.0
 margin_bottom = 91.0
 rect_scale = Vector2( 0.8, 0.8 )
 focus_neighbour_top = NodePath("../QuitBtn")
@@ -126,11 +126,11 @@ text = "Start"
 [node name="SettingsBtn" type="Button" parent="ColorRect"]
 margin_left = 22.0
 margin_top = 88.0
-margin_right = 229.0
+margin_right = 237.0
 margin_bottom = 158.0
 rect_scale = Vector2( 0.8, 0.8 )
 focus_neighbour_top = NodePath("../StartBtn")
-focus_neighbour_bottom = NodePath("../QuitBtn")
+focus_neighbour_bottom = NodePath("../Credits")
 size_flags_vertical = 3
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 7 )
@@ -140,13 +140,30 @@ custom_styles/normal = SubResource( 19 )
 shortcut = SubResource( 5 )
 text = "Settings"
 
-[node name="QuitBtn" type="Button" parent="ColorRect"]
-margin_left = 26.0
-margin_top = 156.0
+[node name="Credits" type="Button" parent="ColorRect"]
+margin_left = 22.0
+margin_top = 155.0
 margin_right = 237.0
-margin_bottom = 226.0
+margin_bottom = 225.0
 rect_scale = Vector2( 0.8, 0.8 )
 focus_neighbour_top = NodePath("../SettingsBtn")
+focus_neighbour_bottom = NodePath("../QuitBtn")
+size_flags_vertical = 3
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = SubResource( 20 )
+shortcut = SubResource( 7 )
+text = "Credits"
+
+[node name="QuitBtn" type="Button" parent="ColorRect"]
+margin_left = 22.0
+margin_top = 222.0
+margin_right = 237.0
+margin_bottom = 292.0
+rect_scale = Vector2( 0.8, 0.8 )
+focus_neighbour_top = NodePath("../Credits")
 focus_neighbour_bottom = NodePath("../StartBtn")
 size_flags_vertical = 3
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -171,4 +188,5 @@ anchor_bottom = 0.0
 
 [connection signal="pressed" from="ColorRect/StartBtn" to="." method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="ColorRect/SettingsBtn" to="." method="_on_SettingsBtn_pressed"]
+[connection signal="pressed" from="ColorRect/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="ColorRect/QuitBtn" to="." method="_on_QuitBtn_pressed"]
