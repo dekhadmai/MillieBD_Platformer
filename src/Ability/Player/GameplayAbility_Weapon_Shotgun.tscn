@@ -7,6 +7,11 @@
 [node name="GameplayAbility_Shotgun" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 AbilityShortName = "ShotGun"
+AbilityName = "ShotGun"
+AbilityDescription = "Cooldown : {Cooldown} sec
+Damage : {EffectValueAtk} per pellet
+- Shoot 5 pellets
+- Spread"
 AbilityIcon = ExtResource( 2 )
 CustomAnimName = "_weapon"
 LingeringAnimName = "_active_weapon"

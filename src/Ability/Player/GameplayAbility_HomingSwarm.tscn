@@ -11,6 +11,12 @@ extents = Vector2( 450, 250 )
 [node name="GameplayAbility_HomingSwarm" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 AbilityShortName = "Homing"
+AbilityName = "Homing"
+AbilityDescription = "Cooldown : {Cooldown} sec
+Damage : {EffectValueAtk} per bullet
+- Shoot 15 bullets
+- Home to nearby targets
+- Require line of sight"
 AbilityIcon = ExtResource( 4 )
 AbilityCooldownSecond = 10.0
 bUseFervor = true

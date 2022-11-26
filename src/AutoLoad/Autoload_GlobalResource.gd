@@ -11,14 +11,14 @@ var PlayerWeaponAbilityTemplates = {
 
 var PlayerSpecialAbilityTemplates = {
 	"SlowTime" : "res://src/Ability/Player/GameplayAbility_SlowTime.tscn",
-	"Heal" : "res://src/Ability/Player/GameplayAbility_Heal.tscn",
 	"Invincible" : "res://src/Ability/Player/GameplayAbility_Invincible.tscn",
 	"AttackBuff" : "res://src/Ability/Player/GameplayAbility_AttackBuff.tscn",
-	"DamageReductionBuff" : "res://src/Ability/Player/GameplayAbility_DamageReductionBuff.tscn",
+	"Shield" : "res://src/Ability/Player/GameplayAbility_DamageReductionBuff.tscn",
 	"Beam" : "res://src/Ability/Player/GameplayAbility_Player_Beam.tscn",
 	"Nuke" : "res://src/Ability/Player/GameplayAbility_Projectile_Nuke.tscn",
 	"Homing" : "res://src/Ability/Player/GameplayAbility_HomingSwarm.tscn"
 }
+#"Heal" : "res://src/Ability/Player/GameplayAbility_Heal.tscn",
 
 var IconResource = {
 	"HandGun" : "res://assets/art/ui/icons/Handgun.png",
@@ -28,7 +28,7 @@ var IconResource = {
 	"Heal" : "res://assets/art/ui/icons/Heal.png",
 	"Invincible" : "res://assets/art/ui/icons/Invincible.png",
 	"AttackBuff" : "res://assets/art/ui/icons/AttackUp.png",
-	"DamageReductionBuff" : "res://assets/art/ui/icons/DamageReduced.png",
+	"Shield" : "res://assets/art/ui/icons/DamageReduced.png",
 	"Beam" : "res://assets/art/ui/icons/Beam.png",
 	"Nuke" : "res://assets/art/ui/icons/Nuke.png",
 	"Homing" : "res://assets/art/ui/icons/Homing.png",

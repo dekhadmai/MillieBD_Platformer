@@ -89,6 +89,7 @@ func _on_Expand_pressed():
 
 func _on_Ability_pressed():
 	GlobalSettings.ability_menu_up = true
+	abilityui.init()
 	statsUI_Anim.play("NextPage")
 	
 

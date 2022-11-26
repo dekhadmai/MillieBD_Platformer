@@ -24,6 +24,10 @@ shader_param/gradient = SubResource( 1 )
 
 [node name="Ability_AttackBuff" instance=ExtResource( 1 )]
 AbilityShortName = "AtkUp"
+AbilityName = "Attack Up"
+AbilityDescription = "Cooldown : {Cooldown} sec
+Duration : {EffectDuration} sec
+- Increase {EffectValuePercent}% Atk"
 AbilityIcon = ExtResource( 5 )
 AbilityCooldownSecond = 10.0
 bUseFervor = true

@@ -8,8 +8,12 @@
 [node name="Ability_SlowTime" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 AbilityShortName = "SlowTime"
+AbilityName = "Slow Time"
+AbilityDescription = "Cooldown : {Cooldown} sec
+Duration : 1 sec
+- Worse version of Ze Warudo"
 AbilityIcon = ExtResource( 4 )
-AbilityCooldownSecond = 2.5
+AbilityCooldownSecond = 2.0
 bUseFervor = true
 FervorCost = 10.0
 SlowTimeDuration = 1.0

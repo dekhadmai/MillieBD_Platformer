@@ -9,3 +9,5 @@ ResourceTemplateKey = ""
 InteractableType = 0
 bRandomizeDrop = true
 RandomizeWeaponChance = 30
+
+[editable path="interact"]

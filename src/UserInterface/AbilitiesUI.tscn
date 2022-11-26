@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
+[ext_resource path="res://src/UserInterface/Ability_Details.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/ui/Flippage.png" type="Texture" id=4]
+[ext_resource path="res://src/UserInterface/AbilitiesUI.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "NextPage"
@@ -63,9 +65,9 @@ tracks/1/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -341, 71 )
+script = ExtResource( 5 )
 
 [node name="RadlBook" type="Sprite" parent="."]
-visible = false
 position = Vector2( 943, 619 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
@@ -74,6 +76,7 @@ hframes = 7
 frame = 3
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 686.0
 margin_top = 258.0
 margin_right = 916.0
@@ -95,6 +98,23 @@ margin_right = 229.0
 margin_bottom = 408.0
 size_flags_horizontal = 3
 
+[node name="weapon1" parent="AbilityPage/LeftPage" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 229.0
+margin_bottom = 202.0
+size_flags_vertical = 3
+action_name = "weapon1"
+
+[node name="weapon2" parent="AbilityPage/LeftPage" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 206.0
+margin_right = 229.0
+margin_bottom = 408.0
+size_flags_vertical = 3
+action_name = "weapon2"
+
 [node name="MidleSpace" type="Control" parent="AbilityPage"]
 margin_left = 233.0
 margin_right = 295.0
@@ -107,6 +127,32 @@ margin_left = 299.0
 margin_right = 529.0
 margin_bottom = 408.0
 size_flags_horizontal = 3
+
+[node name="Skill1" parent="AbilityPage/RightPage" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 230.0
+margin_bottom = 133.0
+size_flags_vertical = 3
+action_name = "Skill1"
+
+[node name="Skill2" parent="AbilityPage/RightPage" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 137.0
+margin_right = 230.0
+margin_bottom = 270.0
+size_flags_vertical = 3
+action_name = "Skill2"
+
+[node name="Skill3" parent="AbilityPage/RightPage" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 274.0
+margin_right = 230.0
+margin_bottom = 408.0
+size_flags_vertical = 3
+action_name = "Skill3"
 
 [node name="Flippage" type="Sprite" parent="AbilityPage"]
 visible = false

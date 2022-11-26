@@ -7,6 +7,11 @@
 [node name="GameplayAbility_Minigun" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 AbilityShortName = "MiniGun"
+AbilityName = "MiniGun"
+AbilityDescription = "Cooldown : {Cooldown} sec
+Damage : {EffectValueAtk}
+- Shoot bullets very fast
+- Small spread"
 AbilityIcon = ExtResource( 3 )
 AbilityCooldownSecond = 0.1
 bullet_count = 1

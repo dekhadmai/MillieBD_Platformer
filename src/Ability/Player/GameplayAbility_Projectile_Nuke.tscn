@@ -5,6 +5,11 @@
 
 [node name="GameplayAbility_Projectile_Nuke" instance=ExtResource( 1 )]
 AbilityShortName = "Nuke"
+AbilityName = "Nuke"
+AbilityDescription = "Cooldown : {Cooldown} sec
+Damage : {EffectValueAtk}
+- Shoot Big PP Bullet Damage
+- Straight"
 AbilityIcon = ExtResource( 2 )
 AbilityCooldownSecond = 10.0
 bUseFervor = true

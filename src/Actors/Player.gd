@@ -192,7 +192,7 @@ func _ready():
 	#	AddSpecialAbility("Heal")
 	#	AddSpecialAbility("Invincible")
 	#	AddSpecialAbility("AttackBuff")
-	#	AddSpecialAbility("DamageReductionBuff")
+	#	AddSpecialAbility("Shield")
 	#	AddSpecialAbility("Beam")
 	#	AddSpecialAbility("Nuke")
 	#	AddSpecialAbility("Homing")

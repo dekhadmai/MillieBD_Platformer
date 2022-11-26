@@ -5,6 +5,10 @@
 
 [node name="GameplayAbility_HandGun" instance=ExtResource( 1 )]
 AbilityShortName = "HandGun"
+AbilityName = "Hand Gun"
+AbilityDescription = "Cooldown : {Cooldown} sec
+Damage : {EffectValueAtk}
+- Shoot a bullet"
 AbilityIcon = ExtResource( 2 )
 AbilityCooldownSecond = 0.3
 CustomAnimName = "_weapon"

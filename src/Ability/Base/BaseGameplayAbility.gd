@@ -4,7 +4,7 @@ extends Node2D
 
 export var AbilityShortName:String = "AbiAbbv"
 export var AbilityName:String = "AbiName"
-export var AbilityDescription:String = "AbiDesc"
+export(String, MULTILINE) var AbilityDescription:String = "AbiDesc"
 export var AbilityIcon:Texture
 
 var AbilityOwner: Actor
@@ -50,6 +50,19 @@ var StopMovingAnimTimer:Timer
 
 export var bStopGravityWhilePlayingAnim = false
 var CacheGravity
+
+func GetAbilityName(): 
+	return AbilityName
+	
+func GetAbilityDescription():
+	var result : String = AbilityDescription
+	result = result.replace("{EffectValue}", str(GameplayeEffect_Template.ValueToModify))
+	result = result.replace("{EffectValuePercent}", str(GameplayeEffect_Template.ValueToModify*100))
+	result = result.replace("{EffectValueAtk}", str("%.2f" % (GameplayeEffect_Template.ValueToModify * AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.CurrentAttack/100)))
+	result = result.replace("{EffectDuration}", str("%.2f" % GameplayeEffect_Template.EffectDuration))
+	result = result.replace("{Cooldown}", str("%.2f" % AbilityCooldownSecond))
+	result = result.replace("{Cost}", str("%.0f" % FervorCost))
+	return result
 
 func GetAbilityLevel() -> int :
 	return AbilityLevel

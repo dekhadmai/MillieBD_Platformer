@@ -16,6 +16,10 @@ shader_param/gradient = SubResource( 1 )
 
 [node name="Ability_Invincible" instance=ExtResource( 1 )]
 AbilityShortName = "Invinc"
+AbilityName = "Invincibility"
+AbilityDescription = "Cooldown : {Cooldown} sec
+Duration : {EffectDuration} sec
+- Immune to damage"
 AbilityIcon = ExtResource( 5 )
 AbilityCooldownSecond = 10.0
 bUseFervor = true

@@ -9,6 +9,16 @@ export var FadeOutTime = 0.5
 
 var current_active_time = 0.0
 
+func GetAbilityDescription():
+	var result : String = AbilityDescription
+	result = result.replace("{EffectValue}", str(GameplayeEffect_Template.ValueToModify))
+	result = result.replace("{EffectValuePercent}", str(GameplayeEffect_Template.ValueToModify*100))
+	result = result.replace("{EffectValueAtk}", str("%.2f" % (GameplayeEffect_Template.ValueToModify * AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.CurrentAttack/100)))
+	result = result.replace("{EffectDuration}", str("%.2f" % SlowTimeDuration))
+	result = result.replace("{Cooldown}", str("%.2f" % AbilityCooldownSecond))
+	result = result.replace("{Cost}", str("%.0f" % FervorCost))
+	return result
+
 func _process(delta):
 	if bIsActive :
 		if current_active_time <= FadeInTime :
