@@ -4,15 +4,17 @@ extends Control
 onready var animation_player = $CanvasLayer/SettingsMenu/AnimationPlayer
 onready var Start_Btn = $ColorRect/StartBtn
 
-
+var bSkipIntroSlide = false
 
 func _ready():
 	Start_Btn.grab_focus()
 
 
 func _on_StartBtn_pressed():
-	#Transition.change_scene("res://src/Main/Game.tscn")
-	Transition.change_scene("res://src/UserInterface/IntroUI.tscn")
+	if bSkipIntroSlide : 
+		Transition.change_scene("res://src/Main/Game.tscn")
+	else : 
+		Transition.change_scene("res://src/UserInterface/IntroUI.tscn")
 
 
 func _on_SettingsBtn_pressed():
