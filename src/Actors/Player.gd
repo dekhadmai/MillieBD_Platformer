@@ -529,7 +529,17 @@ func _on_FloatTimer_timeout():
 
 func _on_HoldToShootTimer_timeout():
 	if is_instance_valid(weapon_abi) : 
-		weapon_abi.TryActivate()
+		if Input.is_action_pressed("shoot") : 
+			var can_shoot = true
+			for i in SpecialAbilityArray.size() : 
+				if is_instance_valid(SpecialAbilityArray[i]) : 
+					if !(!SpecialAbilityArray[i].IsAbilityActive() or (SpecialAbilityArray[i].IsAbilityActive() and SpecialAbilityArray[i].GetAllowPrimaryToActivate())) : 
+						can_shoot = false
+			
+			if can_shoot : 
+				weapon_abi.TryActivate()
+		else : 
+			hold_to_shoot_timer.stop()
 		
 func ShowGrazeVfx():
 	graze_system.ShowGrazeVfx()
