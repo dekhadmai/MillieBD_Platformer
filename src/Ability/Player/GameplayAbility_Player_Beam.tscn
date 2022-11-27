@@ -104,6 +104,7 @@ Duration : 4 sec
 AbilityIcon = ExtResource( 4 )
 AbilityCooldownSecond = 15.0
 bUseFervor = true
+FervorCost = 30.0
 bAllowPrimaryToActivate = false
 CustomAnimName = "_weapon"
 CustomAnimDuration = 4.6

@@ -30,12 +30,13 @@ Duration : {EffectDuration} sec
 AbilityIcon = ExtResource( 4 )
 AbilityCooldownSecond = 15.0
 bUseFervor = true
+FervorCost = 35.0
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
 EffectDurationType = 1
 EffectDuration = 5.0
 StatToModify = 9
-ValueToModify = -0.5
+ValueToModify = -0.35
 
 [node name="GameplayEffectSprite" parent="GameplayEffectTemplate" index="0"]
 material = SubResource( 4 )
