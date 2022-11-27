@@ -85,6 +85,7 @@ const KEYBOARD_BUTTON_TO_INDEX_MAPPING = {
 export(String) var action_name
 export(String) var label_text
 export(Texture) var icon
+export var bShowInputIcon = true
 onready var keyboard_icon : Sprite = $KeyboardSprite
 onready var controller_icon : Sprite = $ControllerSprite
 onready var sprite_icon : Sprite = $IconSprite
@@ -112,18 +113,30 @@ func _set_current_icon_index(device_id : int, action_name: String) :
 	for action in InputMap.get_action_list(action_name) : 
 		if action is InputEventKey and device_id == -1 : 
 			if KEYBOARD_BUTTON_TO_INDEX_MAPPING.has(action.scancode) : 
-				keyboard_icon.set_visible(true)
-				controller_icon.set_visible(false)
-				keyboard_icon.set_frame(KEYBOARD_BUTTON_TO_INDEX_MAPPING[action.scancode])
+				if bShowInputIcon : 
+					keyboard_icon.set_visible(true)
+					controller_icon.set_visible(false)
+					keyboard_icon.set_frame(KEYBOARD_BUTTON_TO_INDEX_MAPPING[action.scancode])
+				else : 
+					keyboard_icon.set_visible(false)
+					controller_icon.set_visible(false)
 				return
 		if action is InputEventJoypadButton and device_id != -1: 
 			if "XInput" in Input.get_joy_name(device_id):
 				if XBOX_BUTTON_TO_INDEX_MAPPING.has(action.button_index) : 
-					keyboard_icon.set_visible(false)
-					controller_icon.set_visible(true)
-					controller_icon.set_frame(XBOX_BUTTON_TO_INDEX_MAPPING[action.button_index])
+					if bShowInputIcon : 
+						keyboard_icon.set_visible(false)
+						controller_icon.set_visible(true)
+						controller_icon.set_frame(XBOX_BUTTON_TO_INDEX_MAPPING[action.button_index])
+					else : 
+						keyboard_icon.set_visible(false)
+						controller_icon.set_visible(false)
 					return
 					
-	keyboard_icon.set_visible(true)
-	controller_icon.set_visible(false)
-	keyboard_icon.set_frame(73)
+	if bShowInputIcon : 
+		keyboard_icon.set_visible(true)
+		controller_icon.set_visible(false)
+		keyboard_icon.set_frame(73)
+	else :
+		keyboard_icon.set_visible(false)
+		controller_icon.set_visible(false)
