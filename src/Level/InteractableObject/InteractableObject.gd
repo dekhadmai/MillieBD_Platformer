@@ -7,6 +7,8 @@ export var bDontSpawnInIsAlreadyClearedRoom = true
 export var Name: String = "Name"
 export var Description: String = "Description"
 
+export var InteractSfxGlobalResourceKey: String = ""
+
 onready var autoload_mapdata = $"/root/AutoLoadMapData"
 onready var item_name_label = $ItemName
 

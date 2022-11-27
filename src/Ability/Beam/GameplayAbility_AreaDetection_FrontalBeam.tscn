@@ -102,6 +102,7 @@ AreaLingerDuration = 7.0
 AreaEffectInterval = 0.3
 
 [node name="Area2D_Damage_Telegraph" parent="." index="3" instance=ExtResource( 3 )]
+visible = false
 EndDamageAnimDuration = 0.6
 AreaLingerDuration = 5.0
 AreaEffectInterval = 0.3

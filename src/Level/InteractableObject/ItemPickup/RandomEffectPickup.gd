@@ -22,6 +22,7 @@ func TapAction():
 		var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect
 		var body_asc: BaseAbilitySystemComponent = InteractedPlayer.GetAbilitySystemComponent()
 		body_asc.ApplyGameplayEffectToSelf(effect)
-		
+		if InteractSfxGlobalResourceKey != "" : 
+			$"/root/AutoLoadMapData".PlaySfx(InteractSfxGlobalResourceKey)
 		queue_free()
 	pass

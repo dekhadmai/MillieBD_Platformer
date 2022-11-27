@@ -5,6 +5,7 @@
 
 [node name="Pickup_Exp" instance=ExtResource( 1 )]
 Name = "HP Orb"
+InteractSfxGlobalResourceKey = "Heal"
 
 [node name="ItemSprite" parent="." index="1"]
 texture = ExtResource( 2 )
@@ -12,3 +13,5 @@ texture = ExtResource( 2 )
 [node name="PickupEffect" parent="." index="4"]
 StatToModify = 2
 ValueToModify = 50.0
+
+[editable path="interact"]

@@ -36,6 +36,10 @@ var IconResource = {
 	"Float" : "res://assets/art/ui/icons/dash_icon_2.png"
 }
 
+var SfxResource = {
+	"Heal" : "res://assets/audio/sfx/More sfx/millie ability sfx/heal.wav"
+}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

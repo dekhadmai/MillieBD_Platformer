@@ -11,3 +11,5 @@ bDontSpawnInIsAlreadyClearedRoom = false
 [node name="PickupEffect" type="Node2D" parent="." index="4"]
 script = ExtResource( 3 )
 bExpAddFerver = false
+
+[editable path="interact"]
