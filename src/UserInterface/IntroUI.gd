@@ -20,8 +20,11 @@ func _process(delta):
 			
 	if Input.is_action_just_pressed("ui_cancel") : 
 		if !bAlreadyTransitioned : 
-			get_tree().paused = false
+			GlobalSettings.dialog_test_up = false
+			GlobalSettings.dialog_reset = true
 			DialogPlayer.hide()
+			get_tree().paused = false
+			
 			Transition.change_scene("res://src/Main/Game.tscn")
 			bAlreadyTransitioned = true
 		
