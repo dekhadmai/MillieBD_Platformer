@@ -18,7 +18,7 @@ Damage : {EffectValueAtk} per bullet
 - Home to nearby targets
 - Require line of sight"
 AbilityIcon = ExtResource( 4 )
-AbilityCooldownSecond = 10.0
+AbilityCooldownSecond = 15.0
 bUseFervor = true
 FervorCost = 50.0
 bullet_count = 15

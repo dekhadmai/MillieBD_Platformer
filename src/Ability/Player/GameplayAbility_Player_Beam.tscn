@@ -102,7 +102,7 @@ Duration : 4 sec
 - Channeling Beam
 - Continuous damage"
 AbilityIcon = ExtResource( 4 )
-AbilityCooldownSecond = 10.0
+AbilityCooldownSecond = 15.0
 bUseFervor = true
 bAllowPrimaryToActivate = false
 CustomAnimName = "_weapon"

@@ -29,7 +29,7 @@ AbilityDescription = "Cooldown : {Cooldown} sec
 Duration : {EffectDuration} sec
 - Increase {EffectValuePercent}% Atk"
 AbilityIcon = ExtResource( 5 )
-AbilityCooldownSecond = 10.0
+AbilityCooldownSecond = 15.0
 bUseFervor = true
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
