@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=1]
 [ext_resource path="res://assets/art/ui/Lore Weakness.png" type="Texture" id=2]
@@ -430,6 +430,46 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ "Expand", "Collapse" ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "AbilityButtonAnim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Statsbox/RighPage/Space2/Ability/Arrow2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.320313, 0.336806 ), Vector2( 0.42, 0.437 ), Vector2( 0.320313, 0.336806 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Statsbox/LeftPage/Close/Arrow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.320313, 0.336806 ), Vector2( 0.42, 0.437 ), Vector2( 0.320313, 0.336806 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AbilitiesUI/BacktoStats/Arrow3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.320313, 0.336806 ), Vector2( 0.42, 0.437 ), Vector2( 0.320313, 0.336806 ) ]
 }
 
 [node name="StatsUI" type="Control"]
@@ -1179,6 +1219,10 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 14, 9 )
 scale = Vector2( 0.320313, 0.336806 )
 texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "AbilityButtonAnim"
+anims/AbilityButtonAnim = SubResource( 7 )
 
 [connection signal="pressed" from="Statsbox/LeftPage/Close" to="." method="_on_Close_pressed"]
 [connection signal="toggled" from="Statsbox/LeftPage/Close" to="." method="_on_Close_toggled"]
