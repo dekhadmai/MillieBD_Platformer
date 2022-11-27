@@ -17,7 +17,13 @@ func _process(delta):
 	if !DialogControl.is_active : 
 		if Input.is_action_just_pressed("ui_accept") : 
 			$StartDialogTimer.start()
-	
+			
+	if Input.is_action_just_pressed("ui_cancel") : 
+		if !bAlreadyTransitioned : 
+			get_tree().paused = false
+			DialogPlayer.hide()
+			Transition.change_scene("res://src/Main/Game.tscn")
+			bAlreadyTransitioned = true
 		
 func _on_StartDialogTimer_timeout():
 	if slide_index < Slides.size() : 

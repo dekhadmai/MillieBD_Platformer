@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/art/ui/intro_slide/Intro2.png" type="Texture" id=1]
 [ext_resource path="res://src/UserInterface/IntroUI.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/art/ui/intro_slide/Intro6.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/intro_slide/Intro4.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/intro_slide/Intro5.png" type="Texture" id=8]
+[ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=9]
 
 [node name="IntroUI" type="Control"]
 pause_mode = 2
@@ -29,4 +30,58 @@ visible = false
 wait_time = 0.1
 one_shot = true
 
+[node name="Next" parent="." instance=ExtResource( 9 )]
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -49.0
+margin_top = -100.0
+margin_right = -1.0
+margin_bottom = -84.0
+rect_scale = Vector2( 2, 2 )
+action_name = "ui_accept"
+label_text = "Next"
+
+[node name="IconSprite" parent="Next" index="0"]
+visible = false
+
+[node name="ActionName" parent="Next" index="4"]
+visible = true
+margin_left = -15.0
+margin_top = 7.5
+margin_right = 177.0
+margin_bottom = 45.5
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "Next"
+
+[node name="Cancel" parent="." instance=ExtResource( 9 )]
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -49.0
+margin_top = -45.0
+margin_right = -1.0
+margin_bottom = -29.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+action_name = "ui_cancel"
+label_text = "Skip"
+
+[node name="IconSprite" parent="Cancel" index="0"]
+visible = false
+
+[node name="ActionName" parent="Cancel" index="4"]
+visible = true
+margin_left = -15.0
+margin_top = 7.5
+margin_right = 177.0
+margin_bottom = 45.5
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "Skip"
+
 [connection signal="timeout" from="StartDialogTimer" to="." method="_on_StartDialogTimer_timeout"]
+
+[editable path="Next"]
+[editable path="Cancel"]
