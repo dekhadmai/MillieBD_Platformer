@@ -558,6 +558,11 @@ bExpAddFerver = false
 StatToModify = 5
 ValueToModify = 1000.0
 
+[node name="CheatAtk" parent="CheatBuff" instance=ExtResource( 16 )]
+bExpAddFerver = false
+StatToModify = 3
+ValueToModify = 500.0
+
 [node name="CheatTakeDamage" parent="CheatBuff" instance=ExtResource( 16 )]
 bExpAddFerver = false
 StatToModify = 1

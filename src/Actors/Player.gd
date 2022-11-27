@@ -22,6 +22,7 @@ onready var levelup_effect_invincible = $LevelUpEffect_Invincible
 
 # Cheat
 onready var cheat_exp = $CheatBuff/CheatExp
+onready var cheat_atk = $CheatBuff/CheatAtk
 onready var cheat_damage = $CheatBuff/CheatTakeDamage
 
 onready var platform_detector = $PlatformDetector
@@ -571,11 +572,18 @@ func CheckCheatCommands():
 		CheatSpawnAllWeapons()
 	if GlobalFunctions.IsKeyModifierPressed("swap_ability", "CheatModifier"):
 		CheatSpawnAllSpecialAbilities()
+	if GlobalFunctions.IsKeyModifierPressed("shoot", "CheatModifier"):
+		CheatAtk()
 	
 
 func CheatExp():
 	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
 	var effect:BaseGameplayEffect = cheat_exp.duplicate() as BaseGameplayEffect
+	body_asc.ApplyGameplayEffectToSelf(effect)
+	
+func CheatAtk():
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	var effect:BaseGameplayEffect = cheat_atk.duplicate() as BaseGameplayEffect
 	body_asc.ApplyGameplayEffectToSelf(effect)
 	
 func CheatTakeDamage():
