@@ -14,6 +14,7 @@ ValueToModify = 20.0
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( -30.6589, -6.13176 )
 stream = ExtResource( 2 )
+bus = "Sfx"
 
 [node name="AbilityCooldown" type="Timer" parent="."]
 process_mode = 0

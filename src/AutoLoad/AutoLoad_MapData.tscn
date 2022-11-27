@@ -15,6 +15,7 @@ BossLevelTemplate = "res://src/Level/LevelRooms/LevelRoom_Enna.tscn"
 PlayerTemplate = "res://src/Actors/Player.tscn"
 
 [node name="Level_BGM" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 2 )
 bus = "Bgm"
 

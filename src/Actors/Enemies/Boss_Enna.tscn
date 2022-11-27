@@ -88,11 +88,13 @@ shape = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="EnnaPhase1" type="AudioStreamPlayer" parent="." index="9"]
+pause_mode = 2
 stream = ExtResource( 9 )
 autoplay = true
 bus = "Bgm"
 
 [node name="EnnaPhase2" type="AudioStreamPlayer" parent="." index="10"]
+pause_mode = 2
 stream = ExtResource( 8 )
 bus = "Bgm"
 

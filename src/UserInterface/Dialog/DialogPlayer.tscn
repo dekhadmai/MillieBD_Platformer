@@ -266,6 +266,7 @@ anims/RESET = SubResource( 3 )
 [node name="Talking" type="AudioStreamPlayer" parent="DialogControl"]
 stream = ExtResource( 6 )
 pitch_scale = 0.5
+bus = "Sfx"
 
 [node name="LeftPortraitPosition" type="Position2D" parent="."]
 position = Vector2( 484, 570 )
