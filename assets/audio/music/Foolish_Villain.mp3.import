@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Foolish_Villain.mp3-8ef6bd9ca54b3ad84ef8835a71b50dec.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Foolish_Villain.mp3"
+dest_files=[ "res://.import/Foolish_Villain.mp3-8ef6bd9ca54b3ad84ef8835a71b50dec.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

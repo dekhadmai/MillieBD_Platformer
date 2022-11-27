@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/art/ui/intro_slide/Intro2.png" type="Texture" id=1]
 [ext_resource path="res://src/UserInterface/IntroUI.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/art/ui/intro_slide/Intro4.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/intro_slide/Intro5.png" type="Texture" id=8]
 [ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/audio/music/Foolish_Villain.mp3" type="AudioStream" id=10]
 
 [node name="IntroUI" type="Control"]
 pause_mode = 2
@@ -80,6 +81,13 @@ margin_bottom = 45.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
 text = "Skip"
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 10 )
+volume_db = -6.0
+autoplay = true
+bus = "Bgm"
 
 [connection signal="timeout" from="StartDialogTimer" to="." method="_on_StartDialogTimer_timeout"]
 
