@@ -543,6 +543,7 @@ func SpawnRoomClearReward():
 	else :
 		GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), random_roomdrop, 30)
 	
+	autoload_mapdata.PlaySfx("RoomClear")
 	pass
 
 func take_damage(value):

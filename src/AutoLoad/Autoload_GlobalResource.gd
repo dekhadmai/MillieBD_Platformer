@@ -37,7 +37,9 @@ var IconResource = {
 }
 
 var SfxResource = {
-	"Heal" : "res://assets/audio/sfx/More sfx/millie ability sfx/heal.wav"
+	"Heal" : "res://assets/audio/sfx/More sfx/millie ability sfx/heal.wav",
+	"Checkpoint" : "res://assets/audio/sfx/More sfx/interaction/SaveTotemSFX.wav",
+	"RoomClear" : "res://assets/audio/sfx/More sfx/interaction/DungeonClearSFX.wav"
 }
 
 

@@ -12,12 +12,14 @@ func _ready():
 		anim.play("activate")
 
 func _on_CheckpointArea2D_body_entered(body):
+	if autoload_mapdata.Checkpoint_RoomPosition != Checkpoint_RoomPosition : 
+		autoload_mapdata.PlaySfx("Checkpoint")
+		
 	autoload_mapdata.Checkpoint_Position = get_global_position()
 	autoload_mapdata.Checkpoint_RoomPosition = Checkpoint_RoomPosition
 	autoload_mapdata.Checkpoint_RoomGlobalPosition = get_parent().get_global_position()
 	
 	anim.play("activate")
-	
 	print("Set Checkpoint")
 	pass # Replace with function body.
 
