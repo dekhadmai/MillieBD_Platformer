@@ -6,11 +6,11 @@
 		},
 			{
 			"Name": "Millie", "Expression": "Surprised", "Position": "1", "Choices": ["",""],
-			"Text": "Oh shit"
+			"Text": "Uh oh"
 		},
 			{
 			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
-			"Text": "Lucie Laughs\nDiscord Notification Sound"
+			"Text": "*Lucie laughs*\nDiscord Notification Sound"
 		},
 			
 

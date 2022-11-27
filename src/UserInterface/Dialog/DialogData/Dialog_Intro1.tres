@@ -3,11 +3,11 @@
 
 			{
 			"Name": "Millie", "Expression": "Bored", "Position": "1", "Choices": ["",""],
-			"Text": "Finally! I've completed my master piece! A spell to make me smarter."
+			"Text": "At last! I've completed my masterpiece, a spell to make me more intelligent."
 		},
 			{
 			"Name": "Millie", "Expression": "Ehe", "Position": "1", "Choices": ["",""],
-			"Text": "Chat can't bully me for being dumb once this succeeds!"
+			"Text": "Chat won't be able to bully me for being dumb once this succeeds!"
 		},
 			{
 			"Name": "Millie", "Expression": "Bored", "Position": "1", "Choices": ["",""],
@@ -15,15 +15,15 @@
 		},
 			{
 			"Name": "Lucie", "Expression": "Happy", "Position": "2", "Choices": ["",""],
-			"Text": "You won't know until you try!"
+			"Text": "Well, we won't know until you try."
 		},
 			{
 			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
-			"Text": "Thinking: I wonder what'll happen once this fails "
+			"Text": "*I wonder what'll happen once this fails* "
 		},
 			{
 			"Name": "Millie", "Expression": "Vpose", "Position": "1", "Choices": ["",""],
-			"Text": "Well alright here we go! "
+			"Text": "Alrighty, here goes nothing!"
 		},
 
 		

@@ -6,7 +6,7 @@
 		},
 			{
 			"Name": "Millie", "Expression": "Sad", "Position": "1", "Choices": ["",""],
-			"Text": "Just hop in call with me Shu! "
+			"Text": "Just get in here already Shu! "
 		},
 			{
 			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
