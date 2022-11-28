@@ -53,7 +53,7 @@ anims/area_loop_bomb = SubResource( 2 )
 [node name="ActiveSound" parent="Area2D_Damage_Telegraph" index="8"]
 stream = ExtResource( 3 )
 
-[node name="CollisionShape2D" parent="Area2D_Damage_Telegraph" index="9"]
+[node name="CollisionShape2D" parent="Area2D_Damage_Telegraph" index="10"]
 position = Vector2( 21, 32 )
 shape = SubResource( 3 )
 

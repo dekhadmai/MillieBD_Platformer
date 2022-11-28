@@ -12,7 +12,7 @@ BaseSpeed = 1.0
 DeathLingerDuration = 3.0
 
 [node name="BulletSpawnerComponent" parent="." index="1" instance=ExtResource( 2 )]
-ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_Beam.tscn"
+ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_Beam_GroundSpawner.tscn"
 
 [node name="BulletSpawnerData" type="Position2D" parent="BulletSpawnerComponent" index="0"]
 script = ExtResource( 3 )

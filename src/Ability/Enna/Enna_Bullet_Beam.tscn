@@ -43,7 +43,7 @@ frame = 0
 [node name="AnimationPlayer" parent="Area2D_Damage_Telegraph" index="2"]
 anims/telegraph_loop_enna = SubResource( 2 )
 
-[node name="CollisionShape2D" parent="Area2D_Damage_Telegraph" index="8"]
+[node name="CollisionShape2D" parent="Area2D_Damage_Telegraph" index="10"]
 position = Vector2( 300, 0 )
 shape = SubResource( 1 )
 
