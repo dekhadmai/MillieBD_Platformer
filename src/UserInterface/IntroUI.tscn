@@ -24,14 +24,16 @@ anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="DialogPlayer" parent="." instance=ExtResource( 3 )]
-visible = false
-
 [node name="StartDialogTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
-[node name="Next" parent="." instance=ExtResource( 9 )]
+[node name="DialogPlayer" parent="." instance=ExtResource( 3 )]
+
+[node name="ButtonLayer" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="Next" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -49.0
@@ -42,10 +44,10 @@ rect_scale = Vector2( 2, 2 )
 action_name = "ui_accept"
 label_text = "Next"
 
-[node name="IconSprite" parent="Next" index="0"]
+[node name="IconSprite" parent="ButtonLayer/Next" index="0"]
 visible = false
 
-[node name="ActionName" parent="Next" index="4"]
+[node name="ActionName" parent="ButtonLayer/Next" index="4"]
 visible = true
 margin_left = -15.0
 margin_top = 7.5
@@ -55,7 +57,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
 text = "Next"
 
-[node name="Cancel" parent="." instance=ExtResource( 9 )]
+[node name="Cancel" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -49.0
@@ -69,10 +71,10 @@ __meta__ = {
 action_name = "ui_cancel"
 label_text = "Skip"
 
-[node name="IconSprite" parent="Cancel" index="0"]
+[node name="IconSprite" parent="ButtonLayer/Cancel" index="0"]
 visible = false
 
-[node name="ActionName" parent="Cancel" index="4"]
+[node name="ActionName" parent="ButtonLayer/Cancel" index="4"]
 visible = true
 margin_left = -15.0
 margin_top = 7.5
@@ -91,5 +93,5 @@ bus = "Bgm"
 
 [connection signal="timeout" from="StartDialogTimer" to="." method="_on_StartDialogTimer_timeout"]
 
-[editable path="Next"]
-[editable path="Cancel"]
+[editable path="ButtonLayer/Next"]
+[editable path="ButtonLayer/Cancel"]

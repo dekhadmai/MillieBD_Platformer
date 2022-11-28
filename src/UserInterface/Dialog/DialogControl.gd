@@ -70,19 +70,19 @@ func _process(delta):
 			dialog_portrait.show()
 			dialog_portrait.global_position = get_parent().get_node("LeftPortraitPosition").position
 			dialog_speakername.rect_global_position = get_parent().get_node("LeftNamePosition").rect_position
-			portrait_left.show()
-			portrait_right.hide()
+#			portrait_left.show()
+#			portrait_right.hide()
 			
 		elif position == "2":
 			dialog_portrait.show()
 			dialog_portrait.global_position = get_parent().get_node("RightPortraitPosition").position
 			dialog_speakername.rect_global_position = get_parent().get_node("RightNamePosition").rect_position
-			portrait_left.hide()
-			portrait_right.show()
+#			portrait_left.hide()
+#			portrait_right.show()
 		else : 
 			dialog_portrait.hide()
-			portrait_left.hide()
-			portrait_right.hide()
+#			portrait_left.hide()
+#			portrait_right.hide()
 			
 	else :
 		dialog_portrait.hide()
@@ -95,7 +95,7 @@ func show_dialog():
 		
 		dialog_container.show()
 		dialog_portrait.show()
-		dialog_speakername.show()
+		dialog_speakername.hide()
 		dialog_speakername.text = text[dialog_index]["Name"]
 		dialog_text.bbcode_text = text[dialog_index]["Text"]
 		button_choice.text = text[dialog_index]["Choices"][0]
