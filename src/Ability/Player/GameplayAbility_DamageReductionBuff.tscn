@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Ability/GameplayAbility_ApplyGameplayEffect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/art/Gradient/palette_swap_gradient.gdshader" type="Shader" id=2]
 [ext_resource path="res://assets/art/Gradient/gradient_vfx_dmg_reduction_buff.tres" type="Gradient" id=3]
 [ext_resource path="res://assets/art/ui/icons/DamageReduced.png" type="Texture" id=4]
+[ext_resource path="res://assets/audio/sfx/More sfx/millie ability sfx/reduce damage.wav" type="AudioStream" id=5]
 
 [sub_resource type="GradientTexture" id=3]
 gradient = ExtResource( 3 )
@@ -40,6 +41,9 @@ ValueToModify = -0.35
 
 [node name="GameplayEffectSprite" parent="GameplayEffectTemplate" index="0"]
 material = SubResource( 4 )
+
+[node name="AbilitySound" parent="." index="2"]
+stream = ExtResource( 5 )
 
 [node name="AbilitySprite" parent="." index="3"]
 material = SubResource( 2 )
