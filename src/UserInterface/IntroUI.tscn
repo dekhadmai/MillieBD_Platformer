@@ -47,7 +47,7 @@ label_text = "Next"
 [node name="IconSprite" parent="ButtonLayer/Next" index="0"]
 visible = false
 
-[node name="ActionName" parent="ButtonLayer/Next" index="4"]
+[node name="ActionName" parent="ButtonLayer/Next" index="3"]
 visible = true
 margin_left = -15.0
 margin_top = 7.5
@@ -74,7 +74,7 @@ label_text = "Skip"
 [node name="IconSprite" parent="ButtonLayer/Cancel" index="0"]
 visible = false
 
-[node name="ActionName" parent="ButtonLayer/Cancel" index="4"]
+[node name="ActionName" parent="ButtonLayer/Cancel" index="3"]
 visible = true
 margin_left = -15.0
 margin_top = 7.5

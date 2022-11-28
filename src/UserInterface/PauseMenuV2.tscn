@@ -156,10 +156,21 @@ enabled_focus_mode = 0
 text = "Character"
 flat = true
 
-[node name="Settings" type="Button" parent="Pause/VBoxContainer"]
+[node name="Tutorial" type="Button" parent="Pause/VBoxContainer"]
 margin_top = 132.0
 margin_right = 179.0
 margin_bottom = 178.0
+focus_mode = 0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
+enabled_focus_mode = 0
+text = "Tutorial"
+flat = true
+
+[node name="Settings" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 198.0
+margin_right = 179.0
+margin_bottom = 244.0
 focus_mode = 0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
@@ -168,9 +179,9 @@ text = "Settings"
 flat = true
 
 [node name="Quit" type="Button" parent="Pause/VBoxContainer"]
-margin_top = 198.0
+margin_top = 264.0
 margin_right = 179.0
-margin_bottom = 244.0
+margin_bottom = 310.0
 focus_mode = 0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
@@ -224,5 +235,6 @@ visible = false
 
 [connection signal="pressed" from="Pause/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Characters" to="." method="_on_Characters_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/Tutorial" to="." method="_on_Tutorial_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
