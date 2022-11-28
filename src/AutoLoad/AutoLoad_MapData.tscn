@@ -21,3 +21,7 @@ bus = "Bgm"
 
 [node name="GlobalSfxPlayer" type="AudioStreamPlayer" parent="."]
 bus = "Sfx"
+
+[node name="GlobalSfxPlayerProcessPause" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+bus = "Sfx"

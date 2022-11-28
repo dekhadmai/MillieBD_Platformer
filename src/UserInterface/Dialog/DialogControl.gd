@@ -33,6 +33,9 @@ var is_active
 
 var position
 var expression
+var sfx = ""
+
+var bAlreadyPlaySfx = false
 
 func _ready():
 	text_timer.wait_time = text_speed
@@ -45,6 +48,12 @@ func init():
 		
 func _process(delta):
 	if is_active:
+		
+		if sfx != "" and !bAlreadyPlaySfx : 
+			dialog_text.visible_characters = len(dialog_text.text)
+			is_finished = true
+			AutoLoadMapData.PlaySfxProcessPause(sfx)
+			bAlreadyPlaySfx = true
 		
 		if (Input.is_action_just_pressed("ui_accept") and GlobalSettings.settings_menu_up == false) and (
 		GlobalSettings.character_menu_up == false and GlobalSettings.ability_menu_up == false):
@@ -103,6 +112,12 @@ func show_dialog():
 		
 		position = text[dialog_index]["Position"]
 		expression = text[dialog_index]["Expression"]
+		
+		bAlreadyPlaySfx = false
+		if text[dialog_index].has("Sfx") : 
+			sfx = text[dialog_index]["Sfx"]
+		else : 
+			sfx = ""
 		
 		dialog_text.visible_characters = 0
 		

@@ -671,3 +671,10 @@ func PlaySfx(sfx_resource_key) :
 			$GlobalSfxPlayer.set_stream(sfx)
 			$GlobalSfxPlayer.play()
 	
+func PlaySfxProcessPause(sfx_resource_key) : 
+	var sfx_path = AutoloadGlobalResource.SfxResource[sfx_resource_key]
+	if sfx_path : 
+		var sfx = load(sfx_path)
+		if sfx : 
+			$GlobalSfxPlayerProcessPause.set_stream(sfx)
+			$GlobalSfxPlayerProcessPause.play()
