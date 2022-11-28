@@ -7,6 +7,8 @@ onready var DialogPlayer = $DialogPlayer
 onready var Dialog = $DialogPlayer/Dialog
 onready var DialogControl = $DialogPlayer/DialogControl
 
+var bSceneReady = false
+
 var slide_index = 0
 var bAlreadyTransitioned = false
 
@@ -14,19 +16,20 @@ func _ready():
 	Slide.set_texture(Slides[slide_index])
 	
 func _process(delta):
-	if !DialogControl.is_active : 
-		if Input.is_action_just_pressed("ui_accept") : 
-			$StartDialogTimer.start()
-			
-	if Input.is_action_just_pressed("ui_cancel") : 
-		if !bAlreadyTransitioned : 
-			GlobalSettings.dialog_test_up = false
-			GlobalSettings.dialog_reset = true
-			DialogPlayer.hide()
-			get_tree().paused = false
-			
-			Transition.change_scene("res://src/Main/Game.tscn")
-			bAlreadyTransitioned = true
+	if bSceneReady : 
+		if !DialogControl.is_active : 
+			if Input.is_action_just_pressed("ui_accept") : 
+				$StartDialogTimer.start()
+				
+		if Input.is_action_just_pressed("ui_cancel") : 
+			if !bAlreadyTransitioned : 
+				GlobalSettings.dialog_test_up = false
+				GlobalSettings.dialog_reset = true
+				DialogPlayer.hide()
+				get_tree().paused = false
+				
+				Transition.change_scene("res://src/Main/Game.tscn")
+				bAlreadyTransitioned = true
 		
 func _on_StartDialogTimer_timeout():
 	if slide_index < Slides.size() : 
@@ -82,3 +85,8 @@ func StartDialog(index):
 
 
 
+
+
+func _on_SceneReadyTimer_timeout():
+	bSceneReady = true
+	
