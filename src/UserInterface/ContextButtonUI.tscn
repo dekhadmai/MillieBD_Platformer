@@ -58,7 +58,7 @@ action_name = "float"
 label_text = "float"
 icon = ExtResource( 3 )
 
-[node name="MaskProgress" parent="ColorRect/float" index="1"]
+[node name="MaskProgress" parent="ColorRect/float/IconSprite" index="0"]
 fill_mode = 4
 
 [node name="ColorRect2" type="ColorRect" parent="."]

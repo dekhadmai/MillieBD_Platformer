@@ -22,7 +22,7 @@ margin_right = -1240.0
 action_name = "float"
 icon = ExtResource( 5 )
 
-[node name="MaskProgress" parent="float" index="1"]
+[node name="MaskProgress" parent="float/IconSprite" index="0"]
 tint_progress = Color( 0.470588, 0.682353, 1, 1 )
 
 [node name="HpBar" type="TextureProgress" parent="."]

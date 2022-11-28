@@ -5,7 +5,7 @@ onready var cooldown = $CooldownRemaining
 var ability_instance : BaseGameplayAbility = null
 
 var original_scale = Vector2(0.25, 0.25)
-var active_scale = Vector2(0.5, 0.5)
+var active_scale = Vector2(0.35, 0.35)
 
 func _ready() : 
 	pass

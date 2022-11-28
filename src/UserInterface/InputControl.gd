@@ -89,7 +89,7 @@ export var bShowInputIcon = true
 onready var keyboard_icon : Sprite = $KeyboardSprite
 onready var controller_icon : Sprite = $ControllerSprite
 onready var sprite_icon : Sprite = $IconSprite
-onready var mask_progress = $MaskProgress
+onready var mask_progress = $IconSprite/MaskProgress
 onready var name_label : Label = $ActionName
 
 var device_id = -1
