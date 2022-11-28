@@ -92,7 +92,6 @@ func _on_Characters_pressed():
 func _on_Tutorial_pressed():
 	var ui = load("res://src/UserInterface/TutorialUI.tscn")
 	add_child(ui.instance())
-	pass # Replace with function body.
 
 func _on_Settings_pressed():
 	settings_anim.play("SettingsBook")

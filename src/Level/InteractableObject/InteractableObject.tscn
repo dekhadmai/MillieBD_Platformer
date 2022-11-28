@@ -63,17 +63,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="KeyboardSprite" parent="interact" index="2"]
+[node name="KeyboardSprite" parent="interact" index="1"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ControllerSprite" parent="interact" index="3"]
+[node name="ControllerSprite" parent="interact" index="2"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ActionName" parent="interact" index="4"]
+[node name="ActionName" parent="interact" index="3"]
 __meta__ = {
 "_edit_lock_": true
 }

@@ -13,13 +13,19 @@ script = ExtResource( 2 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.560784 )
 
-[node name="Slide" type="TextureRect" parent="CanvasLayer/ColorRect"]
+[node name="Slide" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 141.0
+margin_top = 67.0
+margin_right = 141.0
+margin_bottom = 67.0
+rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 expand = true
 
@@ -29,10 +35,10 @@ layer = 101
 [node name="Next" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -49.0
-margin_top = -45.0
-margin_right = -1.0
-margin_bottom = -29.0
+margin_left = -162.0
+margin_top = -114.0
+margin_right = -114.0
+margin_bottom = -98.0
 rect_scale = Vector2( 2, 2 )
 action_name = "ui_accept"
 label_text = "Close"
@@ -51,17 +57,13 @@ custom_constants/shadow_as_outline = 1
 text = "Close"
 
 [node name="Cancel" parent="ButtonLayer" instance=ExtResource( 9 )]
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -49.0
-margin_top = -45.0
-margin_right = -1.0
-margin_bottom = -29.0
+margin_left = -162.0
+margin_top = -168.0
+margin_right = -114.0
+margin_bottom = -152.0
 rect_scale = Vector2( 2, 2 )
-__meta__ = {
-"_edit_lock_": true
-}
 action_name = "ui_cancel"
 label_text = "Close"
 

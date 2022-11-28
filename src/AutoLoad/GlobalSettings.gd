@@ -8,6 +8,7 @@ var sfx_volume = AudioServer.get_bus_index("Sfx")
 var settings_menu_up = false
 var character_menu_up = false
 var ability_menu_up = false
+var tutorial_up = false
 var dialog_test_up = false
 var dialog_reset = false
 var pause_on_dialog = false
