@@ -23,7 +23,6 @@ Team_ID = 2
 
 [node name="GameplayEffect_KillExp" type="Node2D" parent="."]
 script = ExtResource( 5 )
-bExpAddFerver = false
 StatToModify = 5
 ValueToModify = 20.0
 

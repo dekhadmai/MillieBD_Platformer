@@ -55,7 +55,6 @@ FullbodyAnimDuration = 2.1
 ValueToModify = 40.0
 
 [node name="Area2D_Damage_Telegraph" parent="AbilitySystemComponent/ShootAbility" index="3"]
-visible = false
 AreaLingerDuration = 1.3
 
 [node name="Sprite" parent="AbilitySystemComponent/ShootAbility/Area2D_Damage_Telegraph" index="1"]
