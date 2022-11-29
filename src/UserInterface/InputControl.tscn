@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/UserInterface/InputControl.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/ui/icons/icon_key_keyboard.png" type="Texture" id=2]
-[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=3]
+[ext_resource path="res://assets/theme/user_interface_outline.tres" type="Theme" id=3]
 [ext_resource path="res://assets/art/ui/icons/icon_key_controller.png" type="Texture" id=4]
 [ext_resource path="res://assets/art/ui/icons/empty_ability.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/ui/cooldown_mask.png" type="Texture" id=6]

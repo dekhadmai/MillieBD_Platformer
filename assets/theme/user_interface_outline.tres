@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://assets/theme/fonts/kenney_mini_square.tres" type="DynamicFontData" id=1]
 
@@ -67,8 +67,14 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0.41, 0.61, 0.91, 1 )
 
+[sub_resource type="DynamicFont" id=7]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
 [resource]
-default_font = SubResource( 6 )
+default_font = SubResource( 7 )
 Button/colors/font_color = Color( 0.8, 0.8075, 0.8275, 1 )
 Button/colors/font_color_disabled = Color( 1, 1, 1, 0.3 )
 Button/colors/font_color_hover = Color( 0.88, 0.8845, 0.8965, 1 )
