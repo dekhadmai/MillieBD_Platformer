@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Mortar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Turret.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Objects/Spawners/RandomActorSpawner_AerialEnemies.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Objects/RandomActorSpawner_GroundEnemies.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 150, 336 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 152, 336 )
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -40,34 +46,50 @@ position = Vector2( 904, 256 )
 [node name="BaseGroundedEnemy_Bullet2" parent="." index="9" instance=ExtResource( 3 )]
 position = Vector2( 1224, 128 )
 
-[node name="BaseGroundedEnemy_GroundWave" parent="." index="10" instance=ExtResource( 5 )]
-position = Vector2( 435, 418 )
-
-[node name="BaseGroundedEnemy_GroundWave2" parent="." index="11" instance=ExtResource( 5 )]
-position = Vector2( 489, 163 )
-
-[node name="RandomActorSpawner_GroundEnemies5" parent="." index="12" instance=ExtResource( 8 )]
+[node name="RandomActorSpawner_GroundEnemies5" parent="." index="10" instance=ExtResource( 8 )]
 position = Vector2( 88, 152 )
 
-[node name="BaseGroundedEnemy_Mortar2" parent="." index="13" instance=ExtResource( 2 )]
+[node name="BaseGroundedEnemy_Mortar2" parent="." index="11" instance=ExtResource( 2 )]
 position = Vector2( 800, 544 )
 
-[node name="RandomActorSpawner_AerialEnemies" parent="." index="15" instance=ExtResource( 6 )]
+[node name="RandomActorSpawner_AerialEnemies" parent="." index="13" instance=ExtResource( 6 )]
 position = Vector2( 832, 88 )
 
-[node name="RandomActorSpawner_GroundEnemies" parent="." index="16" instance=ExtResource( 8 )]
-position = Vector2( 976, 560 )
+[node name="RandomActorSpawner_GroundEnemies" parent="." index="14" instance=ExtResource( 8 )]
+position = Vector2( 976, 528 )
 
-[node name="RandomActorSpawner_GroundEnemies2" parent="." index="17" instance=ExtResource( 8 )]
+[node name="RandomActorSpawner_GroundEnemies2" parent="." index="15" instance=ExtResource( 8 )]
 position = Vector2( 624, 392 )
 
-[node name="RandomActorSpawner_GroundEnemies3" parent="." index="18" instance=ExtResource( 8 )]
-position = Vector2( 88, 672 )
+[node name="RandomActorSpawner_GroundEnemies3" parent="." index="16" instance=ExtResource( 8 )]
+position = Vector2( 80, 656 )
 
-[node name="RandomActorSpawner_GroundEnemies4" parent="." index="19" instance=ExtResource( 8 )]
-position = Vector2( 1208, 680 )
+[node name="RandomActorSpawner_GroundEnemies4" parent="." index="17" instance=ExtResource( 8 )]
+position = Vector2( 1216, 656 )
+
+[node name="BaseGroundedEnemy_Bullet" parent="." index="18" instance=ExtResource( 4 )]
+position = Vector2( 450, 160 )
+
+[node name="CollisionShape2D" parent="BaseGroundedEnemy_Bullet/AIControllerGrounded/DetectionRange" index="0"]
+position = Vector2( 0, 208 )
+shape = SubResource( 1 )
+
+[node name="BaseGroundedEnemy_Bullet3" parent="." index="19" instance=ExtResource( 4 )]
+position = Vector2( 448, 416 )
+
+[node name="CollisionShape2D" parent="BaseGroundedEnemy_Bullet3/AIControllerGrounded/DetectionRange" index="0"]
+position = Vector2( 0, -48 )
+shape = SubResource( 2 )
 
 [editable path="Door_Left"]
 [editable path="Door_Right"]
 [editable path="Door_Up"]
 [editable path="Door_Down"]
+[editable path="BaseGroundedEnemy_Bullet"]
+[editable path="BaseGroundedEnemy_Bullet/AIControllerGrounded"]
+[editable path="BaseGroundedEnemy_Bullet/AbilitySystemComponent/ShootAbility"]
+[editable path="BaseGroundedEnemy_Bullet/AnimationPlayerStateScene"]
+[editable path="BaseGroundedEnemy_Bullet3"]
+[editable path="BaseGroundedEnemy_Bullet3/AIControllerGrounded"]
+[editable path="BaseGroundedEnemy_Bullet3/AbilitySystemComponent/ShootAbility"]
+[editable path="BaseGroundedEnemy_Bullet3/AnimationPlayerStateScene"]
