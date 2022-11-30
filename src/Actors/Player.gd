@@ -350,14 +350,6 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("dash" + action_suffix):
 		dash_abi.TryActivate()
-	
-	if Input.is_action_just_released("zoom_in"):
-		camera.zoom.x = clamp(camera.zoom.x - 0.1, Min_Zoom, Max_Zoom)
-		camera.zoom.y = clamp(camera.zoom.y - 0.1, Min_Zoom, Max_Zoom)
-		
-	if Input.is_action_just_released("zoom_out"):
-		camera.zoom.x = clamp(camera.zoom.x + 0.1, Min_Zoom, Max_Zoom)
-		camera.zoom.y = clamp(camera.zoom.y + 0.1, Min_Zoom, Max_Zoom)
 		
 		
 	CheckCheatCommands()
@@ -585,6 +577,14 @@ func CheckCheatCommands():
 		CheatSpawnAllSpecialAbilities()
 	if GlobalFunctions.IsKeyModifierPressed("shoot", "CheatModifier"):
 		CheatAtk()
+		
+	if Input.is_action_just_released("zoom_in") and Input.is_action_pressed("CheatModifier"):
+		camera.zoom.x = clamp(camera.zoom.x - 0.1, Min_Zoom, Max_Zoom)
+		camera.zoom.y = clamp(camera.zoom.y - 0.1, Min_Zoom, Max_Zoom)
+	
+	if Input.is_action_just_released("zoom_out") and Input.is_action_pressed("CheatModifier"):	
+		camera.zoom.x = clamp(camera.zoom.x + 0.1, Min_Zoom, Max_Zoom)
+		camera.zoom.y = clamp(camera.zoom.y + 0.1, Min_Zoom, Max_Zoom)
 	
 
 func CheatExp():
