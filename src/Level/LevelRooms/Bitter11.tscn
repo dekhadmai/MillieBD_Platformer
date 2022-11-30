@@ -55,6 +55,9 @@ patrol_offset_x = 96
 [node name="BaseGroundedEnemy_Bullet4" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 987, 578 )
 
+[node name="CollisionShape2D" parent="BaseGroundedEnemy_Bullet4/AIControllerGrounded/DetectionRange" index="0"]
+position = Vector2( 0, 0 )
+
 [node name="RandomActorSpawner_GroundEnemies4" parent="." index="11" instance=ExtResource( 3 )]
 position = Vector2( 336, 512 )
 
@@ -100,6 +103,11 @@ material = SubResource( 2 )
 [editable path="BaseGroundedEnemy_Bullet"]
 [editable path="BaseGroundedEnemy_Bullet/AbilitySystemComponent/ShootAbility"]
 [editable path="BaseGroundedEnemy_Bullet/AnimationPlayerStateScene"]
+[editable path="BaseGroundedEnemy_Bullet4"]
+[editable path="BaseGroundedEnemy_Bullet4/AIControllerGrounded"]
+[editable path="BaseGroundedEnemy_Bullet4/AbilitySystemComponent/ShootAbility"]
+[editable path="BaseGroundedEnemy_Bullet4/AbilitySystemComponent/ShootAbility/Area2D_Damage_Telegraph"]
+[editable path="BaseGroundedEnemy_Bullet4/AnimationPlayerStateScene"]
 [editable path="BaseGroundedEnemy_Bullet5"]
 [editable path="BaseGroundedEnemy_Bullet5/AbilitySystemComponent/ShootAbility"]
 [editable path="BaseGroundedEnemy_Bullet5/AnimationPlayerStateScene"]
