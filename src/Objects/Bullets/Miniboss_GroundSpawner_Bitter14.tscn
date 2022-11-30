@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Objects/Bullets/BaseBullet_GroundSpawner.tscn" type="PackedScene" id=1]
+
+[node name="BaseBullet_GroundSpawner" instance=ExtResource( 1 )]
+spacing_facing_offset = 60
+spacing_random_offset = 25
+spacing_total_beam = 8
+
+[node name="BulletSpawnerComponent" parent="." index="1"]
+ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_Beam_GroundSpawner_Miniboss.tscn"
+
+[editable path="Area2D_Damage"]
