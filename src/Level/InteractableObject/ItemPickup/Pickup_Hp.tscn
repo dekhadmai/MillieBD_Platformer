@@ -12,6 +12,6 @@ texture = ExtResource( 2 )
 
 [node name="PickupEffect" parent="." index="4"]
 StatToModify = 2
-ValueToModify = 50.0
+ValueToModify = 100.0
 
 [editable path="interact"]

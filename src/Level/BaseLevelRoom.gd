@@ -31,9 +31,10 @@ func OpenDoor(door: Door) -> void:
 	#print(room_label.get_text() + " OpenDoor : " + door.name + "\n")
 	
 func SetText(text: String) -> void:
-	if room_label == null:
-		room_label = find_node("RoomLabel")
-	room_label.set_text(text)
+#	if room_label == null:
+#		room_label = find_node("RoomLabel")
+#	room_label.set_text(text)
+	pass
 
 func SetRoomPosition(row: int, column: int) -> void :
 	Room_Position.x = row
