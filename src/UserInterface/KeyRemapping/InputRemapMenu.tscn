@@ -1,0 +1,638 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/UserInterface/KeyRemapping/ActionRemapButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UserInterface/KeyRemapping/InputRemapMenu.gd" type="Script" id=2]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[node name="InputRemapMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -256.0
+margin_right = 256.0
+margin_bottom = 640.0
+color = Color( 0.0745098, 0.0745098, 0.0705882, 0.819608 )
+
+[node name="Instructions" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 24.0
+margin_bottom = 55.0
+text = "Click on a button to reassign its action key."
+align = 1
+autowrap = true
+
+[node name="RemapButtonGroup" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -255.0
+margin_right = 160.0
+margin_bottom = 33.0
+disabled = true
+group = SubResource( 1 )
+flat = true
+
+[node name="ActionsList" type="VBoxContainer" parent="RemapButtonGroup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -140.0
+margin_right = 160.0
+margin_bottom = 140.0
+
+[node name="ActionRemapRow" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Move Left"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "move_left"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+group = SubResource( 1 )
+action = "move_left"
+is_controller = true
+
+[node name="ActionRemapRow2" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 24.0
+margin_right = 320.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow2"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Move Right"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow2" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "move_right"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow2" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+group = SubResource( 1 )
+action = "move_right"
+is_controller = true
+
+[node name="ActionRemapRow3" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 48.0
+margin_right = 320.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow3"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Look Up"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow3" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "move_up"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow3" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+group = SubResource( 1 )
+action = "move_up"
+is_controller = true
+
+[node name="ActionRemapRow4" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 72.0
+margin_right = 320.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow4"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Look Down"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow4" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "move_down"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow4" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+group = SubResource( 1 )
+action = "move_down"
+is_controller = true
+
+[node name="ActionRemapRow5" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 96.0
+margin_right = 320.0
+margin_bottom = 116.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow5"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Use Ability"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow5" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "use_ability"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow5" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "use_ability"
+is_controller = true
+
+[node name="ActionRemapRow6" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 120.0
+margin_right = 320.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow6"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Shoot"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow6" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "shoot"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow6" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "shoot"
+is_controller = true
+
+[node name="ActionRemapRow7" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 144.0
+margin_right = 320.0
+margin_bottom = 164.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow7"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Jump"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow7" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "jump"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow7" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "jump"
+is_controller = true
+
+[node name="ActionRemapRow8" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 168.0
+margin_right = 320.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow8"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dash"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow8" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "dash"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow8" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "dash"
+is_controller = true
+
+[node name="ActionRemapRow9" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 192.0
+margin_right = 320.0
+margin_bottom = 212.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow9"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Float"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow9" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "float"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow9" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "float"
+is_controller = true
+
+[node name="ActionRemapRow10" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 216.0
+margin_right = 320.0
+margin_bottom = 236.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow10"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Minimap"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow10" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "Minimap_test"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow10" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "Minimap_test"
+is_controller = true
+
+[node name="ActionRemapRow11" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 240.0
+margin_right = 320.0
+margin_bottom = 260.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow11"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Swap weapon"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow11" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "swap_weapon"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow11" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "swap_weapon"
+is_controller = true
+
+[node name="ActionRemapRow12" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 264.0
+margin_right = 320.0
+margin_bottom = 284.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow12"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Swap ability"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow12" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "swap_ability"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow12" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "swap_ability"
+is_controller = true
+
+[node name="ActionRemapRow13" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 288.0
+margin_right = 320.0
+margin_bottom = 308.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow13"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Interact"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow13" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "interact"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow13" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "interact"
+is_controller = true
+
+[node name="ActionRemapRow14" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 312.0
+margin_right = 320.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow14"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Shortcut Skill 1"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow14" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "Skill1"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow14" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "Skill1"
+is_controller = true
+
+[node name="ActionRemapRow15" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 336.0
+margin_right = 320.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow15"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Shortcut Skill 2"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow15" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "Skill2"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow15" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "Skill2"
+is_controller = true
+
+[node name="ActionRemapRow16" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+margin_top = 360.0
+margin_right = 320.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow16"]
+margin_right = 104.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Shortcut Skill 3"
+align = 1
+valign = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow16" instance=ExtResource( 1 )]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "Skill3"
+
+[node name="RemapButton2" parent="RemapButtonGroup/ActionsList/ActionRemapRow16" instance=ExtResource( 1 )]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+group = SubResource( 1 )
+action = "Skill3"
+is_controller = true
+
+[node name="SaveButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -91.0
+margin_top = -155.0
+margin_right = -50.0
+margin_bottom = -135.0
+text = "Save"
+
+[node name="DefaultButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 38.0
+margin_top = -155.0
+margin_right = 96.0
+margin_bottom = -135.0
+text = "Default"
+
+[connection signal="pressed" from="SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="DefaultButton" to="." method="_on_DefaultButton_pressed"]

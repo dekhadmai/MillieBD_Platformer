@@ -359,9 +359,9 @@ flat = true
 
 [node name="BackButton" type="Button" parent="Settings"]
 margin_left = 106.0
-margin_top = 288.0
+margin_top = 310.0
 margin_right = 229.0
-margin_bottom = 358.0
+margin_bottom = 380.0
 focus_mode = 0
 mouse_filter = 1
 size_flags_horizontal = 8

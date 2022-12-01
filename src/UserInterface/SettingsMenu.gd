@@ -55,3 +55,4 @@ func _on_SfxSlider_value_changed(value):
 
 func _on_HoldToFloat_toggled(button_pressed):
 	GlobalSettings.toggle_hold_to_float(button_pressed)
+

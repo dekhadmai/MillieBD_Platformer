@@ -1,0 +1,195 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/art/ui/icons/icon_key_keyboard.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/ui/icons/icon_key_controller.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Button
+
+const XBOX_BUTTON_TO_INDEX_MAPPING = {
+	JOY_XBOX_A: 0,
+	JOY_XBOX_B: 2,
+	JOY_XBOX_X: 1,
+	JOY_XBOX_Y: 3,
+	JOY_START: 14,
+	JOY_SELECT: 15,
+	JOY_L: 4,
+	JOY_L2: 6,
+	JOY_L3: 17,
+	JOY_R: 5,
+	JOY_R2: 7,
+	JOY_R3: 16,
+	JOY_DPAD_UP: 8,
+	JOY_DPAD_DOWN: 9,
+	JOY_DPAD_LEFT: 10,
+	JOY_DPAD_RIGHT: 11
+}
+
+const KEYBOARD_BUTTON_TO_INDEX_MAPPING = {	
+	KEY_ESCAPE:52, 
+	KEY_TAB:59, 
+	KEY_BACKSPACE:60, 
+	KEY_ENTER:53, 
+	KEY_LEFT:55, 
+	KEY_UP:57, 
+	KEY_RIGHT:56, 
+	KEY_DOWN:58, 
+	KEY_SHIFT:46, 
+	KEY_CONTROL:48, 
+	KEY_ALT:47, 
+	KEY_F1:61, 
+	KEY_F2:62, 
+	KEY_F3:63, 
+	KEY_F4:64, 
+	KEY_F5:65, 
+	KEY_F6:66, 
+	KEY_F7:67, 
+	KEY_F8:68, 
+	KEY_F9:69, 
+	KEY_F10:70, 
+	KEY_F11:71, 
+	KEY_F12:72,  
+	KEY_KP_0:26, 
+	KEY_KP_1:27, 
+	KEY_KP_2:28, 
+	KEY_KP_3:29, 
+	KEY_KP_4:30, 
+	KEY_KP_5:31, 
+	KEY_KP_6:32, 
+	KEY_KP_7:33, 
+	KEY_KP_8:34, 
+	KEY_KP_9:35, 
+	KEY_SPACE:54, 
+	KEY_A:10, 
+	KEY_B:23, 
+	KEY_C:21, 
+	KEY_D:12, 
+	KEY_E:2, 
+	KEY_F:13, 
+	KEY_G:14, 
+	KEY_H:15, 
+	KEY_I:7, 
+	KEY_J:16, 
+	KEY_K:17, 
+	KEY_L:18, 
+	KEY_M:25, 
+	KEY_N:24, 
+	KEY_O:8, 
+	KEY_P:9, 
+	KEY_Q:0, 
+	KEY_R:3, 
+	KEY_S:11, 
+	KEY_T:4, 
+	KEY_U:6, 
+	KEY_V:22, 
+	KEY_W:1, 
+	KEY_X:20, 
+	KEY_Y:5, 
+	KEY_Z:19, 
+}
+
+export(String) var action = \"ui_up\"
+export(bool) var is_controller = false
+
+onready var keyboard_icon : Sprite = $Control/TextureRect/KeyboardSprite
+onready var controller_icon : Sprite = $Control/TextureRect/ControllerSprite
+
+func _ready():
+	assert(InputMap.has_action(action))
+	set_process_unhandled_key_input(false)
+	set_process_unhandled_input(false)
+	display_current_key()
+
+
+func _toggled(button_pressed):
+	#set_process_unhandled_key_input(button_pressed)
+	set_process_unhandled_input(button_pressed)
+	if button_pressed:
+		text = \"... Key\"
+		release_focus()
+	else:
+		display_current_key()
+
+	
+func _unhandled_input(event):
+	if !(event is InputEventJoypadMotion) : 
+		if !is_controller and event is InputEventKey : 
+			remap_action_to(event)
+			pressed = false
+			
+		elif is_controller and event is InputEventJoypadButton : 
+			remap_action_to(event)
+			pressed = false
+
+
+func remap_action_to(event):
+	#InputMap.action_erase_events(action)
+	InputMap.action_erase_event(action, get_action_event(action))
+	InputMap.action_add_event(action, event)
+	text = \"\"
+
+
+func display_current_key():
+	var current_key = InputMap.get_action_list(action)[0].as_text()
+	text = \"\"
+	_set_current_icon_index(-1, action)
+
+
+
+func _set_current_icon_index(device_id : int, action_name: String) : 
+	for action in InputMap.get_action_list(action_name) : 
+		if action is InputEventKey and !is_controller : 
+			if KEYBOARD_BUTTON_TO_INDEX_MAPPING.has(action.scancode) : 
+				keyboard_icon.set_visible(true)
+				controller_icon.set_visible(false)
+				keyboard_icon.set_frame(KEYBOARD_BUTTON_TO_INDEX_MAPPING[action.scancode])
+				return
+		if action is InputEventJoypadButton and is_controller : 
+			#if \"XInput\" in Input.get_joy_name(device_id):
+			if XBOX_BUTTON_TO_INDEX_MAPPING.has(action.button_index) : 
+				keyboard_icon.set_visible(false)
+				controller_icon.set_visible(true)
+				controller_icon.set_frame(XBOX_BUTTON_TO_INDEX_MAPPING[action.button_index])
+				return
+				
+	keyboard_icon.set_visible(false)
+	controller_icon.set_visible(false)
+
+func get_action_event(action_name) :
+	for action in InputMap.get_action_list(action_name) : 
+		if action is InputEventKey and !is_controller : 
+			return action
+		if action is InputEventJoypadButton and is_controller : 
+			return action
+"
+
+[node name="ActionRemapButton" type="Button"]
+margin_right = 90.0
+margin_bottom = 30.0
+toggle_mode = true
+script = SubResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -15.0
+margin_right = 40.0
+margin_bottom = 15.0
+
+[node name="KeyboardSprite" type="Sprite" parent="Control/TextureRect"]
+position = Vector2( 21, 15 )
+texture = ExtResource( 1 )
+hframes = 12
+vframes = 7
+
+[node name="ControllerSprite" type="Sprite" parent="Control/TextureRect"]
+visible = false
+position = Vector2( 21, 15 )
+texture = ExtResource( 2 )
+hframes = 12
+vframes = 6

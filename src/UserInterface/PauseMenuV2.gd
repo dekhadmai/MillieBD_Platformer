@@ -103,7 +103,6 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 
-
-
-
-
+func _on_KeyMapping_pressed():
+	var ui = load("res://src/UserInterface/KeyRemapping/InputRemapMenu.tscn")
+	add_child(ui.instance())
