@@ -38,6 +38,10 @@ func _ready():
 	pass
 
 func died():
+	for n in get_children():
+		if n.has_method("Deactivate") : 
+			n.Deactivate()
+		
 	emit_signal("died")
 	
 func level_up():

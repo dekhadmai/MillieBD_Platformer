@@ -44,6 +44,8 @@ func DoAbility():
 	StartAreaDetection()
 	
 func Deactivate():
+	if hurt_detection :
+		hurt_detection.SetActive(false)
 	.Deactivate()
 	
 func EndAbility():

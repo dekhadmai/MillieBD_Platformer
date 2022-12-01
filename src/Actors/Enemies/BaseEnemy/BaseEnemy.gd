@@ -109,6 +109,8 @@ func _physics_process(_delta):
 
 func DisableCollision():
 	set_collision_layer(0)
+	$Area2D_HurtBox.set_collision_layer(0)
+	$Area2D_HurtBox.set_collision_mask(0)
 
 func died():
 	.died()
@@ -118,6 +120,9 @@ func died():
 			var effect:BaseGameplayEffect = effect_kill_exp.duplicate() as BaseGameplayEffect
 			GetAbilitySystemComponent().ApplyGameplayEffectToTarget(CurrentTargetActor.GetAbilitySystemComponent(), effect)
 			bAlreadyGiveExp = true
+			
+			animation_player.PlayFullBodyAnim("death", 1.0)
+			
 	
 	destroy()
 
