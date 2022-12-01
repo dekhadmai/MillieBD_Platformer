@@ -26,6 +26,7 @@ ValueToModify = 8.0
 
 [node name="AbilitySound" parent="." index="2"]
 stream = ExtResource( 4 )
+volume_db = -3.0
 
 [node name="BulletSpawnerComponent" parent="." index="3"]
 ActorToSpawnPath = "res://src/Objects/Bullets/Bullet_Player_Minigun.tscn"
