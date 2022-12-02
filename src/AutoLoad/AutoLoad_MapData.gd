@@ -24,6 +24,7 @@ export(String, FILE, "*.tscn") var BossLevelTemplate
 var BossLevelInstance = null
 
 var TotalCheckpointRoomCount = 12
+var TotalMinibossRoomCount = 9
 
 var startroom_row = 2
 var startroom_col = 0
@@ -280,6 +281,7 @@ func GenerateRooms()->bool:
 	SetCurrentRoom(Vector2(startroom_row, startroom_col))
 	Traverse(startroom_row, startroom_col, -1, -1, 0)
 	
+	#####
 	var AvailableRooms = []
 	for i in GridHeight:
 		for j in GridWidth:
@@ -300,6 +302,31 @@ func GenerateRooms()->bool:
 				LevelRoomMap[room_pos.r][room_pos.c].bSpawnDropOnClear = false
 				count += 1
 				
+	#####
+	#####
+	AvailableRooms = []
+	for i in GridHeight:
+		for j in GridWidth:
+			var level_room_data: LevelRoomData = LevelRoomMap[i][j]
+			if level_room_data.bTraversed : 
+				AvailableRooms.append({r=i, c=j})
+	AvailableRooms.shuffle()
+	
+	# add miniboss rooms
+	count = 0
+	while (count < TotalMinibossRoomCount and AvailableRooms.size() > 0) : 
+		var room_pos = AvailableRooms.pop_back()
+		if room_pos : 
+			if !CheckAdjacentHasRoomType(room_pos.r, room_pos.c, "M") : 
+				var level_room_data: LevelRoomData
+				if LevelRoomMap[room_pos.r][room_pos.c].Distance < 4 : 
+					continue
+				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetMinibossRoom()
+				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "M"
+				count += 1
+				
+	#####
+	#####
 	AvailableRooms = []
 	for i in GridHeight:
 		for j in GridWidth:
@@ -320,6 +347,7 @@ func GenerateRooms()->bool:
 				LevelRoomMap[room_pos.r][room_pos.c].bSpawnDropOnClear = false
 				BossRoomPosition = Vector2(room_pos.r, room_pos.c)
 				break
+	#####
 	
 	if bSpawnOneRoom and bUseTestRoom : 
 		LevelRoomMap[startroom_row][startroom_col].bIsDoorOpened[1] = 1

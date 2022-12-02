@@ -6,10 +6,11 @@
 [node name="AutoLoad_MapData" type="Node"]
 pause_mode = 1
 script = ExtResource( 1 )
-TestRoom = "res://src/Level/LevelRooms/LevelRoom_Combat.tscn"
+TestRoom = "res://src/Level/MinibossRooms/Miniboss_level_C1.tscn"
 bTestAllRandomLevel = true
 RandomLevelPool = [ "res://src/Level/LevelRooms/level_A1.tscn", "res://src/Level/LevelRooms/level_B1.tscn", "res://src/Level/LevelRooms/level_C1.tscn", "res://src/Level/LevelRooms/level_D1.tscn", "res://src/Level/LevelRooms/Bitter1.tscn", "res://src/Level/LevelRooms/Bitter2.tscn", "res://src/Level/LevelRooms/Bitter3.tscn", "res://src/Level/LevelRooms/Bitter4.tscn", "res://src/Level/LevelRooms/Bitter5.tscn", "res://src/Level/LevelRooms/Bitter6.tscn", "res://src/Level/LevelRooms/Bitter7.tscn", "res://src/Level/LevelRooms/Bitter8.tscn", "res://src/Level/LevelRooms/Bitter9.tscn", "res://src/Level/LevelRooms/Bitter10.tscn", "res://src/Level/LevelRooms/Bitter11.tscn", "res://src/Level/LevelRooms/Bitter12.tscn", "res://src/Level/LevelRooms/Bitter13.tscn", "res://src/Level/LevelRooms/Bitter14.tscn", "res://src/Level/LevelRooms/Bitter15.tscn", "res://src/Level/LevelRooms/Bitter16.tscn" ]
 CheckpointPool = [ "res://src/Level/LevelRooms/LevelRoom_Checkpoint.tscn" ]
+MiniBossLevelPool = [ "res://src/Level/MinibossRooms/Miniboss_Bitter1.tscn", "res://src/Level/MinibossRooms/Miniboss_Bitter4.tscn", "res://src/Level/MinibossRooms/Miniboss_Bitter5.tscn", "res://src/Level/MinibossRooms/Miniboss_Bitter8.tscn", "res://src/Level/MinibossRooms/Miniboss_Bitter9.tscn", "res://src/Level/MinibossRooms/Miniboss_Bitter11.tscn", "res://src/Level/MinibossRooms/Miniboss_Bitter14.tscn", "res://src/Level/MinibossRooms/Miniboss_Bitter15.tscn", "res://src/Level/MinibossRooms/Miniboss_level_C1.tscn" ]
 BossLevelPool = [ "res://src/Level/LevelRooms/LevelRoom_BossTeleporter.tscn" ]
 BossLevelTemplate = "res://src/Level/LevelRooms/LevelRoom_Enna.tscn"
 PlayerTemplate = "res://src/Actors/Player.tscn"
