@@ -1,0 +1,416 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Beam.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Turret.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/art/Gradient/palette_swap_mapping.gdshader" type="Shader" id=6]
+[ext_resource path="res://src/Objects/RandomActorSpawner_GroundEnemies.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 248.5, 340 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20, 21, 22 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "cast"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 30, 31 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "death"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 32, 33, 34, 35, 36, 37, 38, 39 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayerState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "OwnerDisableCollision"
+}, {
+"args": [  ],
+"method": "OwnerQueueFree"
+} ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "idle"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "range_attack"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 29, 30, 31 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "start_cast"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "walk"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 284, 102 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 6 )
+shader_param/original_0 = Color( 0.34902, 0.34902, 0.34902, 1 )
+shader_param/original_1 = Color( 0.717647, 0.717647, 0.717647, 1 )
+shader_param/original_2 = null
+shader_param/original_3 = null
+shader_param/original_4 = null
+shader_param/original_5 = null
+shader_param/original_6 = null
+shader_param/original_7 = null
+shader_param/replace_0 = Color( 0.607843, 0.027451, 0.858824, 1 )
+shader_param/replace_1 = Color( 0.792157, 0.85098, 0.0470588, 1 )
+shader_param/replace_2 = null
+shader_param/replace_3 = null
+shader_param/replace_4 = null
+shader_param/replace_5 = null
+shader_param/replace_6 = null
+shader_param/replace_7 = null
+shader_param/color_count = 2
+
+[sub_resource type="Animation" id=3]
+resource_name = "attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20, 21, 22 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "cast"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 30, 31 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "death"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 32, 33, 34, 35, 36, 37, 38, 39 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayerState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "OwnerDisableCollision"
+}, {
+"args": [  ],
+"method": "OwnerQueueFree"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "range_attack"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 29, 30, 31 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "start_cast"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "walk"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[node name="LevelRoom_Template" instance=ExtResource( 1 )]
+
+[node name="TileMap_Platform" parent="." index="1"]
+tile_data = PoolIntArray( 196627, 536870942, 0, 196628, 536870941, 0, 196631, 536870942, 0, 196632, 91, 0, 196633, 91, 0, 196634, 91, 0, 196635, 91, 0, 196636, 536870941, 0, 262157, 91, 0, 262158, 91, 0, 262159, 91, 0, 262174, 536870942, 0, 262175, 91, 0, 262176, 91, 0, 262177, 91, 0, 262178, 91, 0, 262179, 536870941, 0, 327717, 29, 0, 327718, 30, 0, 458754, 536870942, 0, 458755, 91, 0, 458756, 91, 0, 458775, 29, 0, 458776, 91, 0, 458777, 91, 0, 458778, 91, 0, 458779, 91, 0, 458780, 30, 0, 524318, 536870942, 0, 524319, 91, 0, 524320, 91, 0, 524321, 91, 0, 524322, 91, 0, 524323, 30, 0, 589861, 29, 0, 589862, 536870941, 0, 655375, 91, 0, 655376, 91, 0, 655377, 30, 0, 720919, 536870942, 0, 720920, 91, 0, 720921, 91, 0, 720922, 91, 0, 720923, 91, 0, 720924, 536870941, 0, 786462, 536870942, 0, 786463, 91, 0, 786464, 91, 0, 786465, 91, 0, 786466, 91, 0, 786467, 536870941, 0, 851969, 29, 0, 851970, 91, 0, 851971, 91, 0, 983063, 29, 0, 983064, 91, 0, 983065, 91, 0, 983066, 91, 0, 983067, 91, 0, 983068, 30, 0, 1048591, 91, 0, 1048592, 91, 0, 1048593, 30, 0, 1048606, 30, 0, 1048607, 91, 0, 1048608, 91, 0, 1245185, 29, 0, 1245186, 91, 0, 1245187, 91, 0, 1245207, 536870942, 0, 1245208, 91, 0, 1245209, 91, 0, 1245210, 91, 0, 1245211, 91, 0, 1245212, 30, 0, 1245219, 91, 0, 1245220, 91, 0, 1245221, 536870941, 0 )
+
+[node name="TileMap" parent="." index="2"]
+tile_data = PoolIntArray( 0, 16, 0, 1, 17, 0, 2, 17, 0, 3, 18, 0, 4, 1073741859, 0, 5, 1073741923, 0, 6, 1073741923, 0, 7, 1073741923, 0, 8, 1073741923, 0, 9, 1610612834, 0, 10, 1073741922, 0, 11, 1610612835, 0, 12, 1610612851, 0, 13, 1610612851, 0, 14, 1610612835, 0, 15, 1610612834, 0, 16, 1610612788, 0, 17, 1610612753, 0, 18, 1610612752, 0, 19, 536870930, 0, 20, 536870929, 0, 21, 536870928, 0, 22, 1610612748, 0, 23, 1610612753, 0, 24, 1610612753, 0, 25, 1610612753, 0, 26, 1610612753, 0, 27, 1610612753, 0, 28, 1610612752, 0, 29, 536870930, 0, 30, 536870929, 0, 31, 536870929, 0, 32, 536870929, 0, 33, 536870929, 0, 34, 536870929, 0, 35, 536870929, 0, 36, 536870929, 0, 37, 536870929, 0, 38, 536870929, 0, 39, 536870928, 0, 65536, -1073741806, 0, 65553, -536870798, 0, 65558, -1073741710, 0, 65564, 101, 0, 65565, 100, 0, 65566, 536871013, 0, 65575, -1073741806, 0, 131072, -1073741807, 0, 131089, -536870798, 0, 131094, -1073741710, 0, 131101, 536871014, 0, 131111, -1073741782, 0, 196608, -1073741808, 0, 196625, -2147483555, 0, 196630, -2147483613, 0, 196637, 536871014, 0, 196644, -1073741806, 0, 196647, -1073741726, 0, 262144, -2147483632, 0, 262145, 536870960, 0, 262146, 536871011, 0, 262147, 536871010, 0, 262148, 98, 0, 262149, 536871011, 0, 262150, 536871011, 0, 262151, 536871011, 0, 262152, 536871011, 0, 262153, 536871011, 0, 262154, 536870953, 0, 262155, 536870929, 0, 262156, 536870973, 0, 262160, 536870970, 0, 262161, 536870928, 0, 262162, -2147483625, 0, 262166, -2147483549, 0, 262173, 536871014, 0, 262180, -1073741807, 0, 262183, -1073741777, 0, 327680, -2147483631, 0, 327698, -2147483631, 0, 327702, -1073741726, 0, 327709, 536871014, 0, 327716, -1073741808, 0, 327719, -1073741807, 0, 393216, -2147483631, 0, 393234, -2147483631, 0, 393238, -2147483550, 0, 393245, 536871014, 0, 393252, -536870864, 0, 393255, -1073741781, 0, 458752, -2147483631, 0, 458753, -1073741806, 0, 458757, 61, 0, 458758, 17, 0, 458759, 18, 0, 458760, 1073741840, 0, 458761, 1073741841, 0, 458762, 1073741841, 0, 458763, 1073741841, 0, 458764, 1073741841, 0, 458765, 1073741842, 0, 458766, 536870930, 0, 458767, 536870929, 0, 458768, 536870929, 0, 458769, 536870928, 0, 458770, -2147483630, 0, 458774, -2147483549, 0, 458781, 536871014, 0, 458788, -536870813, 0, 458791, -1073741783, 0, 524288, -2147483631, 0, 524289, -1073741807, 0, 524306, -1610612720, 0, 524310, -1073741726, 0, 524317, 536871014, 0, 524324, -536870814, 0, 524327, -1073741807, 0, 589824, -2147483630, 0, 589825, -1073741808, 0, 589842, -1610612695, 0, 589846, -2147483550, 0, 589853, 536871014, 0, 589860, -1073741806, 0, 589863, -1073741808, 0, 655360, -1610612696, 0, 655361, 536870967, 0, 655362, 536871010, 0, 655363, 98, 0, 655364, 99, 0, 655365, 99, 0, 655366, 536871010, 0, 655367, 98, 0, 655368, 99, 0, 655369, 99, 0, 655370, 17, 0, 655371, 17, 0, 655372, 17, 0, 655373, 17, 0, 655374, 536870973, 0, 655378, -536870814, 0, 655382, -2147483605, 0, 655389, 536871014, 0, 655396, -1073741807, 0, 655399, -2147483613, 0, 720896, -1610612637, 0, 720914, -1610612638, 0, 720918, -2147483636, 0, 720925, 536871014, 0, 720932, -1073741807, 0, 720935, -2147483612, 0, 786432, -1610612688, 0, 786450, -1610612637, 0, 786454, -536870894, 0, 786461, 536871014, 0, 786468, -1073741808, 0, 786471, -2147483630, 0, 851968, -2147483632, 0, 851972, 61, 0, 851973, 536870929, 0, 851974, 536870929, 0, 851975, 536870929, 0, 851976, 536870929, 0, 851977, 536870929, 0, 851978, 536870955, 0, 851979, 536871011, 0, 851980, 536871010, 0, 851981, 98, 0, 851982, 536871011, 0, 851983, 536871011, 0, 851984, 536871011, 0, 851985, 49, 0, 851986, -1610612637, 0, 851990, -536870895, 0, 851997, 536871014, 0, 852004, 536870934, 0, 852005, 536870929, 0, 852006, 536870929, 0, 852007, 536870928, 0, 917504, -2147483631, 0, 917522, -1610612621, 0, 917526, -536870895, 0, 917533, 536871014, 0, 917542, -2147483632, 0, 917543, -2147483632, 0, 983040, -2147483631, 0, 983058, -536870813, 0, 983062, -536870895, 0, 983069, 536871014, 0, 983078, -2147483636, 0, 983079, -2147483631, 0, 1048576, -2147483631, 0, 1048577, 536870930, 0, 1048578, 536870929, 0, 1048579, 536870955, 0, 1048580, 536871011, 0, 1048581, 536871011, 0, 1048582, 536871011, 0, 1048583, 536871011, 0, 1048584, 536870953, 0, 1048585, 536870929, 0, 1048586, 536870929, 0, 1048587, 536870929, 0, 1048588, 536870954, 0, 1048589, 536870953, 0, 1048590, 536870973, 0, 1048593, 62, 0, 1048594, -536870813, 0, 1048598, -536870896, 0, 1048605, 536871014, 0, 1048606, 29, 0, 1048609, 61, 0, 1048610, 17, 0, 1048611, 17, 0, 1048612, 17, 0, 1048613, 17, 0, 1048614, 18, 0, 1048615, -2147483631, 0, 1114112, -2147483630, 0, 1114130, -536870866, 0, 1114134, -536870894, 0, 1114141, 536871014, 0, 1114150, -1073741812, 0, 1114151, -2147483631, 0, 1179648, -1610612720, 0, 1179666, -536870896, 0, 1179670, -536870895, 0, 1179676, 1073741925, 0, 1179677, 1610612836, 0, 1179678, 1610612837, 0, 1179686, -1073741813, 0, 1179687, -2147483630, 0, 1245184, -1610612719, 0, 1245188, 536870970, 0, 1245189, 536870929, 0, 1245190, 536870929, 0, 1245191, 536870928, 0, 1245192, 1610612754, 0, 1245193, 1610612753, 0, 1245194, 1610612753, 0, 1245195, 1610612753, 0, 1245196, 1610612753, 0, 1245197, 1610612752, 0, 1245198, 536870930, 0, 1245199, 536870929, 0, 1245200, 536870929, 0, 1245201, 536870929, 0, 1245202, 22, 0, 1245206, -536870896, 0, 1245212, 536871003, 0, 1245213, 61, 0, 1245214, 536870929, 0, 1245215, 536870929, 0, 1245216, 536870954, 0, 1245217, 536870953, 0, 1245218, 58, 0, 1245222, -1073741807, 0, 1245223, -1610612720, 0, 1310720, -1610612719, 0, 1310737, -1073741710, 0, 1310742, -536870798, 0, 1310758, -1073741808, 0, 1310759, -1610612719, 0, 1376256, -1610612718, 0, 1376273, -1073741710, 0, 1376278, -536870798, 0, 1376294, -536870894, 0, 1376295, -1610612719, 0, 1441792, 16, 0, 1441793, 17, 0, 1441794, 536870954, 0, 1441795, 536871011, 0, 1441796, 536871011, 0, 1441797, 536871010, 0, 1441798, 98, 0, 1441799, 99, 0, 1441800, 99, 0, 1441801, 99, 0, 1441802, 99, 0, 1441803, 99, 0, 1441804, 49, 0, 1441805, 1073741840, 0, 1441806, 1073741841, 0, 1441807, 1073741841, 0, 1441808, 1073741841, 0, 1441809, 1073741841, 0, 1441810, 1073741842, 0, 1441811, 10, 0, 1441812, 41, 0, 1441813, 48, 0, 1441814, 536870961, 0, 1441815, 536871011, 0, 1441816, 536871010, 0, 1441817, 98, 0, 1441818, 99, 0, 1441819, 99, 0, 1441820, 99, 0, 1441821, 99, 0, 1441822, 536871010, 0, 1441823, 98, 0, 1441824, 42, 0, 1441825, 17, 0, 1441826, 17, 0, 1441827, 17, 0, 1441828, 17, 0, 1441829, 18, 0, 1441830, -536870896, 0, 1441831, -1610612718, 0 )
+
+[node name="Door_Left" parent="." index="3"]
+position = Vector2( 16, 368 )
+
+[node name="Door_Right" parent="." index="4"]
+position = Vector2( 1264, 368 )
+
+[node name="Door_Up" parent="." index="5"]
+position = Vector2( 656, 16 )
+
+[node name="Door_Down" parent="." index="6"]
+position = Vector2( 656, 720 )
+
+[node name="RoomLabel" parent="." index="7"]
+text = "LEVEL 14
+"
+
+[node name="BaseGroundedEnemy_Bullet3" parent="." index="8" instance=ExtResource( 5 )]
+position = Vector2( 1032, 672 )
+
+[node name="BaseGroundedEnemy_Turret" parent="." index="9" instance=ExtResource( 3 )]
+position = Vector2( 248, 96 )
+
+[node name="RandomActorSpawner_GroundEnemies2" parent="." index="10" instance=ExtResource( 7 )]
+position = Vector2( 304, 392 )
+
+[node name="RandomActorSpawner_GroundEnemies3" parent="." index="11" instance=ExtResource( 7 )]
+position = Vector2( 320, 688 )
+
+[node name="BaseGroundedEnemy_Beam" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 296, 288 )
+
+[node name="RandomActorSpawner_GroundEnemies" parent="." index="13" instance=ExtResource( 7 )]
+position = Vector2( 760, 184 )
+
+[node name="RandomActorSpawner_GroundEnemies4" parent="." index="14" instance=ExtResource( 7 )]
+position = Vector2( 872, 440 )
+
+[node name="RandomActorSpawner_GroundEnemies5" parent="." index="15" instance=ExtResource( 7 )]
+position = Vector2( 1176, 488 )
+
+[node name="RandomActorSpawner_GroundEnemies6" parent="." index="16" instance=ExtResource( 7 )]
+position = Vector2( 1000, 216 )
+
+[node name="BaseGroundedEnemy_Bullet" parent="." index="17" instance=ExtResource( 5 )]
+position = Vector2( 840, 319 )
+
+[node name="CollisionShape2D" parent="BaseGroundedEnemy_Bullet/AIControllerGrounded/DetectionRange" index="0"]
+position = Vector2( -12.5, 51 )
+shape = SubResource( 11 )
+
+[node name="BaseGroundedEnemy_Bullet2" parent="." index="18" instance=ExtResource( 5 )]
+position = Vector2( 1066, 352 )
+
+[node name="AnimationPlayerState" parent="BaseGroundedEnemy_Bullet2/AnimationPlayerStateScene" index="1"]
+anims/attack = SubResource( 12 )
+anims/cast = SubResource( 13 )
+anims/death = SubResource( 14 )
+anims/idle = SubResource( 15 )
+anims/range_attack = SubResource( 16 )
+anims/start_cast = SubResource( 17 )
+anims/walk = SubResource( 18 )
+
+[node name="Miniboss_GroundWave" parent="." index="20" instance=ExtResource( 4 )]
+position = Vector2( 558, 575 )
+collision_layer = 2
+
+[node name="AIControllerGrounded" parent="Miniboss_GroundWave" index="0"]
+bCheckLineOfSight = false
+
+[node name="CollisionShape2D" parent="Miniboss_GroundWave/AIControllerGrounded/DetectionRange" index="0"]
+position = Vector2( -258, -44 )
+shape = SubResource( 10 )
+
+[node name="AbilitySystemComponent" parent="Miniboss_GroundWave" index="2"]
+InitStat_HP = 500.0
+InitStat_Movespeed = 0.0
+
+[node name="ShootAbility" parent="Miniboss_GroundWave/AbilitySystemComponent" index="0"]
+AbilityMaxUseCount = 0
+ActorToSpawnPath = "res://src/Objects/Bullets/Miniboss_GroundSpawner_Bitter14.tscn"
+
+[node name="Sprite" parent="Miniboss_GroundWave/AnimationPlayerStateScene" index="0"]
+material = SubResource( 2 )
+
+[node name="AnimationPlayerState" parent="Miniboss_GroundWave/AnimationPlayerStateScene" index="1"]
+anims/attack = SubResource( 3 )
+anims/cast = SubResource( 4 )
+anims/death = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/range_attack = SubResource( 7 )
+anims/start_cast = SubResource( 8 )
+anims/walk = SubResource( 9 )
+
+[editable path="Door_Left"]
+[editable path="Door_Right"]
+[editable path="Door_Up"]
+[editable path="Door_Down"]
+[editable path="BaseGroundedEnemy_Bullet"]
+[editable path="BaseGroundedEnemy_Bullet/AIControllerGrounded"]
+[editable path="BaseGroundedEnemy_Bullet/AbilitySystemComponent/ShootAbility"]
+[editable path="BaseGroundedEnemy_Bullet/AnimationPlayerStateScene"]
+[editable path="BaseGroundedEnemy_Bullet2"]
+[editable path="BaseGroundedEnemy_Bullet2/AbilitySystemComponent/ShootAbility"]
+[editable path="BaseGroundedEnemy_Bullet2/AnimationPlayerStateScene"]
+[editable path="Miniboss_GroundWave"]
+[editable path="Miniboss_GroundWave/AIControllerGrounded"]
+[editable path="Miniboss_GroundWave/AbilitySystemComponent/ShootAbility"]
+[editable path="Miniboss_GroundWave/AnimationPlayerStateScene"]
