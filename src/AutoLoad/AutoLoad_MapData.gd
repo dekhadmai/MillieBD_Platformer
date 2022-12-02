@@ -13,11 +13,13 @@ export(String, FILE) var TestRoom
 ## will cycle through every room first before picking duplicates
 export var bTestAllRandomLevel = false
 var AllRandomLevelRoomMapPool = []
+var AllRandomMinibossRoomMapPool = []
 export(Array, String, FILE, "*.tscn") var RandomLevelPool #N
 export(Array, String, FILE, "*.tscn") var CheckpointPool #C
 export(Array, String, FILE, "*.tscn") var MiniBossLevelPool #M
 export(Array, String, FILE, "*.tscn") var BossLevelPool #B
 var LevelRoomMapPool = []
+var MinibossRoomMapPool = []
 export(String, FILE, "*.tscn") var BossLevelTemplate
 var BossLevelInstance = null
 
@@ -97,6 +99,10 @@ func _ready():
 	for i in RandomLevelPool.size() :
 		if RandomLevelPool[i] != null :
 			LevelRoomMapPool.append(RandomLevelPool[i])
+			
+	for i in MiniBossLevelPool.size() :
+		if MiniBossLevelPool[i] != null :
+			MinibossRoomMapPool.append(MiniBossLevelPool[i])
 	
 	var bValidGen = false
 	while (!bValidGen):
@@ -122,6 +128,19 @@ func GetRandomLevelRoom():
 	#print(result)
 	return result
 
+func GetMinibossRoom():
+	var result
+	if bTestAllRandomLevel : 
+		if AllRandomMinibossRoomMapPool.size() == 0:
+			AllRandomMinibossRoomMapPool.append_array(MinibossRoomMapPool)
+			
+		AllRandomMinibossRoomMapPool.shuffle()
+		result = AllRandomMinibossRoomMapPool.pop_back()
+	else : 
+		result = MinibossRoomMapPool[randi() % MinibossRoomMapPool.size()]
+	
+	#print(result)
+	return result
 
 func GetCheckpointRoom():
 	return CheckpointPool[0]
