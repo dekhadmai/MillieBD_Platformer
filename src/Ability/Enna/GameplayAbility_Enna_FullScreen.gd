@@ -124,6 +124,8 @@ func DoAbility():
 	
 func Deactivate():
 	AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible -= 1
+	if AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible < 0 : 
+		AbilityOwner.GetAbilitySystemComponent().CurrentCharStats.bInvincible = 0
 	invul_sprite.set_visible(false)
 	AbilityOwner.Stun()
 	.Deactivate()
