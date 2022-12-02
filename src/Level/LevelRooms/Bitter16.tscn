@@ -111,6 +111,7 @@ one_way_collision = true
 [node name="BaseMovingPlatform5" parent="." index="12" instance=ExtResource( 2 )]
 position = Vector2( 128, 368 )
 MoveToPosition_Local = [ Vector2( 1024, 0 ), Vector2( 0, 0 ) ]
+default_move_to_seconds = 4.5
 
 [node name="TileMap_VisualOnly" parent="BaseMovingPlatform5" index="0"]
 tile_set = ExtResource( 7 )
