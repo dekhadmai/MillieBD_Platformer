@@ -26,7 +26,7 @@ func Init(parent, value) :
 	parent.add_child(self)
 	
 	damage_number_label.set_as_toplevel(true)
-	damage_number_label.set_text(str(value))
+	damage_number_label.set_text(str("%.0f" % value))
 	damage_number_label.set_global_position(parent.get_global_position() + offset)
 	duration_timer.start()
 

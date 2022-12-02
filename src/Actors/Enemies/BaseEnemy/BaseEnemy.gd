@@ -79,8 +79,7 @@ func _physics_process(_delta):
 	if abi_comp :
 		hp_bar.set_max(abi_comp.CurrentCharStats.BaseHP)
 		hp_bar.set_value(abi_comp.CurrentCharStats.CurrentHP)
-		hp_value.set_text(str(abi_comp.CurrentCharStats.CurrentHP))
-		
+		hp_value.set_text(str("%.0f" % abi_comp.CurrentCharStats.CurrentHP))
 	
 	if ai_controller != null : 
 		ai_controller.update_physics(_delta)
