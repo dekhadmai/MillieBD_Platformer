@@ -1,30 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Objects/RandomActorSpawner_GroundEnemies.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Beam.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/art/Gradient/palette_swap_mapping.gdshader" type="Shader" id=4]
+[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_Turret.tscn" type="PackedScene" id=5]
-
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 4 )
-shader_param/original_0 = Color( 0.34902, 0.34902, 0.34902, 1 )
-shader_param/original_1 = null
-shader_param/original_2 = null
-shader_param/original_3 = null
-shader_param/original_4 = null
-shader_param/original_5 = null
-shader_param/original_6 = null
-shader_param/original_7 = null
-shader_param/replace_0 = Color( 0.607843, 0.027451, 0.858824, 1 )
-shader_param/replace_1 = null
-shader_param/replace_2 = null
-shader_param/replace_3 = null
-shader_param/replace_4 = null
-shader_param/replace_5 = null
-shader_param/replace_6 = null
-shader_param/replace_7 = null
-shader_param/color_count = 1
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -50,38 +30,31 @@ position = Vector2( 656, 720 )
 text = "LEVEL C1
 "
 
-[node name="BaseGroundedEnemy_Beam" parent="." index="8" instance=ExtResource( 3 )]
-position = Vector2( 245, 667 )
+[node name="BaseGroundedEnemy_GroundWave" parent="." index="8" instance=ExtResource( 4 )]
+position = Vector2( 624, 322 )
 
-[node name="RandomActorSpawner_GroundEnemies2" parent="." index="10" instance=ExtResource( 2 )]
-position = Vector2( 1168, 528 )
+[node name="BaseGroundedEnemy_Bullet" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 376, 159 )
 
-[node name="RandomActorSpawner_GroundEnemies3" parent="." index="11" instance=ExtResource( 2 )]
-position = Vector2( 368, 144 )
+[node name="BaseGroundedEnemy_Bullet2" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 926, 160 )
 
-[node name="RandomActorSpawner_GroundEnemies4" parent="." index="12" instance=ExtResource( 2 )]
-position = Vector2( 912, 144 )
-
-[node name="RandomActorSpawner_GroundEnemies5" parent="." index="13" instance=ExtResource( 2 )]
-position = Vector2( 640, 304 )
-
-[node name="RandomActorSpawner_GroundEnemies" parent="." index="14" instance=ExtResource( 2 )]
-position = Vector2( 80, 528 )
-
-[node name="AerialEnemy_Turret_Miniboss" parent="." index="15" instance=ExtResource( 5 )]
+[node name="AerialEnemy_Turret" parent="." index="11" instance=ExtResource( 5 )]
 position = Vector2( 639, 459 )
 
-[node name="AbilitySystemComponent" parent="AerialEnemy_Turret_Miniboss" index="2"]
-InitStat_HP = 500.0
+[node name="BaseGroundedEnemy_Beam" parent="." index="12" instance=ExtResource( 3 )]
+position = Vector2( 245, 667 )
 
-[node name="Sprite" parent="AerialEnemy_Turret_Miniboss/AnimationPlayerStateScene" index="0"]
-material = SubResource( 1 )
+[node name="BaseGroundedEnemy_Bullet3" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( 86, 545 )
+
+[node name="BaseGroundedEnemy_Bullet4" parent="." index="14" instance=ExtResource( 2 )]
+position = Vector2( 1169, 542 )
+
+[node name="BaseGroundedEnemy_GroundWave2" parent="." index="15" instance=ExtResource( 4 )]
+position = Vector2( 989, 669 )
 
 [editable path="Door_Left"]
 [editable path="Door_Right"]
 [editable path="Door_Up"]
 [editable path="Door_Down"]
-[editable path="AerialEnemy_Turret_Miniboss"]
-[editable path="AerialEnemy_Turret_Miniboss/AIControllerAerial"]
-[editable path="AerialEnemy_Turret_Miniboss/AbilitySystemComponent/ShootAbility"]
-[editable path="AerialEnemy_Turret_Miniboss/AnimationPlayerStateScene"]

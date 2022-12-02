@@ -1,35 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BitterTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Objects/RandomActorSpawner_GroundEnemies.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Turret.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/art/Gradient/palette_swap_mapping.gdshader" type="Shader" id=6]
 [ext_resource path="res://src/Objects/Spawners/RandomActorSpawner_AerialEnemies.tscn" type="PackedScene" id=8]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 630, 358 )
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 6 )
-shader_param/original_0 = Color( 0.34902, 0.34902, 0.34902, 1 )
-shader_param/original_1 = Color( 0.717647, 0.717647, 0.717647, 1 )
-shader_param/original_2 = null
-shader_param/original_3 = null
-shader_param/original_4 = null
-shader_param/original_5 = null
-shader_param/original_6 = null
-shader_param/original_7 = null
-shader_param/replace_0 = Color( 0.607843, 0.027451, 0.858824, 1 )
-shader_param/replace_1 = Color( 0.792157, 0.85098, 0.0470588, 1 )
-shader_param/replace_2 = null
-shader_param/replace_3 = null
-shader_param/replace_4 = null
-shader_param/replace_5 = null
-shader_param/replace_6 = null
-shader_param/replace_7 = null
-shader_param/color_count = 1
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -55,9 +31,6 @@ patrol_offset_x = 96
 [node name="BaseGroundedEnemy_Bullet4" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 987, 578 )
 
-[node name="CollisionShape2D" parent="BaseGroundedEnemy_Bullet4/AIControllerGrounded/DetectionRange" index="0"]
-position = Vector2( 0, 0 )
-
 [node name="RandomActorSpawner_GroundEnemies4" parent="." index="11" instance=ExtResource( 3 )]
 position = Vector2( 336, 512 )
 
@@ -70,31 +43,14 @@ patrol_offset_x = 128
 [node name="RandomActorSpawner_GroundEnemies" parent="." index="13" instance=ExtResource( 3 )]
 position = Vector2( 952, 280 )
 
-[node name="RandomActorSpawner_GroundEnemies2" parent="." index="14" instance=ExtResource( 3 )]
+[node name="RandomActorSpawner_GroundEnemies3" parent="." index="14" instance=ExtResource( 3 )]
+position = Vector2( 408, 152 )
+
+[node name="RandomActorSpawner_GroundEnemies2" parent="." index="15" instance=ExtResource( 3 )]
 position = Vector2( 968, 672 )
 
-[node name="RandomActorSpawner_AerialEnemies" parent="." index="15" instance=ExtResource( 8 )]
+[node name="RandomActorSpawner_AerialEnemies" parent="." index="16" instance=ExtResource( 8 )]
 position = Vector2( 880, 88 )
-
-[node name="Miniboss_Bullet" parent="." index="17" instance=ExtResource( 2 )]
-position = Vector2( 399, 156 )
-
-[node name="AIControllerGrounded" parent="Miniboss_Bullet" index="0"]
-bCheckLineOfSight = false
-
-[node name="CollisionShape2D" parent="Miniboss_Bullet/AIControllerGrounded/DetectionRange" index="0"]
-position = Vector2( 238, 207 )
-shape = SubResource( 1 )
-
-[node name="AbilitySystemComponent" parent="Miniboss_Bullet" index="2"]
-InitStat_HP = 500.0
-
-[node name="ShootAbility" parent="Miniboss_Bullet/AbilitySystemComponent" index="0"]
-AbilityCooldownSecond = 0.5
-FullbodyAnimDuration = 0.7
-
-[node name="Sprite" parent="Miniboss_Bullet/AnimationPlayerStateScene" index="0"]
-material = SubResource( 2 )
 
 [editable path="Door_Left"]
 [editable path="Door_Right"]
@@ -103,15 +59,6 @@ material = SubResource( 2 )
 [editable path="BaseGroundedEnemy_Bullet"]
 [editable path="BaseGroundedEnemy_Bullet/AbilitySystemComponent/ShootAbility"]
 [editable path="BaseGroundedEnemy_Bullet/AnimationPlayerStateScene"]
-[editable path="BaseGroundedEnemy_Bullet4"]
-[editable path="BaseGroundedEnemy_Bullet4/AIControllerGrounded"]
-[editable path="BaseGroundedEnemy_Bullet4/AbilitySystemComponent/ShootAbility"]
-[editable path="BaseGroundedEnemy_Bullet4/AbilitySystemComponent/ShootAbility/Area2D_Damage_Telegraph"]
-[editable path="BaseGroundedEnemy_Bullet4/AnimationPlayerStateScene"]
 [editable path="BaseGroundedEnemy_Bullet5"]
 [editable path="BaseGroundedEnemy_Bullet5/AbilitySystemComponent/ShootAbility"]
 [editable path="BaseGroundedEnemy_Bullet5/AnimationPlayerStateScene"]
-[editable path="Miniboss_Bullet"]
-[editable path="Miniboss_Bullet/AIControllerGrounded"]
-[editable path="Miniboss_Bullet/AbilitySystemComponent/ShootAbility"]
-[editable path="Miniboss_Bullet/AnimationPlayerStateScene"]

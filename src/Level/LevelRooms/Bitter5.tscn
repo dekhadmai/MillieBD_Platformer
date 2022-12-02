@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Bullet.tscn" type="PackedScene" id=2]
@@ -7,28 +7,7 @@
 [ext_resource path="res://src/Objects/RandomActorSpawner_GroundEnemies.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_Beam.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_Shotgun_Bomb.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/art/Gradient/palette_swap_mapping.gdshader" type="Shader" id=8]
 [ext_resource path="res://src/Objects/Spawners/RandomActorSpawner_AerialEnemies.tscn" type="PackedScene" id=9]
-
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 8 )
-shader_param/original_0 = Color( 0.34902, 0.34902, 0.34902, 1 )
-shader_param/original_1 = null
-shader_param/original_2 = null
-shader_param/original_3 = null
-shader_param/original_4 = null
-shader_param/original_5 = null
-shader_param/original_6 = null
-shader_param/original_7 = null
-shader_param/replace_0 = Color( 0.607843, 0.027451, 0.858824, 1 )
-shader_param/replace_1 = null
-shader_param/replace_2 = null
-shader_param/replace_3 = null
-shader_param/replace_4 = null
-shader_param/replace_5 = null
-shader_param/replace_6 = null
-shader_param/replace_7 = null
-shader_param/color_count = 1
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -89,13 +68,6 @@ position = Vector2( 464, 248 )
 [node name="AerialEnemy_Shotgun_Bomb" parent="." index="18" instance=ExtResource( 7 )]
 position = Vector2( 528, 96 )
 
-[node name="AbilitySystemComponent" parent="AerialEnemy_Shotgun_Bomb" index="2"]
-InitStat_HP = 500.0
-InitStat_Movespeed = 100.0
-
-[node name="Sprite" parent="AerialEnemy_Shotgun_Bomb/AnimationPlayerStateScene" index="0"]
-material = SubResource( 1 )
-
 [node name="RandomActorSpawner_AerialEnemies" parent="." index="19" instance=ExtResource( 9 )]
 position = Vector2( 72, 120 )
 
@@ -106,7 +78,3 @@ position = Vector2( 1128, 504 )
 [editable path="Door_Right"]
 [editable path="Door_Up"]
 [editable path="Door_Down"]
-[editable path="AerialEnemy_Shotgun_Bomb"]
-[editable path="AerialEnemy_Shotgun_Bomb/AIControllerAerial"]
-[editable path="AerialEnemy_Shotgun_Bomb/AbilitySystemComponent/ShootAbility"]
-[editable path="AerialEnemy_Shotgun_Bomb/AnimationPlayerStateScene"]
