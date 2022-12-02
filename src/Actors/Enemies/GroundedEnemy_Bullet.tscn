@@ -14,6 +14,9 @@ AIcontroller_NodeName = "AIControllerGrounded"
 AbilityTriggerIntervalSeconds = 0.2
 AbilityNodeName = "ShootAbility"
 
+[node name="AbilitySystemComponent" parent="." index="2"]
+InitStat_Movespeed = 120.0
+
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
 AbilityCooldownSecond = 2.0
 FullbodyAnimName = "range_attack"
