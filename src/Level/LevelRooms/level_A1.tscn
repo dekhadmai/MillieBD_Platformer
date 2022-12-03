@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/LevelRoom_Template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Objects/RandomActorSpawner_GroundEnemies.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_Bullet.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Objects/Spawners/RandomActorSpawner_AerialEnemies.tscn" type="PackedScene" id=4]
 
 [node name="LevelRoom_Template" instance=ExtResource( 1 )]
 
@@ -28,32 +29,32 @@ position = Vector2( 656, 720 )
 text = "LEVEL A1
 "
 
-[node name="AerialEnemy_Bullet" parent="." index="8" instance=ExtResource( 3 )]
-position = Vector2( 1147, 142 )
+[node name="RandomActorSpawner_AerialEnemies" parent="." index="8" instance=ExtResource( 4 )]
+position = Vector2( 424, 400 )
 
-[node name="AerialEnemy_Bullet2" parent="." index="9" instance=ExtResource( 3 )]
-position = Vector2( 146, 157 )
+[node name="AerialEnemy_Bullet7" parent="." index="9" instance=ExtResource( 3 )]
+position = Vector2( 632, 248 )
 
-[node name="AerialEnemy_Bullet4" parent="." index="10" instance=ExtResource( 3 )]
-position = Vector2( 1152, 514 )
+[node name="RandomActorSpawner_GroundEnemies" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 256, 656 )
 
-[node name="AerialEnemy_Bullet3" parent="." index="11" instance=ExtResource( 3 )]
-position = Vector2( 164, 533 )
+[node name="RandomActorSpawner_GroundEnemies2" parent="." index="11" instance=ExtResource( 2 )]
+position = Vector2( 968, 656 )
 
-[node name="BaseGroundedEnemy_GroundWave" parent="." index="12" instance=ExtResource( 4 )]
-position = Vector2( 273, 672 )
+[node name="RandomActorSpawner_AerialEnemies2" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 872, 392 )
 
-[node name="BaseGroundedEnemy_GroundWave2" parent="." index="13" instance=ExtResource( 4 )]
-position = Vector2( 983, 674 )
+[node name="RandomActorSpawner_AerialEnemies3" parent="." index="13" instance=ExtResource( 4 )]
+position = Vector2( 1152, 520 )
 
-[node name="AerialEnemy_Bullet5" parent="." index="14" instance=ExtResource( 3 )]
-position = Vector2( 872, 390 )
+[node name="RandomActorSpawner_AerialEnemies4" parent="." index="14" instance=ExtResource( 4 )]
+position = Vector2( 1136, 160 )
 
-[node name="AerialEnemy_Bullet6" parent="." index="15" instance=ExtResource( 3 )]
-position = Vector2( 419, 399 )
+[node name="RandomActorSpawner_AerialEnemies5" parent="." index="15" instance=ExtResource( 4 )]
+position = Vector2( 168, 536 )
 
-[node name="AerialEnemy_Bullet7" parent="." index="16" instance=ExtResource( 3 )]
-position = Vector2( 634, 190 )
+[node name="RandomActorSpawner_AerialEnemies6" parent="." index="16" instance=ExtResource( 4 )]
+position = Vector2( 152, 160 )
 
 [editable path="Door_Left"]
 [editable path="Door_Right"]
