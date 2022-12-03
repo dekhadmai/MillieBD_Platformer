@@ -216,7 +216,7 @@ bIsMiniboss = true
 position = Vector2( 0, -1 )
 shape = SubResource( 1 )
 
-[node name="AbilitySystemComponent" parent="Miniboss_GroundWave" index="2"]
+[node name="AbilitySystemComponent" parent="Miniboss_GroundWave" index="3"]
 InitStat_HP = 500.0
 InitStat_Movespeed = 0.0
 

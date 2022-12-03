@@ -47,7 +47,7 @@ position = Vector2( 824, 216 )
 position = Vector2( 368, 216 )
 
 [node name="AerialEnemy_Turret" parent="." index="16" instance=ExtResource( 5 )]
-position = Vector2( 536, 376 )
+position = Vector2( 307, 312 )
 
 [editable path="Door_Left"]
 [editable path="Door_Right"]

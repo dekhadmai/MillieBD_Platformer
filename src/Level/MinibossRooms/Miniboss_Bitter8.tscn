@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BitterTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Enemies/GroundedEnemy_GroundWave.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://src/Actors/Enemies/AerialEnemy_Turret_SpinBeam.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Objects/Spawners/RandomActorSpawner_AerialEnemies.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/art/Gradient/palette_swap_mapping.gdshader" type="Shader" id=9]
-[ext_resource path="res://src/Ability/Base/BaseAbilitySystemComponent.gd" type="Script" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -41,72 +40,50 @@ text = "LEVEL 8
 "
 
 [node name="BaseGroundedEnemy_Bullet3" parent="." index="8" instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 942, 352 )
 
 [node name="AIControllerGrounded" parent="BaseGroundedEnemy_Bullet3" index="0"]
 patrol_offset_x = 70
 
-[node name="AbilitySystemComponent" parent="BaseGroundedEnemy_Bullet3" index="2"]
-script = ExtResource( 10 )
-
 [node name="BaseGroundedEnemy_Bullet4" parent="." index="9" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 1112, 673 )
 
 [node name="BaseGroundedEnemy_Beam2" parent="." index="10" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 1032, 224 )
 
 [node name="BaseGroundedEnemy_GroundWave2" parent="." index="11" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 328, 224 )
 
 [node name="AIControllerGrounded" parent="BaseGroundedEnemy_GroundWave2" index="0"]
 patrol_offset_x = 60
 
-[node name="AbilitySystemComponent" parent="BaseGroundedEnemy_GroundWave2" index="2"]
-script = ExtResource( 10 )
-
 [node name="RandomActorSpawner_AerialEnemies" parent="." index="12" instance=ExtResource( 8 )]
-visible = false
 position = Vector2( 712, 432 )
 
 [node name="RandomActorSpawner_AerialEnemies2" parent="." index="13" instance=ExtResource( 8 )]
-visible = false
 position = Vector2( 552, 160 )
 
 [node name="RandomActorSpawner_GroundEnemies" parent="." index="14" instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 1000, 88 )
 
 [node name="RandomActorSpawner_GroundEnemies2" parent="." index="15" instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 240, 88 )
 
 [node name="RandomActorSpawner_GroundEnemies3" parent="." index="16" instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 240, 536 )
 
 [node name="RandomActorSpawner_GroundEnemies4" parent="." index="17" instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 224, 376 )
 
 [node name="AerialEnemy_Turret_SpinBeam" parent="." index="18" instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 568, 320 )
 bIsMiniboss = true
 
-[node name="AbilitySystemComponent" parent="AerialEnemy_Turret_SpinBeam" index="2"]
-script = ExtResource( 10 )
+[node name="AbilitySystemComponent" parent="AerialEnemy_Turret_SpinBeam" index="3"]
 InitStat_HP = 500.0
 
 [node name="ShootAbility" parent="AerialEnemy_Turret_SpinBeam/AbilitySystemComponent" index="0"]
 Spin_DegreePerSecond = 25.0
-
-[node name="RayCast_LineOfSight" parent="AerialEnemy_Turret_SpinBeam" index="3"]
-z_index = 0
-z_as_relative = true
 
 [node name="Sprite" parent="AerialEnemy_Turret_SpinBeam/AnimationPlayerStateScene" index="0"]
 material = SubResource( 1 )

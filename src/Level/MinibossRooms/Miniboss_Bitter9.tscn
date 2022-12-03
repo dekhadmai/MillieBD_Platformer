@@ -79,8 +79,8 @@ position = Vector2( 640, 300 )
 position = Vector2( 641, 395 )
 bIsMiniboss = true
 
-[node name="AbilitySystemComponent" parent="AerialEnemy_Turret" index="2"]
-InitStat_HP = 400.0
+[node name="AbilitySystemComponent" parent="AerialEnemy_Turret" index="3"]
+InitStat_HP = 500.0
 
 [node name="Sprite" parent="AerialEnemy_Turret/AnimationPlayerStateScene" index="0"]
 material = SubResource( 1 )
