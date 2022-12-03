@@ -210,6 +210,7 @@ position = Vector2( 315, 320 )
 position = Vector2( 835, 544 )
 collision_layer = 2
 bUseGravity = false
+bIsMiniboss = true
 
 [node name="CollisionShape2D" parent="Miniboss_GroundWave/AIControllerGrounded/DetectionRange" index="0"]
 position = Vector2( 0, -1 )

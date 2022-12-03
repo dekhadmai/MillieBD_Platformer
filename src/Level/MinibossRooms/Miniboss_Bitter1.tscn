@@ -83,6 +83,7 @@ position = Vector2( 1197, 87 )
 
 [node name="Miniboss_GroundedEnemy_Bullet" parent="." index="17" instance=ExtResource( 7 )]
 position = Vector2( 640, 416 )
+bIsMiniboss = true
 
 [node name="AbilitySystemComponent" parent="Miniboss_GroundedEnemy_Bullet" index="2"]
 InitStat_HP = 500.0

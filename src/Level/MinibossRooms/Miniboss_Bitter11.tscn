@@ -78,6 +78,7 @@ position = Vector2( 880, 88 )
 
 [node name="Miniboss_Bullet" parent="." index="17" instance=ExtResource( 2 )]
 position = Vector2( 399, 156 )
+bIsMiniboss = true
 
 [node name="AIControllerGrounded" parent="Miniboss_Bullet" index="0"]
 bCheckLineOfSight = false

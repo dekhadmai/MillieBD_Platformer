@@ -371,6 +371,7 @@ anims/walk = SubResource( 18 )
 [node name="Miniboss_GroundWave" parent="." index="20" instance=ExtResource( 4 )]
 position = Vector2( 558, 575 )
 collision_layer = 2
+bIsMiniboss = true
 
 [node name="AIControllerGrounded" parent="Miniboss_GroundWave" index="0"]
 bCheckLineOfSight = false

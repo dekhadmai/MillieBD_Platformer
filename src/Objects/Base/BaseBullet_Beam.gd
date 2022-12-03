@@ -36,10 +36,11 @@ func Activate_Beam(body):
 
 
 func OnBulletHit(body:Actor):	
-	var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect
-	var body_asc: BaseAbilitySystemComponent = body.GetAbilitySystemComponent()
-	
-	Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
+	if is_instance_valid(body) :
+		var effect:BaseGameplayEffect = gameplay_effect_template.duplicate() as BaseGameplayEffect
+		var body_asc: BaseAbilitySystemComponent = body.GetAbilitySystemComponent()
+		
+		Instigator.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
 	pass
 
 func kill_actor():

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shu_Glasses.png-9875569aa3ced16ca6386e9fb898e72e.stex"
+path="res://.import/Enna_Deadeyed.png-49eae2e534eae78f0f65237ada8cc956.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/char_expression/Shu_Glasses.png"
-dest_files=[ "res://.import/Shu_Glasses.png-9875569aa3ced16ca6386e9fb898e72e.stex" ]
+source_file="res://assets/art/ui/char_expression/Enna_Deadeyed.png"
+dest_files=[ "res://.import/Enna_Deadeyed.png-49eae2e534eae78f0f65237ada8cc956.stex" ]
 
 [params]
 

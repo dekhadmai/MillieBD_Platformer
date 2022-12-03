@@ -68,10 +68,11 @@ func GetSpawnRotation() -> Vector2:
 	return vec
 	
 func OnHurtDetectionHit(body:Actor) :
-	var effect:BaseGameplayEffect = GameplayeEffect_Template.duplicate() as BaseGameplayEffect
-	var body_asc: BaseAbilitySystemComponent = body.GetAbilitySystemComponent()
+	if is_instance_valid(body) :
+		var effect:BaseGameplayEffect = GameplayeEffect_Template.duplicate() as BaseGameplayEffect
+		var body_asc: BaseAbilitySystemComponent = body.GetAbilitySystemComponent()
 	
-	AbilityOwner.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
+		AbilityOwner.GetAbilitySystemComponent().ApplyGameplayEffectToTarget(body_asc, effect)
 	
 
 func StartAreaDetection():

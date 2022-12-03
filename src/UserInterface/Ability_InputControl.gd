@@ -58,9 +58,11 @@ func tick(delta) :
 			var current_scale = sprite_icon.get_scale()
 			var new_scale
 			if bIsActiveSkill : 
-				new_scale = active_scale
+				new_scale = original_scale
+				$ActiveSkillBorder.show()
 			else : 
 				new_scale = original_scale
+				$ActiveSkillBorder.hide()
 
 			if current_scale != new_scale :
 				sprite_icon.set_scale(new_scale)
