@@ -6,7 +6,7 @@
 			"Text": "Hi Babu! \nSorry I got you into this, don't worry though, I'll fix it!"
 		},
 			{
-			"Name": "Enna", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Enna", "Expression": "Angry", "Position": "2", "Choices": ["",""],
 			"Text": "Babu?! \nGo away! \nYou can't defeat me, not after I've obtained all this power!"
 		},
 			

@@ -2,7 +2,7 @@
 
 
 			{
-			"Name": "Millie", "Expression": "Bored", "Position": "1", "Choices": ["",""],
+			"Name": "Millie", "Expression": "Neutral", "Position": "1", "Choices": ["",""],
 			"Text": "At last! I've completed my masterpiece, a spell to make me more intelligent."
 		},
 			{
