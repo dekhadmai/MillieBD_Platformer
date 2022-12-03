@@ -194,6 +194,9 @@ func _ready():
 		GetAbilitySystemComponent().CurrentCharStats.CurrentLevel = autoload_transientdata.PlayerSaveData.Level
 		GetAbilitySystemComponent().CurrentCharStats.MaxEXP = GetAbilitySystemComponent().CurrentCharStats.GetMaxExp()
 		
+	if autoload_transientdata.PlayerSaveData.CurrentEXP > 0 : 
+		GetAbilitySystemComponent().CurrentCharStats.CurrentEXP = autoload_transientdata.PlayerSaveData.CurrentEXP
+		
 	if autoload_transientdata.PlayerSaveData.BaseHP > 0 : 
 		GetAbilitySystemComponent().CurrentCharStats.BaseHP = autoload_transientdata.PlayerSaveData.BaseHP
 		GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
@@ -201,6 +204,9 @@ func _ready():
 	if autoload_transientdata.PlayerSaveData.BaseAttack > 0 : 
 		GetAbilitySystemComponent().CurrentCharStats.BaseAttack = autoload_transientdata.PlayerSaveData.BaseAttack
 		GetAbilitySystemComponent().CurrentCharStats.Calculate()
+	
+	
+	save_player_transient_data()
 	
 	pass
 
@@ -368,9 +374,8 @@ func get_direction() -> Vector2 :
 #		Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix),
 #		-1 if do_jump() else 0
 #	)
-	
-func died():
-	.died()
+
+func save_player_transient_data() : 
 	# save data before death
 	autoload_transientdata.PlayerSaveData.WeaponAbilityTemplateNameArray.clear()
 	autoload_transientdata.PlayerSaveData.WeaponAbilityTemplateNameArray.append_array(WeaponAbilityTemplateNameArray)
@@ -381,6 +386,11 @@ func died():
 	autoload_transientdata.PlayerSaveData.BaseHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
 	autoload_transientdata.PlayerSaveData.BaseAttack = GetAbilitySystemComponent().CurrentCharStats.BaseAttack
 	autoload_transientdata.PlayerSaveData.Level = GetAbilitySystemComponent().CurrentCharStats.CurrentLevel
+	autoload_transientdata.PlayerSaveData.CurrentEXP = GetAbilitySystemComponent().CurrentCharStats.CurrentEXP
+
+func died():
+	.died()
+	save_player_transient_data()
 	
 	queue_free()
 	

@@ -30,7 +30,9 @@ func _notification(what):
 
 func _ready():
 	
-	autoload_mapdata.InitSpawnRooms()
+	if !PlayerProfile.bLoadSaveFile : 
+		autoload_mapdata.InitSpawnRooms()
+	
 	autoload_mapdata.SpawnPlayer()
 	
 	pass

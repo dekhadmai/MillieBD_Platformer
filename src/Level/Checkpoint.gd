@@ -21,6 +21,10 @@ func _on_CheckpointArea2D_body_entered(body):
 	
 	anim.play("activate")
 	print("Set Checkpoint")
+	
+	body.save_player_transient_data()
+	PlayerProfile.save_data()
+	
 	pass # Replace with function body.
 
 func _play_loop_anim():

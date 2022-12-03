@@ -54,9 +54,9 @@ onready var player_template = load(PlayerTemplate)
 var player
 func SpawnPlayer():
 	DespawnAllRooms()
-			
+	
+	SetCurrentRoom(Checkpoint_RoomPosition)		
 	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y, "Center")
-	SetCurrentRoom(Checkpoint_RoomPosition)
 	
 	player = player_template.instance()
 	player.set_global_position(Checkpoint_Position)
@@ -767,3 +767,25 @@ func PlaySfxProcessPause(sfx_resource_key) :
 				$GlobalSfxPlayerProcessPause.play()
 	else : 
 		print("PlaySfxProcessPause key does not exist = " + sfx_resource_key)
+
+
+
+#####
+func GetSaveData() : 
+	var dict = {}
+	var key = ""
+	for i in GridHeight:
+		dict[str(i)] = {}
+		for j in GridWidth:
+			var level_room_data: LevelRoomData = LevelRoomMap[i][j]
+			dict[str(i)][str(j)] = level_room_data.GetSaveData()
+			
+	return dict
+	
+func LoadData(data) : 
+	for i in GridHeight:
+		for j in GridWidth:
+			var level_room_data: LevelRoomData = LevelRoomMap[i][j]
+			level_room_data.LoadData(data[str(i)][str(j)])
+	
+	
