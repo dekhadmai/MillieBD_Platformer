@@ -24,7 +24,7 @@ shader_param/gradient = SubResource( 1 )
 
 [node name="Ability_DamageReductionBuff" instance=ExtResource( 1 )]
 AbilityShortName = "DmgReduc"
-AbilityName = "Barrier"
+AbilityName = "Shield"
 AbilityDescription = "Cooldown : {Cooldown} sec
 Duration : {EffectDuration} sec
 - Damage taken {EffectValuePercent}%"

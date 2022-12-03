@@ -81,6 +81,8 @@ func DoEffect() -> void:
 			TargetAbilitySystemComponent.CurrentCharStats.AddEXP(ValueToModify)
 			if bExpAddFerver :
 				TargetAbilitySystemComponent.CurrentCharStats.AddFervor(ValueToModify)
+		CharacterStats.CharacterStatType.Ferver:
+			TargetAbilitySystemComponent.CurrentCharStats.AddFervor(ValueToModify)
 		CharacterStats.CharacterStatType.ExpAdjustScale:
 			TargetAbilitySystemComponent.CurrentCharStats.ExpAdjustScale += ValueToModify
 		CharacterStats.CharacterStatType.HP:

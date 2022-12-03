@@ -12,7 +12,7 @@ bRandomizeDrop = true
 RandomizeWeaponChance = 30
 
 [node name="ItemSprite" parent="." index="1"]
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 0, -12 )
 texture = ExtResource( 3 )
 
 [editable path="interact"]

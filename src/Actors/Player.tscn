@@ -568,6 +568,11 @@ bExpAddFerver = false
 StatToModify = 1
 ValueToModify = 100.0
 
+[node name="CheatHeal" parent="CheatBuff" instance=ExtResource( 16 )]
+bExpAddFerver = false
+StatToModify = 2
+ValueToModify = 100000.0
+
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, -22 )
 InitStat_HP = 200.0

@@ -24,8 +24,15 @@ Team_ID = 2
 
 [node name="GameplayEffect_KillExp" type="Node2D" parent="."]
 script = ExtResource( 5 )
+bExpAddFerver = false
 StatToModify = 5
 ValueToModify = 20.0
+
+[node name="GameplayEffect_KillFerver" type="Node2D" parent="."]
+script = ExtResource( 5 )
+bExpAddFerver = false
+StatToModify = 6
+ValueToModify = 5.0
 
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 3 )]
 InitStat_HP = 150.0

@@ -104,19 +104,23 @@ Duration : 4 sec
 AbilityIcon = ExtResource( 4 )
 AbilityCooldownSecond = 15.0
 bUseFervor = true
-FervorCost = 30.0
+FervorCost = 45.0
 bAllowPrimaryToActivate = false
 CustomAnimName = "_weapon"
-CustomAnimDuration = 4.6
+CustomAnimDuration = 4.1
 LingeringAnimName = "_active_weapon"
 AbilityDelayForAnimationSecond = 0.4
 Area2D_Damage_NodeName = "Area2D_Damage_Telegraph"
 AreaEffectInterval = 0.3
 
+[node name="GameplayEffectTemplate" parent="." index="1"]
+ValueToModify = 40.0
+
 [node name="Area2D_Damage_Telegraph" parent="." index="3" instance=ExtResource( 3 )]
 visible = false
 EndDamageAnimDuration = 0.6
-AreaLingerDuration = 4.0
+TelegraphAnimDuration = 0.5
+AreaLingerDuration = 3.5
 AreaEffectInterval = 0.3
 
 [node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]

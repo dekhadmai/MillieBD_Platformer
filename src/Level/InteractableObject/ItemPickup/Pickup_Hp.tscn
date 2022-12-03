@@ -8,10 +8,11 @@ Name = "HP Orb"
 InteractSfxGlobalResourceKey = "Heal"
 
 [node name="ItemSprite" parent="." index="1"]
+scale = Vector2( 0.22, 0.22 )
 texture = ExtResource( 2 )
 
 [node name="PickupEffect" parent="." index="4"]
 StatToModify = 2
-ValueToModify = 100.0
+ValueToModify = 50.0
 
 [editable path="interact"]

@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/art/ui/icons/BaseStand.png" type="Texture" id=1]
 [ext_resource path="res://src/Level/InteractableObject/InteractableObject.gd" type="Script" id=2]
 [ext_resource path="res://assets/theme/user_interface_outline.tres" type="Theme" id=3]
-[ext_resource path="res://assets/art/ui/icons/Heal.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/ui/icons/empty_ability.png" type="Texture" id=4]
 [ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -21,7 +21,8 @@ script = ExtResource( 2 )
 shape = SubResource( 2 )
 
 [node name="ItemSprite" type="Sprite" parent="."]
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 0, -13 )
+scale = Vector2( 0.18, 0.18 )
 texture = ExtResource( 4 )
 
 [node name="InteractableSprite" type="Sprite" parent="."]
@@ -37,9 +38,9 @@ shape = SubResource( 1 )
 
 [node name="ItemName" type="Label" parent="."]
 margin_left = -24.0
-margin_top = -24.0
+margin_top = -37.0
 margin_right = 167.0
-margin_bottom = 14.0
+margin_bottom = 1.0
 rect_scale = Vector2( 0.25, 0.25 )
 theme = ExtResource( 3 )
 text = "100"
@@ -48,9 +49,9 @@ valign = 1
 
 [node name="interact" parent="." instance=ExtResource( 5 )]
 margin_left = -8.0
-margin_top = -35.0
+margin_top = -48.0
 margin_right = -8.0
-margin_bottom = -35.0
+margin_bottom = -48.0
 action_name = "interact"
 label_text = "interact"
 

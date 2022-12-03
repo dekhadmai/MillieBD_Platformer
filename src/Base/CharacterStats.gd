@@ -6,7 +6,7 @@ signal died
 signal level_up
 
 # Add to the back only, DO NOT ADD TO THE FRONT, It will shift everything that is already in the game by +1
-enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed, EXP, Fever, ExpAdjustScale, bInvincible, DamageAdjustScale, AttackScale, MaxHP}
+enum CharacterStatType {None, Damage, HP, Attack, MoveSpeed, EXP, Ferver, ExpAdjustScale, bInvincible, DamageAdjustScale, AttackScale, MaxHP}
 
 var HurtIframeTimer:Timer
 var HurtIframeDuration = 1.0

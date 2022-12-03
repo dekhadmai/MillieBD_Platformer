@@ -212,7 +212,7 @@ anchor_right = 1.0
 margin_left = -150.0
 margin_top = 0.0
 margin_right = 0.0
-margin_bottom = 200.0
+margin_bottom = 83.0
 size_flags_vertical = 3
 
 [node name="ContextButtonUI" parent="." instance=ExtResource( 11 )]

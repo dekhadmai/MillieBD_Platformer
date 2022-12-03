@@ -26,6 +26,7 @@ onready var hp_value = $Hpvalue
 
 var bAlreadyGiveExp = false
 onready var effect_kill_exp = $GameplayEffect_KillExp
+onready var effect_kill_ferver = $GameplayEffect_KillFerver
 
 func get_class():
 	return "Actor"
@@ -33,6 +34,8 @@ func get_class():
 # This function is called when the scene enters the scene tree.
 # We can initialize variables here.
 func _ready():
+	show()
+	
 	if !bSpawnOnAlreadyClearedRoom : 
 		var room = get_parent()
 		var room_data = autoload_mapdata.LevelRoomMap[room.Room_Position.x][room.Room_Position.y]
@@ -122,6 +125,13 @@ func died():
 		if is_instance_valid(CurrentTargetActor) : 
 			var effect:BaseGameplayEffect = effect_kill_exp.duplicate() as BaseGameplayEffect
 			GetAbilitySystemComponent().ApplyGameplayEffectToTarget(CurrentTargetActor.GetAbilitySystemComponent(), effect)
+			
+			effect = effect_kill_ferver.duplicate() as BaseGameplayEffect
+			GetAbilitySystemComponent().ApplyGameplayEffectToTarget(CurrentTargetActor.GetAbilitySystemComponent(), effect)
+			
+			if bIsMiniboss : 
+				autoload_transient.player.SpawnMiniBossRoomClearReward()
+			
 			bAlreadyGiveExp = true
 			
 			animation_player.PlayFullBodyAnim("death", 1.0)

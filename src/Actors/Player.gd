@@ -24,6 +24,7 @@ onready var levelup_effect_invincible = $LevelUpEffect_Invincible
 onready var cheat_exp = $CheatBuff/CheatExp
 onready var cheat_atk = $CheatBuff/CheatAtk
 onready var cheat_damage = $CheatBuff/CheatTakeDamage
+onready var cheat_heal = $CheatBuff/CheatHeal
 
 onready var platform_detector = $PlatformDetector
 onready var animation_player = $AnimationPlayerState
@@ -551,6 +552,15 @@ func SpawnRoomClearReward():
 	
 	autoload_mapdata.PlaySfx("RoomClear")
 	pass
+	
+func SpawnMiniBossRoomClearReward():
+	var offset = Vector2(-10, 0)
+	GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition()+offset, exp_orb, 0)
+	
+	offset = Vector2(10, 0)
+	GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition()+offset, random_roomdrop, 0)
+	
+	pass
 
 func take_damage(value):
 	if take_damage_vfx and take_damage_vfx_timer : 
@@ -581,6 +591,8 @@ func CheckCheatCommands():
 		CheatSpawnAllSpecialAbilities()
 	if GlobalFunctions.IsKeyModifierPressed("shoot", "CheatModifier"):
 		CheatAtk()
+	if GlobalFunctions.IsKeyModifierPressed("dash", "CheatModifier"):
+		CheatHeal()
 		
 	if Input.is_action_just_released("zoom_in") and Input.is_action_pressed("CheatModifier"):
 		camera.zoom.x = clamp(camera.zoom.x - 0.1, Min_Zoom, Max_Zoom)
@@ -604,6 +616,11 @@ func CheatAtk():
 func CheatTakeDamage():
 	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
 	var effect:BaseGameplayEffect = cheat_damage.duplicate() as BaseGameplayEffect
+	body_asc.ApplyGameplayEffectToSelf(effect)
+	
+func CheatHeal():
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	var effect:BaseGameplayEffect = cheat_heal.duplicate() as BaseGameplayEffect
 	body_asc.ApplyGameplayEffectToSelf(effect)
 	
 func CheatAddFerver():
