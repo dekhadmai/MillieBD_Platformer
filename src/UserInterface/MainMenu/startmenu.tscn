@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://src/UserInterface/MainMenu/startmenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/fonts/kenney_mini_square.tres" type="DynamicFontData" id=2]
@@ -10,6 +10,34 @@
 [ext_resource path="res://src/UserInterface/MainMenu/Buttons/startmenufocus.tres" type="StyleBox" id=8]
 [ext_resource path="res://assets/audio/music/GodSeesAll+Reimuintro.mp3" type="AudioStream" id=9]
 [ext_resource path="res://src/UserInterface/SettingsMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_00.png" type="Texture" id=11]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_02.png" type="Texture" id=12]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_03.png" type="Texture" id=13]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_05.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_08.png" type="Texture" id=15]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_07.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_01.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_06.png" type="Texture" id=18]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_09.png" type="Texture" id=19]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_10.png" type="Texture" id=20]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_11.png" type="Texture" id=21]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_04.png" type="Texture" id=22]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_12.png" type="Texture" id=23]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_14.png" type="Texture" id=24]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_19.png" type="Texture" id=25]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_13.png" type="Texture" id=26]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_17.png" type="Texture" id=27]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_16.png" type="Texture" id=28]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_15.png" type="Texture" id=29]
+[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_18.png" type="Texture" id=30]
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 11 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128
@@ -80,6 +108,18 @@ script = ExtResource( 1 )
 position = Vector2( 632.5, 365 )
 scale = Vector2( 1.61642, 1.17628 )
 texture = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TextureRect"]
+position = Vector2( 644, 366 )
+scale = Vector2( 0.670833, 0.67037 )
+frames = SubResource( 24 )
+frame = 10
+playing = true
 
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
