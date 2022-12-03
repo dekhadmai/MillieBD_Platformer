@@ -1,16 +1,12 @@
 [
-
-			{
-			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
-			"Text": "Texts from Shu\nAfter it all ends"
-		},
+		
 			{
 			"Name": "Millie", "Expression": "Sad", "Position": "1", "Choices": ["",""],
 			"Text": "Just get in here already Shu! "
 		},
 			{
-			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
-			"Text": "Discord Entering VC Sound Effect"
+			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "DiscordJoin",
+			"Text": "!!!"
 		},
 			
 

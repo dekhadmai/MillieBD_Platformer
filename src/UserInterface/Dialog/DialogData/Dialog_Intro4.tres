@@ -9,8 +9,8 @@
 			"Text": "Uh oh"
 		},
 			{
-			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
-			"Text": "*Lucie laughs*\nDiscord Notification Sound"
+			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "DiscordNotif",
+			"Text": "!!!"
 		},
 			
 

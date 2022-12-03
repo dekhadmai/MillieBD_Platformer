@@ -118,7 +118,7 @@ expand = true
 position = Vector2( 644, 366 )
 scale = Vector2( 0.670833, 0.67037 )
 frames = SubResource( 24 )
-frame = 5
+frame = 15
 playing = true
 
 [node name="Title" type="Label" parent="."]
