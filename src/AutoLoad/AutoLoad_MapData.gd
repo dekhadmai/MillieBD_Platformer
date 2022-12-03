@@ -2,6 +2,8 @@ extends Node
 
 onready var bgm = $Level_BGM
 
+var UpdateDistanceQueue = []
+
 var CreateInstanceQueue = []
 var InstanceQueueTimer: Timer
 var InstanceQueueInterval = 0.05
@@ -37,7 +39,7 @@ var TotalRoomAvailable: int = 0
 var LongestDistance: int = 0
 
 var TotalRoomThreshold = 30
-var LongestDistanceThreshold = 20
+var LongestDistanceThreshold = 13
 
 var BossRoomPosition: Vector2
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
@@ -104,6 +106,8 @@ func _ready():
 	for i in MiniBossLevelPool.size() :
 		if MiniBossLevelPool[i] != null :
 			MinibossRoomMapPool.append(MiniBossLevelPool[i])
+
+
 	
 	var bValidGen = false
 	while (!bValidGen):
@@ -280,6 +284,11 @@ func GenerateRooms()->bool:
 	LevelRoomMap[startroom_row][startroom_col].RoomType = "C"
 	SetCurrentRoom(Vector2(startroom_row, startroom_col))
 	Traverse(startroom_row, startroom_col, -1, -1, 0)
+			
+	UpdateDistance(startroom_row, startroom_col, 0)
+	while UpdateDistanceQueue.size() > 0 : 
+		var dist_data = UpdateDistanceQueue.pop_front()
+		UpdateDistance(dist_data.r, dist_data.c, dist_data.d)
 	
 	#####
 	var AvailableRooms = []
@@ -363,6 +372,33 @@ func GenerateRooms()->bool:
 	
 	return false
 
+func UpdateDistance(row:int, column:int, distance:int):
+	var room_data:LevelRoomData = LevelRoomMap[row][column]
+	if room_data.Distance == -1 : 
+		room_data.Distance = distance
+		if LongestDistance < room_data.Distance:
+			LongestDistance = room_data.Distance
+	else : 
+		return
+		
+	# check travel left
+	if room_data.bIsDoorOpened[0] == 1 :
+		UpdateDistanceQueue.push_back({r=row, c=column-1, d=distance+1})
+	
+	# check travel up
+	if room_data.bIsDoorOpened[1] == 1 :
+		UpdateDistanceQueue.push_back({r=row-1, c=column, d=distance+1})
+		
+	# check travel right
+	if room_data.bIsDoorOpened[2] == 1 :
+		UpdateDistanceQueue.push_back({r=row, c=column+1, d=distance+1})
+		
+	# check travel down
+	if room_data.bIsDoorOpened[3] == 1 :
+		UpdateDistanceQueue.push_back({r=row+1, c=column, d=distance+1})
+	
+	
+
 func Traverse(row:int, column:int, from_row: int, from_column: int, distance: int):
 	
 	#print("Traverse : (" + str(row) + "," + str(column) + ")")
@@ -391,9 +427,9 @@ func Traverse(row:int, column:int, from_row: int, from_column: int, distance: in
 	
 	##### mark this room
 	room_data.bTraversed = true
-	room_data.Distance = distance
-	if LongestDistance < room_data.Distance:
-		LongestDistance = room_data.Distance
+#	room_data.Distance = distance
+#	if LongestDistance < room_data.Distance:
+#		LongestDistance = room_data.Distance
 	TotalRoomAvailable += 1
 	
 	# setup for new room to traverse

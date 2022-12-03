@@ -3,7 +3,7 @@ extends Node
 
 var RoomInstance: BaseLevelRoom = null
 var bTraversed: bool = false
-var Distance:int = 0
+var Distance:int = -1
 var bActive = false
 
 ##### UI information
