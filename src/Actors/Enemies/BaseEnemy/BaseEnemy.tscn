@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Actors/Enemies/BaseEnemy/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/enemy/robe_enjoyer.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=8]
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=9]
+[ext_resource path="res://assets/art/ui/icons/skull.png" type="Texture" id=10]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -68,6 +69,12 @@ texture_progress = ExtResource( 8 )
 tint_under = Color( 0.690196, 0.34902, 0.34902, 1 )
 tint_over = Color( 0.0862745, 0.0784314, 0.0784314, 1 )
 tint_progress = Color( 0.403922, 0.764706, 0.176471, 1 )
+
+[node name="MinibossIcon" type="Sprite" parent="Hpbar"]
+visible = false
+position = Vector2( -24, 20 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 10 )
 
 [node name="Hpvalue" type="Label" parent="."]
 margin_left = -23.0

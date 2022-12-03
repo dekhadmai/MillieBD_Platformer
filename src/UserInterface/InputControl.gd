@@ -122,16 +122,27 @@ func _set_current_icon_index(device_id : int, action_name: String) :
 					controller_icon.set_visible(false)
 				return
 		if action is InputEventJoypadButton and device_id != -1: 
-			if "XInput" in Input.get_joy_name(device_id):
-				if XBOX_BUTTON_TO_INDEX_MAPPING.has(action.button_index) : 
-					if bShowInputIcon : 
-						keyboard_icon.set_visible(false)
-						controller_icon.set_visible(true)
-						controller_icon.set_frame(XBOX_BUTTON_TO_INDEX_MAPPING[action.button_index])
-					else : 
-						keyboard_icon.set_visible(false)
-						controller_icon.set_visible(false)
-					return
+			#if "XInput" in Input.get_joy_name(device_id):
+			if XBOX_BUTTON_TO_INDEX_MAPPING.has(action.button_index) : 
+				if bShowInputIcon : 
+					keyboard_icon.set_visible(false)
+					controller_icon.set_visible(true)
+					
+					var joy_offset = 0
+					var joy_name = Input.get_joy_name(device_id)
+					#print(joy_name)
+					if "XInput" in joy_name:
+						joy_offset = 0
+					if "PS" in joy_name:
+						joy_offset = 24
+					if "Nintendo" in joy_name or "Switch" in joy_name:
+						joy_offset = 48
+					
+					controller_icon.set_frame(XBOX_BUTTON_TO_INDEX_MAPPING[action.button_index]+joy_offset)
+				else : 
+					keyboard_icon.set_visible(false)
+					controller_icon.set_visible(false)
+				return
 					
 	if bShowInputIcon : 
 		keyboard_icon.set_visible(true)

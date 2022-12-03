@@ -25,6 +25,7 @@ var bFinishHold = false
 func _ready():
 	Init()
 	hold_timer = GlobalFunctions.CreateTimerAndBind(self, self, "hold_timer_timeout")
+	set_mode(MODE_CHARACTER)
 
 func _process(delta):
 	if bPlayerInRange : 

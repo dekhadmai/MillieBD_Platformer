@@ -11,6 +11,7 @@ var _state = State.MOVING
 
 export var OriginalScale = 0.25
 export var bSpawnOnAlreadyClearedRoom = false
+export var bIsMiniboss = false
 
 onready var sprite:Sprite = $AnimationPlayerStateScene/Sprite
 onready var animation_player = $AnimationPlayerStateScene/AnimationPlayerState
@@ -55,6 +56,9 @@ func _ready():
 	
 	if ai_controller != null : 
 		ai_controller.init(self)
+		
+	if bIsMiniboss : 
+		$Hpbar/MinibossIcon.show()
 
 # Physics process is a built-in loop in Godot.
 # If you define _physics_process on a node, Godot will call it every frame.

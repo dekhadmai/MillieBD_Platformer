@@ -88,6 +88,7 @@ position = Vector2( 464, 248 )
 
 [node name="AerialEnemy_Shotgun_Bomb" parent="." index="18" instance=ExtResource( 7 )]
 position = Vector2( 528, 96 )
+bIsMiniboss = true
 
 [node name="AbilitySystemComponent" parent="AerialEnemy_Shotgun_Bomb" index="2"]
 InitStat_HP = 500.0

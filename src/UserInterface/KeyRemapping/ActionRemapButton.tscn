@@ -90,14 +90,25 @@ const KEYBOARD_BUTTON_TO_INDEX_MAPPING = {
 
 export(String) var action = \"ui_up\"
 export(bool) var is_controller = false
+var device_id = -1
 
 onready var keyboard_icon : Sprite = $Control/TextureRect/KeyboardSprite
 onready var controller_icon : Sprite = $Control/TextureRect/ControllerSprite
 
 func _ready():
 	assert(InputMap.has_action(action))
+	Input.connect(\"joy_connection_changed\", self, \"_joy_connection_changed\")
+	if Input.get_connected_joypads().size() > 0 : 
+		self.device_id = Input.get_connected_joypads()[0]
 	set_process_unhandled_key_input(false)
 	set_process_unhandled_input(false)
+	display_current_key()
+
+func _joy_connection_changed(device_id : int, connected: bool) -> void : 
+	if connected : 
+		self.device_id = device_id
+	else : 
+		self.device_id = -1
 	display_current_key()
 
 
@@ -132,7 +143,7 @@ func remap_action_to(event):
 func display_current_key():
 	var current_key = InputMap.get_action_list(action)[0].as_text()
 	text = \"\"
-	_set_current_icon_index(-1, action)
+	_set_current_icon_index(device_id, action)
 
 
 
@@ -149,7 +160,20 @@ func _set_current_icon_index(device_id : int, action_name: String) :
 			if XBOX_BUTTON_TO_INDEX_MAPPING.has(action.button_index) : 
 				keyboard_icon.set_visible(false)
 				controller_icon.set_visible(true)
-				controller_icon.set_frame(XBOX_BUTTON_TO_INDEX_MAPPING[action.button_index])
+				
+				var joy_offset = 0
+				
+				if device_id != -1 :
+					var joy_name = Input.get_joy_name(device_id)
+					print(joy_name)
+					if \"XInput\" in joy_name:
+						joy_offset = 0
+					if \"PS\" in joy_name:
+						joy_offset = 24
+					if \"Nintendo\" in joy_name or \"Switch\" in joy_name:
+						joy_offset = 48
+				
+				controller_icon.set_frame(XBOX_BUTTON_TO_INDEX_MAPPING[action.button_index]+joy_offset)
 				return
 				
 	keyboard_icon.set_visible(false)
