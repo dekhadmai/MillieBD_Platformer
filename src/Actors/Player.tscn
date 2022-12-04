@@ -573,6 +573,12 @@ bExpAddFerver = false
 StatToModify = 2
 ValueToModify = 100000.0
 
+[node name="CheatInvincible" parent="CheatBuff" instance=ExtResource( 16 )]
+bExpAddFerver = false
+EffectDurationType = 2
+StatToModify = 8
+ValueToModify = 1.0
+
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, -22 )
 InitStat_HP = 200.0
