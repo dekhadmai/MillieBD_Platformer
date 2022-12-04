@@ -3,7 +3,7 @@ extends Control
 onready var hp_bar = $HpBar
 onready var mp_bar = $MpBar
 
-func _process(delta):
+func _process(_delta):
 	var player = AutoLoadTransientData.player
 	if is_instance_valid(player) : 
 		if hp_bar : 

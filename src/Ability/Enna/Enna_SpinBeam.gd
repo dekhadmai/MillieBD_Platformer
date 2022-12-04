@@ -27,7 +27,7 @@ func update_physics(delta):
 	pass
 
 func InitHurtDetection(hurt_detection_local):
-	hurt_detection_local.connect("OnHurtDetection", self, "OnHurtDetectionHit")
+	var _error = hurt_detection_local.connect("OnHurtDetection", self, "OnHurtDetectionHit")
 	hurt_detection_local.TelegraphAnimDuration = Spin_TelegraphDuration
 	hurt_detection_local.AreaLingerDuration = Spin_LingerDuration
 
@@ -47,7 +47,7 @@ func Init():
 	InitHurtDetection(hurt_detection2)
 	InitHurtDetection(hurt_detection3)
 	InitHurtDetection(hurt_detection4)
-	hurt_detection1.connect("OnEndAreaLinger", self, "_on_Area2D_Damage_OnEndAreaLinger")
+	var _error = hurt_detection1.connect("OnEndAreaLinger", self, "_on_Area2D_Damage_OnEndAreaLinger")
 	
 	SpinActiveTimer = GlobalFunctions.CreateTimerAndBind(self, self, "SpinActive_Timeout")
 	SpinActiveTimer.set_one_shot(true)

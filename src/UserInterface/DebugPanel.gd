@@ -19,7 +19,7 @@ func _ready():
 		
 	time_start = OS.get_unix_time()
 
-func _process(delta):
+func _process(_delta):
 	fps_label.set_text( str("FPS : ", Engine.get_frames_per_second()) )
 	
 #	player = autoload_transient.player

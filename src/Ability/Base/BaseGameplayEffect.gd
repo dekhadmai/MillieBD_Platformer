@@ -19,10 +19,11 @@ export var SpriteFadeOutDuration = 0.5
 var bStartFadeout = false
 var current_modulate:Color
 
-onready var effect_sprite = $GameplayEffectSprite
+var effect_sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	effect_sprite = find_node("GameplayEffectSprite")
 	pass # Replace with function body.
 
 

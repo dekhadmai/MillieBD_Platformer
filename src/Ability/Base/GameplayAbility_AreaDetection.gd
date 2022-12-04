@@ -35,8 +35,8 @@ func Init():
 	if hurt_detection == null:
 		hurt_detection = find_node(Area2D_Damage_NodeName)
 		if hurt_detection :
-			hurt_detection.connect("OnHurtDetection", self, "OnHurtDetectionHit")
-			hurt_detection.connect("OnEndAreaLinger", self, "_on_Area2D_Damage_OnEndAreaLinger")
+			var _error = hurt_detection.connect("OnHurtDetection", self, "OnHurtDetectionHit")
+			_error = hurt_detection.connect("OnEndAreaLinger", self, "_on_Area2D_Damage_OnEndAreaLinger")
 	
 	
 func DoAbility():

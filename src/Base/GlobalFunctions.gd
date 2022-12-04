@@ -23,7 +23,7 @@ static func RotationToVector(radian) :
 static func CreateTimerAndBind(parent_object, bind_object, bind_function_name) -> Timer:
 	var timer: Timer = Timer.new()
 	parent_object.add_child(timer)
-	timer.connect("timeout", bind_object, bind_function_name)
+	var _error = timer.connect("timeout", bind_object, bind_function_name)
 	timer.set_one_shot(true)
 	return timer
 

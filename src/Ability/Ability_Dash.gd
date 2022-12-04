@@ -18,7 +18,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if dash_direction != 0:
 		AbilityOwner._velocity.x = player_current_stat.BaseMovespeed * (1 if dash_direction > 0 else -1) * dash_speed
 		AbilityOwner._velocity.y = 0.0

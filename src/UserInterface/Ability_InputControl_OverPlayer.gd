@@ -1,7 +1,7 @@
 extends "res://src/UserInterface/Ability_InputControl.gd"
 
 
-func tick(delta) : 
+func tick(_delta) : 
 	var remaining_cd = 0
 	ability_instance = GetAbilityInstance()
 	
@@ -32,15 +32,15 @@ func tick(delta) :
 			if ability_cost.is_visible() : 
 				ability_cost.set_visible(false)
 				
-		var bIsActiveSkill = false
-		var player = AutoLoadTransientData.player
-		if is_instance_valid(player) : 
-			if action_name == "Skill1" and player.SpecialAbilityIndex == 0 :
-				bIsActiveSkill = true
-			if action_name == "Skill2" and player.SpecialAbilityIndex == 1 :
-				bIsActiveSkill = true
-			if action_name == "Skill3" and player.SpecialAbilityIndex == 2 :
-				bIsActiveSkill = true
+#		var bIsActiveSkill = false
+#		var player = AutoLoadTransientData.player
+#		if is_instance_valid(player) : 
+#			if action_name == "Skill1" and player.SpecialAbilityIndex == 0 :
+#				bIsActiveSkill = true
+#			if action_name == "Skill2" and player.SpecialAbilityIndex == 1 :
+#				bIsActiveSkill = true
+#			if action_name == "Skill3" and player.SpecialAbilityIndex == 2 :
+#				bIsActiveSkill = true
 			
 #			var current_scale = sprite_icon.get_scale()
 #			var new_scale

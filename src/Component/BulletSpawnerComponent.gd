@@ -50,7 +50,7 @@ func Activate():
 	
 	for i in bullet_spawn_data_array.size():
 		bullet_spawn_data_array[i].Init()
-		bullet_spawn_data_array[i].connect("OnSpawnBullet", self, "OnSpawnBullet")
+		var _error = bullet_spawn_data_array[i].connect("OnSpawnBullet", self, "OnSpawnBullet")
 
 
 func OnSpawnBullet(bullet):

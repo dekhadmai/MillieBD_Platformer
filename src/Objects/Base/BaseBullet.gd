@@ -69,7 +69,7 @@ func Init(instigator:Actor, owning_ability, gameplayeffect_template:BaseGameplay
 	GetMovementComponent().SetSpeed(BaseSpeed, BaseSpeed)
 	GetMovementComponent().Init()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if bRotationMatchVelocity and get_linear_velocity().length() > 0 : 
 		set_global_rotation(get_linear_velocity().angle())
 		
@@ -121,7 +121,7 @@ func _on_body_entered(body):
 func OnBodyEnter(body):
 	OnHitSurface(body)
 
-func OnHitSurface(body):
+func OnHitSurface(_body):
 	destroy()
 	
 

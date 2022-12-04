@@ -25,7 +25,7 @@ func Init() -> bool:
 		
 	return false
 
-func _process(delta):
+func _process(_delta):
 	if is_instance_valid(player_current_stat):
 		hp_value.set_text( str("HP : %.0f" % player_current_stat.CurrentHP) )
 		hp_bar.value = player_current_stat.CurrentHP
@@ -44,7 +44,7 @@ func _process(delta):
 		enemy_value.set_text(str("Enemies : ", autoload_transient.room_enemy_count))
 	
 	else:
-		Init()
+		var _bool = Init()
 		
 		hp_value.set_text( str("HP : ", 0) )
 		hp_bar.value = 0

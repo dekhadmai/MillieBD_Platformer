@@ -46,7 +46,7 @@ func init():
 	dialog_index = 0
 
 		
-func _process(delta):
+func _process(_delta):
 	if is_active:
 		
 		if sfx != "" and !bAlreadyPlaySfx : 

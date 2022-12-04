@@ -23,7 +23,7 @@ func StartGraze(victim:Actor, instigator:Actor, causer):
 	graze_causer = causer
 	graze_timer = Timer.new()
 	add_child(graze_timer)
-	graze_timer.connect("timeout", self, "OnGraze")
+	var _error = graze_timer.connect("timeout", self, "OnGraze")
 	graze_timer.set_one_shot(false)
 	graze_timer.start(graze_period)
 	

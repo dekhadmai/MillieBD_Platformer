@@ -35,7 +35,7 @@ func Init()->bool:
 	return false
 
 
-func _process(delta):
+func _process(_delta):
 	if is_instance_valid(player_current_stat) :
 		hp_value.set_text( str("", player_current_stat.CurrentHP, "/", player_current_stat.BaseHP) )
 		hp_bar.value = player_current_stat.CurrentHP

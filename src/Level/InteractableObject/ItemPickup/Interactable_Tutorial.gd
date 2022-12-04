@@ -1,8 +1,9 @@
 extends InteractableObject
 
-onready var gameplay_effect_template = $PickupEffect
+var gameplay_effect_template
 
 func _ready(): 
+	gameplay_effect_template = find_node("PickupEffect")
 	var Room_Position = get_parent().Room_Position
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if !room_data.bStartRoom : 

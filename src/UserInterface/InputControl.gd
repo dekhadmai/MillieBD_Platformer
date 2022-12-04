@@ -96,7 +96,7 @@ var device_id = -1
 
 func _ready() -> void:
 	sprite_icon.set_texture(icon)
-	Input.connect("joy_connection_changed", self, "_joy_connection_changed")
+	var _error = Input.connect("joy_connection_changed", self, "_joy_connection_changed")
 	if Input.get_connected_joypads().size() > 0 : 
 		self.device_id = Input.get_connected_joypads()[0]
 	self._set_current_icon_index(self.device_id, self.action_name)
@@ -145,9 +145,12 @@ func _set_current_icon_index(device_id : int, action_name: String) :
 				return
 					
 	if bShowInputIcon : 
-		keyboard_icon.set_visible(true)
+#		keyboard_icon.set_visible(true)
+#		controller_icon.set_visible(false)
+#		keyboard_icon.set_frame(73)
+		
+		keyboard_icon.set_visible(false)
 		controller_icon.set_visible(false)
-		keyboard_icon.set_frame(73)
 	else :
 		keyboard_icon.set_visible(false)
 		controller_icon.set_visible(false)

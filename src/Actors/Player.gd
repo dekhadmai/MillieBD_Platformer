@@ -34,7 +34,7 @@ onready var sound_jump = $Jump
 onready var sound_level_up = $LevelUp
 onready var player_collision:CollisionShape2D = $PlayerCollision
 
-onready var camera = $Camera
+onready var camera: Camera2D = $Camera
 
 onready var jump_button_timer: Timer = $JumpButtonTimer
 onready var float_timer: Timer = $JumpButtonTimer/FloatTimer
@@ -150,7 +150,7 @@ func UseAbilityByIndex(idx):
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
-	var camera: Camera2D = $Camera
+	camera = $Camera
 	if action_suffix == "_p1":
 		camera.custom_viewport = $"../.."
 		yield(get_tree(), "idle_frame")
@@ -363,7 +363,7 @@ func _physics_process(_delta):
 
 
 func get_direction() -> Vector2 :
-	var result:Vector2
+	var result:Vector2 = Vector2.ZERO
 	result.x = Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix)
 	result.y = jump_direction
 	jump_direction = 0
@@ -436,7 +436,6 @@ func do_jump():
 	sound_jump.play()
 
 func can_jump():
-	var result: bool = false
 	if Input.is_action_pressed("move_down"):
 		return false
 	
@@ -572,7 +571,7 @@ func SpawnMiniBossRoomClearReward():
 	
 	pass
 
-func take_damage(value):
+func take_damage(_value):
 	if take_damage_vfx and take_damage_vfx_timer : 
 		take_damage_vfx.set_frame(randi() % 4)
 		take_damage_vfx.set_visible(true)

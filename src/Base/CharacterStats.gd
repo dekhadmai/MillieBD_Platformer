@@ -43,7 +43,7 @@ func InitBaseStat(init_stat: CharacterStatsInit, IframeSeconds: float) -> void:
 	HurtIframeTimer = Timer.new()
 	add_child(HurtIframeTimer)
 	HurtIframeTimer.set_one_shot(true)
-	HurtIframeTimer.connect("timeout", self, "HurtIframeTimer_timeout")
+	var _error = HurtIframeTimer.connect("timeout", self, "HurtIframeTimer_timeout")
 	
 	BaseHP = init_stat.BaseHP
 	BaseAttack = init_stat.BaseAttack

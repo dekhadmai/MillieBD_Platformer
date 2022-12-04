@@ -194,30 +194,30 @@ func SetLingeringAnimation(lingering_anim_name: String, seconds: float = 0.0):
 	if AnimPlayer != null:
 		AnimPlayer.SetLingeringAnim(lingering_anim_name, seconds)
 
-func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0, bStopMovingWhilePlayingAnim = false):
+func PlayCustomAnimation(custom_anim_name: String, seconds: float = 0.0, _bStopMovingWhilePlayingAnim = false):
 	if custom_anim_name == "":
 		return
 		
 	if AnimPlayer != null:
 		AnimPlayer.PlayCustomAnim(custom_anim_name, seconds)
 		
-	if bStopMovingWhilePlayingAnim:
-		bStopMovingAnim = bStopMovingWhilePlayingAnim
+	if _bStopMovingWhilePlayingAnim:
+		bStopMovingAnim = _bStopMovingWhilePlayingAnim
 		if bStopGravityWhilePlayingAnim : 
 			CacheGravity = AbilityOwner.bUseGravity
 			AbilityOwner.bUseGravity = false
 		AbilityOwner.bDontMoveStack += 1
 		StopMovingAnimTimer.start(seconds)
 		
-func PlayFullBodyAnimation(fullbody_anim_name: String, seconds: float = 0.0, bStopMovingWhilePlayingAnim = false):
+func PlayFullBodyAnimation(fullbody_anim_name: String, seconds: float = 0.0, _bStopMovingWhilePlayingAnim = false):
 	if fullbody_anim_name == "":
 		return
 	
 	if AnimPlayer != null:
 		AnimPlayer.PlayFullBodyAnim(fullbody_anim_name, seconds)
 		
-	if bStopMovingWhilePlayingAnim:
-		bStopMovingAnim = bStopMovingWhilePlayingAnim
+	if _bStopMovingWhilePlayingAnim:
+		bStopMovingAnim = _bStopMovingWhilePlayingAnim
 		if bStopGravityWhilePlayingAnim : 
 			CacheGravity = AbilityOwner.bUseGravity
 			AbilityOwner.bUseGravity = false

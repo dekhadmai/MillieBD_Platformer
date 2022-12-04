@@ -10,8 +10,8 @@ func OnHitSurface(body):
 func Activate_Beam(body):
 	if area2d_damage == null:
 		area2d_damage = get_node("Area2D_Damage_Telegraph")
-		area2d_damage.connect("OnHurtDetection", self, "OnBulletHit")
-		area2d_damage.connect("OnEndAreaLinger", self, "kill_actor")
+		var _error = area2d_damage.connect("OnHurtDetection", self, "OnBulletHit")
+		_error = area2d_damage.connect("OnEndAreaLinger", self, "kill_actor")
 	
 	var collNorm:Vector2 = bodyState.get_contact_local_normal(0)
 	var collPos:Vector2 = bodyState.get_contact_local_position(0)
