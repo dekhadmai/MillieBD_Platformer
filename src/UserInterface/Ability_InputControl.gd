@@ -16,7 +16,7 @@ func _process(delta):
 	
 	pass
 	
-func tick(delta) : 
+func tick(_delta) : 
 	var remaining_cd = 0
 	ability_instance = GetAbilityInstance()
 	

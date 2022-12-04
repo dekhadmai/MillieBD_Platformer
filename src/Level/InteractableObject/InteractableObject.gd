@@ -27,7 +27,7 @@ func _ready():
 	hold_timer = GlobalFunctions.CreateTimerAndBind(self, self, "hold_timer_timeout")
 	set_mode(MODE_CHARACTER)
 
-func _process(delta):
+func _process(_delta):
 	if bPlayerInRange : 
 		#interact_button.set_visible(true)
 		

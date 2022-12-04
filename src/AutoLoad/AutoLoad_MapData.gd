@@ -66,7 +66,7 @@ func SpawnPlayer():
 	
 	StartPlayBGM()
 	
-func TeleportPlayer(player): 
+func TeleportPlayer(_player): 
 	Checkpoint_Position = Vector2(100,150)
 	Checkpoint_RoomPosition = BossRoomPosition
 	Checkpoint_RoomGlobalPosition = Vector2(0,0)
@@ -76,7 +76,7 @@ func TeleportPlayer(player):
 	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y, "Center")
 	SetCurrentRoom(Checkpoint_RoomPosition)
 	
-	player.set_global_position(Checkpoint_Position)
+	_player.set_global_position(Checkpoint_Position)
 
 func DespawnAllRooms():
 	for i in GridHeight:
@@ -307,7 +307,6 @@ func GenerateRooms()->bool:
 		var room_pos = AvailableRooms.pop_back()
 		if room_pos : 
 			if !CheckAdjacentHasRoomType(room_pos.r, room_pos.c, "C") : 
-				var level_room_data: LevelRoomData
 				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetCheckpointRoom()
 				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "C"
 				LevelRoomMap[room_pos.r][room_pos.c].bSpawnDropOnClear = false
@@ -329,7 +328,6 @@ func GenerateRooms()->bool:
 		var room_pos = AvailableRooms.pop_back()
 		if room_pos : 
 			if !CheckAdjacentHasRoomType(room_pos.r, room_pos.c, "M") : 
-				var level_room_data: LevelRoomData
 				if LevelRoomMap[room_pos.r][room_pos.c].Distance < 4 : 
 					continue
 				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetMinibossRoom()
@@ -351,7 +349,6 @@ func GenerateRooms()->bool:
 	while (AvailableRooms.size() > 0) : 
 		var room_pos = AvailableRooms.pop_back()
 		if room_pos : 
-			var level_room_data: LevelRoomData
 			if LevelRoomMap[room_pos.r][room_pos.c].Distance >= ShortestDistanceThreshold and LevelRoomMap[room_pos.r][room_pos.c].Distance <= LongestDistanceThreshold : 
 				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetBossRoom()
 				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "B"
@@ -775,7 +772,6 @@ func PlaySfxProcessPause(sfx_resource_key) :
 #####
 func GetSaveData() : 
 	var dict = {}
-	var key = ""
 	for i in GridHeight:
 		dict[str(i)] = {}
 		for j in GridWidth:

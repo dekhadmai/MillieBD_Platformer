@@ -29,7 +29,6 @@ collision_mask = 16
 script = ExtResource( 5 )
 OriginalScale = 0.5
 bSpawnOnAlreadyClearedRoom = true
-bIsMiniboss = true
 AIcontroller_NodeName = "AIControllerAerial"
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]

@@ -49,10 +49,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	var animation = GetCurrentAnimName()
-	var ac = current_animation
 	if animation != LastAnimation:
 		play(animation)
 		LastAnimation = animation

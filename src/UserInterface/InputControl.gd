@@ -96,7 +96,7 @@ var device_id = -1
 
 func _ready() -> void:
 	sprite_icon.set_texture(icon)
-	Input.connect("joy_connection_changed", self, "_joy_connection_changed")
+	var _error = Input.connect("joy_connection_changed", self, "_joy_connection_changed")
 	if Input.get_connected_joypads().size() > 0 : 
 		self.device_id = Input.get_connected_joypads()[0]
 	self._set_current_icon_index(self.device_id, self.action_name)

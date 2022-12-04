@@ -17,8 +17,8 @@ onready var room_label: Label = $RoomLabel
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#area.shape.set_extents(tilemap.get_used_rect().size)
-	var r = tilemap.get_used_rect().size
-	var r2 = tilemap.get_global_position()
+#	var r = tilemap.get_used_rect().size
+#	var r2 = tilemap.get_global_position()
 	
 	bound = Rect2(tilemap.get_global_position(), tilemap.get_used_rect().size * tilemap.get_cell_size())
 	
@@ -30,7 +30,7 @@ func OpenDoor(door: Door) -> void:
 	door.OpenDoor(tilemap)
 	#print(room_label.get_text() + " OpenDoor : " + door.name + "\n")
 	
-func SetText(text: String) -> void:
+func SetText(_text: String) -> void:
 #	if room_label == null:
 #		room_label = find_node("RoomLabel")
 #	room_label.set_text(text)
@@ -74,11 +74,11 @@ func SetRoomCondition(condition: int): # 0 = lock door, 1 = open door
 		var door:Door = find_node("Door_Down")
 		SetDoorCondition(condition, door, tilemap)
 			
-func SetDoorCondition(condition, door, tilemap): # 0 = lock door, 1 = open door
+func SetDoorCondition(condition, door, _tilemap): # 0 = lock door, 1 = open door
 	if condition == 0 : 
-		door.LockDoor(tilemap)
+		door.LockDoor(_tilemap)
 	elif condition == 1 :
-		door.OpenDoor(tilemap)
+		door.OpenDoor(_tilemap)
 	
 func _on_CheckRoomClearCondition_timeout():
 	var enemy_count = 0
@@ -96,28 +96,28 @@ func _on_CheckRoomClearCondition_timeout():
 	SetRoomCondition(1)
 	
 
-func _on_Door_Left_PlayerEntered(body):
+func _on_Door_Left_PlayerEntered(_body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if room_data.bActive:
 		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y, "Left")
 	pass # Replace with function body.
 
 
-func _on_Door_Right_PlayerEntered(body):
+func _on_Door_Right_PlayerEntered(_body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if room_data.bActive:
 		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y, "Right")
 	pass # Replace with function body.
 
 
-func _on_Door_Up_PlayerEntered(body):
+func _on_Door_Up_PlayerEntered(_body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if room_data.bActive:
 		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y, "Up")
 	pass # Replace with function body.
 
 
-func _on_Door_Down_PlayerEntered(body):
+func _on_Door_Down_PlayerEntered(_body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	if room_data.bActive:
 		autoload_mapdata.SpawnRooms(Room_Position.x, Room_Position.y, "Down")
@@ -163,7 +163,7 @@ func _on_Door_Down_PlayerExited(body):
 
 
 
-func _on_RoomUiMark_PlayerEntered(body):
+func _on_RoomUiMark_PlayerEntered(_body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	room_data.bIsExplored = true
 	room_data.CurrentLocation = true
@@ -171,7 +171,7 @@ func _on_RoomUiMark_PlayerEntered(body):
 	pass # Replace with function body.
 
 
-func _on_RoomUiMark_PlayerExited(body):
+func _on_RoomUiMark_PlayerExited(_body):
 	var room_data = autoload_mapdata.LevelRoomMap[Room_Position.x][Room_Position.y]
 	room_data.CurrentLocation = false
 	print("room exited")

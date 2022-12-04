@@ -3,8 +3,8 @@ extends Area2D
 
 signal OnEndAreaLinger
 
-onready var graze_xp = $GrazeExpGiver
-onready var anim_player = $AnimationPlayer
+var graze_xp
+var anim_player
 
 
 export var StartDamageAnimName: String = "area_start"
@@ -12,21 +12,29 @@ export var LoopDamageAnimName: String = "area_loop"
 export var EndDamageAnimName: String = "area_end"
 export var EndDamageAnimDuration: float = 0.25
 
-onready var winddown_anim_timer: Timer = $WindDownAnimTimer
-onready var area_start_timer: Timer = $AreaStartAnimTimer
+var winddown_anim_timer: Timer
+var area_start_timer: Timer
 
 export var bStopActiveSoundWhenDeactivate = false
-onready var active_sound: AudioStreamPlayer2D = $ActiveSound
+var active_sound: AudioStreamPlayer2D
 
 
 func _ready():
 	if is_monitorable():
 		if GetAnimPlayer() != null:
 			GetAnimPlayer().play(StartDamageAnimName)
+			
+	winddown_anim_timer = find_node("WindDownAnimTimer")
+	area_start_timer = find_node("AreaStartAnimTimer")
+	
+	graze_xp = find_node("GrazeExpGiver")
+	anim_player = find_node("AnimationPlayer")
+	
+	active_sound = find_node("ActiveSound")
 	
 func GetAnimPlayer() -> AnimationPlayer:
 	if anim_player == null:
-		anim_player = get_node("AnimationPlayer")
+		anim_player = find_node("AnimationPlayer")
 	return anim_player
 
 func GetOwnerObject() : 

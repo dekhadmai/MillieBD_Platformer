@@ -8,7 +8,7 @@ func _ready():
 		bullet_spawner_component = find_node("BulletSpawnerComponent")
 		
 	bullet_spawner_component.Init(AbilityOwner, self, GameplayeEffect_Template)
-	bullet_spawner_component.connect("OnSpawnBullet", self, "OnSpawnBullet")
+	var _error = bullet_spawner_component.connect("OnSpawnBullet", self, "OnSpawnBullet")
 	
 func Activate():
 	.Activate()

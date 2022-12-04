@@ -15,7 +15,7 @@ var bAlreadyTransitioned = false
 func _ready(): 
 	Slide.set_texture(Slides[slide_index])
 	
-func _process(delta):
+func _process(_delta):
 	if bSceneReady : 
 		if !DialogControl.is_active : 
 			if Input.is_action_just_pressed("ui_accept") : 

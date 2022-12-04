@@ -32,9 +32,9 @@ func GetInstigator() -> Actor:
 	return self
 
 func _ready():
-	GetAbilitySystemComponent().connect("died", self, "died")
-	GetAbilitySystemComponent().connect("level_up", self, "level_up")
-	GetAbilitySystemComponent().connect("take_damage", self, "take_damage")
+	var _error = GetAbilitySystemComponent().connect("died", self, "died")
+	_error = GetAbilitySystemComponent().connect("level_up", self, "level_up")
+	_error = GetAbilitySystemComponent().connect("take_damage", self, "take_damage")
 
 # _physics_process is called after the inherited _physics_process function.
 # This allows the Player and Enemy scenes to be affected by gravity.
@@ -67,7 +67,7 @@ func died():
 func level_up():
 	pass
 
-func take_damage(value):
+func take_damage(_value):
 	pass
 
 func GetTargetingPosition() -> Vector2:

@@ -18,7 +18,7 @@ var spawn_timer: Timer
 func Init():
 	spawn_timer = Timer.new()
 	add_child(spawn_timer)
-	spawn_timer.connect("timeout", self, "OnSpawnTimerTimeout")
+	var _error = spawn_timer.connect("timeout", self, "OnSpawnTimerTimeout")
 	spawn_timer.set_one_shot(true)
 	spawn_timer.start(BulletData_Delay)
 	pass

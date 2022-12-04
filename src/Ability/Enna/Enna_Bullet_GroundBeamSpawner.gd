@@ -38,8 +38,8 @@ func Init(instigator:Actor, owning_ability, gameplayeffect_template:BaseGameplay
 	bullet_spawner_component1.Init(Instigator, OwningAbility, gameplay_effect_template)
 	bullet_spawner_component2.Init(Instigator, OwningAbility, gameplay_effect_template)
 	
-	bullet_spawner_component1.connect("OnSpawnBullet", self, "OnSpawnBullet")
-	bullet_spawner_component2.connect("OnSpawnBullet", self, "OnSpawnBullet")
+	var _error = bullet_spawner_component1.connect("OnSpawnBullet", self, "OnSpawnBullet")
+	_error = bullet_spawner_component2.connect("OnSpawnBullet", self, "OnSpawnBullet")
 	
 	bullet_spawner_comp_array.append(bullet_spawner_component1)
 	bullet_spawner_comp_array.append(bullet_spawner_component2)

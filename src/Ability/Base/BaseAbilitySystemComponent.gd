@@ -31,9 +31,9 @@ func _ready():
 	BaseCharStats.BaseJumpSpeed = InitStat_JumpSpeed
 	
 	CurrentCharStats.InitBaseStat(BaseCharStats, InitStat_IframeSeconds)
-	CurrentCharStats.connect("died", self, "died")
-	CurrentCharStats.connect("level_up", self, "level_up")
-	CurrentCharStats.connect("take_damage", self, "take_damage")
+	var _error = CurrentCharStats.connect("died", self, "died")
+	_error = CurrentCharStats.connect("level_up", self, "level_up")
+	_error = CurrentCharStats.connect("take_damage", self, "take_damage")
 	
 	pass
 

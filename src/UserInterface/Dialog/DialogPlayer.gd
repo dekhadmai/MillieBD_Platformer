@@ -15,7 +15,7 @@ func _ready():
 	dialog_box.visible = false
 	portrait_box.visible = false
 	scene_text = load_scene_text()
-	DialogSignal.connect("display_dialog", self, "on_display_dialog")
+	var _error = DialogSignal.connect("display_dialog", self, "on_display_dialog")
 
 func load_scene_text():
 	var file = File.new()
