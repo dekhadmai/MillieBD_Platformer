@@ -544,6 +544,36 @@ theme = ExtResource( 6 )
 text = "Fall through thin platform"
 align = 1
 
+[node name="Label10" type="Label" parent="ButtonLayer"]
+margin_left = 505.0
+margin_top = 177.0
+margin_right = 935.0
+margin_bottom = 215.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 6 )
+text = "aim up/aim down"
+align = 1
+
+[node name="Label11" type="Label" parent="ButtonLayer"]
+margin_left = 696.0
+margin_top = 177.0
+margin_right = 1126.0
+margin_bottom = 215.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 6 )
+text = "use gun/use skill"
+align = 1
+
+[node name="Label12" type="Label" parent="ButtonLayer"]
+margin_left = 538.0
+margin_top = 320.0
+margin_right = 968.0
+margin_bottom = 358.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 6 )
+text = "minimap"
+align = 1
+
 [editable path="ButtonLayer/Next"]
 [editable path="ButtonLayer/Cancel"]
 [editable path="ButtonLayer/jump"]
