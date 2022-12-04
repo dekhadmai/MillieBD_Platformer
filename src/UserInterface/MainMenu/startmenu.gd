@@ -28,3 +28,10 @@ func _on_QuitBtn_pressed():
 
 func _on_Credits_pressed():
 	Transition.change_scene("res://src/UserInterface/CreditUI.tscn")
+
+
+func _on_LoadCheckpoint_pressed():
+	PlayerProfile.load_data()
+	AutoLoadMapData.print_map()
+	
+	Transition.change_scene("res://src/Main/Game.tscn")

@@ -39,7 +39,9 @@ var TotalRoomAvailable: int = 0
 var LongestDistance: int = 0
 
 var TotalRoomThreshold = 30
-var LongestDistanceThreshold = 13
+var ShortestDistanceThreshold = 13
+var LongestDistanceThreshold = 18
+
 
 var BossRoomPosition: Vector2
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
@@ -54,9 +56,9 @@ onready var player_template = load(PlayerTemplate)
 var player
 func SpawnPlayer():
 	DespawnAllRooms()
-			
+	
+	SetCurrentRoom(Checkpoint_RoomPosition)		
 	SpawnRooms(Checkpoint_RoomPosition.x, Checkpoint_RoomPosition.y, "Center")
-	SetCurrentRoom(Checkpoint_RoomPosition)
 	
 	player = player_template.instance()
 	player.set_global_position(Checkpoint_Position)
@@ -350,7 +352,7 @@ func GenerateRooms()->bool:
 		var room_pos = AvailableRooms.pop_back()
 		if room_pos : 
 			var level_room_data: LevelRoomData
-			if LevelRoomMap[room_pos.r][room_pos.c].Distance >= LongestDistanceThreshold : 
+			if LevelRoomMap[room_pos.r][room_pos.c].Distance >= ShortestDistanceThreshold and LevelRoomMap[room_pos.r][room_pos.c].Distance <= LongestDistanceThreshold : 
 				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetBossRoom()
 				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "B"
 				LevelRoomMap[room_pos.r][room_pos.c].bSpawnDropOnClear = false
@@ -767,3 +769,25 @@ func PlaySfxProcessPause(sfx_resource_key) :
 				$GlobalSfxPlayerProcessPause.play()
 	else : 
 		print("PlaySfxProcessPause key does not exist = " + sfx_resource_key)
+
+
+
+#####
+func GetSaveData() : 
+	var dict = {}
+	var key = ""
+	for i in GridHeight:
+		dict[str(i)] = {}
+		for j in GridWidth:
+			var level_room_data: LevelRoomData = LevelRoomMap[i][j]
+			dict[str(i)][str(j)] = level_room_data.GetSaveData()
+			
+	return dict
+	
+func LoadData(data) : 
+	for i in GridHeight:
+		for j in GridWidth:
+			var level_room_data: LevelRoomData = LevelRoomMap[i][j]
+			level_room_data.LoadData(data[str(i)][str(j)])
+	
+	

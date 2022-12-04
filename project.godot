@@ -210,6 +210,7 @@ Transition="*res://src/UserInterface/MainMenu/Transistion Canvas.tscn"
 AutoLoadMapData="*res://src/AutoLoad/AutoLoad_MapData.tscn"
 DialogSignal="*res://src/AutoLoad/DialogSignal.gd"
 InputSave="*res://src/Save/InputSave.gd"
+PlayerProfile="*res://src/Save/PlayerProfile.gd"
 
 [debug]
 
