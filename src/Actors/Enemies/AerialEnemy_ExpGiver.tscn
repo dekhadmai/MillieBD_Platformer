@@ -32,6 +32,7 @@ shader_param/color_count = 8
 
 [node name="AerialEnemy_ExpGiver" instance=ExtResource( 3 )]
 AIcontroller_NodeName = "AIControllerAerial"
+bReverseFlipping = true
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
 AbilityNodeName = "ShootAbility"
@@ -48,7 +49,7 @@ enabled = false
 [node name="Ray3" parent="AIControllerAerial/VisionRays" index="2"]
 enabled = false
 
-[node name="AbilitySystemComponent" parent="." index="2"]
+[node name="AbilitySystemComponent" parent="." index="3"]
 InitStat_Movespeed = 0.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
@@ -60,7 +61,7 @@ AbilityDelayForAnimationSecond = 0.4
 [node name="AbilitySound" parent="AbilitySystemComponent/ShootAbility" index="2"]
 stream = ExtResource( 6 )
 
-[node name="Sprite" parent="." index="4"]
+[node name="Sprite" parent="." index="5"]
 frame = 8
 
 [node name="AnimationPlayerStateScene" parent="." index="8" instance=ExtResource( 4 )]

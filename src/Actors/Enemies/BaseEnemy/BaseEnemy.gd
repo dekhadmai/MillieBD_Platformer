@@ -28,6 +28,8 @@ var bAlreadyGiveExp = false
 onready var effect_kill_exp = $GameplayEffect_KillExp
 onready var effect_kill_ferver = $GameplayEffect_KillFerver
 
+export var bReverseFlipping = false
+
 func get_class():
 	return "Actor"
 	
@@ -95,16 +97,28 @@ func _physics_process(_delta):
 	if bDontMoveStack > 0 or _velocity.x == 0 : 
 		if is_instance_valid(CurrentTargetActor) : 
 			if CurrentTargetActor.get_global_position().x - get_global_position().x > 0 :
-				sprite.flip_h = true
+				if !bReverseFlipping : 
+					sprite.flip_h = true
+				else : 
+					sprite.flip_h = false
 				FacingDirection = 1
 			else : 
-				sprite.flip_h = false
+				if !bReverseFlipping : 
+					sprite.flip_h = false
+				else : 
+					sprite.flip_h = true
 				FacingDirection = -1
 	elif _velocity.x > 0:
-		sprite.flip_h = true
+		if !bReverseFlipping : 
+			sprite.flip_h = true
+		else : 
+			sprite.flip_h = false
 		FacingDirection = 1
 	elif _velocity.x < 0:
-		sprite.flip_h = false
+		if !bReverseFlipping : 
+			sprite.flip_h = false
+		else : 
+			sprite.flip_h = true
 		FacingDirection = -1
 	
 
