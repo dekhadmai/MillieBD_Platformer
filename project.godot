@@ -215,6 +215,7 @@ PlayerProfile="*res://src/Save/PlayerProfile.gd"
 [debug]
 
 gdscript/completion/autocomplete_setters_and_getters=true
+gdscript/warnings/return_value_discarded=false
 
 [display]
 

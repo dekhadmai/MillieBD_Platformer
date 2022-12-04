@@ -22,6 +22,6 @@ func SpawnActor() -> void:
 	bullet_spawner_component.Activate()
 	pass
 
-func OnSpawnBullet(bullet):
+func OnSpawnBullet(_bullet):
 	# do nothing on the base class
 	pass
