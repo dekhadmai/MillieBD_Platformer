@@ -27,8 +27,9 @@ extents = Vector2( 32, 32 )
 z_index = 1000
 collision_mask = 16
 script = ExtResource( 5 )
-Team_ID = 0
 OriginalScale = 0.5
+bSpawnOnAlreadyClearedRoom = true
+bIsMiniboss = true
 AIcontroller_NodeName = "AIControllerAerial"
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
@@ -56,7 +57,7 @@ enabled = false
 cast_to = Vector2( 90, 20 )
 collision_mask = 16
 
-[node name="AbilitySystemComponent" parent="." index="2"]
+[node name="AbilitySystemComponent" parent="." index="3"]
 InitStat_HP = 3000.0
 InitStat_Movespeed = 75.0
 
@@ -77,11 +78,11 @@ AreaEffectInterval = 0.3
 
 [node name="AnimationPlayerStateScene" parent="." index="4" instance=ExtResource( 13 )]
 
-[node name="Sprite" parent="." index="5"]
+[node name="Sprite" parent="." index="6"]
 scale = Vector2( 0.5, 0.5 )
 frame = 8
 
-[node name="CollisionShape2D" parent="." index="6"]
+[node name="CollisionShape2D" parent="." index="7"]
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="Area2D_HurtBox" index="0"]
