@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/art/ui/tutorial/tutorial.png" type="Texture" id=1]
 [ext_resource path="res://src/UserInterface/TutorialUI.gd" type="Script" id=2]
 [ext_resource path="res://assets/art/ui/icons/minimap.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/ui/icons/stick_down.PNG" type="Texture" id=4]
+[ext_resource path="res://assets/art/ui/icons/stick_up.PNG" type="Texture" id=5]
 [ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=9]
 
 [node name="TutorialUI" type="Control"]
@@ -32,6 +34,21 @@ expand = true
 
 [node name="ButtonLayer" type="CanvasLayer" parent="."]
 layer = 101
+
+[node name="StickDown" type="Sprite" parent="ButtonLayer"]
+position = Vector2( 674, 120 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 4 )
+
+[node name="StickDown2" type="Sprite" parent="ButtonLayer"]
+position = Vector2( 819, 517 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 4 )
+
+[node name="StickUp" type="Sprite" parent="ButtonLayer"]
+position = Vector2( 679, 262 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
 
 [node name="Next" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
@@ -433,7 +450,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
 text = "Close"
 
-[node name="Sprite" type="Sprite" parent="ButtonLayer"]
+[node name="Minimap" type="Sprite" parent="ButtonLayer"]
 position = Vector2( 601, 368 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
