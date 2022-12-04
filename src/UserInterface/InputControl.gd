@@ -145,9 +145,12 @@ func _set_current_icon_index(device_id : int, action_name: String) :
 				return
 					
 	if bShowInputIcon : 
-		keyboard_icon.set_visible(true)
+#		keyboard_icon.set_visible(true)
+#		controller_icon.set_visible(false)
+#		keyboard_icon.set_frame(73)
+		
+		keyboard_icon.set_visible(false)
 		controller_icon.set_visible(false)
-		keyboard_icon.set_frame(73)
 	else :
 		keyboard_icon.set_visible(false)
 		controller_icon.set_visible(false)

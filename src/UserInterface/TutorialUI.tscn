@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/art/ui/tutorial/tutorial.png" type="Texture" id=1]
 [ext_resource path="res://src/UserInterface/TutorialUI.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/ui/icons/minimap.png" type="Texture" id=3]
 [ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=9]
 
 [node name="TutorialUI" type="Control"]
@@ -83,10 +84,10 @@ text = "Close"
 [node name="jump" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -1081.0
-margin_top = -303.0
-margin_right = -1033.0
-margin_bottom = -287.0
+margin_left = -1088.0
+margin_top = -301.0
+margin_right = -1040.0
+margin_bottom = -285.0
 rect_scale = Vector2( 2, 2 )
 action_name = "jump"
 
@@ -105,10 +106,10 @@ text = "Close"
 [node name="jump2" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -996.0
-margin_top = -303.0
-margin_right = -948.0
-margin_bottom = -287.0
+margin_left = -1006.0
+margin_top = -301.0
+margin_right = -958.0
+margin_bottom = -285.0
 rect_scale = Vector2( 2, 2 )
 action_name = "jump"
 
@@ -127,10 +128,10 @@ text = "Close"
 [node name="jump3" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -462.0
-margin_top = -205.0
-margin_right = -414.0
-margin_bottom = -189.0
+margin_left = -429.0
+margin_top = -204.0
+margin_right = -381.0
+margin_bottom = -188.0
 rect_scale = Vector2( 2, 2 )
 action_name = "jump"
 
@@ -146,20 +147,20 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
 text = "Close"
 
-[node name="dash" parent="ButtonLayer" instance=ExtResource( 9 )]
+[node name="float" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -825.0
-margin_top = -303.0
+margin_top = -298.0
 margin_right = -777.0
-margin_bottom = -287.0
+margin_bottom = -282.0
 rect_scale = Vector2( 2, 2 )
-action_name = "dash"
+action_name = "float"
 
-[node name="IconSprite" parent="ButtonLayer/dash" index="0"]
+[node name="IconSprite" parent="ButtonLayer/float" index="0"]
 visible = false
 
-[node name="ActionName" parent="ButtonLayer/dash" index="3"]
+[node name="ActionName" parent="ButtonLayer/float" index="3"]
 margin_left = -15.0
 margin_top = 7.5
 margin_right = 177.0
@@ -171,10 +172,10 @@ text = "Close"
 [node name="dash2" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -625.0
-margin_top = -602.0
-margin_right = -577.0
-margin_bottom = -586.0
+margin_left = -217.0
+margin_top = -209.0
+margin_right = -169.0
+margin_bottom = -193.0
 rect_scale = Vector2( 2, 2 )
 action_name = "dash"
 
@@ -193,10 +194,10 @@ text = "Close"
 [node name="move_up" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -624.0
-margin_top = -443.0
-margin_right = -576.0
-margin_bottom = -427.0
+margin_left = -617.0
+margin_top = -459.0
+margin_right = -569.0
+margin_bottom = -443.0
 rect_scale = Vector2( 2, 2 )
 action_name = "move_up"
 
@@ -215,10 +216,10 @@ text = "Close"
 [node name="move_down" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -624.0
-margin_top = -524.0
-margin_right = -576.0
-margin_bottom = -508.0
+margin_left = -622.0
+margin_top = -601.0
+margin_right = -574.0
+margin_bottom = -585.0
 rect_scale = Vector2( 2, 2 )
 action_name = "move_down"
 
@@ -237,10 +238,10 @@ text = "Close"
 [node name="move_down2" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -517.0
-margin_top = -205.0
-margin_right = -469.0
-margin_bottom = -189.0
+margin_left = -477.0
+margin_top = -204.0
+margin_right = -429.0
+margin_bottom = -188.0
 rect_scale = Vector2( 2, 2 )
 action_name = "move_down"
 
@@ -259,10 +260,10 @@ text = "Close"
 [node name="Minimap_test" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -624.0
-margin_top = -364.0
-margin_right = -576.0
-margin_bottom = -348.0
+margin_left = -617.0
+margin_top = -351.0
+margin_right = -569.0
+margin_bottom = -335.0
 rect_scale = Vector2( 2, 2 )
 action_name = "Minimap_test"
 
@@ -281,10 +282,10 @@ text = "Close"
 [node name="shoot" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -416.0
-margin_top = -602.0
-margin_right = -368.0
-margin_bottom = -586.0
+margin_left = -405.0
+margin_top = -598.0
+margin_right = -357.0
+margin_bottom = -582.0
 rect_scale = Vector2( 2, 2 )
 action_name = "shoot"
 
@@ -303,10 +304,10 @@ text = "Close"
 [node name="use_ability" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -416.0
-margin_top = -523.0
-margin_right = -368.0
-margin_bottom = -507.0
+margin_left = -410.0
+margin_top = -459.0
+margin_right = -362.0
+margin_bottom = -443.0
 rect_scale = Vector2( 2, 2 )
 action_name = "use_ability"
 
@@ -325,10 +326,10 @@ text = "Close"
 [node name="swap_weapon" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -226.0
-margin_top = -603.0
-margin_right = -178.0
-margin_bottom = -587.0
+margin_left = -207.0
+margin_top = -597.0
+margin_right = -159.0
+margin_bottom = -581.0
 rect_scale = Vector2( 2, 2 )
 action_name = "swap_weapon"
 
@@ -347,10 +348,10 @@ text = "Close"
 [node name="swap_ability" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -225.0
-margin_top = -524.0
-margin_right = -177.0
-margin_bottom = -508.0
+margin_left = -211.0
+margin_top = -456.0
+margin_right = -163.0
+margin_bottom = -440.0
 rect_scale = Vector2( 2, 2 )
 action_name = "swap_ability"
 
@@ -369,10 +370,10 @@ text = "Close"
 [node name="Skill1" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -437.0
-margin_top = -443.0
-margin_right = -389.0
-margin_bottom = -427.0
+margin_left = -445.0
+margin_top = -344.0
+margin_right = -397.0
+margin_bottom = -328.0
 rect_scale = Vector2( 2, 2 )
 action_name = "Skill1"
 
@@ -391,10 +392,10 @@ text = "Close"
 [node name="Skill2" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -322.0
-margin_top = -441.0
-margin_right = -274.0
-margin_bottom = -425.0
+margin_left = -325.0
+margin_top = -344.0
+margin_right = -277.0
+margin_bottom = -328.0
 rect_scale = Vector2( 2, 2 )
 action_name = "Skill2"
 
@@ -413,10 +414,10 @@ text = "Close"
 [node name="Skill3" parent="ButtonLayer" instance=ExtResource( 9 )]
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -206.0
-margin_top = -444.0
-margin_right = -158.0
-margin_bottom = -428.0
+margin_left = -207.0
+margin_top = -345.0
+margin_right = -159.0
+margin_bottom = -329.0
 rect_scale = Vector2( 2, 2 )
 action_name = "Skill3"
 
@@ -432,12 +433,17 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
 text = "Close"
 
+[node name="Sprite" type="Sprite" parent="ButtonLayer"]
+position = Vector2( 601, 368 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
 [editable path="ButtonLayer/Next"]
 [editable path="ButtonLayer/Cancel"]
 [editable path="ButtonLayer/jump"]
 [editable path="ButtonLayer/jump2"]
 [editable path="ButtonLayer/jump3"]
-[editable path="ButtonLayer/dash"]
+[editable path="ButtonLayer/float"]
 [editable path="ButtonLayer/dash2"]
 [editable path="ButtonLayer/move_up"]
 [editable path="ButtonLayer/move_down"]
