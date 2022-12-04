@@ -39,7 +39,9 @@ var TotalRoomAvailable: int = 0
 var LongestDistance: int = 0
 
 var TotalRoomThreshold = 30
-var LongestDistanceThreshold = 13
+var ShortestDistanceThreshold = 13
+var LongestDistanceThreshold = 18
+
 
 var BossRoomPosition: Vector2
 var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
@@ -350,7 +352,7 @@ func GenerateRooms()->bool:
 		var room_pos = AvailableRooms.pop_back()
 		if room_pos : 
 			var level_room_data: LevelRoomData
-			if LevelRoomMap[room_pos.r][room_pos.c].Distance >= LongestDistanceThreshold : 
+			if LevelRoomMap[room_pos.r][room_pos.c].Distance >= ShortestDistanceThreshold and LevelRoomMap[room_pos.r][room_pos.c].Distance <= LongestDistanceThreshold : 
 				LevelRoomMap[room_pos.r][room_pos.c].LevelRoomTemplate = GetBossRoom()
 				LevelRoomMap[room_pos.r][room_pos.c].RoomType = "B"
 				LevelRoomMap[room_pos.r][room_pos.c].bSpawnDropOnClear = false
