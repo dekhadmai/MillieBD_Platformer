@@ -376,7 +376,7 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 hframes = 8
 vframes = 15
-frame = 64
+frame = 48
 
 [node name="AnimationPlayerState" parent="." instance=ExtResource( 1 )]
 autoplay = "idle"

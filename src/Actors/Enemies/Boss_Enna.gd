@@ -36,12 +36,24 @@ var bottom_right: Vector2
 var AbilityLevel = 0
 var bIsStunned = false
 var StunDuration = 5.0
+var bIsTransform = false
 
 var HomingFeatherChance = 0.5
 
 export var StunnedAnimName = "stunned"
 
 func _physics_process(delta):
+	
+	if bIsTransform :
+		GetAbilitySystemComponent().CurrentCharStats.CurrentHP += GetAbilitySystemComponent().CurrentCharStats.BaseHP / (1.0/delta)
+	
+	var abi_comp = GetAbilitySystemComponent()
+	if abi_comp :
+		var str_value = "Enna Alouette : " + str("%.0f" % abi_comp.CurrentCharStats.CurrentHP) + "/" + str(abi_comp.CurrentCharStats.BaseHP)
+		$CanvasLayer/Boss_Hpbar.set_max(abi_comp.CurrentCharStats.BaseHP)
+		$CanvasLayer/Boss_Hpbar.set_value(abi_comp.CurrentCharStats.CurrentHP)
+		$CanvasLayer/Boss_Hpbar/Boss_Hpvalue.set_text(str_value)
+		
 	if ai_controller:
 		if ability_fullscreen.IsAbilityActive() or bIsStunned:
 			ai_controller.bUseFollowPosition = false
@@ -121,10 +133,12 @@ func Transformation() :
 	
 
 func _on_TransformAnim1_timeout():
-	animation_player.PlayFullBodyAnim("transformation", 0.9)
-	$TransformTimer.start(0.9)
+	animation_player.PlayFullBodyAnim("transformation", 1.0)
+	bIsTransform = true
+	$TransformTimer.start(1.0)
 	
 func TransformationEndTimer() : 
+	bIsTransform = false
 	GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
 	GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
 	GetAbilitySystemComponent().CurrentCharStats.SetDamageAdjustScale(1.25)
@@ -258,6 +272,7 @@ func AfterDeathAnim() :
 	StunnedAnimName = "idle_haloless"
 	Stun()
 	DialogEnna(3)
+	$CanvasLayer/Boss_Hpbar.hide()
 	ability_spinbeam.queue_free()
 	ability_groundbeam.queue_free()
 	animation_player.PlayFullBodyAnim("idle_haloless", 999999)

@@ -5,7 +5,6 @@ extends Actor
 enum State {
 	MOVING,
 	DEAD,
-	AFTERDEAD,
 }
 
 var _state = State.MOVING
