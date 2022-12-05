@@ -4,6 +4,8 @@
 [ext_resource path="res://src/Base/BulletSpawnerData.gd" type="Script" id=2]
 
 [node name="GameplayAbility_Enna_FeatherBeam" instance=ExtResource( 1 )]
+FullbodyAnimName = "big_attack3"
+FullbodyAnimDuration = 1.0
 
 [node name="AbilitySound" parent="." index="2"]
 stream = null

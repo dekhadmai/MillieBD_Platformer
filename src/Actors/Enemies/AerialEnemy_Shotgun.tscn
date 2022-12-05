@@ -12,6 +12,7 @@ radius = 150.0
 [node name="AerialEnemy_Shotgun" instance=ExtResource( 3 )]
 collision_mask = 16
 AIcontroller_NodeName = "AIControllerAerial"
+bReverseFlipping = true
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
 AbilityTriggerIntervalSeconds = 0.2
@@ -20,7 +21,7 @@ AbilityNodeName = "ShootAbility"
 [node name="CollisionShape2D" parent="AIControllerAerial/SafeDistance" index="0"]
 shape = SubResource( 1 )
 
-[node name="AbilitySystemComponent" parent="." index="2"]
+[node name="AbilitySystemComponent" parent="." index="3"]
 InitStat_Movespeed = 50.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 5 )]
@@ -44,7 +45,7 @@ stream = ExtResource( 1 )
 [node name="BulletSpawnerComponent" parent="AbilitySystemComponent/ShootAbility" index="3"]
 ActorToSpawnPath = "res://src/Objects/Bullets/BaseBullet_Enemy_Aloubullet_NoHoming.tscn"
 
-[node name="Sprite" parent="." index="4"]
+[node name="Sprite" parent="." index="5"]
 frame = 8
 
 [node name="AnimationPlayerStateScene" parent="." index="8" instance=ExtResource( 4 )]

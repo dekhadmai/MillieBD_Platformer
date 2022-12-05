@@ -13,6 +13,10 @@ export var OriginalScale = 0.25
 export var bSpawnOnAlreadyClearedRoom = false
 export var bIsMiniboss = false
 
+export var IdleAnimName = "idle"
+export var WalkAnimName = "walk"
+export var DeathAnimName = "death"
+
 onready var sprite:Sprite = $AnimationPlayerStateScene/Sprite
 onready var animation_player = $AnimationPlayerStateScene/AnimationPlayerState
 onready var autoload_transient = $"/root/AutoLoadTransientData"
@@ -27,6 +31,8 @@ onready var hp_value = $Hpvalue
 var bAlreadyGiveExp = false
 onready var effect_kill_exp = $GameplayEffect_KillExp
 onready var effect_kill_ferver = $GameplayEffect_KillFerver
+
+export var bReverseFlipping = false
 
 func get_class():
 	return "Actor"
@@ -95,16 +101,28 @@ func _physics_process(_delta):
 	if bDontMoveStack > 0 or _velocity.x == 0 : 
 		if is_instance_valid(CurrentTargetActor) : 
 			if CurrentTargetActor.get_global_position().x - get_global_position().x > 0 :
-				sprite.flip_h = true
+				if !bReverseFlipping : 
+					sprite.flip_h = true
+				else : 
+					sprite.flip_h = false
 				FacingDirection = 1
 			else : 
-				sprite.flip_h = false
+				if !bReverseFlipping : 
+					sprite.flip_h = false
+				else : 
+					sprite.flip_h = true
 				FacingDirection = -1
 	elif _velocity.x > 0:
-		sprite.flip_h = true
+		if !bReverseFlipping : 
+			sprite.flip_h = true
+		else : 
+			sprite.flip_h = false
 		FacingDirection = 1
 	elif _velocity.x < 0:
-		sprite.flip_h = false
+		if !bReverseFlipping : 
+			sprite.flip_h = false
+		else : 
+			sprite.flip_h = true
 		FacingDirection = -1
 	
 
@@ -149,17 +167,17 @@ func UpdateAnimState():
 	if _state != State.DEAD :
 		if is_on_floor():
 			if abs(_velocity.x) > 0.1:
-				animation_new = "walk"
+				animation_new = WalkAnimName
 			else:
-				animation_new = "idle"
+				animation_new = IdleAnimName
 		else:
 			if abs(_velocity.x) > 0.1 or abs(_velocity.y) > 0:
-				animation_new = "walk"
+				animation_new = WalkAnimName
 			else:
-				animation_new = "idle"
+				animation_new = IdleAnimName
 	else : 
-		animation_new = "death"
-	
+		animation_new = DeathAnimName
+
 	if animation_player != null : 
 		animation_player.BaseAnimState = animation_new
 	

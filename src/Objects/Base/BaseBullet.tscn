@@ -3,7 +3,7 @@
 [ext_resource path="res://src/Objects/Base/BaseBullet.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/bullet/bullet.png" type="Texture" id=2]
 [ext_resource path="res://src/Base/Area2D_Damage.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/art/bullets/sprite_enemy_shot_triangle_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/bullets/mortar.png" type="Texture" id=4]
 [ext_resource path="res://src/Component/MovementComponent.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CanvasItemMaterial" id=1]

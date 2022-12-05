@@ -6,6 +6,9 @@
 gravity_scale = 1.0
 BaseSpeed = 500.0
 
+[node name="BulletSprite" parent="." index="3"]
+scale = Vector2( 0.5, 0.5 )
+
 [node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]
 frame = 4
 

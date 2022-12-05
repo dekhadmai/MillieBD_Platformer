@@ -25,6 +25,7 @@ onready var cheat_exp = $CheatBuff/CheatExp
 onready var cheat_atk = $CheatBuff/CheatAtk
 onready var cheat_damage = $CheatBuff/CheatTakeDamage
 onready var cheat_heal = $CheatBuff/CheatHeal
+onready var cheat_invincible = $CheatBuff/CheatInvincible
 
 onready var platform_detector = $PlatformDetector
 onready var animation_player = $AnimationPlayerState
@@ -601,6 +602,8 @@ func CheckCheatCommands():
 	if GlobalFunctions.IsKeyModifierPressed("shoot", "CheatModifier"):
 		CheatAtk()
 	if GlobalFunctions.IsKeyModifierPressed("dash", "CheatModifier"):
+		CheatInvincible()
+	if GlobalFunctions.IsKeyModifierPressed("jump", "CheatModifier"):
 		CheatHeal()
 		
 	if Input.is_action_just_released("zoom_in") and Input.is_action_pressed("CheatModifier"):
@@ -630,6 +633,11 @@ func CheatTakeDamage():
 func CheatHeal():
 	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
 	var effect:BaseGameplayEffect = cheat_heal.duplicate() as BaseGameplayEffect
+	body_asc.ApplyGameplayEffectToSelf(effect)
+	
+func CheatInvincible():
+	var body_asc: BaseAbilitySystemComponent = GetAbilitySystemComponent()  
+	var effect:BaseGameplayEffect = cheat_invincible.duplicate() as BaseGameplayEffect
 	body_asc.ApplyGameplayEffectToSelf(effect)
 	
 func CheatAddFerver():

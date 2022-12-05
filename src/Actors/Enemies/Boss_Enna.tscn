@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_HomingFeathers.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/AI/AIControllerAerial.tscn" type="PackedScene" id=2]
@@ -12,24 +12,29 @@
 [ext_resource path="res://src/Ability/Enna/Enna_SpinBeam.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_BouncingFeathers.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/UserInterface/Dialog/DialogPlayer.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_Aloupeep.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_Enna.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/art/ui/progressbar.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/ui/progressbar2.png" type="Texture" id=15]
+[ext_resource path="res://assets/art/ui/icons/skull.png" type="Texture" id=16]
+[ext_resource path="res://assets/theme/user_interface_outline.tres" type="Theme" id=17]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1000.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+extents = Vector2( 25, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 32, 32 )
+extents = Vector2( 25, 32 )
 
 [node name="Boss_Enna" instance=ExtResource( 3 )]
 z_index = 1000
 collision_mask = 16
 script = ExtResource( 5 )
-OriginalScale = 0.5
+OriginalScale = 0.4
 bSpawnOnAlreadyClearedRoom = true
 AIcontroller_NodeName = "AIControllerAerial"
+StunnedAnimName = "stunned"
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
 bUseFollowActor = false
@@ -108,11 +113,68 @@ visible = false
 dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogEnna1.tres"
 
 [node name="FirstDialogTimer" type="Timer" parent="." index="12"]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
+[node name="Hpbar" parent="." index="13"]
+visible = false
+
+[node name="Hpvalue" parent="." index="14"]
+visible = false
+
+[node name="TransformTimer" type="Timer" parent="." index="15"]
+process_mode = 0
+wait_time = 3.0
+one_shot = true
+
+[node name="TransformAnim1" type="Timer" parent="TransformTimer" index="0"]
+process_mode = 0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="16"]
+
+[node name="Boss_Hpbar" type="TextureProgress" parent="CanvasLayer" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -219.0
+margin_top = -332.0
+margin_right = -91.0
+margin_bottom = -296.0
+rect_scale = Vector2( 4, 1.1 )
+value = 90.0
+texture_under = ExtResource( 14 )
+texture_over = ExtResource( 15 )
+texture_progress = ExtResource( 14 )
+tint_under = Color( 0.109804, 0.109804, 0.101961, 1 )
+tint_over = Color( 0.882353, 0.647059, 0.168627, 1 )
+tint_progress = Color( 0.941176, 0.101961, 0.133333, 1 )
+
+[node name="MinibossIcon" type="Sprite" parent="CanvasLayer/Boss_Hpbar" index="0"]
+position = Vector2( -9, 18 )
+scale = Vector2( 0.187752, 0.6 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Boss_Hpvalue" type="Label" parent="CanvasLayer/Boss_Hpbar" index="1"]
+margin_right = 512.0
+margin_bottom = 38.0
+rect_scale = Vector2( 0.25, 0.9 )
+theme = ExtResource( 17 )
+text = "100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
 [connection signal="timeout" from="FirstDialogTimer" to="." method="_on_FirstDialogTimer_timeout"]
+[connection signal="timeout" from="TransformTimer" to="." method="TransformationEndTimer"]
+[connection signal="timeout" from="TransformTimer/TransformAnim1" to="." method="_on_TransformAnim1_timeout"]
 
 [editable path="AIControllerAerial"]
 [editable path="DialogLayer/Enna_DialogPlayer1"]

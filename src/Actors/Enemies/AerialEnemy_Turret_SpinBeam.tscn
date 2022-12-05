@@ -31,6 +31,7 @@ shader_param/color_count = 1
 
 [node name="AerialEnemy_Turret_SpinBeam" instance=ExtResource( 3 )]
 AIcontroller_NodeName = "AIControllerAerial"
+bReverseFlipping = true
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
 AbilityTriggerIntervalSeconds = 0.1
@@ -48,7 +49,7 @@ enabled = false
 [node name="Ray3" parent="AIControllerAerial/VisionRays" index="2"]
 enabled = false
 
-[node name="AbilitySystemComponent" parent="." index="2"]
+[node name="AbilitySystemComponent" parent="." index="3"]
 InitStat_Movespeed = 0.0
 
 [node name="ShootAbility" parent="AbilitySystemComponent" index="0" instance=ExtResource( 1 )]
@@ -58,7 +59,7 @@ Spin_DegreePerSecond = 30.0
 bTargetSelf = true
 bUseTopLeftBottomRight = false
 
-[node name="Sprite" parent="." index="4"]
+[node name="Sprite" parent="." index="5"]
 z_index = 50
 z_as_relative = false
 frame = 8

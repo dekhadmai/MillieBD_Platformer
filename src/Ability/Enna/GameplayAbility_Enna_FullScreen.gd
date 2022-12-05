@@ -54,8 +54,7 @@ func SpawnActor() -> void:
 	else:
 		DoSpawnerComponent(AbilityLevel)
 	
-#	AbilityLevel += 1
-#	AbilityLevel = AbilityLevel % 3
+	PlayFullBodyAnimation("resting", bullet_spawn_delay_range * 4)
 	
 	end_ability_timer.start(bullet_spawn_delay_range * 4)
 	
