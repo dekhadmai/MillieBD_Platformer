@@ -26,7 +26,7 @@ Team_ID = 2
 script = ExtResource( 5 )
 bExpAddFerver = false
 StatToModify = 5
-ValueToModify = 20.0
+ValueToModify = 15.0
 
 [node name="GameplayEffect_KillFerver" type="Node2D" parent="."]
 script = ExtResource( 5 )
