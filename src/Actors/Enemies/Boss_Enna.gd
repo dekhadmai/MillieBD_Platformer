@@ -39,6 +39,7 @@ var StunDuration = 5.0
 
 var HomingFeatherChance = 0.5
 
+export var StunnedAnimName = "stunned"
 
 func _physics_process(delta):
 	if ai_controller:
@@ -58,7 +59,7 @@ func UpdateAnimState():
 		.UpdateAnimState()
 	else:
 		if animation_player != null : 
-			animation_player.BaseAnimState = "stunned"
+			animation_player.BaseAnimState = StunnedAnimName
 
 func Stun():
 	bIsStunned = true
@@ -104,20 +105,49 @@ func EnterPhase(state_level):
 	
 	if state_level == 2:
 		DialogEnna(2)
-		GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
-		GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
-		GetAbilitySystemComponent().CurrentCharStats.SetDamageAdjustScale(1.25)
-		RandomLocationInterval = Phase2_RandomLocationInterval
-		StunDuration = 8.0
 		
-		FeatherHomingInterval = 6.0
-#		FeatherBouncingInterval = 6.0
-		FeatherBeamInterval = 8.0
-		HomingFeatherChance = 0.10
+		Transformation()
+	
+	else : 
+		UnStun()
 		
-		audio_phase1.stop()
-		audio_phase2.play()
 		
+func Transformation() : 
+	GetAbilitySystemComponent().CurrentCharStats.bInvincible += 1
+	animation_player.PlayFullBodyAnim("ascend", 1.0)
+	
+	
+	$TransformTimer/TransformAnim1.start(1.0)
+	
+
+func _on_TransformAnim1_timeout():
+	animation_player.PlayFullBodyAnim("transformation", 0.9)
+	$TransformTimer.start(0.9)
+	
+func TransformationEndTimer() : 
+	GetAbilitySystemComponent().CurrentCharStats.CurrentHP = GetAbilitySystemComponent().CurrentCharStats.BaseHP
+	GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
+	GetAbilitySystemComponent().CurrentCharStats.SetDamageAdjustScale(1.25)
+	RandomLocationInterval = Phase2_RandomLocationInterval
+	StunDuration = 8.0
+	
+	FeatherHomingInterval = 6.0
+#	FeatherBouncingInterval = 6.0
+	FeatherBeamInterval = 8.0
+	HomingFeatherChance = 0.10
+	
+	audio_phase1.stop()
+	audio_phase2.play()
+	
+	IdleAnimName += "_angry"
+	WalkAnimName += "_angry"
+	
+	ability_feather_beam.FullbodyAnimName += "_angry"
+	ability_feather_homing.FullbodyAnimName += "_angry"
+	ability_feather_bouncing.FullbodyAnimName += "_angry"
+	
+	GetAbilitySystemComponent().CurrentCharStats.bInvincible = 0
+	
 	UnStun()
 
 func ActivateGroundBeam():	
@@ -211,13 +241,26 @@ func _SpinBeam_Timeout():
 			ability_spinbeam.ForceEndAbility()
 
 func queue_free() : 
+	AfterDeathAnim()
+	
+#	DialogEnna(3)
+#	var delay_death = GlobalFunctions.CreateTimerAndBind(self, self, "DelayDeath")
+#	delay_death.start(0.1)
+	
+
+
+
+#func DelayDeath() : 
+#	.queue_free()
+	
+func AfterDeathAnim() : 
+	StunDuration = 999999
+	StunnedAnimName = "idle_haloless"
+	Stun()
 	DialogEnna(3)
-	var delay_death = GlobalFunctions.CreateTimerAndBind(self, self, "DelayDeath")
-	delay_death.start(0.1)
-	
-	
-func DelayDeath() : 
-	.queue_free()
+	ability_spinbeam.queue_free()
+	ability_groundbeam.queue_free()
+	animation_player.PlayFullBodyAnim("idle_haloless", 999999)
 
 ##### dialog stuff
 func DialogEnna(phase_number):
@@ -241,3 +284,6 @@ func DialogEnna(phase_number):
 
 func _on_FirstDialogTimer_timeout():
 	DialogEnna(0)
+
+
+

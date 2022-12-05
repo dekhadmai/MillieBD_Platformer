@@ -30,6 +30,7 @@ script = ExtResource( 5 )
 OriginalScale = 0.4
 bSpawnOnAlreadyClearedRoom = true
 AIcontroller_NodeName = "AIControllerAerial"
+StunnedAnimName = "stunned"
 
 [node name="AIControllerAerial" parent="." index="0" instance=ExtResource( 2 )]
 bUseFollowActor = false
@@ -108,11 +109,22 @@ visible = false
 dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogEnna1.tres"
 
 [node name="FirstDialogTimer" type="Timer" parent="." index="12"]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
+[node name="TransformTimer" type="Timer" parent="." index="15"]
+process_mode = 0
+wait_time = 3.0
+one_shot = true
+
+[node name="TransformAnim1" type="Timer" parent="TransformTimer" index="0"]
+process_mode = 0
+one_shot = true
+
 [connection signal="timeout" from="FirstDialogTimer" to="." method="_on_FirstDialogTimer_timeout"]
+[connection signal="timeout" from="TransformTimer" to="." method="TransformationEndTimer"]
+[connection signal="timeout" from="TransformTimer/TransformAnim1" to="." method="_on_TransformAnim1_timeout"]
 
 [editable path="AIControllerAerial"]
 [editable path="DialogLayer/Enna_DialogPlayer1"]

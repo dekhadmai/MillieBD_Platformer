@@ -5,6 +5,7 @@ extends Actor
 enum State {
 	MOVING,
 	DEAD,
+	AFTERDEAD,
 }
 
 var _state = State.MOVING
@@ -12,6 +13,10 @@ var _state = State.MOVING
 export var OriginalScale = 0.25
 export var bSpawnOnAlreadyClearedRoom = false
 export var bIsMiniboss = false
+
+export var IdleAnimName = "idle"
+export var WalkAnimName = "walk"
+export var DeathAnimName = "death"
 
 onready var sprite:Sprite = $AnimationPlayerStateScene/Sprite
 onready var animation_player = $AnimationPlayerStateScene/AnimationPlayerState
@@ -163,17 +168,17 @@ func UpdateAnimState():
 	if _state != State.DEAD :
 		if is_on_floor():
 			if abs(_velocity.x) > 0.1:
-				animation_new = "walk"
+				animation_new = WalkAnimName
 			else:
-				animation_new = "idle"
+				animation_new = IdleAnimName
 		else:
 			if abs(_velocity.x) > 0.1 or abs(_velocity.y) > 0:
-				animation_new = "walk"
+				animation_new = WalkAnimName
 			else:
-				animation_new = "idle"
+				animation_new = IdleAnimName
 	else : 
-		animation_new = "death"
-	
+		animation_new = DeathAnimName
+
 	if animation_player != null : 
 		animation_player.BaseAnimState = animation_new
 	

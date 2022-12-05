@@ -54,7 +54,7 @@ func SpawnActor() -> void:
 	else:
 		DoSpawnerComponent(AbilityLevel)
 	
-	PlayFullBodyAnimation("big_attack1", bullet_spawn_delay_range * 4)
+	PlayFullBodyAnimation("resting", bullet_spawn_delay_range * 4)
 	
 	end_ability_timer.start(bullet_spawn_delay_range * 4)
 	
@@ -110,7 +110,6 @@ func OnSpawnBullet(bullet):
 	pass
 
 func _on_EndAbilityTimer_timeout():
-	PlayFullBodyAnimation("big_attack2", 0.5)
 	EndAbility()
 
 

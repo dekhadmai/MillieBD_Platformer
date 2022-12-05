@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/art/enemy/boss_enna.png" type="Texture" id=2]
@@ -72,6 +72,22 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 16, 17, 18, 19 ]
 }
 
+[sub_resource type="Animation" id=22]
+resource_name = "attack12_angry"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 96, 97, 98, 99, 104, 105, 106, 107 ]
+}
+
 [sub_resource type="Animation" id=9]
 resource_name = "attack2"
 length = 0.5
@@ -102,6 +118,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 16, 17, 18, 19, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "attack21_angry"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 104, 105, 106, 107, 96, 97, 98, 99 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -152,9 +184,25 @@ tracks/0/keys = {
 "values": [ 24, 25, 26, 27, 32, 33, 34, 35 ]
 }
 
+[sub_resource type="Animation" id=24]
+resource_name = "big_attack3_angry"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 112, 113, 114, 115 ]
+}
+
 [sub_resource type="Animation" id=6]
 resource_name = "death"
-length = 0.9
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -174,7 +222,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -183,22 +231,6 @@ tracks/1/keys = {
 "args": [  ],
 "method": "OwnerQueueFree"
 } ]
-}
-
-[sub_resource type="Animation" id=12]
-resource_name = "hurt"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 40, 41, 42 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -218,8 +250,42 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
+[sub_resource type="Animation" id=20]
+resource_name = "idle_angry"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 88, 89, 90, 91, 92, 93, 94 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "idle_haloless"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 72, 73, 74, 75, 76, 77, 78 ]
+}
+
 [sub_resource type="Animation" id=15]
-resource_name = "stunned"
+resource_name = "resting"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -233,6 +299,39 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 56, 57, 58, 59, 60, 61, 62 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "stunned"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "transformation"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 80, 81, 82, 83, 84, 85, 86, 87 ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -252,6 +351,23 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
+[sub_resource type="Animation" id=21]
+resource_name = "walk_angry"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 88, 89, 90, 91, 92, 93, 94 ]
+}
+
 [node name="AnimationPlayerStateScene" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -260,20 +376,27 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 hframes = 8
 vframes = 15
-frame = 56
+frame = 64
 
 [node name="AnimationPlayerState" parent="." instance=ExtResource( 1 )]
 autoplay = "idle"
 anims/ascend = SubResource( 13 )
 anims/attack1 = SubResource( 1 )
 anims/attack12 = SubResource( 17 )
+anims/attack12_angry = SubResource( 22 )
 anims/attack2 = SubResource( 9 )
 anims/attack21 = SubResource( 18 )
+anims/attack21_angry = SubResource( 23 )
 anims/big_attack1 = SubResource( 10 )
 anims/big_attack2 = SubResource( 11 )
 anims/big_attack3 = SubResource( 16 )
+anims/big_attack3_angry = SubResource( 24 )
 anims/death = SubResource( 6 )
-anims/hurt = SubResource( 12 )
 anims/idle = SubResource( 7 )
-anims/stunned = SubResource( 15 )
+anims/idle_angry = SubResource( 20 )
+anims/idle_haloless = SubResource( 25 )
+anims/resting = SubResource( 15 )
+anims/stunned = SubResource( 12 )
+anims/transformation = SubResource( 19 )
 anims/walk = SubResource( 14 )
+anims/walk_angry = SubResource( 21 )
