@@ -9,6 +9,8 @@
 [node name="GameplayAbility_Enna_HomingFeathers" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 AbilityCooldownSecond = 3.0
+FullbodyAnimName = "attack12"
+FullbodyAnimDuration = 1.0
 
 [node name="AbilitySound" parent="." index="2"]
 stream = ExtResource( 5 )

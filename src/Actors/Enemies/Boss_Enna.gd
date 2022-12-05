@@ -58,7 +58,7 @@ func UpdateAnimState():
 		.UpdateAnimState()
 	else:
 		if animation_player != null : 
-			animation_player.BaseAnimState = "cast"
+			animation_player.BaseAnimState = "stunned"
 
 func Stun():
 	bIsStunned = true

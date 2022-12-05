@@ -12,22 +12,22 @@
 [ext_resource path="res://src/Ability/Enna/Enna_SpinBeam.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Ability/Enna/GameplayAbility_Enna_BouncingFeathers.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/UserInterface/Dialog/DialogPlayer.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_Aloupeep.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/AnimationPlayer/AnimationPlayerStateScene_Enna.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1000.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+extents = Vector2( 25, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 32, 32 )
+extents = Vector2( 25, 32 )
 
 [node name="Boss_Enna" instance=ExtResource( 3 )]
 z_index = 1000
 collision_mask = 16
 script = ExtResource( 5 )
-OriginalScale = 0.5
+OriginalScale = 0.4
 bSpawnOnAlreadyClearedRoom = true
 AIcontroller_NodeName = "AIControllerAerial"
 
