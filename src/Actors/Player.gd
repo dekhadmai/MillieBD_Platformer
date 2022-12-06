@@ -665,4 +665,9 @@ func CheatSpawnAllSpecialAbilities():
 ##### END OF CHEAT COMMANDS 
 
 
-
+func _on_CheckRoomClearSpeedBuff_timeout():
+	var current_room = autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y]
+	if current_room.bIsAlreadyCleared and !(current_room.RoomType == "C" or current_room.RoomType == "B") : 
+		GetAbilitySystemComponent().CurrentCharStats.BaseMovespeed = 300
+	else :
+		GetAbilitySystemComponent().CurrentCharStats.BaseMovespeed = 180

@@ -582,6 +582,7 @@ ValueToModify = 1.0
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, -22 )
 InitStat_HP = 200.0
+InitStat_Movespeed = 180.0
 InitStat_IframeSeconds = 0.3
 
 [node name="Ability_Dash" parent="AbilitySystemComponent" instance=ExtResource( 12 )]
@@ -749,9 +750,15 @@ normal = ExtResource( 8 )
 action = "shoot"
 visibility_mode = 1
 
+[node name="CheckRoomClearSpeedBuff" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.2
+autostart = true
+
 [connection signal="timeout" from="HoldToShootTimer" to="." method="_on_HoldToShootTimer_timeout"]
 [connection signal="timeout" from="JumpButtonTimer" to="." method="_on_JumpButtonTimer_timeout"]
 [connection signal="timeout" from="JumpButtonTimer/FloatTimer" to="." method="_on_FloatTimer_timeout"]
 [connection signal="timeout" from="Vfx/TakeDamageVfxTimer" to="." method="_on_TakeDamageVfxTimer_timeout"]
+[connection signal="timeout" from="CheckRoomClearSpeedBuff" to="." method="_on_CheckRoomClearSpeedBuff_timeout"]
 
 [editable path="LevelUpEffect_Invincible"]
