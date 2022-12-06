@@ -12,6 +12,8 @@ var tutorial_up = false
 var dialog_test_up = false
 var dialog_reset = false
 var pause_on_dialog = false
+var controls_menu_up = false
+var controls_menu_closed = false
 
 
 func toggle_fullscreen(toggle):

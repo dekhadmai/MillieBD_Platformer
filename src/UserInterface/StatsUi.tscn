@@ -657,7 +657,7 @@ flat = true
 [node name="Arrow" type="Sprite" parent="Statsbox/LeftPage/Close"]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 36, 18.25 )
-scale = Vector2( 0.320313, 0.336806 )
+scale = Vector2( 0.34243, 0.359036 )
 texture = ExtResource( 7 )
 
 [node name="MiddleSpace" type="Control" parent="Statsbox"]
@@ -1185,7 +1185,7 @@ flat = true
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 28, 10 )
 rotation = 3.14159
-scale = Vector2( 0.320313, 0.336806 )
+scale = Vector2( 0.34243, 0.359036 )
 texture = ExtResource( 7 )
 
 [node name="StatUiAnim" type="AnimationPlayer" parent="."]
@@ -1217,12 +1217,18 @@ flat = true
 [node name="Arrow3" type="Sprite" parent="AbilitiesUI/BacktoStats"]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 14, 9 )
-scale = Vector2( 0.320313, 0.336806 )
+scale = Vector2( 0.34243, 0.359036 )
 texture = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "AbilityButtonAnim"
 anims/AbilityButtonAnim = SubResource( 7 )
+
+[node name="ClickBlocker" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
 
 [connection signal="pressed" from="Statsbox/LeftPage/Close" to="." method="_on_Close_pressed"]
 [connection signal="toggled" from="Statsbox/LeftPage/Close" to="." method="_on_Close_toggled"]

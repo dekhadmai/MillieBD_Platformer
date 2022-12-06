@@ -23,6 +23,7 @@ onready var lvl_value = $Statsbox/RighPage/Stats/LvlValue
 onready var attack_value = $Statsbox/RighPage/Stats/AttackValue
 onready var move_speed_value = $Statsbox/RighPage/Stats/MoveSpeedValue
 
+onready var clickblocker = $ClickBlocker
 
 var inventor_is_expanded = false
 
@@ -89,9 +90,22 @@ func _on_Expand_pressed():
 
 func _on_Ability_pressed():
 	GlobalSettings.ability_menu_up = true
+	set_process_unhandled_input(false)
+	clickblocker.show()
 	abilityui.init()
 	statsUI_Anim.play("NextPage")
+	yield(statsUI_Anim,'animation_finished')
 	
+	var t = Timer.new()
+	t.set_wait_time(0.5)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+	
+	set_process_unhandled_input(true)
+	clickblocker.hide()
 
 func _on_BacktoStats_pressed():
 	statsUI_Anim.play_backwards("NextPage")
