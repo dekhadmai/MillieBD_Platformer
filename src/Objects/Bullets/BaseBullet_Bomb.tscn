@@ -24,6 +24,7 @@ tracks/0/keys = {
 extents = Vector2( 21, 32.5 )
 
 [node name="BaseBullet_Bomb" instance=ExtResource( 1 )]
+collision_mask = 25
 gravity_scale = 1.0
 BaseSpeed = 500.0
 
