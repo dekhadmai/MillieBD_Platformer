@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fucking_bitch_midi.mp3-d0d1a98f8d04ce4a29ca4ed16af06fea.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/UI/Dialog/fucking_bitch_midi.mp3"
+dest_files=[ "res://.import/fucking_bitch_midi.mp3-d0d1a98f8d04ce4a29ca4ed16af06fea.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

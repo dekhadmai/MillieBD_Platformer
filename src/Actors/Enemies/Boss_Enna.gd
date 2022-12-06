@@ -133,6 +133,7 @@ func Transformation() :
 	
 
 func _on_TransformAnim1_timeout():
+	autoload_mapdata.PlaySfx("EnnaBitch")
 	animation_player.PlayFullBodyAnim("transformation", 1.0)
 	bIsTransform = true
 	$TransformTimer.start(1.0)
