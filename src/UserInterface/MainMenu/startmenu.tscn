@@ -118,7 +118,7 @@ expand = true
 position = Vector2( 644, 366 )
 scale = Vector2( 0.670833, 0.67037 )
 frames = SubResource( 24 )
-frame = 7
+frame = 12
 playing = true
 
 [node name="Title" type="Label" parent="."]
@@ -241,8 +241,6 @@ bus = "Bgm"
 layer = 100
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource( 10 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 
 [connection signal="pressed" from="ColorRect/StartBtn" to="." method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="ColorRect/LoadCheckpoint" to="." method="_on_LoadCheckpoint_pressed"]

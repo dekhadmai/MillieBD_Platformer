@@ -22,8 +22,9 @@ func _unhandled_input(event):
 		
 	if event.is_action_pressed("toggle_pause"):
 
-		if (get_tree().paused == true and GlobalSettings.settings_menu_up == false) and (
-			GlobalSettings.character_menu_up == false and GlobalSettings.dialog_test_up == false):
+		if (get_tree().paused == true and GlobalSettings.settings_menu_up == false) and ((
+			GlobalSettings.character_menu_up == false and GlobalSettings.dialog_test_up == false) and 
+			GlobalSettings.controls_menu_up == false):
 				
 			pause_anim.play_backwards("Pause")
 			yield(pause_anim,'animation_finished')
@@ -49,20 +50,20 @@ func _unhandled_input(event):
 			pause_anim.play_backwards("Pause")
 			
 		
-	elif event.is_action_pressed("dialog_test") and get_tree().paused == false:
-		if GlobalSettings.dialog_reset == false:	
-			GlobalSettings.dialog_test_up = true
-			get_tree().paused = true
-			dialog_system.show()
-			get_node("DialogPlayer/DialogControl").show_dialog()
-			
-		else:
-			GlobalSettings.dialog_test_up = true
-			GlobalSettings.dialog_reset = false
-			get_node("DialogPlayer/DialogControl").dialog_index = 0
-			dialog_system.show()
-			get_node("DialogPlayer/DialogControl").show_dialog()
-			get_tree().paused = true
+#	elif event.is_action_pressed("dialog_test") and get_tree().paused == false:
+#		if GlobalSettings.dialog_reset == false:	
+#			GlobalSettings.dialog_test_up = true
+#			get_tree().paused = true
+#			dialog_system.show()
+#			get_node("DialogPlayer/DialogControl").show_dialog()
+#
+#		else:
+#			GlobalSettings.dialog_test_up = true
+#			GlobalSettings.dialog_reset = false
+#			get_node("DialogPlayer/DialogControl").dialog_index = 0
+#			dialog_system.show()
+#			get_node("DialogPlayer/DialogControl").show_dialog()
+#			get_tree().paused = true
 			
 #------------------------------------------ Dialog Test --------------------------------------------------------#
 
