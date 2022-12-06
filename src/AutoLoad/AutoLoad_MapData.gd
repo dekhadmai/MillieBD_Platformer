@@ -66,6 +66,8 @@ func SpawnPlayer():
 	
 	StartPlayBGM()
 	
+	AutoLoadTransientData.pause_menu.SpawnPlayer()
+	
 func TeleportPlayer(_player): 
 	Checkpoint_Position = Vector2(100,150)
 	Checkpoint_RoomPosition = BossRoomPosition

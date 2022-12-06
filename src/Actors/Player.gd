@@ -209,7 +209,10 @@ func _ready():
 	
 	save_player_transient_data()
 	
+	
+	
 	pass
+
 
 func _physics_process(_delta):
 
@@ -671,3 +674,8 @@ func _on_CheckRoomClearSpeedBuff_timeout():
 		GetAbilitySystemComponent().CurrentCharStats.BaseMovespeed = 300
 	else :
 		GetAbilitySystemComponent().CurrentCharStats.BaseMovespeed = 180
+
+
+func DialogDeath_GetBuff(): 
+	print("yay, buff")
+	pass

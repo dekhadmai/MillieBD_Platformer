@@ -14,9 +14,11 @@ onready var scene_root = root.get_child(root.get_child_count() - 1)
 
 
 func _ready():
-	#hide()
+	AutoLoadTransientData.pause_menu = self
 	pass
 
+func SpawnPlayer() : 
+	$DeathRoastTimer.start()
 
 func _unhandled_input(event):
 		
@@ -106,3 +108,21 @@ func _on_Quit_pressed():
 func _on_KeyMapping_pressed():
 	var ui = load("res://src/UserInterface/KeyRemapping/InputRemapMenu.tscn")
 	add_child(ui.instance())
+
+
+
+
+##### dialog stuff
+func _on_DeathRoastTimer_timeout():
+	if $"/root/AutoLoadTransientData".PlayerSaveData.DeathCount > 0 :
+		DialogDeath($"/root/AutoLoadTransientData".PlayerSaveData.DeathCount-1)
+	
+func DialogDeath(death_count):
+	GlobalSettings.dialog_test_up = true
+	GlobalSettings.dialog_reset = false
+	
+	get_node("DialogLayer/DialogPlayerDeath/Dialog").init()
+	get_node("DialogLayer/DialogPlayerDeath/DialogControl").init()
+	get_node("DialogLayer/DialogPlayerDeath").show()
+	get_node("DialogLayer/DialogPlayerDeath/DialogControl").show_dialog(death_count)
+	get_tree().paused = true
