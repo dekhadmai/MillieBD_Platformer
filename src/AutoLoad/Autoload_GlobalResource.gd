@@ -41,7 +41,8 @@ var SfxResource = {
 	"Checkpoint" : "res://assets/audio/sfx/More sfx/interaction/SaveTotemSFX.wav",
 	"RoomClear" : "res://assets/audio/sfx/More sfx/interaction/DungeonClearSFX.wav",
 	"DiscordJoin" : "res://assets/audio/sfx/UI/Dialog/Discord Join.wav",
-	"DiscordNotif" : "res://assets/audio/sfx/UI/Dialog/Discord notification.wav"
+	"DiscordNotif" : "res://assets/audio/sfx/UI/Dialog/Discord notification.wav",
+	"EnnaBitch" : "res://assets/audio/sfx/UI/Dialog/fucking_bitch_midi.mp3"
 }
 
 

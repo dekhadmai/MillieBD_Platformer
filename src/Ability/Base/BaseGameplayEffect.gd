@@ -98,6 +98,9 @@ func DoEffect() -> void:
 			TargetAbilitySystemComponent.CurrentCharStats.DamageAdjustScale += ValueToModify
 		CharacterStats.CharacterStatType.AttackScale:
 			TargetAbilitySystemComponent.CurrentCharStats.AttackScale += ValueToModify
+		CharacterStats.CharacterStatType.MoveSpeedScale:
+			TargetAbilitySystemComponent.CurrentCharStats.MovespeedScale += ValueToModify
+		
 		_:
 			pass
 
@@ -111,6 +114,8 @@ func UndoEffect() -> void:
 			TargetAbilitySystemComponent.CurrentCharStats.DamageAdjustScale -= ValueToModify
 		CharacterStats.CharacterStatType.AttackScale:
 			TargetAbilitySystemComponent.CurrentCharStats.AttackScale -= ValueToModify
+		CharacterStats.CharacterStatType.MoveSpeedScale:
+			TargetAbilitySystemComponent.CurrentCharStats.MovespeedScale -= ValueToModify
 		_:
 			pass
 	pass

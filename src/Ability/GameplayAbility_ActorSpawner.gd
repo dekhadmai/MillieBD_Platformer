@@ -51,12 +51,12 @@ func GetSpawnRotation() -> Vector2:
 		vec = Vector2(AbilityOwner.FacingDirection, 0)
 	
 		if AbilityOwner is Player : 
-			if Input.is_action_pressed("shoot") or Input.is_action_pressed("use_ability") :
-				if Input.is_action_pressed("move_up") :
-					vec.x = 0.0
-					vec.y -= 1.0
-				if Input.is_action_pressed("move_down") :
-					vec.x = 0.0
-					vec.y += 1.0
+			#if Input.is_action_pressed("shoot") or Input.is_action_pressed("use_ability") :
+			if Input.is_action_pressed("move_up") :
+				vec.x = 0.0
+				vec.y -= 1.0
+			if Input.is_action_pressed("move_down") :
+				vec.x = 0.0
+				vec.y += 1.0
 		
 	return vec

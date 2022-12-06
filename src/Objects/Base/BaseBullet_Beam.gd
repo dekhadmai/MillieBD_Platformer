@@ -6,6 +6,9 @@ onready var bullet_sprite = $BulletSprite
 
 func OnHitSurface(body):
 	Activate_Beam(body)
+	
+	if body is Actor : 
+		OnBulletHit(body)
 
 func Activate_Beam(body):
 	if area2d_damage == null:
