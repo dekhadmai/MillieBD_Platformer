@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/UserInterface/CreditUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=2]
+[ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=3]
 
 [node name="GodotCredits" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,6 +29,15 @@ margin_bottom = -357.0
 theme = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "
+
+
+
+
+
+
+
+
+
 
 
 
@@ -108,6 +118,15 @@ text = "
 
 
 
+
+
+
+
+
+
+
+
+
 Credits
 
 
@@ -169,3 +188,46 @@ Thank you for playing
 
 
 "
+
+[node name="SpeedUp" parent="CreditsContainer" instance=ExtResource( 3 )]
+margin_left = 1190.0
+margin_top = 579.0
+margin_right = -63.0
+margin_bottom = -174.0
+rect_scale = Vector2( 2, 2 )
+action_name = "ui_accept"
+label_text = "Speed Up"
+
+[node name="IconSprite" parent="CreditsContainer/SpeedUp" index="0"]
+visible = false
+
+[node name="ActionName" parent="CreditsContainer/SpeedUp" index="3"]
+visible = true
+margin_left = -15.0
+margin_top = 10.0
+margin_right = 177.0
+margin_bottom = 48.0
+text = "Speed Up"
+
+[node name="Close" parent="CreditsContainer" instance=ExtResource( 3 )]
+margin_left = 1190.0
+margin_top = 650.0
+margin_right = -63.0
+margin_bottom = -103.0
+rect_scale = Vector2( 2, 2 )
+action_name = "ui_cancel"
+label_text = "Close"
+
+[node name="IconSprite" parent="CreditsContainer/Close" index="0"]
+visible = false
+
+[node name="ActionName" parent="CreditsContainer/Close" index="3"]
+visible = true
+margin_left = -15.0
+margin_top = 10.0
+margin_right = 177.0
+margin_bottom = 48.0
+text = "Close"
+
+[editable path="CreditsContainer/SpeedUp"]
+[editable path="CreditsContainer/Close"]

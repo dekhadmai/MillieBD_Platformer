@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/start screen_01.png-24432971db33f0c067037cace8698134.stex"
+path="res://.import/start screen_20.png-68d43fe6cc9dd5d547887bcb9c63d57a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/title-screen/millie start screen/start screen_01.png"
-dest_files=[ "res://.import/start screen_01.png-24432971db33f0c067037cace8698134.stex" ]
+source_file="res://assets/art/title-screen/millie start screen/start screen_20.png"
+dest_files=[ "res://.import/start screen_20.png-68d43fe6cc9dd5d547887bcb9c63d57a.stex" ]
 
 [params]
 
