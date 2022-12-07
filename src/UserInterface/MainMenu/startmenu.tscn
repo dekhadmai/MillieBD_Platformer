@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://src/UserInterface/MainMenu/startmenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/fonts/kenney_mini_square.tres" type="DynamicFontData" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://src/UserInterface/MainMenu/Buttons/startmenufocus.tres" type="StyleBox" id=8]
 [ext_resource path="res://assets/audio/music/GodSeesAll+Reimuintro.mp3" type="AudioStream" id=9]
 [ext_resource path="res://src/UserInterface/SettingsMenu.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/art/title-screen/millie start screen/start screen_25.png" type="Texture" id=11]
 [ext_resource path="res://assets/art/title-screen/millie start screen/start screen_3.png" type="Texture" id=12]
 [ext_resource path="res://assets/art/title-screen/millie start screen/start screen_5.png" type="Texture" id=13]
 [ext_resource path="res://assets/art/title-screen/millie start screen/start screen_6.png" type="Texture" id=14]
@@ -39,10 +38,10 @@
 
 [sub_resource type="SpriteFrames" id=24]
 animations = [ {
-"frames": [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
 "loop": true,
 "name": "default",
-"speed": 15.0
+"speed": 10.0
 } ]
 
 [sub_resource type="DynamicFont" id=1]
@@ -126,6 +125,7 @@ expand = true
 position = Vector2( 644, 366 )
 scale = Vector2( 0.670833, 0.67037 )
 frames = SubResource( 24 )
+frame = 6
 playing = true
 
 [node name="Title" type="Label" parent="."]
