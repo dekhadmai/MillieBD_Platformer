@@ -1,8 +1,8 @@
 [
 
 			{
-			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
-			"Text": "Some kind of magic sound effect?"
+			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "magicsfx",
+			"Text": "!!!"
 		},
 			{
 			"Name": "Millie", "Expression": "Angry", "Position": "1", "Choices": ["",""],

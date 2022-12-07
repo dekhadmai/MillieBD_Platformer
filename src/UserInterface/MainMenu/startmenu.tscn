@@ -126,7 +126,6 @@ expand = true
 position = Vector2( 644, 366 )
 scale = Vector2( 0.670833, 0.67037 )
 frames = SubResource( 24 )
-frame = 24
 playing = true
 
 [node name="Title" type="Label" parent="."]
@@ -168,6 +167,7 @@ custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = ExtResource( 5 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 3 )
 text = "Start"
 
@@ -185,6 +185,7 @@ custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = SubResource( 19 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 5 )
 text = "Load Checkpoint"
 
@@ -202,6 +203,7 @@ custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = SubResource( 19 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 5 )
 text = "Settings"
 
@@ -219,6 +221,7 @@ custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = SubResource( 20 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 7 )
 text = "Credits"
 
@@ -236,6 +239,7 @@ custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = SubResource( 20 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 7 )
 text = "Quit"
 

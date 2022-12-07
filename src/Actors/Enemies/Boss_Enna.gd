@@ -133,7 +133,7 @@ func Transformation() :
 	
 
 func _on_TransformAnim1_timeout():
-	autoload_mapdata.PlaySfx("EnnaBitch")
+	#autoload_mapdata.PlaySfx("EnnaBitch")
 	animation_player.PlayFullBodyAnim("transformation", 1.0)
 	bIsTransform = true
 	$TransformTimer.start(1.0)
@@ -277,6 +277,8 @@ func AfterDeathAnim() :
 	ability_spinbeam.queue_free()
 	ability_groundbeam.queue_free()
 	animation_player.PlayFullBodyAnim("idle_haloless", 999999)
+	
+	AutoLoadTransientData.exit_door.SetActive(true)
 
 ##### dialog stuff
 func DialogEnna(phase_number):

@@ -2,6 +2,7 @@ extends Node
 
 
 # Put variable/data that is persistent across levels here
+var exit_door
 var pause_menu
 var player: Player
 var room_enemy_count: int = 0

@@ -42,7 +42,9 @@ var SfxResource = {
 	"RoomClear" : "res://assets/audio/sfx/More sfx/interaction/DungeonClearSFX.wav",
 	"DiscordJoin" : "res://assets/audio/sfx/UI/Dialog/Discord Join.wav",
 	"DiscordNotif" : "res://assets/audio/sfx/UI/Dialog/Discord notification.wav",
-	"EnnaBitch" : "res://assets/audio/sfx/UI/Dialog/fucking_bitch_midi.mp3"
+	"EnnaBitch" : "res://assets/audio/sfx/UI/Dialog/fucking_bitch_midi.mp3",
+	"crash" : "res://assets/audio/sfx/UI/Dialog/crash.wav",
+	"magicsfx" : "res://assets/audio/sfx/UI/Dialog/magicsfx.wav"
 }
 
 

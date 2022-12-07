@@ -66,6 +66,7 @@ func SpawnPlayer():
 	
 	StartPlayBGM()
 	
+	# for Shu death dialog
 	AutoLoadTransientData.pause_menu.SpawnPlayer()
 	
 func TeleportPlayer(_player): 
@@ -79,6 +80,10 @@ func TeleportPlayer(_player):
 	SetCurrentRoom(Checkpoint_RoomPosition)
 	
 	_player.set_global_position(Checkpoint_Position)
+
+func CleanUp() : 
+	DespawnAllRooms()
+	player.queue_free()
 
 func DespawnAllRooms():
 	for i in GridHeight:

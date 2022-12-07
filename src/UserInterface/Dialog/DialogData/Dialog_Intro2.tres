@@ -1,8 +1,8 @@
 [
 
 			{
-			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
-			"Text": "Crashing Noise as the magic flies out of Millie's House"
+			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "crash",
+			"Text": "!!!"
 		},
 			{
 			"Name": "Millie", "Expression": "Surprised", "Position": "1", "Choices": ["",""],
