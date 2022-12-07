@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=2]
@@ -227,6 +227,264 @@ tracks/2/keys = {
 "values": [ Vector2( 296, 106 ) ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "ChoiceButtonPos"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Choices/Choice1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 206, 107 ), Vector2( 206, 105 ), Vector2( 206, 107 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Choices/Choice2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 296, 107 ), Vector2( 296, 105 ), Vector2( 296, 107.333 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "ChoiceButtonPos2"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Choices/Choice1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 50, 107 ), Vector2( 50, 109 ), Vector2( 50, 107 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Choices/Choice2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 142, 107 ), Vector2( 142, 109 ), Vector2( 142, 106.667 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "DialogNextArrow"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogArrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 535, 134 ), Vector2( 535, 127 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "DialogNextArrow2"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogArrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -61, 134 ), Vector2( -61, 127 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogArrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 432, 134 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Choices/Choice1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 206, 107 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Choices/Choice2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 296, 106 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "ChoiceButtonPos"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Choices/Choice1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 206, 107 ), Vector2( 206, 105 ), Vector2( 206, 107 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Choices/Choice2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 296, 107 ), Vector2( 296, 105 ), Vector2( 296, 107.333 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "ChoiceButtonPos2"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Choices/Choice1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 50, 107 ), Vector2( 50, 109 ), Vector2( 50, 107 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Choices/Choice2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 142, 107 ), Vector2( 142, 109 ), Vector2( 142, 106.667 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "DialogNextArrow"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogArrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 535, 134 ), Vector2( 535, 127 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "DialogNextArrow2"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogArrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -61, 134 ), Vector2( -61, 127 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogArrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 432, 134 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Choices/Choice1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 206, 107 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Choices/Choice2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 296, 106 ) ]
+}
+
 [node name="PauseMenuV2" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -390,6 +648,9 @@ visible = false
 [node name="Dialog" parent="DialogLayer/DialogPlayerDeath" index="0"]
 dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogDeathRoast.tres"
 
+[node name="DialogControl" parent="DialogLayer/DialogPlayerDeath" index="1"]
+bRandomDialog = false
+
 [node name="Dialog" parent="DialogLayer/DialogPlayerDeath/DialogControl/DialogContainer/DialogBox" index="0"]
 custom_fonts/normal_font = SubResource( 8 )
 
@@ -412,6 +673,64 @@ anims/DialogNextArrow = SubResource( 5 )
 anims/DialogNextArrow2 = SubResource( 6 )
 anims/RESET = SubResource( 7 )
 
+[node name="DialogPlayerDeath_Famillies" parent="DialogLayer" instance=ExtResource( 12 )]
+pause_mode = 2
+visible = false
+
+[node name="Dialog" parent="DialogLayer/DialogPlayerDeath_Famillies" index="0"]
+dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogDeathRoast_Famillies.tres"
+
+[node name="Dialog" parent="DialogLayer/DialogPlayerDeath_Famillies/DialogControl/DialogContainer/DialogBox" index="0"]
+custom_fonts/normal_font = SubResource( 8 )
+
+[node name="VScrollBar2" type="VScrollBar" parent="DialogLayer/DialogPlayerDeath_Famillies/DialogControl/DialogContainer/DialogBox/Dialog" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="VScrollBar3" type="VScrollBar" parent="DialogLayer/DialogPlayerDeath_Famillies/DialogControl/DialogContainer/DialogBox/Dialog" index="1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="DialogAnim" parent="DialogLayer/DialogPlayerDeath_Famillies/DialogControl" index="6"]
+anims/ChoiceButtonPos = SubResource( 9 )
+anims/ChoiceButtonPos2 = SubResource( 10 )
+anims/DialogNextArrow = SubResource( 11 )
+anims/DialogNextArrow2 = SubResource( 12 )
+anims/RESET = SubResource( 13 )
+
+[node name="DialogPlayerDeath_Choices" parent="DialogLayer" instance=ExtResource( 12 )]
+pause_mode = 2
+visible = false
+
+[node name="Dialog" parent="DialogLayer/DialogPlayerDeath_Choices" index="0"]
+dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogDeathRoast_Choices.tres"
+
+[node name="Dialog" parent="DialogLayer/DialogPlayerDeath_Choices/DialogControl/DialogContainer/DialogBox" index="0"]
+custom_fonts/normal_font = SubResource( 8 )
+
+[node name="VScrollBar2" type="VScrollBar" parent="DialogLayer/DialogPlayerDeath_Choices/DialogControl/DialogContainer/DialogBox/Dialog" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="VScrollBar3" type="VScrollBar" parent="DialogLayer/DialogPlayerDeath_Choices/DialogControl/DialogContainer/DialogBox/Dialog" index="1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="DialogAnim" parent="DialogLayer/DialogPlayerDeath_Choices/DialogControl" index="6"]
+anims/ChoiceButtonPos = SubResource( 14 )
+anims/ChoiceButtonPos2 = SubResource( 15 )
+anims/DialogNextArrow = SubResource( 16 )
+anims/DialogNextArrow2 = SubResource( 17 )
+anims/RESET = SubResource( 18 )
+
 [node name="DeathRoastTimer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.5
@@ -426,3 +745,5 @@ one_shot = true
 [connection signal="timeout" from="DeathRoastTimer" to="." method="_on_DeathRoastTimer_timeout"]
 
 [editable path="DialogLayer/DialogPlayerDeath"]
+[editable path="DialogLayer/DialogPlayerDeath_Famillies"]
+[editable path="DialogLayer/DialogPlayerDeath_Choices"]

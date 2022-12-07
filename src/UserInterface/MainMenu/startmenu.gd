@@ -34,4 +34,5 @@ func _on_LoadCheckpoint_pressed():
 	PlayerProfile.load_data()
 	AutoLoadMapData.print_map()
 	
+	AutoLoadTransientData.bJustLoad = true
 	Transition.change_scene("res://src/Main/Game.tscn")

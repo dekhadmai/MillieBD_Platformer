@@ -36,3 +36,7 @@ func _ready():
 	autoload_mapdata.SpawnPlayer()
 	
 	pass
+
+
+func _on_JustLoadTimer_timeout():
+	AutoLoadTransientData.bJustLoad = false

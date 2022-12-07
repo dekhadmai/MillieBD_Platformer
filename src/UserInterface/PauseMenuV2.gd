@@ -115,8 +115,17 @@ func _on_KeyMapping_pressed():
 
 ##### dialog stuff
 func _on_DeathRoastTimer_timeout():
-	if $"/root/AutoLoadTransientData".PlayerSaveData.DeathCount > 0 :
-		DialogDeath($"/root/AutoLoadTransientData".PlayerSaveData.DeathCount-1)
+	if $"/root/AutoLoadTransientData".PlayerSaveData.DeathCount > 0 and !AutoLoadTransientData.bJustLoad :
+		var death_count = $"/root/AutoLoadTransientData".PlayerSaveData.DeathCount-1
+		
+		if death_count <= 1 : 
+			DialogDeath(death_count)
+		elif (death_count > 10 and death_count % 3 == 0) or (death_count == 4 or death_count == 8) : 
+			DialogDeath_Choices(death_count)
+		else : 
+			DialogDeath_Famillies(death_count)
+			
+		#DialogDeath_Choices(death_count)
 	
 func DialogDeath(death_count):
 	GlobalSettings.dialog_test_up = true
@@ -126,4 +135,24 @@ func DialogDeath(death_count):
 	get_node("DialogLayer/DialogPlayerDeath/DialogControl").init()
 	get_node("DialogLayer/DialogPlayerDeath").show()
 	get_node("DialogLayer/DialogPlayerDeath/DialogControl").show_dialog(death_count)
+	get_tree().paused = true
+	
+func DialogDeath_Choices(death_count):
+	GlobalSettings.dialog_test_up = true
+	GlobalSettings.dialog_reset = false
+	
+	get_node("DialogLayer/DialogPlayerDeath_Choices/Dialog").init()
+	get_node("DialogLayer/DialogPlayerDeath_Choices/DialogControl").init()
+	get_node("DialogLayer/DialogPlayerDeath_Choices").show()
+	get_node("DialogLayer/DialogPlayerDeath_Choices/DialogControl").show_dialog(death_count)
+	get_tree().paused = true
+
+func DialogDeath_Famillies(death_count):
+	GlobalSettings.dialog_test_up = true
+	GlobalSettings.dialog_reset = false
+	
+	get_node("DialogLayer/DialogPlayerDeath_Famillies/Dialog").init()
+	get_node("DialogLayer/DialogPlayerDeath_Famillies/DialogControl").init()
+	get_node("DialogLayer/DialogPlayerDeath_Famillies").show()
+	get_node("DialogLayer/DialogPlayerDeath_Famillies/DialogControl").show_dialog(death_count)
 	get_tree().paused = true

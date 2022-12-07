@@ -1,0 +1,29 @@
+[
+
+			{
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["Yes","No"],
+			"Text": "You die too much. Do you need my help?"
+		},
+			{
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["Yes","No"],
+			"Text": "Activate Game Journalist mode"
+		},
+				{
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["Yes","No"],
+			"Text": "Easy mode is now selectable"
+		},
+			{
+			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["Yes","No"],
+			"Text": "That's rough. Do you need help over there?"
+		},
+			{
+			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["Yes","No"],
+			"Text": "How many deaths we have now? \nI don't have enough fingers to count."
+		},
+			{
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["Yes","No"],
+			"Text": "You can do it! But if you need help I have a gift for you."
+		},
+			
+		
+]

@@ -58,6 +58,7 @@ onready var take_damage_sfx = $Vfx/TakeDamageSfx
 onready var take_damage_vfx_timer = $Vfx/TakeDamageVfxTimer
 
 var hp_orb = "res://src/Level/InteractableObject/ItemPickup/Pickup_Hp.tscn"
+var hp_max_orb = "res://src/Level/InteractableObject/ItemPickup/Pickup_Hp_Max.tscn"
 var exp_orb = "res://src/Level/InteractableObject/ItemPickup/Pickup_Exp.tscn"
 var random_roomdrop = "res://src/Level/InteractableObject/ItemPickup/RandomPickup_Spawn.tscn"
 
@@ -677,5 +678,13 @@ func _on_CheckRoomClearSpeedBuff_timeout():
 
 
 func DialogDeath_GetBuff(): 
-	print("yay, buff")
+	
+	if GetAbilitySystemComponent().CurrentCharStats.CurrentLevel < GetAbilitySystemComponent().CurrentCharStats.MaxLevel : 
+		var max_exp = GetAbilitySystemComponent().CurrentCharStats.GetMaxExp()
+		var num_drop = ceil(max_exp / 2.0 / 100.0)
+		
+		for n in num_drop : 
+			GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), exp_orb, 30)
+	else : 
+		GlobalFunctions.SpawnDropFromLocation(autoload_mapdata.LevelRoomMap[autoload_mapdata.CurrentPlayerRoom.x][autoload_mapdata.CurrentPlayerRoom.y].RoomInstance, GetTargetingPosition(), hp_max_orb, 30)
 	pass

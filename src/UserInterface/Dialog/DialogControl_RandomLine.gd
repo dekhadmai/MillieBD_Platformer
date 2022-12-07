@@ -1,6 +1,6 @@
 extends Control
 
-
+export var bRandomDialog = true
 onready var text = get_parent().get_node("Dialog").dialog_script
 
 var millie = preload("res://assets/art/ui/CharacterPortrait.png")
@@ -98,7 +98,11 @@ func _process(_delta):
 		dialog_portrait.hide()
 
 func show_dialog(death_count):
-	dialog_index = death_count
+	if bRandomDialog : 
+		dialog_index = randi() % text.size()
+	else : 
+		dialog_index = death_count
+		
 	if dialog_index < text.size() and get_node("Choices").choice_dialog_is_up == false:
 		dialog_arrow.hide()
 		is_active = true

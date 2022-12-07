@@ -1,36 +1,14 @@
 [
 
 			{
-			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["Yes","No"],
-			"Text": "Death1"
+			"Name": "Lucie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "This is awkward. \nYou know you're not suppose to die, right?"
 		},
 			{
-			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
-			"Text": "Death2"
+			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
+			"Text": "Are you ok? \nShould I called Famillies for help?"
 		},
-			{
-			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
-			"Text": "Death3"
-		},
-			{
-			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
-			"Text": "Death4"
-		},
-			{
-			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
-			"Text": "Death5"
-		},	{
-			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
-			"Text": "Death6"
-		},
-			{
-			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
-			"Text": "Death7"
-		},
-			{
-			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
-			"Text": "Death8"
-		},
+			
 			
 		
 ]
