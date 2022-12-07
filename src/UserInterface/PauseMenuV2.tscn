@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
 [ext_resource path="res://assets/art/ui/RADL_Book.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/UserInterface/MiniMap/Map.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/UserInterface/ContextButtonUI.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/UserInterface/Dialog/DialogPlayer_RandomLine.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/theme/fonts/OpenSans-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pause"
@@ -92,6 +93,10 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.211765 ) ]
 }
+
+[sub_resource type="DynamicFont" id=8]
+size = 18
+font_data = ExtResource( 13 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "ChoiceButtonPos"
@@ -384,6 +389,9 @@ visible = false
 
 [node name="Dialog" parent="DialogLayer/DialogPlayerDeath" index="0"]
 dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogDeathRoast.tres"
+
+[node name="Dialog" parent="DialogLayer/DialogPlayerDeath/DialogControl/DialogContainer/DialogBox" index="0"]
+custom_fonts/normal_font = SubResource( 8 )
 
 [node name="VScrollBar2" type="VScrollBar" parent="DialogLayer/DialogPlayerDeath/DialogControl/DialogContainer/DialogBox/Dialog" index="0"]
 visible = false
