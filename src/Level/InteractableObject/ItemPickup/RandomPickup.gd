@@ -63,3 +63,13 @@ func TapAction():
 		
 			queue_free()
 	pass
+	
+func HoldAction():
+#	if InteractedPlayer : 
+#		var effect:BaseGameplayEffect = $HealEffect.duplicate() as BaseGameplayEffect
+#		var body_asc: BaseAbilitySystemComponent = InteractedPlayer.GetAbilitySystemComponent()
+#		body_asc.ApplyGameplayEffectToSelf(effect)
+#		if InteractSfxGlobalResourceKey != "" : 
+#			$"/root/AutoLoadMapData".PlaySfx(InteractSfxGlobalResourceKey)
+#		queue_free()
+	pass

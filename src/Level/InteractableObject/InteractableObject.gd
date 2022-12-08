@@ -69,6 +69,7 @@ func HoldAction():
 
 func hold_timer_timeout():
 	bFinishHold = true
+	HoldAction()
 
 func _on_CheckpointArea2D_body_entered(body):
 	if body is Player : 

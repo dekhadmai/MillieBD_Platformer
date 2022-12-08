@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Level/InteractableObject/ItemPickup/RandomPickup.gd" type="Script" id=1]
 [ext_resource path="res://src/Level/InteractableObject/InteractableObject.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/art/ui/icons/AttackUp.png" type="Texture" id=3]
+[ext_resource path="res://src/Ability/Base/BaseGameplayEffect.gd" type="Script" id=4]
 
 [node name="RandomPickup" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+InteractSfxGlobalResourceKey = "Heal"
 ResourceTemplateKey = ""
 InteractableType = 0
 bRandomizeDrop = true
@@ -15,5 +17,11 @@ bRandomFromPool = true
 [node name="ItemSprite" parent="." index="1"]
 position = Vector2( 0, -12 )
 texture = ExtResource( 3 )
+
+[node name="HealEffect" type="Node2D" parent="." index="6"]
+script = ExtResource( 4 )
+bExpAddFerver = false
+StatToModify = 2
+ValueToModify = 50.0
 
 [editable path="interact"]
