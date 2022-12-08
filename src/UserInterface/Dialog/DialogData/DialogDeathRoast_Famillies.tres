@@ -2,86 +2,86 @@
 
 
 		{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Annoy", "Position": "2", "Choices": ["",""],
 			"Text": "You stole Fulgur’s gun and you still can’t win?"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Happy", "Position": "2", "Choices": ["",""],
 			"Text": "I guess the ritual really didn’t work after all"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
 			"Text": "It really is just a skill issue"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Annoy", "Position": "2", "Choices": ["",""],
 			"Text": "Just turn on Game Journalist mode already! "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Pissed", "Position": "2", "Choices": ["",""],
 			"Text": "This is getting embarrassing "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
 			"Text": "Are you even trying?"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "Just don’t get hit next time"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Happy", "Position": "2", "Choices": ["",""],
 			"Text": "RIP BOZO"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "I’m getting bored over here "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
 			"Text": "I hope you’re not streaming this, that was pretty bad"
 		},
 
 
 
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
 			"Text": "You need help over there? "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
 			"Text": "It’s alright! You just need more practice! "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
 			"Text": "Maybe you should grind for more XP? "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
 			"Text": "Do you need to read the tutorial again?"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
 			"Text": "It’s fine to take a break if you’re having trouble!"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
 			"Text": "Game Journalist mode is always an option "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
 			"Text": "Make sure you’re using your Dash! "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
 			"Text": "Are you using your skills?"
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
 			"Text": "Try Dodging! It’ll give you mana and XP if you do! "
 		},
 			{
-			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
 			"Text": "Float is useful for hitting enemies that are midair! Try using it! "
 		},
 
