@@ -1,5 +1,6 @@
 [
 
+			
 			{
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["Yes","No"],
 			"Text": "You die too much. Do you need my help?"
@@ -24,6 +25,14 @@
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["Yes","No"],
 			"Text": "You can do it! But if you need help I have a gift for you."
 		},
-			
+			{
+			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["Yes","No"],
+			"Text": "Seems like skills issues, Do you need my help?"
+		},	
+			{
+			"Name": "Lucie", "Expression": "Happy", "Position": "2", "Choices": ["Yes","No"],
+			"Text": "Hey if I revive you again does that make today your new birthday? Happy Birthday! Here is your present!"
+		},		
+		
 		
 ]

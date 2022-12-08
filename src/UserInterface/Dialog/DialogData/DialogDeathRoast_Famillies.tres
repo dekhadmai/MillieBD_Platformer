@@ -1,90 +1,209 @@
 [
+
+
 		{
-			"Name": "Famillies", "Expression": "Explain", "Position": "2", "Choices": ["",""],
-			"Text": "We did it, Chat!"
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "You stole Fulgur’s gun and you still can’t win?"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "I guess the ritual really didn’t work after all"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "It really is just a skill issue"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Just turn on Game Journalist mode already! "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "This is getting embarrassing "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Are you even trying?"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Just don’t get hit next time"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "RIP BOZO"
 		},
 			{
-			"Name": "Famillies", "Expression": "Explain", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "I’m getting bored over here "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "I hope you’re not streaming this, that was pretty bad"
+		},
+
+
+
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "You need help over there? "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "It’s alright! You just need more practice! "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Maybe you should grind for more XP? "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Do you need to read the tutorial again?"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "It’s fine to take a break if you’re having trouble!"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Game Journalist mode is always an option "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Make sure you’re using your Dash! "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Are you using your skills?"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Try Dodging! It’ll give you mana and XP if you do! "
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "Float is useful for hitting enemies that are midair! Try using it! "
+		},
+
+
+
+
+			{
+			"Name": "Enna", "Expression": "Deadeyed", "Position": "2", "Choices": ["",""],
+			"Text": "I’m getting bored over here"
+		},
+			{
+			"Name": "Enna", "Expression": "Deadeyed", "Position": "2", "Choices": ["",""],
+			"Text": "Are you gonna reach me today?"
+		},
+			{
+			"Name": "Enna", "Expression": "Deadeyed", "Position": "2", "Choices": ["",""],
+			"Text": "I'm old and I need to go to sleep. Can you come fight me soon?"
+		},
+			{
+			"Name": "Enna", "Expression": "Deadeyed", "Position": "2", "Choices": ["",""],
+			"Text": "I thought you were better than this babu"
+		},
+
+
+
+
+
+		{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "We did it, Chat!"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
+			"Text": "RIP BOZO"
+		},
+			{
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "She was the flattest witch who ever lived..."
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "Here lies Millie Parfait, \nShe was a witch and had a big hat \nbut most sadly she didn't get a chance to get a boyfriend \nLaudant Stolam"
 		},
 			{
-			"Name": "Famillies", "Expression": "Explain", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "It is such a sad day that we lost someone dear to us, the hat. \nAlso Rip Bozo Millie"
 		},	
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "Millie is dead, Skill issue"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "Voluptuous,perspicacious,affluent... \nThese are not words that could describe \nour dearly-departed oshi."
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "Millie Parfait was a streamer. \nShe was...eh...a person. \nWe will miss her till someone else's stream"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "May she have a boyfriend in the afterlife."
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "RIPBOZO the hat is *ours* comrades"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "We will miss the way you made us smile. \nand those curves..oh my. \nMay you live in our hearts. Hat kun"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "today we gather together for the solemn occasion \nbla bla bla bla rip bozo"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "​She died single poor Millie"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "millie may not have been hot, cute, funny, or desirable, \nbut at least her hat was nice. \nmay she rest in peace"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "she left us too early... she just wanted a bf... sadge. \nshe finally got men at her side but alas, \nshe had to leave as soon as she got them.. F"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "what a sad day even the sky is crying, \nanyway where is the funeral cake ?"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "her heart was big, but her hat was bigger, \nwe'll miss you..... \nanyway was that good?"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "My boss was a great person, even if she bragged about \nthings she didn't have, like breasts, a line of bf applicants, \nI will love u forever or until I meet another vtuber"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "You went out with a bang. RIP bozo."
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "it's almost like I can still hear her RIP Bozo"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "Her int was smol but her boba were smoler RIP"
 		},
 			{
-			"Name": "Famillies", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
 			"Text": "I'd say RIP, but it's clear she isn't, as her ghost is here \ntalking, filled with regrets. regrets of not having a chest \nand dying without a boyfriend."
-		}
+		},
+
+
+
+
+
+
+
+			
+
 ]

@@ -52,20 +52,20 @@ func _unhandled_input(event):
 			pause_anim.play_backwards("Pause")
 			
 		
-#	elif event.is_action_pressed("dialog_test") and get_tree().paused == false:
-#		if GlobalSettings.dialog_reset == false:	
-#			GlobalSettings.dialog_test_up = true
-#			get_tree().paused = true
-#			dialog_system.show()
-#			get_node("DialogPlayer/DialogControl").show_dialog()
-#
-#		else:
-#			GlobalSettings.dialog_test_up = true
-#			GlobalSettings.dialog_reset = false
-#			get_node("DialogPlayer/DialogControl").dialog_index = 0
-#			dialog_system.show()
-#			get_node("DialogPlayer/DialogControl").show_dialog()
-#			get_tree().paused = true
+	elif event.is_action_pressed("dialog_test") and get_tree().paused == false:
+		if GlobalSettings.dialog_reset == false:	
+			GlobalSettings.dialog_test_up = true
+			get_tree().paused = true
+			dialog_system.show()
+			get_node("DialogPlayer/DialogControl").show_dialog()
+
+		else:
+			GlobalSettings.dialog_test_up = true
+			GlobalSettings.dialog_reset = false
+			get_node("DialogPlayer/DialogControl").dialog_index = 0
+			dialog_system.show()
+			get_node("DialogPlayer/DialogControl").show_dialog()
+			get_tree().paused = true
 			
 #------------------------------------------ Dialog Test --------------------------------------------------------#
 
@@ -125,7 +125,8 @@ func _on_DeathRoastTimer_timeout():
 		else : 
 			DialogDeath_Famillies(death_count)
 			
-		#DialogDeath_Choices(death_count)
+#		get_node("DialogLayer/DialogPlayerDeath_Choices/DialogControl").bRandomDialog = false
+#		DialogDeath_Choices(death_count)
 	
 func DialogDeath(death_count):
 	GlobalSettings.dialog_test_up = true

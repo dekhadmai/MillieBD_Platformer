@@ -635,6 +635,9 @@ __meta__ = {
 [node name="DialogPlayer" parent="." instance=ExtResource( 9 )]
 visible = false
 
+[node name="Dialog" parent="DialogPlayer" index="0"]
+dialog_file = "res://src/UserInterface/Dialog/DialogData/DialogDeathRoast_Famillies.tres"
+
 [node name="Control" parent="." instance=ExtResource( 10 )]
 visible = false
 
@@ -744,6 +747,7 @@ one_shot = true
 [connection signal="pressed" from="Pause/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="timeout" from="DeathRoastTimer" to="." method="_on_DeathRoastTimer_timeout"]
 
+[editable path="DialogPlayer"]
 [editable path="DialogLayer/DialogPlayerDeath"]
 [editable path="DialogLayer/DialogPlayerDeath_Famillies"]
 [editable path="DialogLayer/DialogPlayerDeath_Choices"]
