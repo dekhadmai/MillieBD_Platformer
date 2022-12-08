@@ -5,6 +5,7 @@ enum ItemType {Random, Weapon, SpecialAbility}
 export(ItemType) var InteractableType = ItemType.Random
 export var bRandomizeDrop = true
 export var RandomizeWeaponChance = 30
+export var bRandomFromPool = true
 
 func Init():
 	if !autoload_globalresource : 
@@ -42,7 +43,13 @@ func RandomizeDrop():
 			keys = autoload_globalresource.PlayerSpecialAbilityTemplates.keys()
 	
 	if ResourceTemplateKey == "" : 
-		ResourceTemplateKey = keys[randi() % keys.size()]
+		if bRandomFromPool : 
+			if InteractableType == ItemType.SpecialAbility : 
+				ResourceTemplateKey = AutoLoadTransientData.GetRandomAbilityDropFromPool()
+			else : 
+				ResourceTemplateKey = keys[randi() % keys.size()]
+		else : 
+			ResourceTemplateKey = keys[randi() % keys.size()]
 
 func TapAction():
 	#print("Tap")
