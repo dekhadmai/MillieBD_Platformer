@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Level/LevelRooms/BigLevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Level/Checkpoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Level/BossTeleporter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Level/InteractableObject/ItemPickup/RandomPickup.tscn" type="PackedScene" id=4]
 
 [node name="LevelRoom_Checkpoint_Boss" instance=ExtResource( 1 )]
 
@@ -35,6 +36,16 @@ position = Vector2( 984, 277 )
 
 [node name="Checkpoint2" parent="." index="10" instance=ExtResource( 2 )]
 position = Vector2( 296, 277 )
+
+[node name="RandomPickup2" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 824, 176 )
+bDontSpawnInIsAlreadyClearedRoom = false
+InteractableType = 2
+
+[node name="RandomPickup" parent="." index="13" instance=ExtResource( 4 )]
+position = Vector2( 456, 176 )
+bDontSpawnInIsAlreadyClearedRoom = false
+InteractableType = 2
 
 [editable path="Door_Left"]
 [editable path="Door_Right"]
