@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/millie_sprite.png" type="Texture" id=2]
@@ -177,6 +177,24 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 32 ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "down_run"
+length = 0.75
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -525,6 +543,24 @@ tracks/0/keys = {
 "values": [ 36 ]
 }
 
+[sub_resource type="Animation" id=35]
+resource_name = "up_run"
+length = 0.75
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15 ]
+}
+
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10, 22 )
 
@@ -582,7 +618,7 @@ ValueToModify = 1.0
 [node name="AbilitySystemComponent" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, -22 )
 InitStat_HP = 200.0
-InitStat_Movespeed = 180.0
+InitStat_Movespeed = 170.0
 InitStat_IframeSeconds = 0.3
 
 [node name="Ability_Dash" parent="AbilitySystemComponent" instance=ExtResource( 12 )]
@@ -647,6 +683,7 @@ anims/down_idle = SubResource( 21 )
 anims/down_idle_weapon = SubResource( 31 )
 anims/down_jumping_active_weapon = SubResource( 25 )
 anims/down_jumping_weapon = SubResource( 24 )
+anims/down_run = SubResource( 34 )
 anims/falling = SubResource( 2 )
 anims/falling_active_weapon = SubResource( 15 )
 anims/falling_weapon = SubResource( 3 )
@@ -667,6 +704,7 @@ anims/up_idle = SubResource( 20 )
 anims/up_idle_weapon = SubResource( 30 )
 anims/up_jumping_active_weapon = SubResource( 26 )
 anims/up_jumping_weapon = SubResource( 28 )
+anims/up_run = SubResource( 35 )
 script = ExtResource( 15 )
 
 [node name="Camera" type="Camera2D" parent="."]

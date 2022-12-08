@@ -144,7 +144,7 @@ func TransformationEndTimer() :
 	GetAbilitySystemComponent().CurrentCharStats.SetMovespeedScale(Phase2_MoveSpeedScale)
 	GetAbilitySystemComponent().CurrentCharStats.SetDamageAdjustScale(1.25)
 	RandomLocationInterval = Phase2_RandomLocationInterval
-	StunDuration = 8.0
+	StunDuration = 5.0
 	
 	FeatherHomingInterval = 6.0
 #	FeatherBouncingInterval = 6.0

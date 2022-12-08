@@ -6,7 +6,7 @@ var bullet_spawner_component2 = null
 
 var top_left
 var bottom_right
-var bullet_spacing = 50
+var bullet_spacing = 25
 var bullet_spawn_delay_range = 0.2
 
 var AbilityLevel1_bullet_spacing = 90
@@ -66,7 +66,7 @@ func FillBulletSpawnerComponent(spawner_comp):
 		var beam_count = 0
 		var x_offset = 0
 		var right_interval = 0.01
-		while (x_offset <= bottom_right.x - global_position.x and beam_count < 4):
+		while (x_offset <= bottom_right.x - global_position.x and beam_count < 5):
 			var bullet_data:BulletSpawnerData = BulletSpawnerData.new()
 			bullet_data.BulletData_LocalOffset = Vector2(10, x_offset)
 			bullet_data.BulletData_Rotation = 180
