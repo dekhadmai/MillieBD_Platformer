@@ -44,7 +44,8 @@ var SfxResource = {
 	"DiscordNotif" : "res://assets/audio/sfx/UI/Dialog/Discord notification.wav",
 	"EnnaBitch" : "res://assets/audio/sfx/UI/Dialog/fucking_bitch_midi.mp3",
 	"crash" : "res://assets/audio/sfx/UI/Dialog/crash.wav",
-	"magicsfx" : "res://assets/audio/sfx/UI/Dialog/magicsfx.wav"
+	"magicsfx" : "res://assets/audio/sfx/UI/Dialog/magicsfx.wav",
+	"PeopleScreaming" : "res://assets/audio/sfx/UI/Dialog/PEOPLE SCREAMING.wav"
 }
 
 

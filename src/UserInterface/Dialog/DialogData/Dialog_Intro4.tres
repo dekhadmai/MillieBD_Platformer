@@ -1,7 +1,7 @@
 [
 
 			{
-			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""],
+			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "PeopleScreaming",
 			"Text": "Random Chattering Noise coming from PC\nMillie sees the News with Ethyria going rampant"
 		},
 			{

@@ -82,6 +82,7 @@ func TeleportPlayer(_player):
 	_player.set_global_position(Checkpoint_Position)
 
 func CleanUp() : 
+	StopPlayBGM()
 	DespawnAllRooms()
 	player.queue_free()
 	
