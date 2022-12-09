@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/AnimationPlayer/AnimationPlayerState.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/art/enemy/boss_enna.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/enemy/boss_enna_wing.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=13]
 resource_name = "ascend"
@@ -343,6 +344,18 @@ tracks/1/keys = {
 "method": "OwnerQueueFree"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpriteWing:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 64, 65, 66, 67, 68, 69, 70, 71 ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "idle"
@@ -582,15 +595,12 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 hframes = 8
 vframes = 15
-frame = 88
 
 [node name="SpriteWing" type="Sprite" parent="."]
-visible = false
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 8
 vframes = 15
-frame = 88
 
 [node name="AnimationPlayerState" parent="." instance=ExtResource( 1 )]
 autoplay = "idle"
