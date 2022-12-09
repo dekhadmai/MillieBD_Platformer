@@ -591,7 +591,7 @@ focus_mode = 0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0.647059, 0.572549, 0.572549, 1 )
 enabled_focus_mode = 0
-text = "Quit"
+text = "Quit To Main"
 flat = true
 
 [node name="CoinsCounter" parent="." instance=ExtResource( 5 )]

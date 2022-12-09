@@ -26,6 +26,9 @@ var Map = []
 var box_id = []
 
 func _ready():
+	pass
+	
+func init():
 	Map = autoload_mapdata.LevelRoomMap
 	width = autoload_mapdata.GridWidth
 	height = autoload_mapdata.GridHeight

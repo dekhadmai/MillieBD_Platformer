@@ -17,6 +17,7 @@ func _ready():
 	AutoLoadTransientData.pause_menu = self
 	pass
 
+
 func SpawnPlayer() : 
 	$DeathRoastTimer.start()
 
@@ -70,7 +71,7 @@ func _unhandled_input(event):
 #------------------------------------------ Dialog Test --------------------------------------------------------#
 
 	elif event.is_action_pressed("Minimap_test"):
-		get_node("Control")._ready()
+		get_node("Control").init()
 		$Control.show()
 		pass
 		
@@ -102,8 +103,15 @@ func _on_Settings_pressed():
 
 
 func _on_Quit_pressed():
-	scene_root.notification(NOTIFICATION_WM_QUIT_REQUEST)
-	get_tree().quit()
+#	scene_root.notification(NOTIFICATION_WM_QUIT_REQUEST)
+#	get_tree().quit()
+	
+	pause_anim.play_backwards("Pause")
+	yield(pause_anim,'animation_finished')
+	get_tree().paused = false
+	
+	AutoLoadMapData.CleanUp()
+	Transition.change_scene("res://src/UserInterface/MainMenu/startmenu.tscn")
 
 
 func _on_KeyMapping_pressed():
@@ -157,3 +165,6 @@ func DialogDeath_Famillies(death_count):
 	get_node("DialogLayer/DialogPlayerDeath_Famillies").show()
 	get_node("DialogLayer/DialogPlayerDeath_Famillies/DialogControl").show_dialog(death_count)
 	get_tree().paused = true
+
+
+

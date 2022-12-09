@@ -31,6 +31,7 @@ func _on_Credits_pressed():
 
 
 func _on_LoadCheckpoint_pressed():
+	AutoLoadMapData.init()
 	PlayerProfile.load_data()
 	AutoLoadMapData.print_map()
 	

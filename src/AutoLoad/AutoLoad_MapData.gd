@@ -84,6 +84,17 @@ func TeleportPlayer(_player):
 func CleanUp() : 
 	DespawnAllRooms()
 	player.queue_free()
+	
+	PlayerProfile.bLoadSaveFile = false
+	
+	AutoLoadTransientData.bJustLoad = false
+	AutoLoadTransientData.exit_door = null
+	AutoLoadTransientData.pause_menu = null
+	AutoLoadTransientData.player = null
+	AutoLoadTransientData.room_enemy_count = 0
+	AutoLoadTransientData.PlayerSaveData = SaveData.new()
+	
+	player = null
 
 func DespawnAllRooms():
 	for i in GridHeight:
@@ -96,6 +107,15 @@ func DespawnAllRooms():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+	
+func init():
+	
+	CurrentPlayerRoom = Vector2(2,0)
+	Checkpoint_Position = Vector2(100,150)
+	Checkpoint_RoomPosition = Vector2(2,0)
+	Checkpoint_RoomGlobalPosition = Vector2(0,0)
+
 	bIsDebugBuild = OS.is_debug_build()
 #	bIsDebugBuild = false
 	
