@@ -2,7 +2,7 @@
 
 			{
 			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "PeopleScreaming",
-			"Text": "Random Chattering Noise coming from PC\nMillie sees the News with Ethyria going rampant"
+			"Text": "*Millie sees the News with Ethyria going rampant*"
 		},
 			{
 			"Name": "Millie", "Expression": "Surprised", "Position": "1", "Choices": ["",""],

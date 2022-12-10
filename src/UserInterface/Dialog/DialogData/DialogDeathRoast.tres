@@ -2,11 +2,11 @@
 
 			{
 			"Name": "Lucie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "This is awkward. \nYou know you're not suppose to die, right?"
+			"Text": "This is awkward. \nYou know you're not supposed to die, right?"
 		},
 			{
 			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
-			"Text": "Are you ok? \nShould I called Famillies for help?"
+			"Text": "Are you okay? \nShould I call the Famillies for help?"
 		},
 			
 			
