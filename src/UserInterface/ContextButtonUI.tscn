@@ -150,6 +150,9 @@ action_name = "float"
 label_text = "float"
 icon = ExtResource( 3 )
 
+[node name="ActiveSkillBorder" parent="ColorRect/float" index="0"]
+position = Vector2( -6, -25.8 )
+
 [node name="IconSprite" parent="ColorRect/float" index="1"]
 position = Vector2( -6, -26 )
 
@@ -162,11 +165,23 @@ position = Vector2( -20, -42 )
 [node name="ControllerSprite" parent="ColorRect/float" index="3"]
 position = Vector2( -20, -43 )
 
+[node name="ActionName" parent="ColorRect/float" index="4"]
+margin_left = -22.0
+margin_top = -33.8
+margin_right = 170.0
+margin_bottom = 4.19995
+
 [node name="AbilityCost" parent="ColorRect/float" index="5"]
 margin_left = -12.0
 margin_top = -18.0
 margin_right = 36.0
 margin_bottom = 31.0
+
+[node name="CooldownRemaining" parent="ColorRect/float" index="6"]
+margin_left = -30.0
+margin_top = -33.8
+margin_right = 90.0
+margin_bottom = 6.19995
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchor_left = 1.0
