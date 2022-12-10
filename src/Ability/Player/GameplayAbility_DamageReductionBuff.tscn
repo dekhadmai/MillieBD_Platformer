@@ -37,7 +37,7 @@ FervorCost = 35.0
 EffectDurationType = 1
 EffectDuration = 5.0
 StatToModify = 9
-ValueToModify = -0.35
+ValueToModify = -0.5
 
 [node name="GameplayEffectSprite" parent="GameplayEffectTemplate" index="0"]
 material = SubResource( 4 )

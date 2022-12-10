@@ -3,23 +3,19 @@
 
 		{
 			"Name": "Lucie", "Expression": "Annoy", "Position": "2", "Choices": ["",""],
-			"Text": "You stole Fulgur’s gun and you still can’t win?"
+			"Text": "You stole Fulgur’s gun and still can’t win?"
 		},
 			{
 			"Name": "Lucie", "Expression": "Happy", "Position": "2", "Choices": ["",""],
-			"Text": "I guess the ritual really didn’t work after all"
+			"Text": "I guess the ritual really didn’t work after all."
 		},
 			{
 			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
-			"Text": "It really is just a skill issue"
-		},
-			{
-			"Name": "Lucie", "Expression": "Annoy", "Position": "2", "Choices": ["",""],
-			"Text": "Just turn on Game Journalist mode already! "
+			"Text": "It really is just a skill issue."
 		},
 			{
 			"Name": "Lucie", "Expression": "Pissed", "Position": "2", "Choices": ["",""],
-			"Text": "This is getting embarrassing "
+			"Text": "This is getting embarrassing."
 		},
 			{
 			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
@@ -27,15 +23,15 @@
 		},
 			{
 			"Name": "Lucie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Just don’t get hit next time"
+			"Text": "Just don’t get hit next time."
 		},
 			{
 			"Name": "Lucie", "Expression": "Happy", "Position": "2", "Choices": ["",""],
-			"Text": "RIP BOZO"
+			"Text": "RIP BOZO!"
 		},
 			{
 			"Name": "Lucie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "I’m getting bored over here "
+			"Text": "I’m getting bored over here."
 		},
 			{
 			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["",""],
@@ -46,7 +42,7 @@
 
 			{
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
-			"Text": "You need help over there? "
+			"Text": "You need help over there?"
 		},
 			{
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
@@ -54,7 +50,7 @@
 		},
 			{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
-			"Text": "Maybe you should grind for more XP? "
+			"Text": "Maybe you should grind for more XP?"
 		},
 			{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
@@ -65,12 +61,8 @@
 			"Text": "It’s fine to take a break if you’re having trouble!"
 		},
 			{
-			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
-			"Text": "Game Journalist mode is always an option "
-		},
-			{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
-			"Text": "Make sure you’re using your Dash! "
+			"Text": "Make sure you’re using your Dash!"
 		},
 			{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
@@ -78,7 +70,7 @@
 		},
 			{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
-			"Text": "Try Dodging! It’ll give you mana and XP if you do! "
+			"Text": "Try Dodging! It’ll give you mana and XP if you do!"
 		},
 			{
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
@@ -90,7 +82,7 @@
 
 			{
 			"Name": "Enna", "Expression": "Deadeyed", "Position": "2", "Choices": ["",""],
-			"Text": "I’m getting bored over here"
+			"Text": "I’m getting bored over here!"
 		},
 			{
 			"Name": "Enna", "Expression": "Deadeyed", "Position": "2", "Choices": ["",""],
@@ -102,7 +94,7 @@
 		},
 			{
 			"Name": "Enna", "Expression": "Deadeyed", "Position": "2", "Choices": ["",""],
-			"Text": "I thought you were better than this babu"
+			"Text": "I thought you were better than this, babu."
 		},
 
 
@@ -115,7 +107,7 @@
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "RIP BOZO"
+			"Text": "Sheeesh! That was funny."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
@@ -123,23 +115,23 @@
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Here lies Millie Parfait, \nShe was a witch and had a big hat \nbut most sadly she didn't get a chance to get a boyfriend \nLaudant Stolam"
+			"Text": "Here lies Millie Parfait, \nShe was a witch and had a big hat \nbut most sadly she didn't get a chance to get a boyfriend. \nLaudant Stolam."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "It is such a sad day that we lost someone dear to us, the hat. \nAlso Rip Bozo Millie"
+			"Text": "It is such a sad day that we lost someone dear to us, the hat. \nAlso Rip Bozo, Millie."
 		},	
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Millie is dead, Skill issue"
+			"Text": "Millie is deadge, skill issue."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Voluptuous,perspicacious,affluent... \nThese are not words that could describe \nour dearly-departed oshi."
+			"Text": "Voluptuous, perspicacious, and affluent... \nThese are not words that could describe \nour dearly-departed oshi."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Millie Parfait was a streamer. \nShe was...eh...a person. \nWe will miss her till someone else's stream"
+			"Text": "Millie Parfait was a good streamer. \nShe was...uh...a person. \nWe will miss her till someone else's stream."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
@@ -147,31 +139,31 @@
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "RIPBOZO the hat is *ours* comrades"
+			"Text": "RIP Bozo. The hat is *ours*, comrades!"
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "We will miss the way you made us smile. \nand those curves..oh my. \nMay you live in our hearts. Hat kun"
+			"Text": "We will miss the way you made us smile. \nand those curves..oh my. \nMay you live in our hearts, Hat-kun."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "today we gather together for the solemn occasion \nbla bla bla bla rip bozo"
+			"Text": "Today we gather together for the solemn occasion \nbla bla bla bla rip bozo."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "​She died single poor Millie"
+			"Text": "​She died single, poor Millie."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "millie may not have been hot, cute, funny, or desirable, \nbut at least her hat was nice. \nmay she rest in peace"
+			"Text": "Well, at least her hat was nice. \nMay she rest in peace."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "she left us too early... she just wanted a bf... sadge. \nshe finally got men at her side but alas, \nshe had to leave as soon as she got them.. F"
+			"Text": "She left us too early... she just wanted a bf... sadge."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "what a sad day even the sky is crying, \nanyway where is the funeral cake ?"
+			"Text": "What a sad day, even the sky is crying, \nanyway where is the funeral cake?"
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
@@ -179,7 +171,7 @@
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "My boss was a great person, even if she bragged about \nthings she didn't have, like breasts, a line of bf applicants, \nI will love u forever or until I meet another vtuber"
+			"Text": "My boss was a great person, even if she bragged about \nthings she didn't have, like boba or a line of bf applicants. \nI will love you forever, or until I meet another VTuber."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
@@ -187,15 +179,15 @@
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "it's almost like I can still hear her RIP Bozo"
+			"Text": "it's almost like I can still hear her. RIP Bozo!"
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "Her int was smol but her boba were smoler RIP"
+			"Text": "Her int was smol but her boba were smoler, RIP."
 		},
 			{
 			"Name": "Famillie", "Expression": "Neutral", "Position": "2", "Choices": ["",""],
-			"Text": "I'd say RIP, but it's clear she isn't, as her ghost is here \ntalking, filled with regrets. regrets of not having a chest \nand dying without a boyfriend."
+			"Text": "I'd say RIP, but it's clear she isn't, as her ghost is still here \ntalking, filled with regrets. Regrets of not having a chest \nand dying without a boyfriend."
 		},
 
 

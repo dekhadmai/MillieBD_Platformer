@@ -7,11 +7,11 @@
 		},
 			{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["Yes","No"],
-			"Text": "Activate Game Journalist mode"
+			"Text": "Activate Game Journalist mode?"
 		},
 				{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["Yes","No"],
-			"Text": "Easy mode is now selectable"
+			"Text": "Easy mode is now selectable."
 		},
 			{
 			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["Yes","No"],
@@ -19,15 +19,15 @@
 		},
 			{
 			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["Yes","No"],
-			"Text": "How many deaths we have now? \nI don't have enough fingers to count."
+			"Text": "Dying is overrated, should I step in?"
 		},
 			{
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["Yes","No"],
-			"Text": "You can do it! But if you need help I have a gift for you."
+			"Text": "You can do it! But if you need help, I have a gift for you."
 		},
 			{
 			"Name": "Lucie", "Expression": "Roast", "Position": "2", "Choices": ["Yes","No"],
-			"Text": "Seems like skills issues, Do you need my help?"
+			"Text": "Seems like skill issues, do you need my help?"
 		},	
 			{
 			"Name": "Lucie", "Expression": "Happy", "Position": "2", "Choices": ["Yes","No"],

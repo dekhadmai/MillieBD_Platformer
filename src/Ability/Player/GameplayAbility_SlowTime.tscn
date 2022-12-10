@@ -10,7 +10,7 @@ script = ExtResource( 2 )
 AbilityShortName = "SlowTime"
 AbilityName = "Slow Time"
 AbilityDescription = "Cooldown : {Cooldown} sec
-Duration : 1 sec
+Duration : {EffectDuration} sec
 - Worse version of Ze Warudo"
 AbilityIcon = ExtResource( 4 )
 AbilityCooldownSecond = 2.0

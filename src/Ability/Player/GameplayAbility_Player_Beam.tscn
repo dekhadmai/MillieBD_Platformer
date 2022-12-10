@@ -90,8 +90,8 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 100, 20 )
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 200, 20 )
 
 [node name="GameplayAbility_Player_Beam" instance=ExtResource( 1 )]
 AbilityShortName = "Beam"
@@ -124,9 +124,9 @@ AreaLingerDuration = 3.5
 AreaEffectInterval = 0.3
 
 [node name="Sprite" parent="Area2D_Damage_Telegraph" index="1"]
-position = Vector2( 95, 0 )
+position = Vector2( 196.113, 0.00036603 )
 rotation = 1.5708
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2( 0.8, 1.58995 )
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 3
@@ -147,8 +147,8 @@ wait_time = 1.0
 wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Damage_Telegraph" index="5"]
-position = Vector2( 100, 0 )
-shape = SubResource( 1 )
+position = Vector2( 200, 0 )
+shape = SubResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
