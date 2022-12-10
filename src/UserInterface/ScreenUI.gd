@@ -27,7 +27,7 @@ func Init() -> bool:
 
 func _process(_delta):
 	if is_instance_valid(player_current_stat):
-		hp_value.set_text( str("HP : %.0f" % player_current_stat.CurrentHP) )
+		hp_value.set_text( str("HP : %.0f" % player_current_stat.CurrentHP,"/", player_current_stat.BaseHP) )
 		hp_bar.value = player_current_stat.CurrentHP
 		hp_bar.set_max(player_current_stat.BaseHP)
 		

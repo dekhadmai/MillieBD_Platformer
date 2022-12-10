@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/UserInterface/InputControl.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UserInterface/Ability_InputControl.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://assets/art/ui/icons/minimap.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/ui/icons/swap_ability.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/icons/use_ability.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/ui/Screen/Screen ui circle2.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/ui/Screen/Screen Ui 2.2.png" type="Texture" id=9]
+[ext_resource path="res://src/UserInterface/AbilityOutline.gd" type="Script" id=10]
 
 [node name="ContextButtonUI" type="Control"]
 anchor_right = 1.0
@@ -20,46 +23,150 @@ anchor_bottom = 1.0
 margin_left = -136.0
 margin_top = -56.0
 margin_right = 136.0
-color = Color( 0.0745098, 0.0705882, 0.0705882, 0.454902 )
+color = Color( 0.0745098, 0.0705882, 0.0705882, 0 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect"]
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -41.0
+margin_top = -71.0
+margin_right = 359.0
+margin_bottom = 74.0
+texture = ExtResource( 9 )
+patch_margin_left = 81
+patch_margin_top = 71
+patch_margin_right = 72
+
+[node name="AbilityOutline" type="ColorRect" parent="ColorRect/NinePatchRect"]
+color = Color( 1, 1, 1, 0 )
+script = ExtResource( 10 )
+
+[node name="Conection skill" type="ColorRect" parent="ColorRect/NinePatchRect/AbilityOutline"]
+margin_left = 236.0
+margin_top = 54.0
+margin_right = 276.0
+margin_bottom = 60.0
+rect_rotation = 45.7578
+color = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[node name="Conection skill2" type="ColorRect" parent="ColorRect/NinePatchRect/AbilityOutline"]
+margin_left = 277.0
+margin_top = 72.0
+margin_right = 299.0
+margin_bottom = 78.0
+rect_rotation = 120.0
+color = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[node name="Conection skill3" type="ColorRect" parent="ColorRect/NinePatchRect/AbilityOutline"]
+margin_left = 313.0
+margin_top = 63.0
+margin_right = 358.0
+margin_bottom = 69.0
+rect_rotation = 141.334
+color = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[node name="ScreenUiCircle2" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 58, 56 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle3" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 127, 98 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle4" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 83, 98 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle5" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 150, 55 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle6" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 105, 55 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle7" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 229, 54 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle8" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 266, 99 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle9" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 314, 99 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle10" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 280, 55 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
+
+[node name="ScreenUiCircle11" type="Sprite" parent="ColorRect/NinePatchRect"]
+position = Vector2( 327, 54 )
+scale = Vector2( 0.222222, 0.206349 )
+texture = ExtResource( 8 )
 
 [node name="swap_weapon" parent="ColorRect" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 220.0
-margin_top = 16.0
-margin_right = 220.0
-margin_bottom = 16.0
+margin_left = 26.0
+margin_top = 11.0
+margin_right = 26.0
+margin_bottom = 11.0
 action_name = "swap_weapon"
 label_text = "swap_weapon"
 icon = ExtResource( 4 )
 
 [node name="shoot" parent="ColorRect" instance=ExtResource( 2 )]
-margin_left = 156.0
-margin_top = 16.0
-margin_right = -156.0
-margin_bottom = -40.0
+margin_left = 1.0
+margin_top = -31.0
+margin_right = -271.0
+margin_bottom = -87.0
 action_name = "shoot"
 label_text = "shoot"
 
 [node name="dash" parent="ColorRect" instance=ExtResource( 2 )]
-margin_left = 28.0
-margin_top = 16.0
-margin_right = -284.0
-margin_bottom = -40.0
+margin_left = 48.0
+margin_top = -32.0
+margin_right = -224.0
+margin_bottom = -88.0
 action_name = "dash"
 label_text = "dash"
 
 [node name="float" parent="ColorRect" instance=ExtResource( 2 )]
-margin_left = 88.0
-margin_top = 16.0
-margin_right = -184.0
-margin_bottom = -40.0
+margin_left = 115.0
+margin_top = 10.0
+margin_right = -157.0
+margin_bottom = -46.0
 action_name = "float"
 label_text = "float"
 icon = ExtResource( 3 )
 
+[node name="IconSprite" parent="ColorRect/float" index="1"]
+position = Vector2( -6, -26 )
+
 [node name="MaskProgress" parent="ColorRect/float/IconSprite" index="0"]
 fill_mode = 4
+
+[node name="KeyboardSprite" parent="ColorRect/float" index="2"]
+position = Vector2( -20, -42 )
+
+[node name="ControllerSprite" parent="ColorRect/float" index="3"]
+position = Vector2( -20, -43 )
+
+[node name="AbilityCost" parent="ColorRect/float" index="5"]
+margin_left = -12.0
+margin_top = -18.0
+margin_right = 36.0
+margin_bottom = 31.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchor_left = 1.0
@@ -68,15 +175,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -192.0
 margin_top = -96.0
-color = Color( 0.0745098, 0.0705882, 0.0705882, 0.454902 )
+color = Color( 0.0745098, 0.0705882, 0.0705882, 0 )
 
 [node name="swap_ability" parent="ColorRect2" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 112.0
-margin_top = 56.0
-margin_right = 112.0
-margin_bottom = 56.0
+margin_left = -327.0
+margin_top = 52.0
+margin_right = -327.0
+margin_bottom = 52.0
 action_name = "swap_ability"
 label_text = "swap_ability"
 icon = ExtResource( 6 )
@@ -84,10 +191,10 @@ icon = ExtResource( 6 )
 [node name="use_ability" parent="ColorRect2" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 48.0
-margin_top = 56.0
-margin_right = 48.0
-margin_bottom = 56.0
+margin_left = -375.0
+margin_top = 52.0
+margin_right = -375.0
+margin_bottom = 52.0
 action_name = "use_ability"
 label_text = "use_ability"
 icon = ExtResource( 7 )
@@ -95,35 +202,35 @@ icon = ExtResource( 7 )
 [node name="Minimap_test" parent="ColorRect2" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -48.0
-margin_top = 56.0
-margin_right = -48.0
-margin_bottom = 56.0
+margin_left = -514.0
+margin_top = 51.0
+margin_right = -514.0
+margin_bottom = 51.0
 action_name = "Minimap_test"
 label_text = "Minimap_test"
 icon = ExtResource( 5 )
 
 [node name="Skill1" parent="ColorRect2" instance=ExtResource( 2 )]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = -176.0
-margin_bottom = -80.0
+margin_left = -412.0
+margin_top = 7.0
+margin_right = -604.0
+margin_bottom = -89.0
 action_name = "Skill1"
 label_text = "Skill1"
 
 [node name="Skill2" parent="ColorRect2" instance=ExtResource( 2 )]
-margin_left = 80.0
-margin_top = 16.0
-margin_right = -112.0
-margin_bottom = -80.0
+margin_left = -361.0
+margin_top = 8.0
+margin_right = -553.0
+margin_bottom = -88.0
 action_name = "Skill2"
 label_text = "Skill2"
 
 [node name="Skill3" parent="ColorRect2" instance=ExtResource( 2 )]
-margin_left = 144.0
-margin_top = 16.0
-margin_right = -48.0
-margin_bottom = -80.0
+margin_left = -314.0
+margin_top = 7.0
+margin_right = -506.0
+margin_bottom = -89.0
 action_name = "Skill3"
 label_text = "Skill3"
 

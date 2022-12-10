@@ -29,7 +29,7 @@ func load_data():
 	if !game_data.has("vsync_on") :
 		game_data.vysnc_on = false
 	if !game_data.has("fullscreen_on") :
-		game_data.fullscreen_on = false	
+		game_data.fullscreen_on = false
 	if !game_data.has("master_vol") :
 		game_data.master_vol = -10
 	if !game_data.has("bgm_vol") :

@@ -169,18 +169,18 @@ scroll_vertical = 100
 [node name="ActionsList" type="VBoxContainer" parent="RemapButtonGroup/ScrollContainer"]
 margin_top = -100.0
 margin_right = 550.0
-margin_bottom = 344.0
+margin_bottom = 392.0
 size_flags_horizontal = 3
 
 [node name="ActionRemapRow" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -193,14 +193,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -210,7 +210,7 @@ action = "move_left"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -220,15 +220,15 @@ action = "move_left"
 is_controller = true
 
 [node name="ActionRemapRow2" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 28.0
+margin_top = 31.0
 margin_right = 550.0
-margin_bottom = 52.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow2"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -241,14 +241,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow2"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow2" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -258,7 +258,7 @@ action = "move_right"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow2" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -268,15 +268,15 @@ action = "move_right"
 is_controller = true
 
 [node name="ActionRemapRow3" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 56.0
+margin_top = 62.0
 margin_right = 550.0
-margin_bottom = 80.0
+margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow3"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -289,14 +289,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow3"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow3" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -306,7 +306,7 @@ action = "move_up"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow3" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -316,15 +316,15 @@ action = "move_up"
 is_controller = true
 
 [node name="ActionRemapRow4" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 84.0
+margin_top = 93.0
 margin_right = 550.0
-margin_bottom = 108.0
+margin_bottom = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow4"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -337,14 +337,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow4"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow4" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -354,7 +354,7 @@ action = "move_down"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow4" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -364,15 +364,15 @@ action = "move_down"
 is_controller = true
 
 [node name="ActionRemapRow5" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 112.0
+margin_top = 124.0
 margin_right = 550.0
-margin_bottom = 136.0
+margin_bottom = 151.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow5"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -385,14 +385,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow5"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow5" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -402,7 +402,7 @@ action = "use_ability"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow5" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -411,15 +411,15 @@ action = "use_ability"
 is_controller = true
 
 [node name="ActionRemapRow6" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 140.0
+margin_top = 155.0
 margin_right = 550.0
-margin_bottom = 164.0
+margin_bottom = 182.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow6"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -432,14 +432,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow6"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow6" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -449,7 +449,7 @@ action = "shoot"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow6" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -458,15 +458,15 @@ action = "shoot"
 is_controller = true
 
 [node name="ActionRemapRow7" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 168.0
+margin_top = 186.0
 margin_right = 550.0
-margin_bottom = 192.0
+margin_bottom = 213.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow7"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -479,14 +479,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow7"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow7" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -496,7 +496,7 @@ action = "jump"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow7" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -505,15 +505,15 @@ action = "jump"
 is_controller = true
 
 [node name="ActionRemapRow8" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 196.0
+margin_top = 217.0
 margin_right = 550.0
-margin_bottom = 220.0
+margin_bottom = 244.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow8"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -526,14 +526,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow8"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow8" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -543,7 +543,7 @@ action = "dash"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow8" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -552,15 +552,15 @@ action = "dash"
 is_controller = true
 
 [node name="ActionRemapRow9" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 224.0
+margin_top = 248.0
 margin_right = 550.0
-margin_bottom = 248.0
+margin_bottom = 275.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow9"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -573,14 +573,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow9"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow9" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -590,7 +590,7 @@ action = "float"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow9" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -599,15 +599,15 @@ action = "float"
 is_controller = true
 
 [node name="ActionRemapRow10" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 252.0
+margin_top = 279.0
 margin_right = 550.0
-margin_bottom = 276.0
+margin_bottom = 306.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow10"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -620,14 +620,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow10"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow10" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -637,7 +637,7 @@ action = "Minimap_test"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow10" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -646,15 +646,15 @@ action = "Minimap_test"
 is_controller = true
 
 [node name="ActionRemapRow11" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 280.0
+margin_top = 310.0
 margin_right = 550.0
-margin_bottom = 304.0
+margin_bottom = 337.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow11"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -667,14 +667,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow11"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow11" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -684,7 +684,7 @@ action = "swap_weapon"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow11" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -693,15 +693,15 @@ action = "swap_weapon"
 is_controller = true
 
 [node name="ActionRemapRow12" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 308.0
+margin_top = 341.0
 margin_right = 550.0
-margin_bottom = 332.0
+margin_bottom = 368.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow12"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -714,14 +714,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow12"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow12" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -731,7 +731,7 @@ action = "swap_ability"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow12" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -740,15 +740,15 @@ action = "swap_ability"
 is_controller = true
 
 [node name="ActionRemapRow13" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 336.0
+margin_top = 372.0
 margin_right = 550.0
-margin_bottom = 360.0
+margin_bottom = 399.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow13"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -761,14 +761,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow13"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow13" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -778,7 +778,7 @@ action = "interact"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow13" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -787,15 +787,15 @@ action = "interact"
 is_controller = true
 
 [node name="ActionRemapRow14" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 364.0
+margin_top = 403.0
 margin_right = 550.0
-margin_bottom = 388.0
+margin_bottom = 430.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow14"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -808,14 +808,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow14"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow14" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -825,7 +825,7 @@ action = "Skill1"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow14" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -834,15 +834,15 @@ action = "Skill1"
 is_controller = true
 
 [node name="ActionRemapRow15" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 392.0
+margin_top = 434.0
 margin_right = 550.0
-margin_bottom = 416.0
+margin_bottom = 461.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow15"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -855,14 +855,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow15"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow15" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -872,7 +872,7 @@ action = "Skill2"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow15" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -881,15 +881,15 @@ action = "Skill2"
 is_controller = true
 
 [node name="ActionRemapRow16" type="HBoxContainer" parent="RemapButtonGroup/ScrollContainer/ActionsList"]
-margin_top = 420.0
+margin_top = 465.0
 margin_right = 550.0
-margin_bottom = 444.0
+margin_bottom = 492.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow16"]
 margin_right = 223.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -902,14 +902,14 @@ valign = 1
 [node name="Control" type="Control" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow16"]
 margin_left = 227.0
 margin_right = 332.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
 [node name="RemapButton" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow16" instance=ExtResource( 1 )]
 margin_left = 336.0
 margin_right = 441.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -919,7 +919,7 @@ action = "Skill3"
 [node name="RemapButton2" parent="RemapButtonGroup/ScrollContainer/ActionsList/ActionRemapRow16" instance=ExtResource( 1 )]
 margin_left = 445.0
 margin_right = 550.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
