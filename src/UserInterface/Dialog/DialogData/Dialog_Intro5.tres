@@ -1,14 +1,32 @@
 [
 		
+		
 			{
-			"Name": "Millie", "Expression": "Sad", "Position": "1", "Choices": ["",""],
-			"Text": "Just get in here already Shu! "
+			"Name": "Millie", "Expression": "Sad", "Position": "1", "Choices": ["",""], 
+			"Text": "That's too long, I'm not gonna read that. Just get in VC already Shu!"
 		},
 			{
 			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "DiscordJoin",
-			"Text": "!!!"
+			"Text": "*Shu has entered the VC*"
 		},
-			
-
-		
+			{
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
+			"Text": "So your spell would have worked if you were in the underworld..."
+		},
+			{
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Text": "But mana composition on Earth is different and you did not account for it. When you released it, the targeting componennt got changed from you to those closest to you, and the effect changed from amplifying intellegence to amplifying aggression. Now the rest of Ethyria is on a rampage as a result. At this point it might as well be categorized as a curse instead of a spell."
+		},
+			{
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
+			"Text": "In order to reverse the effect, the victims will need to be put into an exhausted state..."
+		},
+			{
+			"Name": "Millie", "Expression": "Ehe", "Position": "1", "Choices": ["",""],
+			"Text": "Oh you mean I should beat them up?"
+		},
+			{
+			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
+			"Text": "*sigh* Yeah..."
+		},
 ]

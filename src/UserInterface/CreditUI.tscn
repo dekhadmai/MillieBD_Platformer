@@ -47,47 +47,99 @@ bbcode_text = "
 
 
 
-[center][color=maroon]Credits[/color][/center]
+[center][color=#febd87]Credits[/color][/center]
 
 
-[center][color=maroon]Programming[/color][/center]
-[center]name name1[/center]
-[center]name name2[/center]
+[center][color=#febd87]Creative Director[/color][/center]
+[center]dekhadmai[/center]
 
 
-[center][color=maroon]Level Design[/color][/center]
-[center]name name1[/center]
-[center]name name2[/center]
+[center][color=#febd87]Programming[/color][/center]
+[center][color=#41cdbf]Lead Programmer[/color][/center]
+[center]dekhadmai[/center]
+[center][color=#41cdbf]UI Programmer[/color][/center]
+[center]Mustache Penguin[/center]
 
 
-[center][color=maroon]Art[/color][/center]
-[center]name name1[/center]
-[center]name name2[/center]
+[center][color=#febd87]Game Design[/color][/center]
+[center][color=#41cdbf]Level Design[/color][/center]
+[center]Just Bitter[/center]
+[center][color=#41cdbf]Enemy Design[/color][/center]
+[center]dekhadmai[/center]
+
+[center][color=#febd87]Art[/color][/center]
+[center][color=#41cdbf]Lead Artist[/color][/center]
+[center]Landlos[/center]
+[center][color=#41cdbf]Character Sprites[/color][/center]
+[center]Landlos[/center]
+[center]Kageramen[/center]
+[center]rafocado[/center]
+[center]KyzoLuxray[/center]
+[center][color=#41cdbf]Introduction Panels[/color][/center]
+[center]macowcas[/center]
+[center]Nashiina[/center]
+[center][color=#41cdbf]Tile Sprites/Background[/color][/center]
+[center]Nark101[/center]
+[center]JGblkshot[/center]
+[center][color=#41cdbf]Objects/Icons[/color][/center]
+[center]KyzoLuxray[/center]
+[center]Nark101[/center]
+
+[center][color=#febd87]Writing[/color][/center]
+[center][color=#41cdbf]Lead Writer Lore Dialogue[/color][/center]
+[center]Cyrojelly[/center]
+[center][color=#41cdbf]Lore Storyboard Dialogue[/color][/center]
+[center]Bionic608[/center]
+[center][color=#41cdbf]Storyboard Tutorial[/color][/center]
+[center]Izendale[/center]
+[center]Just Bitter[/center]
+[center][color=#41cdbf]Lore Storyboard Dialogue[/color][/center]
+[center]Shadowmitten[/center]
 
 
-[center][color=maroon]Music[/color][/center]
-[center]name name1[/center]
-[center]name name2[/center]
+[center][color=#febd87]Music/Sound Effects[/color][/center]
+[center][color=#41cdbf]Lead Sound Design[/color][/center]
+[center]Snowy_Seashells[/center]
+
+[center]Anizan[/center]
+[center]Walu[/center]
 
 
-[center][color=maroon]Sound Effects[/color][/center]
-[center]name name1[/center]
-[center]name name2[/center]
+[center][color=#febd87]Testers[/color][/center]
+[center]Bionic608[/center]
+[center]Boop[/center]
+[center]Cyrojelly[/center]
+[center]dekhadmai[/center]
+[center]Hey Guys[/center]
+[center]IrlRedMist-Nhp[/center]
+[center]Izendale[/center]
+[center]John Smith[/center]
+[center]KyzoLuxray[/center]
+[center]KyzoLuxray's Dad[/center]
+[center]mlgegg[/center]
+[center]OddSubaru[/center]
+[center]Pinkerton[/center]
+[center]Rowj[/center]
+[center]Sylphie[/center]
+[center]Techhead[/center]
+[center]TsunaSakana[/center]
+[center]NoxShadow[/center]
+[center]Gonxaleo[/center]
+[center]Soap[/center]
 
 
-[center][color=maroon]Testers[/color][/center]
-[center]name name1[/center]
-[center]name name2[/center]
-
-
-[center][color=maroon]Tool used[/color][/center]
+[center][color=#febd87]Tool used[/color][/center]
 [center]Developed with Godot Engine[/center]
 [center]https://godotengine.org/license[/center]
 
 
-[center][color=maroon]Special thanks[/color][/center]
-[center]name name1[/center]
-[center]name name2[/center]
+[center][color=#febd87]Special thanks to:[/color][/center]
+[center][color=#41cdbf]Organizer[/color][/center]
+[center]Cyrojelly[/center]
+[center]Just Bitter[/center]
+[center]Zer0Pendragon6[/center]
+
+[center]All the FaMillie[/center]
 
 
 
@@ -130,34 +182,82 @@ text = "
 Credits
 
 
+Creative Director
+dekhadmai
+
+
 Programming
-name name1
-name name2
+Lead Programmer
+dekhadmai
+UI Programmer
+Mustache Penguin
 
 
+Game Design
 Level Design
-name name1
-name name2
-
+Just Bitter
+Enemy Design
+dekhadmai
 
 Art
-name name1
-name name2
+Lead Artist
+Landlos
+Character Sprites
+Landlos
+Kageramen
+rafocado
+KyzoLuxray
+Introduction Panels
+macowcas
+Nashiina
+Tile Sprites/Background
+Nark101
+JGblkshot
+Objects/Icons
+KyzoLuxray
+Nark101
+
+Writing
+Lead Writer Lore Dialogue
+Cyrojelly
+Lore Storyboard Dialogue
+Bionic608
+Storyboard Tutorial
+Izendale
+Just Bitter
+Lore Storyboard Dialogue
+Shadowmitten
 
 
-Music
-name name1
-name name2
+Music/Sound Effects
+Lead Sound Design
+Snowy_Seashells
 
-
-Sound Effects
-name name1
-name name2
+Anizan
+Walu
 
 
 Testers
-name name1
-name name2
+Bionic608
+Boop
+Cyrojelly
+dekhadmai
+Hey Guys
+IrlRedMist-Nhp
+Izendale
+John Smith
+KyzoLuxray
+KyzoLuxray's Dad
+mlgegg
+OddSubaru
+Pinkerton
+Rowj
+Sylphie
+Techhead
+TsunaSakana
+NoxShadow
+Gonxaleo
+Soap
 
 
 Tool used
@@ -165,9 +265,13 @@ Developed with Godot Engine
 https://godotengine.org/license
 
 
-Special thanks
-name name1
-name name2
+Special thanks to:
+Organizer
+Cyrojelly
+Just Bitter
+Zer0Pendragon6
+
+All the FaMillie
 
 
 

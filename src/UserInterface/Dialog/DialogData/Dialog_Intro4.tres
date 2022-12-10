@@ -2,7 +2,7 @@
 
 			{
 			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "PeopleScreaming",
-			"Text": "*Millie sees the News with Ethyria going rampant*"
+			"Text": "*Millie sees the News of Ethyria going on a rampage*"
 		},
 			{
 			"Name": "Millie", "Expression": "Surprised", "Position": "1", "Choices": ["",""],
@@ -10,7 +10,7 @@
 		},
 			{
 			"Name": "", "Expression": "Neutral", "Position": "3", "Choices": ["",""], "Sfx" : "DiscordNotif",
-			"Text": "!!!"
+			"Text": "Incoming Shupport, in text"
 		},
 			
 
