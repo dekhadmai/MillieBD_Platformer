@@ -15,7 +15,11 @@
 		},
 			{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
-			"Text": "But mana composition on Earth is different and you did not account for it. When you released it, the targeting componennt got changed from you to those closest to you, and the effect changed from amplifying intellegence to amplifying aggression. Now the rest of Ethyria is on a rampage as a result. At this point it might as well be categorized as a curse instead of a spell."
+			"Text": "But mana composition on Earth is different and you did \nnot account for it. When you released it, the targeting componennt got changed from you to those closest to \nyou, "
+		},
+			{
+			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
+			"Text": "And the effect changed from amplifying intellegence to amplifying aggression. Now the rest of Ethyria is on a \nrampage as a result. At this point it might as well be \ncategorized as a curse instead of a spell."
 		},
 			{
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
