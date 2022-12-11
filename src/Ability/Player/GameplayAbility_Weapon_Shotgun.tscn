@@ -22,7 +22,7 @@ bullet_rotation_range = 15
 bullet_spawn_delay_range = 0.1
 
 [node name="GameplayEffectTemplate" parent="." index="1"]
-ValueToModify = 12.0
+ValueToModify = 14.0
 
 [node name="AbilitySound" parent="." index="2"]
 stream = ExtResource( 4 )
