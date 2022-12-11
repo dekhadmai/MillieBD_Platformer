@@ -1,6 +1,8 @@
 extends Node
 
 
+signal keymapping_change
+
 # Put variable/data that is persistent across levels here
 var bJustLoad = false
 var exit_door

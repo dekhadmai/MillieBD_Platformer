@@ -97,10 +97,14 @@ var device_id = -1
 func _ready() -> void:
 	sprite_icon.set_texture(icon)
 	var _error = Input.connect("joy_connection_changed", self, "_joy_connection_changed")
+	_error = AutoLoadTransientData.connect("keymapping_change", self, "_keymapping_change")
 	if Input.get_connected_joypads().size() > 0 : 
 		self.device_id = Input.get_connected_joypads()[0]
 	self._set_current_icon_index(self.device_id, self.action_name)
 	self.name_label.text = self.label_text
+
+func _keymapping_change(): 
+	self._set_current_icon_index(self.device_id, self.action_name)
 
 func _joy_connection_changed(device_id : int, connected: bool) -> void : 
 	if connected : 

@@ -5,11 +5,13 @@ func _unhandled_input(event):
 		InputSave.save_data()
 		GlobalSettings.controls_menu_closed = true
 		GlobalSettings.controls_menu_up = false
+		AutoLoadTransientData.emit_signal("keymapping_change")
 		queue_free()
 
 func _on_SaveButton_pressed():
 	InputSave.save_data()
 	GlobalSettings.controls_menu_closed = true
+	AutoLoadTransientData.emit_signal("keymapping_change")
 	queue_free()
 	pass # Replace with function body.
 
@@ -18,5 +20,6 @@ func _on_DefaultButton_pressed():
 	InputSave.load_data(true)
 	InputSave.save_data()
 	GlobalSettings.controls_menu_closed = true
+	AutoLoadTransientData.emit_signal("keymapping_change")
 	queue_free()
 	pass # Replace with function body.
