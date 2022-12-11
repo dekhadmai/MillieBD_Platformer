@@ -11,7 +11,7 @@
 		},
 			{
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
-			"Text": "So your spell would have worked if you were in the underworld..."
+			"Text": "So your spell would have worked if you were \nin the underworld..."
 		},
 			{
 			"Name": "Shu", "Expression": "Nerdge", "Position": "2", "Choices": ["",""],
@@ -19,7 +19,7 @@
 		},
 			{
 			"Name": "Shu", "Expression": "Explain", "Position": "2", "Choices": ["",""],
-			"Text": "In order to reverse the effect, the victims will need to be put into an exhausted state..."
+			"Text": "In order to reverse the effect, the victims will need to be \nput into an exhausted state..."
 		},
 			{
 			"Name": "Millie", "Expression": "Ehe", "Position": "1", "Choices": ["",""],
