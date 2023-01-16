@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lore_room.mp3-bb50713eeac171af3c2f85c18c468bf6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/lore_room.mp3"
+dest_files=[ "res://.import/lore_room.mp3-bb50713eeac171af3c2f85c18c468bf6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

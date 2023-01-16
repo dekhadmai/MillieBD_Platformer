@@ -270,6 +270,8 @@ func SetCurrentRoom(vec: Vector2):
 		LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].CurrentLocation = true
 		if LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].RoomInstance :
 			LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].RoomInstance.SetCurrentRoom()
+			
+	StartPlayBGM()
 
 func CheckAdjacentHasRoomType(row, column, room_type) -> bool:
 	if row-1 >= 0 :
@@ -727,7 +729,15 @@ func RemoveRoomInstance(row: int, column: int) :
 	pass
 
 func StartPlayBGM():
-	bgm.play()
+	var sfx_path = "res://assets/audio/music/GodSeesAll+Ennaintro+wishofasongbird.mp3"
+	if LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].RoomType == "C" or LevelRoomMap[CurrentPlayerRoom.x][CurrentPlayerRoom.y].RoomType == "B" : 
+		sfx_path = "res://assets/audio/music/lore_room.mp3"
+	
+	var sfx = load(sfx_path)
+	
+	if sfx and (bgm.get_stream() != sfx or (bgm.get_stream() == sfx and !bgm.is_playing())) : 
+		bgm.set_stream(sfx)
+		bgm.play()
 	
 func StopPlayBGM(): 
 	bgm.stop()
