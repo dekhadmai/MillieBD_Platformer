@@ -46,7 +46,7 @@ position = Vector2( 384, 400 )
 InteractableType = 1
 
 [node name="Interactable_Tutorial" parent="." index="14" instance=ExtResource( 4 )]
-position = Vector2( 192, 400 )
+position = Vector2( 192, 344 )
 Name = "How To Play"
 
 [editable path="Door_Left"]

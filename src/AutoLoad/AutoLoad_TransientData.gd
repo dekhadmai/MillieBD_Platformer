@@ -4,12 +4,16 @@ extends Node
 signal keymapping_change
 
 # Put variable/data that is persistent across levels here
+var bSlowTimeActive = false
 var bJustLoad = false
 var exit_door
 var pause_menu
 var player: Player
 var room_enemy_count: int = 0
 onready var PlayerSaveData: SaveData = SaveData.new()
+
+var game_difficulty
+var game_mode
 
 
 export(Array, String) var tmp_ability_drop_pool

@@ -34,11 +34,14 @@ func _process(delta):
 func DoAbility():
 	.DoAbility()
 	current_active_time = 0.0
+	AutoLoadTransientData.bSlowTimeActive = true
 
 func Deactivate():
 	.Deactivate()
 	Engine.time_scale = 1.0
+	AutoLoadTransientData.bSlowTimeActive = false
 
 func CleanUp():
 	Engine.time_scale = 1.0
+	AutoLoadTransientData.bSlowTimeActive = false
 	.CleanUp()

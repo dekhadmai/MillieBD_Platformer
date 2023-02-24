@@ -8,7 +8,27 @@ script = ExtResource( 1 )
 bDontSpawnInIsAlreadyClearedRoom = false
 Name = "Tutorial"
 
+[node name="CollisionShape2D" parent="." index="0"]
+scale = Vector2( 3, 3 )
+
 [node name="ItemSprite" parent="." index="1"]
 visible = false
+
+[node name="InteractableSprite" parent="." index="2"]
+scale = Vector2( 0.6, 0.6 )
+
+[node name="CheckpointArea2D" parent="." index="3"]
+scale = Vector2( 3, 3 )
+
+[node name="ItemName" parent="." index="4"]
+margin_left = -96.0
+margin_top = -64.0
+margin_right = 95.0
+margin_bottom = -26.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="interact" parent="." index="5"]
+margin_top = -72.0
+margin_bottom = -72.0
 
 [editable path="interact"]

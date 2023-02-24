@@ -25,6 +25,10 @@ func load_data():
 		AutoLoadMapData.Checkpoint_RoomPosition = game_data.CheckpointData.Checkpoint_RoomPosition
 		AutoLoadMapData.Checkpoint_RoomGlobalPosition = game_data.CheckpointData.Checkpoint_RoomGlobalPosition
 		AutoLoadMapData.CurrentPlayerRoom = game_data.CheckpointData.CurrentPlayerRoom
+		if game_data.CheckpointData.has("CurrentGameMode") : 
+			AutoLoadMapData.CurrentGameMode = game_data.CheckpointData.CurrentGameMode
+		if game_data.CheckpointData.has("CurrentGameDifficulty") : 
+			AutoLoadMapData.CurrentGameDifficulty = game_data.CheckpointData.CurrentGameDifficulty
 	
 	if game_data.has("LevelRoomMap") : 
 		AutoLoadMapData.LoadData(game_data.LevelRoomMap)
@@ -43,6 +47,8 @@ func save_data():
 	CheckpointData.Checkpoint_Position = AutoLoadMapData.Checkpoint_Position
 	CheckpointData.Checkpoint_RoomPosition = AutoLoadMapData.Checkpoint_RoomPosition
 	CheckpointData.Checkpoint_RoomGlobalPosition = AutoLoadMapData.Checkpoint_RoomGlobalPosition
+	CheckpointData.CurrentGameMode = AutoLoadMapData.CurrentGameMode
+	CheckpointData.CurrentGameDifficulty = AutoLoadMapData.CurrentGameDifficulty
 	
 	LevelRoomMap = AutoLoadMapData.GetSaveData()
 	

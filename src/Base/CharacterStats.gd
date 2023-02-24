@@ -68,6 +68,9 @@ func TakeDamage(value: float):
 	if bHurtIframe or bInvincible > 0 : 
 		return
 	
+	if AutoLoadMapData.CurrentGameDifficulty == "Easy" : 
+		value = value * 0.5
+		
 	CurrentHP -= value
 	emit_signal("take_damage", value)
 	if HurtIframeDuration > 0 : 

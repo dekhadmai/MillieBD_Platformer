@@ -23,7 +23,7 @@ func transition_clouds(target: String) -> void:
 	yield(transition_anim,'animation_finished')
 	get_tree().change_scene(target)
 	transition_anim.play('clouds_out')
-
+	
 
 
 

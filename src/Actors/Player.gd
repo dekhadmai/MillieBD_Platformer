@@ -364,7 +364,7 @@ func _physics_process(_delta):
 		dash_abi.TryActivate()
 		
 		
-	#CheckCheatCommands()
+	CheckCheatCommands()
 
 
 func get_direction() -> Vector2 :

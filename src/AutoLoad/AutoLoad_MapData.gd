@@ -48,6 +48,8 @@ var CurrentPlayerRoom: Vector2 setget SetCurrentRoom
 var Checkpoint_Position: Vector2 = Vector2(100,150)
 var Checkpoint_RoomPosition: Vector2 = Vector2(2,0)
 var Checkpoint_RoomGlobalPosition: Vector2 = Vector2(0,0)
+var CurrentGameMode: String = "Normal"
+var CurrentGameDifficulty: String = "Normal"
 
 var bIsDebugBuild = true
 
@@ -116,6 +118,7 @@ func init():
 	Checkpoint_Position = Vector2(100,150)
 	Checkpoint_RoomPosition = Vector2(2,0)
 	Checkpoint_RoomGlobalPosition = Vector2(0,0)
+	CurrentGameMode = "Normal"
 
 	bIsDebugBuild = OS.is_debug_build()
 #	bIsDebugBuild = false

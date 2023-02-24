@@ -211,6 +211,7 @@ AutoLoadMapData="*res://src/AutoLoad/AutoLoad_MapData.tscn"
 DialogSignal="*res://src/AutoLoad/DialogSignal.gd"
 InputSave="*res://src/Save/InputSave.gd"
 PlayerProfile="*res://src/Save/PlayerProfile.gd"
+AutoLoadProcessLoop="*res://src/AutoLoad/AutoLoad_ProcessLoop.tscn"
 
 [debug]
 

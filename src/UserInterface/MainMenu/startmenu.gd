@@ -8,9 +8,12 @@ var bSkipIntroSlide = false
 
 func _ready():
 	Start_Btn.grab_focus()
+	AutoLoadMapData.CurrentGameMode = "Normal"
 
 
 func _on_StartBtn_pressed():
+	AutoLoadTransientData.game_difficulty = "Normal"
+	AutoLoadTransientData.game_mode = "Normal"
 	if bSkipIntroSlide : 
 		Transition.change_scene("res://src/Main/Game.tscn")
 	else : 
@@ -37,3 +40,21 @@ func _on_LoadCheckpoint_pressed():
 	
 	AutoLoadTransientData.bJustLoad = true
 	Transition.change_scene("res://src/Main/Game.tscn")
+
+
+func _on_EasyBtn_pressed():
+	AutoLoadTransientData.game_difficulty = "Easy"
+	AutoLoadTransientData.game_mode = "Normal"
+	if bSkipIntroSlide : 
+		Transition.change_scene("res://src/Main/Game.tscn")
+	else : 
+		Transition.change_scene("res://src/UserInterface/IntroUI.tscn")
+
+
+func _on_BulletTimeBtn_pressed():
+	AutoLoadTransientData.game_difficulty = "Normal"
+	AutoLoadTransientData.game_mode = "BulletTime"
+	if bSkipIntroSlide : 
+		Transition.change_scene("res://src/Main/Game.tscn")
+	else : 
+		Transition.change_scene("res://src/UserInterface/IntroUI.tscn")
