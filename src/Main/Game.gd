@@ -30,6 +30,8 @@ func _notification(what):
 
 func _ready():
 	
+	autoload_mapdata.CurrentGameDifficulty = AutoLoadTransientData.game_difficulty
+	
 	if !PlayerProfile.bLoadSaveFile : 
 		autoload_mapdata.init()
 		autoload_mapdata.InitSpawnRooms()
@@ -37,11 +39,10 @@ func _ready():
 	
 	autoload_mapdata.SpawnPlayer()
 	
+	autoload_mapdata.CurrentGameMode = AutoLoadTransientData.game_mode
+	
 	pass
 
 
 func _on_JustLoadTimer_timeout():
 	AutoLoadTransientData.bJustLoad = false
-	
-	autoload_mapdata.CurrentGameMode = AutoLoadTransientData.game_mode
-	autoload_mapdata.CurrentGameDifficulty = AutoLoadTransientData.game_difficulty

@@ -125,7 +125,7 @@ expand = true
 position = Vector2( 644, 366 )
 scale = Vector2( 0.670833, 0.67037 )
 frames = SubResource( 24 )
-frame = 13
+frame = 19
 playing = true
 
 [node name="Title" type="Label" parent="."]
@@ -158,6 +158,8 @@ margin_top = -180.0
 margin_right = 237.0
 margin_bottom = -110.0
 rect_scale = Vector2( 0.8, 0.8 )
+hint_tooltip = "Good for beginner to platformer with a lot of bullets.
+Modifier : You take 50% less damage."
 focus_neighbour_top = NodePath("../QuitBtn")
 focus_neighbour_bottom = NodePath("../StartBtn")
 size_flags_vertical = 3
@@ -177,6 +179,8 @@ margin_top = -113.0
 margin_right = 237.0
 margin_bottom = -43.0
 rect_scale = Vector2( 0.8, 0.8 )
+hint_tooltip = "Good for player who is good at platformer and bullet hell.
+This is how the game suppose to be played."
 focus_neighbour_top = NodePath("../EasyBtn")
 focus_neighbour_bottom = NodePath("../BulletTimeBtn")
 size_flags_vertical = 3
@@ -196,6 +200,10 @@ margin_top = -46.0
 margin_right = 307.0
 margin_bottom = 24.0
 rect_scale = Vector2( 0.8, 0.8 )
+hint_tooltip = "Time only move when you press button(s).
+Good for people who want to play normal mode
+but too many things moving too fast 
+and need some time to think about your next move."
 focus_neighbour_top = NodePath("../StartBtn")
 focus_neighbour_bottom = NodePath("../LoadCheckpoint")
 size_flags_vertical = 3

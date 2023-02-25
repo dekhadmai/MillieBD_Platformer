@@ -207,6 +207,9 @@ func _ready():
 		GetAbilitySystemComponent().CurrentCharStats.BaseAttack = autoload_transientdata.PlayerSaveData.BaseAttack
 		GetAbilitySystemComponent().CurrentCharStats.Calculate()
 	
+	if AutoLoadMapData.CurrentGameDifficulty == "Easy" : 
+		GetAbilitySystemComponent().CurrentCharStats.DamageAdjustScaleMultiplicative *= 0.5
+		GetAbilitySystemComponent().CurrentCharStats.Calculate()
 	
 	save_player_transient_data()
 	
